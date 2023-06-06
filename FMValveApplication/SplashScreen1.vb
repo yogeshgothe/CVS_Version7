@@ -31,7 +31,7 @@ Public NotInheritable Class SplashScreen1
         If My.Application.IsNetworkDeployed Then
             Version.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString & VersionDate
         Else
-            Version.Text = "v6.1.0.1" & "  " & VersionDate
+            Version.Text = VersionNo & "  " & VersionDate
         End If
         'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 

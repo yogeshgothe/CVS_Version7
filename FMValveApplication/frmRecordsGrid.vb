@@ -16,7 +16,7 @@ Public Class frmRecordsGrid
             If My.Application.IsNetworkDeployed Then
                 frmValveSizing.lblVersion.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString & VersionDate
             Else
-                frmValveSizing.lblVersion.Text = "v6.1.0.1" & "  " & VersionDate
+                frmValveSizing.lblVersion.Text = VersionNo & "  " & VersionDate
             End If
 
             If Database_Rowno > 0 Then
@@ -774,6 +774,7 @@ Public Class frmRecordsGrid
             lblFilename.Text = FileName
 
             frmValveSizing.ShowDialog()
+            frmValveSizing.HScrollBar_Records.Maximum = Database_LastRow
             ' frmValveSizing.WindowState = FormWindowState.Normal
             Me.Cursor = Cursors.Default
         Catch ex As Exception

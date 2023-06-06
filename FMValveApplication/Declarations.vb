@@ -11,8 +11,8 @@ Public Module Declarations
     Public AbandonSoftware As Boolean = False           'If error during Form Load then do not go through save feature
     Public CLoseSoftware As Boolean = False
 
-    Public VersionDate As String = " 24 May 2023"
-    Public VersionNo As String = "v6.3.0.16"
+    Public VersionDate As String = " 02 June 2023"
+    Public VersionNo As String = "v7.2.0.1"
 
     'Branch, SalesEngg, CustomerRef, OfferNo, GSN, LSN, Customer, Project, Date
     Public cnt As Integer = 0
@@ -151,7 +151,7 @@ Public Module Declarations
     Public TrimName = New String() {"PS1", "PS3", "PR1", "PR2", "PR3", "P1", "P3", "L1", "L2", "L3"}
 
     'For Corrected KV calculations
-
+    Public AcceptedKv_Count, AcceptedKv_Count_PS3, KvIndex As Byte
 
     Public MaximumKV, MaxKVfromRatingClass, MaxKVfromRatingClass_old As Single
     Public FinalOverrideRatings, PercentageKVCase1, PercentageKVCase2, PercentageKVCase3 As Single
@@ -162,12 +162,12 @@ Public Module Declarations
     Public SeatDia, N1, N2, N4, RenoyldNoCase1, RenoyldNoCase2, RenoyldNoCase3, PrBl_SeatDia As Single
     Public Microtrim As String
     Public FinalKVCount, NextMaxKVcount As Byte
-    Public FinalShowKVCase1(5), FinalShowKVCase2(5), FinalShowKVCase3(5), MaxKVsfromChart(5), MaxCvsfromChart(5) As Single
-    Public FLCase1_array(5), FLCase2_array(5), FLCase3_array(5), FDCase1_array(5), FDCase2_array(5), FDCase3_array(5), SeatDia_array(5), PrBl_SeatDia_array(5) As Single
-    Public MicroTrim_Array(5) As String
+    Public FinalShowKVCase1(40), FinalShowKVCase2(40), FinalShowKVCase3(40), MaxKVsfromChart(40), MaxCvsfromChart(40) As Single
+    Public FLCase1_array(40), FLCase2_array(40), FLCase3_array(40), FDCase1_array(40), FDCase2_array(40), FDCase3_array(40), SeatDia_array(40), PrBl_SeatDia_array(40) As Single
+    Public MicroTrim_Array(40) As String
     Public FPKVCase1, FPKVCase2, FPKVCase3, KVAttenuatedCase1, KVAttenuatedCase2, KVAttenuatedCase3 As Single
     Public XF1Case1, XF1Case2, XF1Case3, XFzCase1, XFzCase2, XFzCase3 As Single     'For Severity
-    Public SuggestedKVArray(5) As Single
+    Public SuggestedKVArray(40) As Single
     Public ValveSizeArray(20), FinalValveSizeforNoise(20) As Single
     Public ValveSizeFound As Boolean
     Public FinalVelocityRule As Single
@@ -178,7 +178,7 @@ Public Module Declarations
 
     Public NoFPCalc As Boolean = True
 
-    Public FlowTypeCase1(5), FlowTypeCase2(5), FlowTypeCase3(5), TurbulentCase1, TurbulentCase2, TurbulentCase3 As Boolean
+    Public FlowTypeCase1(40), FlowTypeCase2(40), FlowTypeCase3(40), TurbulentCase1, TurbulentCase2, TurbulentCase3 As Boolean
     Public KVMaxAcceptButton, ValveSizeAcceptButton As Boolean
     'Noise Variables
     Public Noise_FlowrateCase1, Noise_FlowrateCase2, Noise_FlowrateCase3, Noise_InletPressureCase1, Noise_InletPressureCase2, Noise_InletPressureCase3, Noise_OutletPressureCase1, Noise_OutletPressureCase2, Noise_OutletPressureCase3 As Single
@@ -194,7 +194,7 @@ Public Module Declarations
     Public N_FlowTypeCAse1, N_FlowTypeCAse2, N_FlowTypeCase3 As Byte
 
     Public KvforCage, Cage_PressureCase1, Cage_PressureCase2, FinalInletPressureCase2Cage_PressureCase2, Cage_PressureCase3 As Single
-    Public NoiseAttenuationFlag As Boolean
+    Public NoiseAttenuationFlag,StopBaffleCalc As Boolean
     Public FrequencyIndexBand() As Single = {12.5, 16, 20, 25, 31.5, 40, 50, 63, 80, 100, 125, 160, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 10000, 12500, 16000, 20000}
     Public N_DeltaLA() As Single = {-63.4, -56.7, -50.5, -44.7, -39.4, -34.6, -30.2, -26.2, -22.5, -19.1, -16.1, -13.4, -10.9, -8.6, -6.6, -4.8, -3.2, -1.9, -0.8, 0, 0.6, 1.0, 1.2, 1.3, 1.2, 1.0, 0.5, -0.1, -1.1, -2.5, -4.3, -6.6, -9.3}
 
@@ -205,7 +205,7 @@ Public Module Declarations
     Public Temperatureflag As Boolean
 
     Public SelectP2orDP As Boolean = False
-    Public MolecularWeight As Single
+    Public MolecularWeight, MolecularWeightCase1, MolecularWeightCase2, MolecularWeightCase3 As Single
 
     Public FluidVelocityCase1, FluidVelocityCase2, FluidVelocityCase3 As Single
     Public ValveSize_MACNO, Xtcase1, Xtcase2, Xtcase3, Ycase1, Ycase2, Ycase3, YChokecase1, YChokecase2, YChokecase3, FL As Single
@@ -272,6 +272,7 @@ Public Module Declarations
     Public DataSection1_Field, DataSection2_MOC, DataSection3_Actuator, DataSection4_Materials, DataSection5_Output1, DataSection6_Output2 As Byte
     Public DataSection7_CalcValues, LastColumn_Values As Integer
     Public SameFileRecords As Boolean
+
 
     'Array to store data from Excel sheet. This will reduce time to read from excel sheet. 
     Public FL_Column1array(43), FL_Column2array(43), FL_Column5array(43), FR_Column1array(38), FR_Column2array(38) As Single
