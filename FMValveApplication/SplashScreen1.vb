@@ -1,6 +1,8 @@
 ﻿Imports System.Deployment.Application
 Public NotInheritable Class SplashScreen1
 
+    
+
     'TODO: This form can easily be set as the splash screen for the application by going to the "Application" tab
     '  of the Project Designer ("Properties" under the "Project" menu).
 
@@ -29,7 +31,7 @@ Public NotInheritable Class SplashScreen1
         '    Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
 
         If My.Application.IsNetworkDeployed Then
-            Version.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString & VersionDate
+            Version.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString & " " & VersionDate
         Else
             Version.Text = VersionNo & "  " & VersionDate
         End If
@@ -37,7 +39,9 @@ Public NotInheritable Class SplashScreen1
 
         'Copyright info
         Copyright.Text = "Copyright @ Forbes Marshall Pvt. Ltd." & vbLf & " All rights reserved." 'My.Application.Info.Copyright"
-    End Sub
+     
 
+    End Sub
+   
 
 End Class

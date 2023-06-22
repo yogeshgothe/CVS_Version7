@@ -2,9 +2,24 @@
 Imports Oracle.ManagedDataAccess.Client
 Imports Oracle.ManagedDataAccess.Types
 Imports System.Data.SqlClient
+Imports System.ServiceProcess
 Imports System.Deployment.Application
 Public Class frmRecordsGrid
     Dim pk As Integer
+
+    Public Sub CheckServer()
+        Try
+            Dim MySC As New ServiceController("MSSQL$SQLEXPRESS")
+        Status = MySC.Status.ToString
+        If MySC.Status = ServiceControllerStatus.Stopped Or MySC.Status = ServiceControllerStatus.StopPending Or MySC.Status = ServiceControllerStatus.Paused Or MySC.Status = ServiceControllerStatus.PausePending Then
+            MessageBox.Show("SQL SERVER IS OFFLINE!  CLOSING SOFTWARE!" + Environment.NewLine + Environment.NewLine + "Please restart the device and try again." + Environment.NewLine + "If the problem still persists please contact IT Support.")
+            MySC.Start()
+            MySC.WaitForStatus(ServiceControllerStatus.Running, TimeSpan.FromSeconds(30))
+        End If
+        Catch ex As InvalidOperationException
+            MsgBox("Contact IT to Start SQL SERVER! " & Environment.NewLine & ex.Message, , "ALERT!")
+        End Try
+    End Sub
     Public Sub LoadEssentials()
         LoadingForm = False
         'Dim rowno As Byte
@@ -13,8 +28,9 @@ Public Class frmRecordsGrid
             '  frmWelcome.ShowDialog()
             'Call UpdateTables()
             '  lblVersion.Text = "Version No: V6.2.0 04 April 2023"
+
             If My.Application.IsNetworkDeployed Then
-                frmValveSizing.lblVersion.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString & VersionDate
+                frmValveSizing.lblVersion.Text = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString & " " & VersionDate
             Else
                 frmValveSizing.lblVersion.Text = VersionNo & "  " & VersionDate
             End If
@@ -229,8 +245,8 @@ Public Class frmRecordsGrid
             frmValveSizing.cmbActuatorType.Items.Add("NA")
             frmValveSizing.cmbActuatorType.Items.Add("Manual")
             frmValveSizing.cmbActuatorType.Items.Add("Electrical")
-            frmValveSizing.cmbActuatorType.Items.Add("PNEUMATIC")
-            frmValveSizing.cmbActuatorType.Items.Add("811PNEUMATIC")
+            frmValveSizing.cmbActuatorType.Items.Add("Piston")
+            ' frmValveSizing.cmbActuatorType.Items.Add("811PNEUMATIC")
 
             frmValveSizing.cmbActuatorType.SelectedIndex = 0
 
@@ -750,6 +766,10 @@ Public Class frmRecordsGrid
             frmValveSizing.HScrollBar_Records.SmallChange = 1
         Catch ex As Exception
             MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace)
+
+            MsgBox("Closing Software!", , "Control Valve Sizing Software")
+            AbandonSoftware = True
+            Me.Close()
         End Try
     End Sub
     Private Sub DGV_Records_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Records.CellDoubleClick
@@ -766,13 +786,15 @@ Public Class frmRecordsGrid
 
             Database_Rowno = e.RowIndex
             frmValveSizing.HScrollBar_Records.Value = Database_Rowno
+            frmValveSizing.Reset_All()
             frmValveSizing.ReadXLS(XMLFilename)
             Database_LastRow = dt_OpenOffice.Rows.Count - 1
             'frmValveSizing.HScrollBar_Records.Maximum = Database_LastRow
             frmValveSizing.lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
             frmValveSizing.txtJumpToRecord.Text = Database_Rowno
             lblFilename.Text = FileName
-
+            frmValveSizing.lblFileName.Text = FileName
+            Me.Visible = False
             frmValveSizing.ShowDialog()
             frmValveSizing.HScrollBar_Records.Maximum = Database_LastRow
             ' frmValveSizing.WindowState = FormWindowState.Normal
@@ -783,10 +805,10 @@ Public Class frmRecordsGrid
         End Try
     End Sub
 
+
     Private Sub frmRecordsGrid_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         CLoseSoftware = True
         frmValveSizing.Close()
-        ' frmWelcome.Close()
     End Sub
 
     Public dt As DataTable
@@ -802,12 +824,25 @@ Public Class frmRecordsGrid
             adapter.SelectCommand = cmd
             adapter.Fill(dt)
             DGV_Records.DataSource = dt
+            DGV_Records.Columns(2).Frozen = True
         End Using
     End Sub
 
     Private Sub frmRecordsGrid_Load(sender As Object, e As EventArgs) Handles Me.Load
         '   frmValveSizing.WindowState = FormWindowState.Minimized
-        DGV_Records.AllowUserToAddRows = False
+        Try
+            DGV_Records.AllowUserToAddRows = False
+            Call CheckServer()
+            If Status = "Paused" Or Status = "Stopped" Or Status = "StopPending" Or Status = "PausePending" Then
+                Me.Close()
+            Else
+                Call LoadEssentials()
+            End If
+        Catch ex As Exception
+            MsgBox("Closing Software : " & ex.Message)
+            Me.Close()
+        End Try
+
         'LoadDGV()
         'DGV_Records.Columns(8).ReadOnly = True
         'DGV_Records.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
@@ -914,6 +949,7 @@ Public Class frmRecordsGrid
             frmValveSizing.lblFileName.Text = ""
             frmValveSizing.txtJumpToRecord.Text = 0
             Resetall = False
+            Me.Visible = False
             frmValveSizing.ShowDialog()
         End If
 

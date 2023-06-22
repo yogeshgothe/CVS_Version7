@@ -10,9 +10,10 @@ Public Module Declarations
     Public FILETYPE As Boolean           'Loading or Saving option 
     Public AbandonSoftware As Boolean = False           'If error during Form Load then do not go through save feature
     Public CLoseSoftware As Boolean = False
+    Public Status As String
 
-    Public VersionDate As String = " 02 June 2023"
-    Public VersionNo As String = "v7.2.0.1"
+    Public VersionDate As String = "21-06-2023"
+    Public VersionNo As String = "v7.2.0.14"
 
     'Branch, SalesEngg, CustomerRef, OfferNo, GSN, LSN, Customer, Project, Date
     Public cnt As Integer = 0

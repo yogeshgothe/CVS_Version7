@@ -360,6 +360,7 @@ Partial Class frmValveSizing
         Me.btnOverrideRating = New System.Windows.Forms.Button()
         Me.Label67 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnAcceptActuator = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label101 = New System.Windows.Forms.Label()
         Me.Label100 = New System.Windows.Forms.Label()
@@ -826,7 +827,6 @@ Partial Class frmValveSizing
         '
         'btnKVAccept
         '
-        Me.btnKVAccept.Enabled = False
         Me.btnKVAccept.FlatAppearance.BorderSize = 0
         Me.btnKVAccept.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnKVAccept.Location = New System.Drawing.Point(190, 313)
@@ -837,7 +837,6 @@ Partial Class frmValveSizing
         Me.btnKVAccept.Text = "Accept"
         Me.btnKVAccept.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnKVAccept.UseVisualStyleBackColor = False
-        Me.btnKVAccept.Visible = False
         '
         'Label13
         '
@@ -4344,6 +4343,7 @@ Partial Class frmValveSizing
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.BackgroundImage = Global.FMValveApplication_standard.My.Resources.Resources.Base_frame1
         Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Panel3.Controls.Add(Me.btnAcceptActuator)
         Me.Panel3.Controls.Add(Me.Panel7)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.btnChart)
@@ -4384,6 +4384,19 @@ Partial Class frmValveSizing
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(418, 426)
         Me.Panel3.TabIndex = 3
+        '
+        'btnAcceptActuator
+        '
+        Me.btnAcceptActuator.FlatAppearance.BorderSize = 0
+        Me.btnAcceptActuator.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAcceptActuator.Location = New System.Drawing.Point(332, 239)
+        Me.btnAcceptActuator.Name = "btnAcceptActuator"
+        Me.btnAcceptActuator.Size = New System.Drawing.Size(40, 25)
+        Me.btnAcceptActuator.TabIndex = 667
+        Me.btnAcceptActuator.TabStop = False
+        Me.btnAcceptActuator.Text = "Accept"
+        Me.btnAcceptActuator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAcceptActuator.UseVisualStyleBackColor = False
         '
         'Panel7
         '
@@ -4766,7 +4779,7 @@ Partial Class frmValveSizing
         Me.lblDatasheetPrinting.BackColor = System.Drawing.Color.Transparent
         Me.lblDatasheetPrinting.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDatasheetPrinting.ForeColor = System.Drawing.Color.Red
-        Me.lblDatasheetPrinting.Location = New System.Drawing.Point(273, 12)
+        Me.lblDatasheetPrinting.Location = New System.Drawing.Point(781, 67)
         Me.lblDatasheetPrinting.Name = "lblDatasheetPrinting"
         Me.lblDatasheetPrinting.Size = New System.Drawing.Size(78, 17)
         Me.lblDatasheetPrinting.TabIndex = 324
@@ -4779,7 +4792,7 @@ Partial Class frmValveSizing
         Me.lblPrintRecordNo.BackColor = System.Drawing.Color.Transparent
         Me.lblPrintRecordNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintRecordNo.ForeColor = System.Drawing.Color.Red
-        Me.lblPrintRecordNo.Location = New System.Drawing.Point(357, 14)
+        Me.lblPrintRecordNo.Location = New System.Drawing.Point(866, 66)
         Me.lblPrintRecordNo.Name = "lblPrintRecordNo"
         Me.lblPrintRecordNo.Size = New System.Drawing.Size(18, 17)
         Me.lblPrintRecordNo.TabIndex = 325
@@ -5544,4 +5557,5 @@ Partial Class frmValveSizing
     Friend WithEvents lblSel0PercF As System.Windows.Forms.Label
     Friend WithEvents ToolTip3 As System.Windows.Forms.ToolTip
     Friend WithEvents btnStop As System.Windows.Forms.Button
+    Friend WithEvents btnAcceptActuator As System.Windows.Forms.Button
 End Class

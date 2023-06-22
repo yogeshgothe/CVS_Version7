@@ -29,5 +29,14 @@
         Me.Close()
     End Sub
 
-  
+    Private Sub txtUserNotes1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserNotes1.KeyPress, txtUserNotes2.KeyPress, txtUserNotes3.KeyPress
+       Try
+                If e.KeyChar = ChrW(Keys.Enter) Then
+                    e.Handled = True
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+    End Sub
+
 End Class

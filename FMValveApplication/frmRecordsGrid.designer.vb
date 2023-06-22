@@ -22,7 +22,6 @@ Partial Class frmRecordsGrid
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        System.Threading.Thread.Sleep(3000)
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRecordsGrid))
         Me.DGV_Records = New System.Windows.Forms.DataGridView()
