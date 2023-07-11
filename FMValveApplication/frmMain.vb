@@ -19,14 +19,15 @@ Public Class frmValveSizing
     Dim col() As String = {"GSN", "LSN", "Item_No", "Sheet_No", "Branch", "column6", "column7", "column8", "column9", "column10", "column11", "Customer", "Project", "OfferNo", "RevNo", "TagNo", "Qty", "Date", "Time", "UnitsType", "Fluid", "FluidType", "Model", "Medium", "Flowunits", "Flow1", "Flow2", "Flow3", "TempUnits", "Temp1", "Temp2", "Temp3", "PressUnit", "IPress1", "IPress2", "IPress3", "OPress1", "OPress2", "OPress3", "DPPress1", "DPPress2", "DPPress3", "ChkMol", "DensUnits", "MolWgt", "Dens1", "Dens2", "Dens3", "ChkVisc", "ViscUnits", "Visc1", "Visc2", "Visc3", "ToutPress1", "ToutPress2", "ToutPress3", "ToutsatPress1", "ToutsatPress2", "ToutsatPress3", "CriticalPressUnits", "CriticalPress1", "CriticalPress2", "CriticalPress3", "VapourPressUnits", "VapourPress1", "VapourPress2", "VapourPress3", "Zcase1", "Zcase2", "Zcase3", "Xcase1", "Xcase2", "Xcase3", "Kcase1", "Kcase2", "Kcase3", "DryFract1", "DryFrac2", "DryFrac3", "TsatInletPress1", "TsatInletPress2", "TsatInletPress3", "SelectP2orDP", "SelectQorW", "SalesEngg", "CustomerRef", "column87", "column88", "column89", "column90", "column91", "column92", "MOC", "DesignPress", "DesignTemp", "SuggRating", "cmbSuggRating", "FinalRating", "Areaunits", "InletPipe", "lblSuggPipeSize", "PipeDia", "lblFinalOutletPipe", "OSch", "ISch", "Noise_ValveID", "Noise_ID", "Noise_Schedule", "Noise_OutletPipeDia", "InletPipeSize", "InletPipeID", "TrimStyle", "cmbVelocityRule", "FlowDirection", "Charachterstics", "Trim", "SuggMaxKv", "SuggValveSiz", "KvOverride", "ValveSizeOverride", "lblKvMaxValue", "lblFinalValveSize", "Bonnet", "EndConn", "FinalDesignTemperatureInlet", "column126", "column127", "column128", "column129", "column130", "column131", "column132", "column133", "column134", "ActuatorType", "Balancing", "AirFail", "Leakage", "Packing", "Sealing", "DPShutoff", "AirPressUnits", "AirPress", "SeatDia", "FinalForce", "HandWheel", "SuggActuator", "SelActuator", "FinalActuator", "InitialSpringRange", "FinalSpringRange", "NoofSprings", "MKSActuator", "MKSInitialSpringRange", "MKSFinalSpringRange", "SelectedForce", "SuggestedForce", "column158", "column159", "column160", "column161", "BodyMaterial", "Plug", "Seat", "TopMaterials", "Gasket", "Painting", "Positioner", "Sov", "AFR", "ALR", "LimitSwitch", "VolBooster", "PosnTrans", "VTank", "Roborter", "ItoP", "QEV", "Certification", "Tubing", "Guiding", "PositionerMake", "AFRMake", "ALRMake", "SOVMake", "VBMake", "LimitSwitchMake", "QEVMake", "PaintingACC", "InitialCvCase1", "InitialCvCase2", "InitialCvCase3", "InitialKvCase1", "InitialKvCase2", "InitialKvCase3", "FinalCvCase1", "FinalCvCase2", "FinalCVCase3", "FinalKvCase1", "FinalKvCase2", "FinalKvcase3", "StrokeCase1", "StrokeCase2", "StrokeCase3", "FlowtypeCase1", "FlowtypeCase2", "FlowtypeCase3", "SeverityCase1", "SeverityCase2", "SeverityCase3", "VelocityValveInletCase1", "VelocityValveInletCase2", "VelocityValveInletCase3", "VelocityValveOutletCase1", "VelocityValveOutletCase2", "VelocityValveOutletCase3", "VelocityInletPipeCase1", "VelocityInletPipeCase2", "VelocityInletPipeCase3", "VelocityOutletPipeCase1", "VelocityOutletPipeCase2", "VelocityOutletPipeCase3", "column223", "column224", "column225", "column226", "column227", "column228", "column229", "column230", "column231", "column232", "NoiseCase1", "NoiseCase2", "NoiseCase3", "chkNoiseAttenuation", "AttenuatedNoiseCase1", "AttenuatedNoiseCase2", "AttenuatedNoiseCase3", "chkInsulation", "AttnPressDropCase1", "AttnPressDropCase2", "AttnPressDropCase3", "MachNoVavleOutCase1", "MachNoVavleOutCase2", "MachNoVavleOutCase3", "MachNoPipeOutCase1", "MachNoPipeOutCase2", "MachNoPipeOutCase3", "FLCase1", "FLCase2", "FLCase3", "XTCase1", "XTCase2", "XTCase3", "FP", "Valve_Model", "FinalValveSize", "FinalKVCase1_2", "FinalKVCase2_2", "FinalKVCase3_2", "FinalKVmax_ValveSize", "FDCase1", "FDCase2", "FDCase3", "SeatDia2", "User_Notes1", "User_Notes2", "User_Notes3", "KvCage", "PrBl_SeatDia", "FPKvCase1", "FPKvCase2", "FPKvCase3", "BaffleKvCase1", "BaffleKvCase2", "BaffleKvCase3", "Stages", "WaterPressureText", "WaterTemperature", "WaterFlowCase1Text", "WaterFlowCase1Text2", "WaterFlowCase1Text3", "P2OutWCase1Text", "P2OutWCase2Text", "P2OutWCase3Text", "WaterFlowRateCase1", "WaterFlowRateCase2", "WaterFlowRateCase3", "OutletWaterPressureCase1", "OutletWaterPressureCase2", "OutletWaterPressureCase3", "column293", "column294", "column295", "column296", "column297", "column298", "column299", "column300", "column301", "column302", "FlowrateForPipeDiaCalcCase1", "FlowrateForPipeDiaCalcCase2", "FlowrateForPipeDiaCalcCase3", "FluidVelocityCase1", "FluidVelocityCase2", "FluidVelocityCase3", "SoundVelocityCase1", "SoundVelocityCase2", "SoundVelocityCase3", "PRDS_IP_FlowrateForPipeDiaCase1", "PRDS_IP_FlowrateForPipeDiaCase2", "PRDS_IP_FlowrateForPipeDiaCase3", "PRDS_OP_FlowrateForPipeDiaCase1", "PRDS_OP_FlowrateForPipeDiaCase2", "PRDS_OP_FlowrateForPipeDiaCase3", "VelocityRuleFlag", "FinalInletPressureCase1", "FinalInletPressureCase2", "FinalInletPressureCase3", "FinalOutletPressureCase1", "FinalOutletPressureCase2", "FinaloutletPressureCase3", "FinalPressureDropCase1", "FinalPressureDropCase2", "FinalPressureDropCase3", "FinalInletTemperatureCase1", "FinalInletTemperatureCase2", "FinalInletTemperatureCase3", "FinalVapourPressureCase1", "FinalVapourPressureCase2", "FinalVapourPressureCase3", "FinalCriticalPressureCase1", "FinalCriticalPressureCase2", "FinalCriticalPressureCase3", "FinalViscosityCase1", "FinalViscosityCase2", "FinalViscosityCase3", "FinalDensityCase1", "FinalDensityCase2", "FinalDensityCase3", "FinalFlowrateCase1", "FinalFlowrateCase2", "FinalFlowrateCase3", "SupplyAirPressure", "DPShutoff2", "Tubing_Make", "Tubing_Size", "Tubing_MOC"}
     Dim updateQuery As String
 
+
     Public Sub OpenOfficeWriteDatasheetData()
 
         'Dim DATASheetApp As New excel.Application
         Dim CHECKMOLECULAR, CHECKNOISEATTN, CHECKINSULATION, CHECKBAFFLE As Boolean
-        Dim Rowno, Columnno As Integer
+        Dim Rowno, Columnno, tempcode As Integer
         Dim UNITSTYPE, FLUIDTYPE, FLUID, MODEL, MEDIUM As String
         'Dim formatRange As excel.Range
-
+        Dim tempstring As String
         Dim Datasheet_Rowno As Integer
         'Dim shape As excel.Shape
         Dim Database_Columnno As Integer
@@ -79,7 +80,15 @@ Public Class frmValveSizing
                         Temp_TagName = "Tag" & i
                     End If
                     .Rows(5)(13) = Temp_TagName
-                    .TableName = Temp_TagName
+                    'If (.TableName(Temp_TagName)) Then
+
+                    'End If
+                    Try
+                        .TableName = Temp_TagName
+                    Catch ex As DuplicateNameException
+                        MsgBox("Tag Name " & Temp_TagName & " of Record No: " & Datasheet_Rowno & " is duplicate.")
+                        .TableName = Temp_TagName & "_" & Datasheet_Rowno
+                    End Try
 
 
                     .Rows(0)(23) = "Offer No.:"
@@ -253,7 +262,7 @@ Public Class frmValveSizing
                     .Rows(Rowno + 11)(Columnno + 12) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 69)
                     .Rows(Rowno + 11)(Columnno + 16) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 70)
                     .Rows(Rowno + 11)(Columnno + 20) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 71)
-                
+
 
 
                     .Rows(Rowno + 12)(Columnno + 1) = " Tsat at OutletPress."
@@ -261,7 +270,7 @@ Public Class frmValveSizing
                     .Rows(Rowno + 12)(Columnno + 12) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 46)
                     .Rows(Rowno + 12)(Columnno + 16) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 47)
                     .Rows(Rowno + 12)(Columnno + 20) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 48)
-                 
+
 
                     .Rows(Rowno + 13)(Columnno + 1) = " T at OutletPress.(T2)"
                     .Rows(Rowno + 13)(Columnno + 8) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 18) 'Temp units
@@ -541,12 +550,17 @@ Public Class frmValveSizing
 
                     .Rows(39)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection2_MOC + 32)
                     .Rows(40)(1) = " Body Material"
-
+                    Dim CSVModels As String = dt_OpenOffice(Database_Rowno)(22)
                     .Rows(40)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 1)
+                 
+
+
                     .Rows(41)(1) = " Body Bonnet Gasket "
                     .Rows(41)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 5)
+                    
                     .Rows(42)(1) = " Painting "
                     .Rows(42)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6)
+                    
                     '        '*****************************************************************************************************
 
                     .Rows(43)(1) = "TRIM/INTERNALS"
@@ -559,7 +573,7 @@ Public Class frmValveSizing
                     .Rows(49)(1) = " LeakCI/Bal"
                     .Rows(50)(1) = " Sealing"
                     .Rows(51)(1) = " Seat Diameter"
-                    .Rows(52)(1) = " Packing/Gasket"
+                    .Rows(52)(1) = " Packing" '/Gasket"
                     .Rows(53)(1) = " Force to open valve"
 
                     .Rows(54)(1) = " Test & Certification"
@@ -567,8 +581,10 @@ Public Class frmValveSizing
 
                     '        .Range("I43:P43").Merge()
                     .Rows(44)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 2)  'Plug  Material
+                    
                     '        .Range("I44:P44").Merge()
                     .Rows(45)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 3) 'Seat Material
+                   
 
                     '        .Range("I45:P45").Merge()
                     .Rows(46)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection2_MOC + 35) & "  " & dt_OpenOffice(Datasheet_Rowno)(DataSection2_MOC + 22)
@@ -594,7 +610,7 @@ Public Class frmValveSizing
                     End If
 
 
-                    .Rows(52)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 5) & "/" & dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 5)   'Packing / Gasket
+                    .Rows(52)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 5) ' & "/" & dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 5)   'Packing / Gasket
 
 
                     Dim forceunit, springunit As String
@@ -608,7 +624,14 @@ Public Class frmValveSizing
 
                     .Rows(53)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 11) & " " & forceunit 'Force
 
-                    .Rows(54)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18)
+
+
+                    .Rows(54)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18)   '  Certifications
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18) - 1
+                    'If Not tempcode < 0 Then
+                    '    .Rows(54)(8) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'End If
+
 
 
                     '        'First Column complete  
@@ -625,6 +648,12 @@ Public Class frmValveSizing
                     .Rows(32)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 15) 'Model
                     .Rows(33)(17) = " Air Fail Mode"
                     .Rows(33)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 3) 'FailurePosition
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 3) - 1
+                    'If Not tempcode < 0 Then
+                    '    .Rows(33)(23) = ds_AccessoriesMat.Tables(48).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(33)(23) = ""
+                    'End If
                     .Rows(34)(17) = " Max Allow.Air Pressure"
 
                     If UNITSTYPE = "MKS&SI" Or UNITSTYPE = "ALL" Then
@@ -642,36 +671,78 @@ Public Class frmValveSizing
                     .Rows(37)(23) = "Vertical"                      '11102020
                     .Rows(38)(17) = " Handwheel Type"
                     .Rows(38)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 12)
+                    
                     .Rows(39)(17) = " Painting"
                     .Rows(39)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 28)
+                    .Rows(42)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6)
+
 
                     .Rows(40)(17) = "POSITIONER"
                     .Rows(41)(17) = " Type"
                     .Rows(41)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 21)
+                    .Rows(41)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 21)   ' ' Positioner make
                     .Rows(42)(17) = " Model"
                     .Rows(42)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 7)
+                    
                     .Rows(43)(17) = " Input&Output Signal"
                     .Rows(43)(23) = ""
                     .Rows(44)(17) = "AIRSET"
                     .Rows(45)(17) = " Make"
                     .Rows(45)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 22) 'AFR 
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 22) - 1  ' ' AFR make
+                    'If Not tempcode < 0 Then
+                    '    .Rows(45)(23) = ds_AccessoriesMat.Tables(24).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(45)(23) = ""
+                    'End If
+
                     .Rows(46)(17) = " Model"
                     .Rows(46)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 9) 'AFR 
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR 
+                    'If Not tempcode < 0 Then
+                    '    .Rows(46)(23) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(46)(23) = ""
+                    'End If
                     .Rows(47)(17) = " Gauges provided"
                     .Rows(47)(23) = "YES"
 
                     .Rows(48)(17) = " SWITCHES"
                     .Rows(49)(17) = " Make"
                     .Rows(49)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 26)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 26) - 1  ' 'Limit Switches Make 
+                    'If Not tempcode < 0 Then
+                    '    .Rows(49)(23) = ds_AccessoriesMat.Tables(28).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(49)(23) = ""
+                    'End If
                     .Rows(50)(17) = " Model"
                     .Rows(50)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 11)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 11) - 1  ' 'Limit Switches 
+                    'If Not tempcode < 0 Then
+                    '    .Rows(50)(23) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(50)(23) = ""
+                    'End If
 
                     .Rows(51)(17) = "SOV"
 
                     .Rows(52)(17) = " Make"
                     .Rows(52)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 24)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 24) - 1 ' ' SOV
+                    'If Not tempcode < 0 Then
+                    '    .Rows(52)(23) = ds_AccessoriesMat.Tables(26).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(52)(23) = ""
+                    'End If
                     .Rows(53)(17) = " Model"
                     .Rows(53)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 8)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
+                    'If Not tempcode < 0 Then
+                    '    .Rows(53)(23) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(53)(23) = ""
+                    'End If
 
                     .Rows(54)(17) = "ACCESSORIES"
 
@@ -1509,300 +1580,334 @@ Public Class frmValveSizing
                 Call TsatPressure()
                 'End If
 
-                If (Not (txtInletTemperatureCase1.Text) = "") And (sender Is txtInletTemperatureCase1 Or sender Is cmbTemperatureUnits) Then
+                If (sender Is txtInletTemperatureCase1 Or sender Is cmbTemperatureUnits) Then
+                    If (Not (txtInletTemperatureCase1.Text) = "") Then
+
+                        Call converttemperature(txtInletTemperatureCase1, FinalInletTemperatureCase1, cmbTemperatureUnits)
+
+                        If cmbFluid.SelectedIndex = 0 Then
+                            If cmbFluidType.Text = "InCompressible" Then
+                                ' Bypass  20160928 CalculateFromTable(FinalInletTemperatureCase1, FinalVapourPressureCase1, FinalCriticalPressureCase1, FinalDensityCase1, FinalViscosityCase1)
+
+                                'Vapour pressure is same as Saturation pressure in water case
+                                FinalVapourPressureCase1 = psat_T(FinalInletTemperatureCase1)
+                                FinalDensityCase1 = (rho_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) / 1000   'convert to Sp. Gravity from kg/m3
+                                cmbDensityUnits.SelectedIndex = 0
+
+                                cmbViscosityUnits.SelectedIndex = 0
+                                cmbCriticalPressureUnits.SelectedIndex = 0
+                                cmbVapourPressureUnits.SelectedIndex = 0
+                                FinalViscosityCase1 = (my_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) / (FinalDensityCase1 * 1000)
+                                FinalCriticalPressureCase1 = 220.4
+                                txtVapourPressureCase1.Text = Math.Round(FinalVapourPressureCase1, 3)
+                                txtCriticalPressureCase1.Text = Math.Round(FinalCriticalPressureCase1, 3)
+                                txtViscosityCase1.Text = Format(FinalViscosityCase1, "0.00E-00")
+                                If cmbUnitsType.SelectedIndex = 1 Then  'FPS
+                                    txtVapourPressureCase1.Text = Math.Round((FinalVapourPressureCase1 * 14.5037738007), 2)
+                                    txtCriticalPressureCase1.Text = Math.Round((FinalCriticalPressureCase1 * 14.5037738007), 2)
+                                    txtViscosityCase1.Text = Format((FinalViscosityCase1 * 10.764), "0.00E-00")
+                                End If
+
+                                txtDensityCase1.Text = Math.Round(FinalDensityCase1, 3)
+                                ' Bypass  20160928  Call convertDensity(txtDensityCase1, FinalDensityCase1, cmbDensityUnits, FinalInletTemperatureCase1, FinalInletPressureCase1)
 
 
-                    Call converttemperature(txtInletTemperatureCase1, FinalInletTemperatureCase1, cmbTemperatureUnits)
+                                Temperatureflag = True
 
-                    If cmbFluid.SelectedIndex = 0 Then
-                        If cmbFluidType.Text = "InCompressible" Then
-                            ' Bypass  20160928 CalculateFromTable(FinalInletTemperatureCase1, FinalVapourPressureCase1, FinalCriticalPressureCase1, FinalDensityCase1, FinalViscosityCase1)
+                                txtCriticalPressureCase1.ReadOnly = True
 
-                            'Vapour pressure is same as Saturation pressure in water case
-                            FinalVapourPressureCase1 = psat_T(FinalInletTemperatureCase1)
-                            FinalDensityCase1 = (rhoL_T(FinalInletTemperatureCase1)) / 1000   'convert to Sp. Gravity from kg/m3
-                            cmbDensityUnits.SelectedIndex = 0
+                                txtVapourPressureCase1.ReadOnly = True
+                                txtDensityCase1.ReadOnly = True
+                                txtViscosityCase1.ReadOnly = True
 
-                            cmbViscosityUnits.SelectedIndex = 0
-                            cmbCriticalPressureUnits.SelectedIndex = 0
-                            cmbVapourPressureUnits.SelectedIndex = 0
-                            FinalViscosityCase1 = (my_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) / (FinalDensityCase1 * 1000)
-                            FinalCriticalPressureCase1 = 220.4
-                            txtVapourPressureCase1.Text = Math.Round(FinalVapourPressureCase1, 3)
-                            txtCriticalPressureCase1.Text = Math.Round(FinalCriticalPressureCase1, 3)
-                            txtViscosityCase1.Text = Format(FinalViscosityCase1, "0.00E-00")
-                            If cmbUnitsType.SelectedIndex = 1 Then  'FPS
-                                txtVapourPressureCase1.Text = Math.Round((FinalVapourPressureCase1 * 14.5037738007), 2)
-                                txtCriticalPressureCase1.Text = Math.Round((FinalCriticalPressureCase1 * 14.5037738007), 2)
-                                txtViscosityCase1.Text = Format((FinalViscosityCase1 * 10.764), "0.00E-00")
-                            End If
+                                If FinalVapourPressureCase1 > FinalInletPressureCase1 Then
+                                    ToolTip1.Show("Case 1 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase1, 2)
+                                    ToolTip1.Show("Case 1 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase1, 2000)
+                                    'txtInletTemperatureCase1.Focus()
+                                End If
+                            Else
+                                'or steam
 
-                            txtDensityCase1.Text = Math.Round(FinalDensityCase1, 3)
-                            ' Bypass  20160928  Call convertDensity(txtDensityCase1, FinalDensityCase1, cmbDensityUnits, FinalInletTemperatureCase1, FinalInletPressureCase1)
+                                TsatCase1 = Tsat_p(FinalInletPressureCase1)
+                                If TsatCase1 > FinalInletTemperatureCase1 Then
+                                    MsgBox("Case 1 : Fluid is not steam")
+                                    txtInletTemperatureCase1.Focus()
+                                Else
+                                    ' aDDED 0.1:  WHEN TOUTPRESSURE = TSATOURPRESSURE SOFTWARE CANNOT CALCULATE Z,DENSITY AND SOUND VELOCITY
+                                    'ToutPressureCase1 = Math.Round(RE_converttemperature(T_ph(FinalOutletPressureCase1, h_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)), cmbTemperatureUnits), 2)
+                                    If Model < 4 Then
+                                        ToutPressureCase1 = T_ph(FinalOutletPressureCase1, h_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) + 0.1
+                                        If ToutPressureCase1 > 0.1 Then
+                                            txtTOutPressureCase1.Text = Math.Round(RE_converttemperature(ToutPressureCase1, cmbTemperatureUnits), 2)
+                                        Else
+                                            txtTOutPressureCase1.Text = ""
+                                        End If
+
+                                    End If
+                                    FinalDensityCase1 = rho_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)
+                                    cmbDensityUnits.SelectedIndex = 0
+                                    FinalViscosityCase1 = (my_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) / FinalDensityCase1
+                                    cmbViscosityUnits.SelectedIndex = 0
+                                    If cmbUnitsType.SelectedIndex = 1 Then   'FPS
+                                        txtDensityCase1.Text = Math.Round(FinalDensityCase1 * 0.0624, 2)
+                                        txtViscosityCase1.Text = Format(FinalViscosityCase1 * 10.764, "0.00E-00")
+                                    Else
+                                        txtDensityCase1.Text = Math.Round(FinalDensityCase1, 2)
+                                        txtViscosityCase1.Text = Format(FinalViscosityCase1, "0.00E-00")
+                                    End If
 
 
-                            Temperatureflag = True
 
-                            txtCriticalPressureCase1.ReadOnly = True
+                                    txtTsatInletCase1.Text = Math.Round(RE_converttemperature(TsatCase1, cmbTemperatureUnits), 2)
 
-                            txtVapourPressureCase1.ReadOnly = True
-                            txtDensityCase1.ReadOnly = True
-                            txtViscosityCase1.ReadOnly = True
 
-                            If FinalVapourPressureCase1 > FinalInletPressureCase1 Then
-                                ToolTip1.Show("Case 1 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase1, 2)
-                                ToolTip1.Show("Case 1 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase1, 2000)
-                                'txtInletTemperatureCase1.Focus()
+                                    If Not txtInletPressureCase1.Text = "" Then
+                                        Kcase1 = Cp_pT(FinalInletPressureCase1, FinalInletTemperatureCase1) / Cv_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)
+                                        txtK_Case1.Text = Math.Round(Kcase1, 2)
+                                        Xcase1 = (FinalPressureDropCase1 / FinalInletPressureCase1)
+                                        txtX_Case1.Text = Math.Round(Xcase1, 2)
+                                        Zcase1 = (FinalInletPressureCase1 * Math.Pow(10, 5)) / (FinalDensityCase1 * 461.8 * (FinalInletTemperatureCase1 + 273.15))
+                                        txtZ_Case1.Text = Math.Round(Zcase1, 2)
+                                    Else
+                                        Kcase1 = 0
+                                        txtK_Case1.Text = ""
+                                        Xcase1 = 0
+                                        txtX_Case1.Text = ""
+                                        Zcase1 = 0
+                                        txtZ_Case1.Text = ""
+
+                                    End If
+                                End If
                             End If
                         Else
-                            'or steam
-
-                            TsatCase1 = Tsat_p(FinalInletPressureCase1)
-                            If TsatCase1 > FinalInletTemperatureCase1 Then
-                                ToolTip1.Show("Case 1 : Fluid is not steam", txtInletTemperatureCase1, 2)
-                                ToolTip1.Show("Case 1 : Fluid is not steam", txtInletTemperatureCase1, 2000)
-                                txtInletTemperatureCase1.Focus()
-                            Else
-                                ' aDDED 0.1:  WHEN TOUTPRESSURE = TSATOURPRESSURE SOFTWARE CANNOT CALCULATE Z,DENSITY AND SOUND VELOCITY
-                                'ToutPressureCase1 = Math.Round(RE_converttemperature(T_ph(FinalOutletPressureCase1, h_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)), cmbTemperatureUnits), 2)
-                                If Model < 4 Then
-                                    ToutPressureCase1 = T_ph(FinalOutletPressureCase1, h_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) + 0.1
-                                    txtTOutPressureCase1.Text = Math.Round(RE_converttemperature(ToutPressureCase1, cmbTemperatureUnits), 2)
-                                End If
-                                FinalDensityCase1 = rho_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)
-                                cmbDensityUnits.SelectedIndex = 0
-                                FinalViscosityCase1 = (my_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) / FinalDensityCase1
-                                cmbViscosityUnits.SelectedIndex = 0
-                                If cmbUnitsType.SelectedIndex = 1 Then   'FPS
-                                    txtDensityCase1.Text = Math.Round(FinalDensityCase1 * 0.0624, 2)
-                                    txtViscosityCase1.Text = Format(FinalViscosityCase1 * 10.764, "0.00E-00")
-                                Else
-                                    txtDensityCase1.Text = Math.Round(FinalDensityCase1, 2)
-                                    txtViscosityCase1.Text = Format(FinalViscosityCase1, "0.00E-00")
-                                End If
-
-
-
-                                txtTsatInletCase1.Text = Math.Round(RE_converttemperature(TsatCase1, cmbTemperatureUnits), 2)
-
-
-                                If Not txtInletPressureCase1.Text = "" Then
-                                    Kcase1 = Cp_pT(FinalInletPressureCase1, FinalInletTemperatureCase1) / Cv_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)
-                                    txtK_Case1.Text = Math.Round(Kcase1, 2)
-                                    Xcase1 = (FinalPressureDropCase1 / FinalInletPressureCase1)
-                                    txtX_Case1.Text = Math.Round(Xcase1, 2)
-                                    Zcase1 = (FinalInletPressureCase1 * Math.Pow(10, 5)) / (FinalDensityCase1 * 461.8 * (FinalInletTemperatureCase1 + 273.15))
-                                    txtZ_Case1.Text = Math.Round(Zcase1, 2)
-                                Else
-                                    Kcase1 = 0
-                                    txtK_Case1.Text = ""
-                                    Xcase1 = 0
-                                    txtX_Case1.Text = ""
-                                    Zcase1 = 0
-                                    txtZ_Case1.Text = ""
-
-                                End If
-                                End If
                         End If
                     Else
+                        txtDensityCase1.Text = ""
+                        txtViscosityCase1.Text = ""
+                        txtTOutPressureCase1.Text = ""
+                        txtVapourPressureCase1.Text = ""
+                        txtCriticalPressureCase1.Text = ""
                     End If
                 End If
 
 
 
-                If (Not (txtInletTemperatureCase2.Text) = "") And (sender Is txtInletTemperatureCase2 Or sender Is cmbTemperatureUnits) Then
-                    Call converttemperature(txtInletTemperatureCase2, FinalInletTemperatureCase2, cmbTemperatureUnits)
-                    'C21.Text = FinalInletTemperatureCase2
-                    If cmbFluid.SelectedIndex = 0 Then
-                        If cmbFluidType.Text = "InCompressible" Then
-                            ' Bypass  20160928 CalculateFromTable(FinalInletTemperatureCase2, FinalVapourPressureCase2, FinalCriticalPressureCase2, FinalDensityCase2, FinalViscosityCase2)
-                            'Vapour pressure is same as Saturation pressure in water case
-                            FinalVapourPressureCase2 = psat_T(FinalInletTemperatureCase2)
-                            FinalDensityCase2 = (rhoL_T(FinalInletTemperatureCase2)) / 1000   'convert to Sp. Gravity from kg/m3
-                            cmbDensityUnits.SelectedIndex = 0
-                            cmbViscosityUnits.SelectedIndex = 0
-                            cmbCriticalPressureUnits.SelectedIndex = 0
-                            cmbVapourPressureUnits.SelectedIndex = 0
-                            FinalViscosityCase2 = (my_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) / (FinalDensityCase2 * 1000)
-                            FinalCriticalPressureCase2 = 220.4
-
-                            txtVapourPressureCase2.Text = Math.Round(FinalVapourPressureCase2, 3)
-                            txtCriticalPressureCase2.Text = Math.Round(FinalCriticalPressureCase2, 3)
-                            txtViscosityCase2.Text = Format(FinalViscosityCase2, "0.00E-00")
-                            If cmbUnitsType.SelectedIndex = 1 Then  'FPS
-                                txtVapourPressureCase2.Text = Math.Round((FinalVapourPressureCase2 * 14.5037738007), 2)
-                                txtCriticalPressureCase2.Text = Math.Round((FinalCriticalPressureCase2 * 14.5037738007), 2)
-                                txtViscosityCase2.Text = Format(FinalViscosityCase2 * 10.764, "0.00E-00")
-                            End If
-
-                            txtDensityCase2.Text = Math.Round(FinalDensityCase2, 3)
-                            'Bypasss on 20160928 Call convertDensity(txtDensityCase2, FinalDensityCase2, cmbDensityUnits, FinalInletTemperatureCase2, FinalInletPressureCase2)
-
-
-                            If FinalVapourPressureCase2 > FinalInletPressureCase2 Then
-                                ToolTip1.Show("Case 2 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase2, 2)
-                                ToolTip1.Show("Case 2 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase2, 2000)
-                                ' txtInletTemperatureCase2.Focus()       'Focus on Case 1 
-                            End If
-                        Else
-
-                            'or steam 
-                            TsatCase2 = Tsat_p(FinalInletPressureCase2)
-                            If TsatCase2 > FinalInletTemperatureCase2 Then
-                                ToolTip1.Show("Case 2 : Fluid is not steam", txtInletTemperatureCase2, 2)
-                                ToolTip1.Show("Case 2 : Fluid is not steam", txtInletTemperatureCase2, 2000)
-                                txtInletTemperatureCase2.Focus()
-                            Else
-                                txtTsatInletCase2.Text = Math.Round(RE_converttemperature(TsatCase2, cmbTemperatureUnits), 2)
-                                'ToutPressureCase2 = Math.Round(RE_converttemperature(T_ph(FinalOutletPressureCase2, h_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)), cmbTemperatureUnits), 2)
-                                If Model < 4 Then
-                                    ToutPressureCase2 = T_ph(FinalOutletPressureCase2, h_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) + 0.1
-                                    txtTOutPressureCase2.Text = Math.Round(RE_converttemperature(ToutPressureCase2, cmbTemperatureUnits), 2)
-                                End If
-
-                                FinalDensityCase2 = rho_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)
+                If (sender Is txtInletTemperatureCase2 Or sender Is cmbTemperatureUnits) Then
+                    If (Not (txtInletTemperatureCase2.Text) = "") Then
+                        Call converttemperature(txtInletTemperatureCase2, FinalInletTemperatureCase2, cmbTemperatureUnits)
+                        'C21.Text = FinalInletTemperatureCase2
+                        If cmbFluid.SelectedIndex = 0 Then
+                            If cmbFluidType.Text = "InCompressible" Then
+                                ' Bypass  20160928 CalculateFromTable(FinalInletTemperatureCase2, FinalVapourPressureCase2, FinalCriticalPressureCase2, FinalDensityCase2, FinalViscosityCase2)
+                                'Vapour pressure is same as Saturation pressure in water case
+                                FinalVapourPressureCase2 = psat_T(FinalInletTemperatureCase2)
+                                FinalDensityCase2 = (rho_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) / 1000   'convert to Sp. Gravity from kg/m3
                                 cmbDensityUnits.SelectedIndex = 0
-                                FinalViscosityCase2 = (my_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) / FinalDensityCase2
                                 cmbViscosityUnits.SelectedIndex = 0
-                                If cmbUnitsType.SelectedIndex = 1 Then   'FPS
-                                    txtDensityCase2.Text = Math.Round(FinalDensityCase2 * 0.0624, 2)
+                                cmbCriticalPressureUnits.SelectedIndex = 0
+                                cmbVapourPressureUnits.SelectedIndex = 0
+                                FinalViscosityCase2 = (my_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) / (FinalDensityCase2 * 1000)
+                                FinalCriticalPressureCase2 = 220.4
+
+                                txtVapourPressureCase2.Text = Math.Round(FinalVapourPressureCase2, 3)
+                                txtCriticalPressureCase2.Text = Math.Round(FinalCriticalPressureCase2, 3)
+                                txtViscosityCase2.Text = Format(FinalViscosityCase2, "0.00E-00")
+                                If cmbUnitsType.SelectedIndex = 1 Then  'FPS
+                                    txtVapourPressureCase2.Text = Math.Round((FinalVapourPressureCase2 * 14.5037738007), 2)
+                                    txtCriticalPressureCase2.Text = Math.Round((FinalCriticalPressureCase2 * 14.5037738007), 2)
                                     txtViscosityCase2.Text = Format(FinalViscosityCase2 * 10.764, "0.00E-00")
-                                Else
-                                    txtDensityCase2.Text = Math.Round(FinalDensityCase2, 2)
-                                    txtViscosityCase2.Text = Format(FinalViscosityCase2, "0.00E-00")
                                 End If
-                                If Not txtInletPressureCase2.Text = "" Then
-                                    Kcase2 = Cp_pT(FinalInletPressureCase2, FinalInletTemperatureCase2) / Cv_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)
-                                    txtK_Case2.Text = Math.Round(Kcase2, 2)
-                                    Xcase2 = (FinalPressureDropCase2 / FinalInletPressureCase2)
-                                    txtX_Case2.Text = Math.Round(Xcase2, 2)
-                                    Zcase2 = (FinalInletPressureCase2 * Math.Pow(10, 5)) / (FinalDensityCase2 * 461.8 * (FinalInletTemperatureCase2 + 273.15))
-                                    txtZ_Case2.Text = Math.Round(Zcase2, 2)
-                                Else
-                                    Kcase2 = 0
-                                    txtK_Case2.Text = ""
-                                    Xcase2 = 0
-                                    txtX_Case2.Text = ""
-                                    Zcase2 = 0
-                                    txtZ_Case2.Text = ""
 
+                                txtDensityCase2.Text = Math.Round(FinalDensityCase2, 3)
+                                'Bypasss on 20160928 Call convertDensity(txtDensityCase2, FinalDensityCase2, cmbDensityUnits, FinalInletTemperatureCase2, FinalInletPressureCase2)
+
+
+                                If FinalVapourPressureCase2 > FinalInletPressureCase2 Then
+                                    ToolTip1.Show("Case 2 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase2, 2)
+                                    ToolTip1.Show("Case 2 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase2, 2000)
+                                    ' txtInletTemperatureCase2.Focus()       'Focus on Case 1 
                                 End If
-                                End If
-                        End If
-                    Else
-                      
-                    End If
-                End If
-                If (Not (txtInletTemperatureCase3.Text) = "") And (sender Is txtInletTemperatureCase3 Or sender Is cmbTemperatureUnits) Then
-                    Call converttemperature(txtInletTemperatureCase3, FinalInletTemperatureCase3, cmbTemperatureUnits)
-                    If cmbFluid.SelectedIndex = 0 Then
-                        If cmbFluidType.Text = "InCompressible" Then
-                            ' Bypass  20160928  CalculateFromTable(FinalInletTemperatureCase3, FinalVapourPressureCase3, FinalCriticalPressureCase3, FinalDensityCase3, FinalViscosityCase3)
-                            'Vapour pressure is same as Saturation pressure in water case
-                            FinalVapourPressureCase3 = psat_T(FinalInletTemperatureCase3)
-                            FinalDensityCase3 = (rhoL_T(FinalInletTemperatureCase3)) / 1000   'convert to Sp. Gravity from kg/m3
-                            cmbDensityUnits.SelectedIndex = 0
-                            cmbViscosityUnits.SelectedIndex = 0
-                            cmbCriticalPressureUnits.SelectedIndex = 0
-                            cmbVapourPressureUnits.SelectedIndex = 0
-                            FinalViscosityCase3 = (my_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) / (FinalDensityCase3 * 1000)
-                            FinalCriticalPressureCase3 = 220.4
-
-                            txtVapourPressureCase3.Text = Math.Round(FinalVapourPressureCase3, 3)
-                            txtCriticalPressureCase3.Text = Math.Round(FinalCriticalPressureCase3, 3)
-                            txtViscosityCase3.Text = Format(FinalViscosityCase3, "0.00E-00")
-                            If cmbUnitsType.SelectedIndex = 1 Then  'FPS
-                                txtVapourPressureCase3.Text = Math.Round((FinalVapourPressureCase3 * 14.5037738007), 2)
-                                txtCriticalPressureCase3.Text = Math.Round((FinalCriticalPressureCase3 * 14.5037738007), 2)
-                                txtViscosityCase3.Text = Format(FinalViscosityCase3 * 10.764, "0.00E-00")
-                            End If
-
-                            txtDensityCase3.Text = Math.Round(FinalDensityCase3, 3)
-                            'Bypassed on  20160928 Call convertDensity(txtDensityCase3, FinalDensityCase3, cmbDensityUnits, FinalInletTemperatureCase3, FinalInletPressureCase3)
-
-
-                            If FinalVapourPressureCase3 > FinalInletPressureCase3 Then
-                                ToolTip1.Show("Case 3 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase3, 2)
-                                ToolTip1.Show("Case 3 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase3, 2000)
-                                'txtInletTemperatureCase3.Focus()
-                            End If
-                        Else
-
-                            TsatCase3 = Tsat_p(FinalInletPressureCase3)
-                            If TsatCase3 > FinalInletTemperatureCase3 Then
-                                ToolTip1.Show("Case 3 : Fluid is not steam", txtInletTemperatureCase3, 2)
-                                ToolTip1.Show("Case 3 : Fluid is not steam", txtInletTemperatureCase3, 2000)
-                                txtInletTemperatureCase3.Focus()
                             Else
-                                txtTsatInletCase3.Text = Math.Round(RE_converttemperature(TsatCase3, cmbTemperatureUnits), 2)
-                                'ToutPressureCase3 = Math.Round(RE_converttemperature(T_ph(FinaloutletPressureCase3, h_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)), cmbTemperatureUnits), 2)
-                                If Model < 4 Then
-                                    ToutPressureCase3 = T_ph(FinaloutletPressureCase3, h_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) + 0.1
-                                    txtTOutPressureCase3.Text = Math.Round(RE_converttemperature(ToutPressureCase3, cmbTemperatureUnits), 2)
-                                End If
-                                FinalDensityCase3 = rho_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)
-                                cmbDensityUnits.SelectedIndex = 0
 
-                                FinalViscosityCase3 = (my_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) / FinalDensityCase3
-                                cmbViscosityUnits.SelectedIndex = 0
-                                If cmbUnitsType.SelectedIndex = 1 Then   'FPS
-                                    txtDensityCase3.Text = Math.Round(FinalDensityCase3 * 0.0624, 2)
-                                    txtViscosityCase3.Text = Format(FinalViscosityCase3 * 10.764, "0.00E-00")
+                                'or steam 
+                                TsatCase2 = Tsat_p(FinalInletPressureCase2)
+                                If TsatCase2 > FinalInletTemperatureCase2 Then
+                                    MsgBox("Case 2 : Fluid is not steam")
+                                    txtInletTemperatureCase2.Focus()
                                 Else
-                                    txtDensityCase3.Text = Math.Round(FinalDensityCase3, 2)
-                                    txtViscosityCase3.Text = Format(FinalViscosityCase3, "0.00E-00")
+                                    txtTsatInletCase2.Text = Math.Round(RE_converttemperature(TsatCase2, cmbTemperatureUnits), 2)
+                                    'ToutPressureCase2 = Math.Round(RE_converttemperature(T_ph(FinalOutletPressureCase2, h_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)), cmbTemperatureUnits), 2)
+                                    If Model < 4 Then
+                                        ToutPressureCase2 = T_ph(FinalOutletPressureCase2, h_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) + 0.1
+                                        If ToutPressureCase2 > 0.1 Then
+                                            txtTOutPressureCase2.Text = Math.Round(RE_converttemperature(ToutPressureCase2, cmbTemperatureUnits), 2)
+                                        Else
+                                            txtTOutPressureCase2.Text = ""
+                                        End If
+
+                                    End If
+
+                                    FinalDensityCase2 = rho_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)
+                                    cmbDensityUnits.SelectedIndex = 0
+                                    FinalViscosityCase2 = (my_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) / FinalDensityCase2
+                                    cmbViscosityUnits.SelectedIndex = 0
+                                    If cmbUnitsType.SelectedIndex = 1 Then   'FPS
+                                        txtDensityCase2.Text = Math.Round(FinalDensityCase2 * 0.0624, 2)
+                                        txtViscosityCase2.Text = Format(FinalViscosityCase2 * 10.764, "0.00E-00")
+                                    Else
+                                        txtDensityCase2.Text = Math.Round(FinalDensityCase2, 2)
+                                        txtViscosityCase2.Text = Format(FinalViscosityCase2, "0.00E-00")
+                                    End If
+                                    If Not txtInletPressureCase2.Text = "" Then
+                                        Kcase2 = Cp_pT(FinalInletPressureCase2, FinalInletTemperatureCase2) / Cv_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)
+                                        txtK_Case2.Text = Math.Round(Kcase2, 2)
+                                        Xcase2 = (FinalPressureDropCase2 / FinalInletPressureCase2)
+                                        txtX_Case2.Text = Math.Round(Xcase2, 2)
+                                        Zcase2 = (FinalInletPressureCase2 * Math.Pow(10, 5)) / (FinalDensityCase2 * 461.8 * (FinalInletTemperatureCase2 + 273.15))
+                                        txtZ_Case2.Text = Math.Round(Zcase2, 2)
+                                    Else
+                                        Kcase2 = 0
+                                        txtK_Case2.Text = ""
+                                        Xcase2 = 0
+                                        txtX_Case2.Text = ""
+                                        Zcase2 = 0
+                                        txtZ_Case2.Text = ""
+
+                                    End If
                                 End If
+                            End If
 
-
-
-
-                                If Not txtInletPressureCase3.Text = "" Then
-                                    Kcase3 = Cp_pT(FinalInletPressureCase3, FinalInletTemperatureCase3) / Cv_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)
-                                    txtK_Case3.Text = Math.Round(Kcase3, 2)
-                                    Xcase3 = (FinalPressureDropCase3 / FinalInletPressureCase3)
-                                    txtX_Case3.Text = Math.Round(Xcase3, 2)
-                                    Zcase3 = (FinalInletPressureCase3 * Math.Pow(10, 5)) / (FinalDensityCase3 * 461.8 * (FinalInletTemperatureCase3 + 273.15))
-                                    txtZ_Case3.Text = Math.Round(Zcase3, 2)
-                                Else
-                                    Kcase3 = 0
-                                    txtK_Case3.Text = ""
-                                    Xcase3 = 0
-                                    txtX_Case3.Text = ""
-                                    Zcase3 = 0
-                                    txtZ_Case3.Text = ""
-                                End If
-                                End If
                         End If
                     Else
+                        txtDensityCase2.Text = ""
+                        txtViscosityCase2.Text = ""
+                        txtTOutPressureCase2.Text = ""
+                        txtVapourPressureCase2.Text = ""
+                        txtCriticalPressureCase2.Text = ""
                     End If
+                End If
 
+                If (sender Is txtInletTemperatureCase3 Or sender Is cmbTemperatureUnits) Then
+                    If (Not (txtInletTemperatureCase3.Text) = "") Then
+                        Call converttemperature(txtInletTemperatureCase3, FinalInletTemperatureCase3, cmbTemperatureUnits)
+                        If cmbFluid.SelectedIndex = 0 Then
+                            If cmbFluidType.Text = "InCompressible" Then
+                                ' Bypass  20160928  CalculateFromTable(FinalInletTemperatureCase3, FinalVapourPressureCase3, FinalCriticalPressureCase3, FinalDensityCase3, FinalViscosityCase3)
+                                'Vapour pressure is same as Saturation pressure in water case
+                                FinalVapourPressureCase3 = psat_T(FinalInletTemperatureCase3)
+                                FinalDensityCase3 = (rho_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) / 1000   'convert to Sp. Gravity from kg/m3
+                                cmbDensityUnits.SelectedIndex = 0
+                                cmbViscosityUnits.SelectedIndex = 0
+                                cmbCriticalPressureUnits.SelectedIndex = 0
+                                cmbVapourPressureUnits.SelectedIndex = 0
+                                FinalViscosityCase3 = (my_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) / (FinalDensityCase3 * 1000)
+                                FinalCriticalPressureCase3 = 220.4
+
+                                txtVapourPressureCase3.Text = Math.Round(FinalVapourPressureCase3, 3)
+                                txtCriticalPressureCase3.Text = Math.Round(FinalCriticalPressureCase3, 3)
+                                txtViscosityCase3.Text = Format(FinalViscosityCase3, "0.00E-00")
+                                If cmbUnitsType.SelectedIndex = 1 Then  'FPS
+                                    txtVapourPressureCase3.Text = Math.Round((FinalVapourPressureCase3 * 14.5037738007), 2)
+                                    txtCriticalPressureCase3.Text = Math.Round((FinalCriticalPressureCase3 * 14.5037738007), 2)
+                                    txtViscosityCase3.Text = Format(FinalViscosityCase3 * 10.764, "0.00E-00")
+                                End If
+
+                                txtDensityCase3.Text = Math.Round(FinalDensityCase3, 3)
+                                'Bypassed on  20160928 Call convertDensity(txtDensityCase3, FinalDensityCase3, cmbDensityUnits, FinalInletTemperatureCase3, FinalInletPressureCase3)
+
+
+                                If FinalVapourPressureCase3 > FinalInletPressureCase3 Then
+                                    ToolTip1.Show("Case 3 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase3, 2)
+                                    ToolTip1.Show("Case 3 : Vapour pressure more than Inlet Pressure", txtVapourPressureCase3, 2000)
+                                    'txtInletTemperatureCase3.Focus()
+                                End If
+                            Else
+
+                                TsatCase3 = Tsat_p(FinalInletPressureCase3)
+                                If TsatCase3 > FinalInletTemperatureCase3 Then
+                                    MsgBox("Case 3 : Fluid is not steam")
+                                    txtInletTemperatureCase3.Focus()
+                                Else
+                                    txtTsatInletCase3.Text = Math.Round(RE_converttemperature(TsatCase3, cmbTemperatureUnits), 2)
+                                    'ToutPressureCase3 = Math.Round(RE_converttemperature(T_ph(FinaloutletPressureCase3, h_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)), cmbTemperatureUnits), 2)
+                                    If Model < 4 Then
+                                        ToutPressureCase3 = T_ph(FinaloutletPressureCase3, h_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) + 0.1
+                                        If ToutPressureCase3 > 0.1 Then
+                                            txtTOutPressureCase3.Text = Math.Round(RE_converttemperature(ToutPressureCase3, cmbTemperatureUnits), 2)
+                                        Else
+                                            txtTOutPressureCase3.Text = ""
+                                        End If
+
+                                    End If
+                                    FinalDensityCase3 = rho_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)
+                                    cmbDensityUnits.SelectedIndex = 0
+
+                                    FinalViscosityCase3 = (my_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) / FinalDensityCase3
+                                    cmbViscosityUnits.SelectedIndex = 0
+                                    If cmbUnitsType.SelectedIndex = 1 Then   'FPS
+                                        txtDensityCase3.Text = Math.Round(FinalDensityCase3 * 0.0624, 2)
+                                        txtViscosityCase3.Text = Format(FinalViscosityCase3 * 10.764, "0.00E-00")
+                                    Else
+                                        txtDensityCase3.Text = Math.Round(FinalDensityCase3, 2)
+                                        txtViscosityCase3.Text = Format(FinalViscosityCase3, "0.00E-00")
+                                    End If
+
+
+
+
+                                    If Not txtInletPressureCase3.Text = "" Then
+                                        Kcase3 = Cp_pT(FinalInletPressureCase3, FinalInletTemperatureCase3) / Cv_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)
+                                        txtK_Case3.Text = Math.Round(Kcase3, 2)
+                                        Xcase3 = (FinalPressureDropCase3 / FinalInletPressureCase3)
+                                        txtX_Case3.Text = Math.Round(Xcase3, 2)
+                                        Zcase3 = (FinalInletPressureCase3 * Math.Pow(10, 5)) / (FinalDensityCase3 * 461.8 * (FinalInletTemperatureCase3 + 273.15))
+                                        txtZ_Case3.Text = Math.Round(Zcase3, 2)
+                                    Else
+                                        Kcase3 = 0
+                                        txtK_Case3.Text = ""
+                                        Xcase3 = 0
+                                        txtX_Case3.Text = ""
+                                        Zcase3 = 0
+                                        txtZ_Case3.Text = ""
+                                    End If
+                                End If
+                            End If
+
+                        End If
+                    Else
+                        txtDensityCase3.Text = ""
+                        txtViscosityCase3.Text = ""
+                        txtTOutPressureCase3.Text = ""
+                        txtVapourPressureCase3.Text = ""
+                        txtCriticalPressureCase3.Text = ""
+                    End If
                 End If
-                If cmbFluidType.Text = "InCompressible" Then
-                    If FinalVapourPressureCase1 > FinalOutletPressureCase1 Then
-                        FlashingCase1 = True
-                        lblSeverityCase1.Text = " Flashing"
-                    Else
-                        FlashingCase1 = False
-                        lblSeverityCase1.Text = ""
-                    End If
-                    If FinalVapourPressureCase2 > FinalOutletPressureCase2 Then
-                        FlashingCase2 = True
-                        lblSeverityCase2.Text = " Flashing"
-                    Else
-                        FlashingCase2 = False
-                        lblSeverityCase2.Text = ""
-                    End If
-                    If FinalVapourPressureCase3 > FinaloutletPressureCase3 Then
-                        FlashingCase3 = True
-                        lblSeverityCase3.Text = " Flashing"
-                    Else
-                        FlashingCase3 = False
-                        lblSeverityCase3.Text = ""
-                    End If
+            If cmbFluidType.Text = "InCompressible" Then
+                If FinalVapourPressureCase1 > FinalOutletPressureCase1 Then
+                    FlashingCase1 = True
+                    lblSeverityCase1.Text = " Flashing"
+                Else
+                    FlashingCase1 = False
+                    lblSeverityCase1.Text = ""
                 End If
-                Call CalculateMaxPressTemp()
-                ' txtDesignTemperatureInlet.Text = MaxTemperature
-                Call AllCalculations()
+                If FinalVapourPressureCase2 > FinalOutletPressureCase2 Then
+                    FlashingCase2 = True
+                    lblSeverityCase2.Text = " Flashing"
+                Else
+                    FlashingCase2 = False
+                    lblSeverityCase2.Text = ""
+                End If
+                If FinalVapourPressureCase3 > FinaloutletPressureCase3 Then
+                    FlashingCase3 = True
+                    lblSeverityCase3.Text = " Flashing"
+                Else
+                    FlashingCase3 = False
+                    lblSeverityCase3.Text = ""
+                End If
+            End If
+            Call CalculateMaxPressTemp()
+            ' txtDesignTemperatureInlet.Text = MaxTemperature
+            Call AllCalculations()
             End If
         Catch ex As Exception
             MsgBox("AllTemperatureConversions:  " & ex.TargetSite.ToString & " " & ex.Message)
@@ -1815,15 +1920,23 @@ Public Class frmValveSizing
             If Not txtOutletPressure1.Text = "" Then
                 Tsatout1 = RE_converttemperature(Tsat_p(FinalOutletPressureCase1), cmbTemperatureUnits)
                 txtTsatoutPressureCase1.Text = Math.Round(RE_converttemperature(Tsat_p(FinalOutletPressureCase1), cmbTemperatureUnits), 2)
+            Else
+                Tsatout1 = 0
+                txtTsatoutPressureCase1.Text = ""
             End If
             If Not txtOutletPressure2.Text = "" Then
                 Tsatout2 = RE_converttemperature(Tsat_p(FinalOutletPressureCase2), cmbTemperatureUnits)
                 txtTsatoutPressureCase2.Text = Math.Round(RE_converttemperature(Tsat_p(FinalOutletPressureCase2), cmbTemperatureUnits), 2)
-
+            Else
+                Tsatout2 = 0
+                txtTsatoutPressureCase2.Text = ""
             End If
             If Not txtOutletPressure3.Text = "" Then
                 Tsatout3 = RE_converttemperature(Tsat_p(FinaloutletPressureCase3), cmbTemperatureUnits)
                 txtTsatoutPressureCase3.Text = Math.Round(RE_converttemperature(Tsat_p(FinaloutletPressureCase3), cmbTemperatureUnits), 2)
+            Else
+                Tsatout3 = 0
+                txtTsatoutPressureCase3.Text = ""
 
             End If
 
@@ -1831,14 +1944,23 @@ Public Class frmValveSizing
                 If Not txtInletPressureCase1.Text = "" Then
                     TsatCase1 = Tsat_p(FinalInletPressureCase1)
                     txtTsatInletCase1.Text = Math.Round(RE_converttemperature(TsatCase1, cmbTemperatureUnits), 2)
+                Else
+                    TsatCase1 = 0
+                    txtTsatInletCase1.Text = ""
                 End If
                 If Not txtInletPressureCase2.Text = "" Then
                     TsatCase2 = Tsat_p(FinalInletPressureCase2)
                     txtTsatInletCase2.Text = Math.Round(RE_converttemperature(TsatCase2, cmbTemperatureUnits), 2)
+                Else
+                    TsatCase2 = 0
+                    txtTsatInletCase2.Text = ""
                 End If
                 If Not txtInletPressureCase3.Text = "" Then
                     TsatCase3 = Tsat_p(FinalInletPressureCase3)
                     txtTsatInletCase3.Text = Math.Round(RE_converttemperature(TsatCase3, cmbTemperatureUnits), 2)
+                Else
+                    TsatCase3 = 0
+                    txtTsatInletCase3.Text = ""
                 End If
             End If
         End If
@@ -2004,13 +2126,17 @@ Public Class frmValveSizing
 
     Private Sub frmValveSizing_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         ' If XMLFilename = "" Then
+
         If AbandonSoftware = False Then
             If CLoseSoftware = False Then
                 If MsgBox("Do you want to save the Project file?", MsgBoxStyle.YesNo, "File Not Saved!") = MsgBoxResult.Yes Then
                     Call SaveToolStripMenuItem_Click(sender, e)
+
                 End If
+                StopBaffleCalc = 1
             End If
             HScrollBar_Records.Maximum = Nothing
+            frmRecordsGrid.Visible = True
             ' Me.Visible = False
             'End If
             'If Not CLoseSoftware And e.CloseReason = CloseReason.UserClosing Then
@@ -2055,65 +2181,71 @@ Public Class frmValveSizing
             Dim adapter As New SqlDataAdapter
 
             'Accessories ---> Makes and Models
-            Dim first As String = "select ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Sr_Nos,* from topbonnettype ORDER BY NAME;" 'To be mapped
+            Dim first As String = "select ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Sr_Nos,* from topbonnettype;" 'To be mapped
             Dim second As String = "select ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Sr_Nos,* from endconnection ORDER BY NAME;" 'To be mapped
-            Dim eight As String = "select * from AAPAINT_BODY ORDER BY PARAMETER_VALUE;"
-            Dim nine As String = "select * from AApositioner ORDER BY PARAMETER_VALUE;"
-            Dim ten As String = "select * from AAsov ORDER BY PARAMETER_VALUE;"
-            Dim eleven As String = "select * from Aafr ORDER BY PARAMETER_VALUE;"
-            Dim twelve As String = "select * from Aalr ORDER BY PARAMETER_VALUE;"
-            Dim thirteen As String = "select * from AAlimitswitch ORDER BY PARAMETER_VALUE;"
-            Dim fourteen As String = "select * from AAvolbooster ORDER BY PARAMETER_VALUE;"
-            Dim fifteen As String = "select * from AApostrans ORDER BY PARAMETER_VALUE;"
+            Dim eight As String = "select * from AAPAINT_BODY ORDER BY SR_NO;"
+            Dim nine As String = "select * from AApositioner ORDER BY SR_NO;"
+            Dim ten As String = "select * from AAsov ORDER BY SR_NO;"
+            Dim eleven As String = "select * from Aafr ORDER BY SR_NO;"
+            Dim twelve As String = "select * from Aalr ORDER BY SR_NO;"
+            Dim thirteen As String = "select * from AAlimitswitch ORDER BY SR_NO;"
+            Dim fourteen As String = "select * from AAvolbooster ORDER BY SR_NO;"
+            Dim fifteen As String = "select * from AApostrans ORDER BY SR_NO;"
             Dim sixteen As String = "select ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Sr_Nos,* from vtank ORDER BY NAME;"
-            Dim seventeen As String = "select * from AArobotor ORDER BY PARAMETER_VALUE;"
-            Dim eighteen As String = "select * from AAitop ORDER BY PARAMETER_VALUE;"
-            Dim nineteen As String = "select * from AAqev ORDER BY PARAMETER_VALUE;"
-            Dim twenty As String = "select * from AAcertification ORDER BY PARAMETER_VALUE;"
-            Dim twoone As String = "select * from AAhandwheel ORDER BY PARAMETER_VALUE;"
-            Dim twothree As String = "select * from AAguiding ORDER BY PARAMETER_VALUE;"
-            Dim twofour As String = "SELECT * FROM AAPositionerMake ORDER BY PARAMETER_VALUE; ;"
-            Dim twofive As String = "SELECT * FROM AAfrMake ORDER BY PARAMETER_VALUE; ;"
-            Dim twosix As String = "SELECT * FROM AAlrMake ORDER BY PARAMETER_VALUE; ;"
-            Dim twoseven As String = "SELECT * FROM AASovMake ORDER BY PARAMETER_VALUE; ;"
-            Dim twoeight As String = "SELECT * FROM AAVolboosterMake ORDER BY PARAMETER_VALUE; ;"
-            Dim twonine As String = "SELECT * FROM AAlimitswitchmake ORDER BY PARAMETER_VALUE; ;"
-            Dim thirty As String = "SELECT * FROM AAqevmake ORDER BY PARAMETER_VALUE;"
-            Dim fortysix As String = "select * from AATUBING ORDER BY PARAMETER_VALUE;"
-            Dim fortyseven As String = "SELECT * FROM AATUBINGMAKE ORDER BY PARAMETER_VALUE;"
-            Dim fortyeight As String = "SELECT * FROM AATUBING_SIZE ORDER BY PARAMETER_VALUE;"
-            Dim fortynine As String = "SELECT * FROM AATUBING_MOC ORDER BY PARAMETER_VALUE;"
-            Dim fifty As String = "SELECT * FROM AAIRFAIL ORDER BY PARAMETER_VALUE;"
+            Dim seventeen As String = "select * from AArobotor ORDER BY SR_NO;"
+            Dim eighteen As String = "select * from AAitop ORDER BY SR_NO;"
+            Dim nineteen As String = "select * from AAqev ORDER BY SR_NO;"
+            Dim twenty As String = "select * from AAcertification ORDER BY SR_NO;"
+            Dim twoone As String = "select * from AAhandwheel ORDER BY SR_NO;"
+            Dim twothree As String = "select * from AAguiding ORDER BY SR_NO;"
+            Dim twofour As String = "SELECT * FROM AAPositionerMake ORDER BY SR_NO;"
+            Dim twofive As String = "SELECT * FROM AAfrMake ORDER BY SR_NO;"
+            Dim twosix As String = "SELECT * FROM AAlrMake ORDER BY SR_NO;"
+            Dim twoseven As String = "SELECT * FROM AASovMake ORDER BY SR_NO;"
+            Dim twoeight As String = "SELECT * FROM AAVolboosterMake ORDER BY SR_NO;"
+            Dim twonine As String = "SELECT * FROM AAlimitswitchmake ORDER BY SR_NO;"
+            Dim thirty As String = "SELECT * FROM AAqevmake ORDER BY SR_NO;"
+            Dim fortysix As String = "select * from AATUBING ORDER BY SR_NO;"
+            Dim fortyseven As String = "SELECT * FROM AATUBINGMAKE ORDER BY SR_NO;"
+            Dim fortyeight As String = "SELECT * FROM AATUBING_SIZE ORDER BY SR_NO;"
+            Dim fortynine As String = "SELECT * FROM AATUBING_MOC ORDER BY SR_NO;"
+            Dim fifty As String = "SELECT * FROM AAIRFAIL ORDER BY SR_NO;"
+            Dim fiveone As String = "SELECT * FROM AAITOPMAKE ORDER BY PARAMETER_VALUE;"
+            Dim fivetwo As String = "SELECT * FROM AAPOSTRANSMAKE ORDER BY PARAMETER_VALUE;"
+            Dim fivethree As String = "SELECT * FROM AAROBOTORMAKE ORDER BY PARAMETER_VALUE;"
 
             '----MATERIALS----
 
             'ECOTROL
-            Dim third As String = "select * from AABODYMAT ORDER BY PARAMETER_VALUE;"
-            Dim four As String = "select * from AAPLUG ORDER BY PARAMETER_VALUE;"
-            Dim five As String = "select * from AASEAT ORDER BY PARAMETER_VALUE;"
-            Dim six As String = "select * from AATOPMAT ORDER BY PARAMETER_VALUE;"
-            Dim seven As String = "select * from AAGASKETMAT ORDER BY PARAMETER_VALUE;"
+            Dim third As String = "select * from AABODYMAT ORDER BY SR_NO;"
+            Dim four As String = "select * from AAPLUG ORDER BY SR_NO;"
+            Dim five As String = "select * from AASEAT ORDER BY SR_NO;"
+            Dim six As String = "select * from AATOPMAT ORDER BY SR_NO;"
+            Dim seven As String = "select * from AAGASKETMAT ORDER BY SR_NO;"
 
             'FMCV
-            Dim threeone As String = "SELECT * FROM AABODYMAT_FMCV ORDER BY PARAMETER_VALUE"
-            Dim threetwo As String = "SELECT * FROM AATOPMAT_FMCV ORDER BY PARAMETER_VALUE"
-            Dim threethree As String = "SELECT * FROM AAPLUG_FMCV ORDER BY PARAMETER_VALUE"
-            Dim threefour As String = "SELECT * FROM AASEAT_FMCV ORDER BY PARAMETER_VALUE"
-            Dim threefive As String = "SELECT * FROM AAGASKETMAT_FMCV ORDER BY PARAMETER_VALUE"
+            Dim threeone As String = "SELECT * FROM AABODYMAT_FMCV ORDER BY SR_NO;"
+            Dim threetwo As String = "SELECT * FROM AATOPMAT_FMCV ORDER BY SR_NO;"
+            Dim threethree As String = "SELECT * FROM AAPLUG_FMCV ORDER BY SR_NO;"
+            Dim threefour As String = "SELECT * FROM AASEAT_FMCV ORDER BY SR_NO;"
+            Dim threefive As String = "SELECT * FROM AAGASKETMAT_FMCV ORDER BY SR_NO;"
 
             '3WAY
-            Dim threesix As String = "SELECT * FROM AABODYMAT_3WAY ORDER BY PARAMETER_VALUE"
-            Dim threeseven As String = "SELECT * FROM AATOPMAT_3WAY ORDER BY PARAMETER_VALUE"
-            Dim threeeight As String = "SELECT * FROM AAPLUG_3WAY ORDER BY PARAMETER_VALUE"
-            Dim threenine As String = "SELECT * FROM AASEAT_3WAY ORDER BY PARAMETER_VALUE"
-            Dim forty As String = "SELECT * FROM AAGASKETMAT_3WAY ORDER BY PARAMETER_VALUE"
+            Dim threesix As String = "SELECT * FROM AABODYMAT_3WAY ORDER BY SR_NO;"
+            Dim threeseven As String = "SELECT * FROM AATOPMAT_3WAY ORDER BY SR_NO;"
+            Dim threeeight As String = "SELECT * FROM AAPLUG_3WAY ORDER BY SR_NO;"
+            Dim threenine As String = "SELECT * FROM AASEAT_3WAY ORDER BY SR_NO;"
+            Dim forty As String = "SELECT * FROM AAGASKETMAT_3WAY ORDER BY SR_NO;"
 
             'PRDS
-            Dim fortyone As String = "SELECT * FROM AABODYMAT_PRDS ORDER BY PARAMETER_VALUE"
-            Dim fortytwo As String = "SELECT * FROM AATOPMAT_PRDS ORDER BY PARAMETER_VALUE"
-            Dim fortythree As String = "SELECT * FROM AAPLUG_PRDS ORDER BY PARAMETER_VALUE"
-            Dim fortyfour As String = "SELECT * FROM AASEAT_PRDS ORDER BY PARAMETER_VALUE"
-            Dim fortyfive As String = "SELECT * FROM AAGASKETMAT_PRDS ORDER BY PARAMETER_VALUE"
+            Dim fortyone As String = "SELECT * FROM AABODYMAT_PRDS ORDER BY SR_NO;"
+            Dim fortytwo As String = "SELECT * FROM AATOPMAT_PRDS ORDER BY SR_NO;"
+            Dim fortythree As String = "SELECT * FROM AAPLUG_PRDS ORDER BY SR_NO;"
+            Dim fortyfour As String = "SELECT * FROM AASEAT_PRDS ORDER BY SR_NO;"
+            Dim fortyfive As String = "SELECT * FROM AAGASKETMAT_PRDS ORDER BY SR_NO;"
+
+            'Dim fiftyone As String = "SELECT * FROM AACONSTRAINT_PARAMETER"
+            'Dim fiftytwo As String = "SELECT * FROM AACONSTRAINT_ALLOWED_DETAIL"
 
             'Dim threeone As String = "SELECT * FROM AARobotorMake ORDER BY PARAMETER_VALUE ;"
             'Dim threetwo As String = "SELECT * FROM AAPostransMake ORDER BY PARAMETER_VALUE ;"
@@ -2133,6 +2265,7 @@ Public Class frmValveSizing
             con = New SqlConnection(constr)
 
             con.Open()
+            ds_AccessoriesMat = New DataSet
 
             'Table 1
             command = New SqlCommand(first, con)
@@ -2330,6 +2463,47 @@ Public Class frmValveSizing
             'Table 49
             adapter.SelectCommand.CommandText = fifty
             adapter.Fill(ds_AccessoriesMat, "AAIRFAIL")
+
+            'Table 50
+            adapter.SelectCommand.CommandText = fiveone
+            adapter.Fill(ds_AccessoriesMat, "AAITOPMAKE")
+
+            'Table 51
+            adapter.SelectCommand.CommandText = fivetwo
+            adapter.Fill(ds_AccessoriesMat, "AAPOSTRANSMAKE")
+
+            'Table 52
+            adapter.SelectCommand.CommandText = fivethree
+            adapter.Fill(ds_AccessoriesMat, "AAROBOTORMAKE")
+
+            ds_Positioner = New DataSet
+            ds_AFR = New DataSet
+            ds_ALR = New DataSet
+            ds_SOV = New DataSet
+            ds_LIMITSWITCH = New DataSet
+            ds_VOLBOOSTER = New DataSet
+            ds_QEV = New DataSet
+            ds_TUBING = New DataSet
+            ds_ITOP = New DataSet
+            ds_POSTRANS = New DataSet
+            ds_ROBOTOR = New DataSet
+
+            Try
+                LoadDataSet(ds_AccessoriesMat.Tables(23), "AAPOSITIONER", ds_Positioner)
+                LoadDataSet(ds_AccessoriesMat.Tables(24), "AAFR", ds_AFR)
+                LoadDataSet(ds_AccessoriesMat.Tables(25), "AALR", ds_ALR)
+                LoadDataSet(ds_AccessoriesMat.Tables(26), "AASOV", ds_SOV)
+                LoadDataSet(ds_AccessoriesMat.Tables(28), "AALIMITSWITCH", ds_LIMITSWITCH)
+                LoadDataSet(ds_AccessoriesMat.Tables(27), "AAVOLBOOSTER", ds_VOLBOOSTER)
+                LoadDataSet(ds_AccessoriesMat.Tables(29), "AAQEV", ds_QEV)
+                LoadDataSet(ds_AccessoriesMat.Tables(45), "AATUBING", ds_TUBING)
+                LoadDataSet(ds_AccessoriesMat.Tables(49), "AAITOP", ds_ITOP)
+                LoadDataSet(ds_AccessoriesMat.Tables(50), "AAPOSTRANS", ds_POSTRANS)
+                LoadDataSet(ds_AccessoriesMat.Tables(51), "AAROBOTOR", ds_ROBOTOR)
+            Catch ex As Exception
+                MsgBox("INPUT DATABASE OUTDATED.." + Environment.NewLine + "Updating Database", MsgBoxStyle.MsgBoxSetForeground)
+                frmRecordsGrid.btnSyncDatabase.PerformClick()
+            End Try
 
             ''Table 36
             'adapter.SelectCommand.CommandText = threeone
@@ -2555,6 +2729,24 @@ Public Class frmValveSizing
             cmbAirFailure.AutoCompleteMode = AutoCompleteMode.SuggestAppend
             cmbAirFailure.AutoCompleteSource = AutoCompleteSource.ListItems
 
+            frmAccessories.cmbItoPMake.DisplayMember = "PARAMETER_VALUE"
+            frmAccessories.cmbItoPMake.ValueMember = "Sr_No"
+            frmAccessories.cmbItoPMake.DataSource = ds_AccessoriesMat.Tables(49)
+            frmAccessories.cmbItoPMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            frmAccessories.cmbItoPMake.AutoCompleteSource = AutoCompleteSource.ListItems
+
+            frmAccessories.cmbPosnTransMake.DisplayMember = "PARAMETER_VALUE"
+            frmAccessories.cmbPosnTransMake.ValueMember = "Sr_No"
+            frmAccessories.cmbPosnTransMake.DataSource = ds_AccessoriesMat.Tables(50)
+            frmAccessories.cmbPosnTransMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            frmAccessories.cmbPosnTransMake.AutoCompleteSource = AutoCompleteSource.ListItems
+
+            frmAccessories.cmbPressRegulatorMake.DisplayMember = "PARAMETER_VALUE"
+            frmAccessories.cmbPressRegulatorMake.ValueMember = "Sr_No"
+            frmAccessories.cmbPressRegulatorMake.DataSource = ds_AccessoriesMat.Tables(51)
+            frmAccessories.cmbPressRegulatorMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            frmAccessories.cmbPressRegulatorMake.AutoCompleteSource = AutoCompleteSource.ListItems
+
             'ComboBox32.DataSource = ds.Tables(31)
             'ComboBox32.ValueMember = "Sr_Nos"
             'ComboBox32.DisplayMember = "valvesize_inches"
@@ -2591,12 +2783,91 @@ Public Class frmValveSizing
             'ComboBox40.ValueMember = "Sr_Nos"
             'ComboBox40.DisplayMember = "temperature"
 
+            'Dim cnstr As String = Nothing
+
+            'For i As Integer = 0 To ds_AccessoriesMat.Tables(24).Rows.Count - 1
+            '    Dim row1 As DataRow = ds_AccessoriesMat.Tables(24).Rows(i)
+            '    Dim model As Object = row1.Item("MODEL_CODE")
+            '    Dim category As Object = row1.Item("CATEGORY_CODE")
+            '    Dim parameter As Object = row1.Item("PARAMETER_CODE")
+            '    Dim parameter_value As Object = row1.Item("PARAMETER_VALUE_CODE")
+            '    For j As Integer = 0 To ds_AccessoriesMat.Tables(49).Rows.Count - 1
+            '        Dim row2 As DataRow = ds_AccessoriesMat.Tables(49).Rows(j)
+            '        Dim model_2 As Object = row2.Item("PCP_MODEL_NO")
+            '        Dim category_2 As Object = row2.Item("PCP_CATEGORY_CODE")
+            '        Dim parameter_2 As Object = row2.Item("PCP_PARAMETER_CODE")
+            '        Dim parameter_value_2 As Object = row2.Item("PCP_PARAMETER_VALUE_CODE")
+            '        'If j = 187 Or j = 188 Or j = 186 Then
+            '        '    MessageBox.Show(model Is model_2)
+            '        'End If
+            '        If model Is model_2 And category Is category_2 And parameter Is parameter_2 And parameter_value Is parameter_value_2 Then
+            '            cnstr = row2.Item("PCP_CONSTRAINT_ID")
+            '        End If
+            '        If Not cnstr = Nothing Then
+            '            Exit For
+            '        End If
+            '    Next
+            'Next
+
+            'For Each row1 As DataRow In ds_AccessoriesMat.Tables("POSITIONERMAKE").Rows
+            '    For Each row2 As DataRow In ds_AccessoriesMat.Tables("AACONSTRAINT_PARAMETER").Rows
+            '        If row1.Item("MODEL_CODE") = row2.Item("PCP_MODEL_NO") And row1.Item("CATEGORY_CODE") = row2.Item("PCP_CATEGORY_CODE") And row1.Item("PARAMETER_CODE") = row2.Item("PCP_PARAMETER_CODE") And row1.Item("PARAMETER_VALUE_CODE") = row2.Item("PCP_PARAMETER_VALUE_CODE") Then
+            '            cnstr = row2.Item("PCP_CONSTRAINT_ID")
+            '        End If
+            '        If Not cnstr = Nothing Then
+            '            Exit For
+            '        End If
+            '    Next
+            '    ''Here we have a constraint ID for the positioner make of the current row
+            '    'Dim dt As New DataTable
+            '    'For Each rowss As DataRow In ds_AccessoriesMat.Tables("AACONSTRAINT_ALLOWED_DETAIL").Rows
+            '    '    If rowss.Item("PAD_CONSTRAINT_ID") = cnstr Then
+            '    '        For Each rowsss As DataRow In ds_AccessoriesMat.Tables(8).Rows
+            '    '            If rowsss.Item("MODEL_CODE") = rowss.Item("PAD_MODEL_NO") And rowsss.Item("CATEGORY_CODE") = rowss.Item("PAD_CATEGORY_CODE") And rowsss.Item("PARAMETER_CODE") = rowss.Item("PAD_PARAMETER_CODE") And rowsss.Item("PARAMETER_VALUE_CODE") = rowss.Item("PAD_PARAMETER_VALUE_CODE") Then
+            '    '                dt.Rows.Add(rowsss.ItemArray)
+            '    '            End If
+            '    '        Next
+            '    '    End If
+            '    'Next
+            'Next
+
             adapter.Dispose()
             command.Dispose()
             con.Dispose()
         Catch ex As Exception
             MsgBox("SQL_DATALOAD: ", ex.Message + ex.StackTrace)
         End Try
+    End Sub
+
+    Public Sub LoadDataSet(dt As DataTable, cat As String, ds As DataSet)
+        'Try
+        For Each row In dt.Rows
+            Dim constrs As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+            Dim cmd As SqlCommand
+            Dim ad As New SqlDataAdapter
+            Dim name As String = row.Item("PARAMETER_VALUE")
+            name = name.ToString.Replace("/", "")
+            name = name.ToString.Replace(" ", "")
+            name = name.ToString.Replace(".", "")
+            name = name.ToString.Replace("\", "")
+            name = name.ToString.Replace("&", "")
+            name = name.ToString.Replace("(", "")
+            name = name.ToString.Replace(")", "")
+            name = name.ToString.Replace("-", "_")
+            Dim query As String = "SELECT * FROM " + cat + "_" + name + " ;"
+
+            Using cons As New SqlConnection(constrs)
+                cons.Open()
+                cmd = New SqlCommand(query, cons)
+                ad.SelectCommand = cmd
+                ad.Fill(ds, cat + "_" + name)
+
+                cons.Close()
+            End Using
+        Next
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace)
+        'End Try
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -3998,6 +4269,7 @@ Public Class frmValveSizing
                     chkMolecularWeight.Checked = False
                     chkMolecularWeight.Visible = False
                     lblMolecularUnit.Visible = False
+                    txtMolecularWeight.Visible = False
                     txtFlashingPercentageCase1.Visible = False
                     lblTsatoutPressure.Visible = False
                     txtTsatoutPressureCase1.Visible = False
@@ -4161,7 +4433,7 @@ Public Class frmValveSizing
                 End If
 
             cmbFlowrate.SelectedIndex = sel_index
-            Call SelectFlowUnits()
+            If LoadingProjectFile = False Then Call SelectFlowUnits()
 
             LoadingForm = True
             txtMedium.Text = cmbFluid.Text
@@ -4235,24 +4507,24 @@ Public Class frmValveSizing
                 End If
                 If Not Zcase1 = 0 And Not Kcase1 = 0 Then
                     If CompressibleChocked_Case1 = 0 Then
-                        FinalKVCase1 = (FinalFlowrateCase1 / (110 * FinalInletPressureCase1 * Ycase1)) * (Math.Sqrt(((FinalInletTemperatureCase1 + 273.15) * Zcase1) / (Xcase1 * MolecularWeight)))
+                        FinalKVCase1 = (FinalFlowrateCase1 / (110 * FinalInletPressureCase1 * Ycase1)) * (Math.Sqrt(((FinalInletTemperatureCase1 + 273.15) * Zcase1) / (Xcase1 * MolecularWeightCase1)))
                     Else
-                        FinalKVCase1 = (FinalFlowrateCase1 / (110 * FinalInletPressureCase1 * YChokecase1)) * (Math.Sqrt(((FinalInletTemperatureCase1 + 273.15) * Zcase1) / (XChokecase1 * MolecularWeight)))
+                        FinalKVCase1 = (FinalFlowrateCase1 / (110 * FinalInletPressureCase1 * YChokecase1)) * (Math.Sqrt(((FinalInletTemperatureCase1 + 273.15) * Zcase1) / (XChokecase1 * MolecularWeightCase1)))
                     End If
 
                 End If
                 If Not Zcase2 = 0 And Not Kcase2 = 0 Then
                     If CompressibleChocked_Case2 = 0 Then
-                        FinalKVCase2 = (FinalFlowrateCase2 / (110 * FinalInletPressureCase2 * Ycase2)) * (Math.Sqrt(((FinalInletTemperatureCase2 + 273.15) * Zcase2) / (Xcase2 * MolecularWeight)))
+                        FinalKVCase2 = (FinalFlowrateCase2 / (110 * FinalInletPressureCase2 * Ycase2)) * (Math.Sqrt(((FinalInletTemperatureCase2 + 273.15) * Zcase2) / (Xcase2 * MolecularWeightCase2)))
                     Else
-                        FinalKVCase2 = (FinalFlowrateCase2 / (110 * FinalInletPressureCase2 * YChokecase2)) * (Math.Sqrt(((FinalInletTemperatureCase2 + 273.15) * Zcase2) / (XChokecase2 * MolecularWeight)))
+                        FinalKVCase2 = (FinalFlowrateCase2 / (110 * FinalInletPressureCase2 * YChokecase2)) * (Math.Sqrt(((FinalInletTemperatureCase2 + 273.15) * Zcase2) / (XChokecase2 * MolecularWeightCase2)))
                     End If
                 End If
                 If Not Zcase3 = 0 And Not Kcase3 = 0 Then
                     If CompressibleChocked_Case3 = 0 Then
-                        FinalKVCase3 = (FinalFlowrateCase3 / (110 * FinalInletPressureCase3 * Ycase3)) * (Math.Sqrt(((FinalInletTemperatureCase3 + 273.15) * Zcase3) / (Xcase3 * MolecularWeight)))
+                        FinalKVCase3 = (FinalFlowrateCase3 / (110 * FinalInletPressureCase3 * Ycase3)) * (Math.Sqrt(((FinalInletTemperatureCase3 + 273.15) * Zcase3) / (Xcase3 * MolecularWeightCase3)))
                     Else
-                        FinalKVCase3 = (FinalFlowrateCase3 / (110 * FinalInletPressureCase3 * YChokecase3)) * (Math.Sqrt(((FinalInletTemperatureCase3 + 273.15) * Zcase3) / (XChokecase3 * MolecularWeight)))
+                        FinalKVCase3 = (FinalFlowrateCase3 / (110 * FinalInletPressureCase3 * YChokecase3)) * (Math.Sqrt(((FinalInletTemperatureCase3 + 273.15) * Zcase3) / (XChokecase3 * MolecularWeightCase3)))
                     End If
 
                 End If
@@ -4456,6 +4728,28 @@ Public Class frmValveSizing
         End Try
     End Sub
 
+    Private Sub txtDesignTemperatureInlet_TextChanged(sender As Object, e As EventArgs) Handles txtDesignTemperatureInlet.TextChanged
+        Try
+            If LoadingProjectFile = False And LoadingForm = True Then
+                If cmbPacking.SelectedIndex < 3 And FinalDesignTemperatureInlet >= 180 Then
+                    If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
+                        MsgBox("PTFE material suitable up to 180 degC ")
+
+                        txtErrors.Text = "PTFE material suitable up to 180 °C"
+                    Else
+                        MsgBox("PTFE material suitable up to 356 deg F")
+                        txtErrors.Text = "PTFE material suitable up to 356°F/ 815.6°R  "
+
+                    End If
+                    cmbPacking.SelectedIndex = 3        'Graphite
+                End If
+            End If
+
+        Catch ex As Exception
+            MsgBox("Design Temperature : " & ex.Message)
+        End Try
+    End Sub
+
     Private Sub txtDesignTemperatureInlet_Validated(sender As Object, e As EventArgs) Handles txtDesignTemperatureInlet.Validated, cmbMOC.TextChanged, txtDesignPressureInlet.Validated
         Try
             If LoadingForm = True Then
@@ -4485,6 +4779,7 @@ Public Class frmValveSizing
                         End If
                     End If
 
+                    
                     Call AllCalculations()      '17 May 2023 
 
                     'Call CalculateRatings()
@@ -4673,7 +4968,7 @@ Public Class frmValveSizing
                     cmbInletPipeSchedule.Enabled = True
                     btnAcceptVelocityRule.Enabled = True
                     cmbSelectedTrim.Enabled = True
-                    If Not cmbSuggestedRating.Text = "" Then
+                    If Not cmbSuggestedRating.Text = "" Or Not cmbSuggestedRating.Text = "--Select--" Then
                         SuggestedRating = (cmbSuggestedRating.Text)
                     Else
                         SuggestedRating = 0
@@ -5124,9 +5419,9 @@ Public Class frmValveSizing
                     End If
 
                 Else  'for gas  
-                    SoundVelocityCase1 = (Math.Sqrt((Kcase1 * 8314 * (FinalInletTemperatureCase1 + 273.15)) / MolecularWeight))
-                    SoundVelocityCase2 = (Math.Sqrt((Kcase2 * 8314 * (FinalInletTemperatureCase2 + 273.15)) / MolecularWeight))
-                    SoundVelocityCase3 = (Math.Sqrt((Kcase3 * 8314 * (FinalInletTemperatureCase3 + 273.15)) / MolecularWeight))
+                    SoundVelocityCase1 = (Math.Sqrt((Kcase1 * 8314 * (FinalInletTemperatureCase1 + 273.15)) / MolecularWeightCase1))
+                    SoundVelocityCase2 = (Math.Sqrt((Kcase2 * 8314 * (FinalInletTemperatureCase2 + 273.15)) / MolecularWeightCase2))
+                    SoundVelocityCase3 = (Math.Sqrt((Kcase3 * 8314 * (FinalInletTemperatureCase3 + 273.15)) / MolecularWeightCase3))
                     FluidVelocityCase1 = 60  ' Pipe velocity should not be greater than 60 m/s as per research paper
                     FluidVelocityCase2 = 60
                     FluidVelocityCase3 = 60
@@ -5250,12 +5545,12 @@ Public Class frmValveSizing
                     End If
 
                 Else  'for gas  
-                    SoundVelocityCase1 = (Math.Sqrt((Kcase1 * 8314 * (FinalInletTemperatureCase1 + 273.15)) / MolecularWeight))
-                    SoundVelocityCase2 = (Math.Sqrt((Kcase2 * 8314 * (FinalInletTemperatureCase2 + 273.15)) / MolecularWeight))
-                    SoundVelocityCase3 = (Math.Sqrt((Kcase3 * 8314 * (FinalInletTemperatureCase3 + 273.15)) / MolecularWeight))
-                    BaffleSoundVelocityCase1 = (Math.Sqrt((Kcase1 * 8314 * (FinalInletTemperatureCase1 + 273.15)) / MolecularWeight))
-                    BaffleSoundVelocityCase2 = (Math.Sqrt((Kcase2 * 8314 * (FinalInletTemperatureCase2 + 273.15)) / MolecularWeight))
-                    BaffleSoundVelocityCase3 = (Math.Sqrt((Kcase3 * 8314 * (FinalInletTemperatureCase3 + 273.15)) / MolecularWeight))
+                    SoundVelocityCase1 = (Math.Sqrt((Kcase1 * 8314 * (FinalInletTemperatureCase1 + 273.15)) / MolecularWeightCase1))
+                    SoundVelocityCase2 = (Math.Sqrt((Kcase2 * 8314 * (FinalInletTemperatureCase2 + 273.15)) / MolecularWeightCase2))
+                    SoundVelocityCase3 = (Math.Sqrt((Kcase3 * 8314 * (FinalInletTemperatureCase3 + 273.15)) / MolecularWeightCase3))
+                    BaffleSoundVelocityCase1 = (Math.Sqrt((Kcase1 * 8314 * (FinalInletTemperatureCase1 + 273.15)) / MolecularWeightCase1))
+                    BaffleSoundVelocityCase2 = (Math.Sqrt((Kcase2 * 8314 * (FinalInletTemperatureCase2 + 273.15)) / MolecularWeightCase2))
+                    BaffleSoundVelocityCase3 = (Math.Sqrt((Kcase3 * 8314 * (FinalInletTemperatureCase3 + 273.15)) / MolecularWeightCase3))
                     FluidVelocityCase1 = 60  ' Pipe velocity should not be greater than 60 m/s as per research paper
                     FluidVelocityCase2 = 60
                     FluidVelocityCase3 = 60
@@ -5410,6 +5705,7 @@ Public Class frmValveSizing
     Public Function FindFlashingFlowrate(ByVal OutletPressure As Single, ByVal InletPressure As Single, ByVal Temperature As Single, density As Single, ByVal InletFlowrate As Single, ByVal DrynessFraction As Single) As Single
         Dim SaturationOutletTemperature, hf1, hf2, hg, hfg As Single
         Dim VoulmetricDensity, MassFlowrate, SteamMassFlow, LiquidMassFlow, SpecificVolume As Single
+        Dim MolArray = New Single() {3}
         'Dim i As Integer
         Try
 
@@ -5454,7 +5750,8 @@ Public Class frmValveSizing
             LiquidMassFlow = LiquidMassFlow / (density * 1000)
 
             If Not cmbFluid.SelectedIndex = 0 Then  'For Other Liquids 
-                density = (OutletPressure * 100000 * MolecularWeight) / (8314 * (Temperature + 273.15) * 1)
+                MolArray = {MolecularWeightCase1, MolecularWeightCase2, MolecularWeightCase3}
+                density = (OutletPressure * 100000 * (MolArray.Max)) / (8314 * (Temperature + 273.15) * 1)
                 SpecificVolume = 1 / density
             End If
 
@@ -5849,35 +6146,35 @@ Public Class frmValveSizing
             If NextMaxKVcount = 0 Then                               'For Finding 1st 
                 For i = 1 To LastRow  'Start from second row of data 
                     '    If MaximumKV <= CSng(.Cells(i, 5).value) And CSng(.Cells(i, 5).value) > KVmax Then
-                    If MaximumKV <= tempObject(i) And tempObject(i) > KVmax Then
-                        MaxKVfromRatingClass = tempObject(i - 1)
-                        SeatDia = Seatobject(i - 1) 'CSng(.Cells(i - 1, 3).value)  'This value is needed for Renoylds Number Calculations
-                        PrBl_SeatDia = PrBl_Seatobject(i - 1)
-                        Microtrim = TrimType_Sheet(i - 1)
-                        NextMaxKVcount = NextMaxKVcount + 1   ' So next time start with the next of this selected i 
-                        Exit For
-                    End If
+                    '  If MaximumKV <= tempObject(i) And tempObject(i) > KVmax Then
+                    MaxKVfromRatingClass = tempObject(i - 1)
+                    SeatDia = Seatobject(i - 1) 'CSng(.Cells(i - 1, 3).value)  'This value is needed for Renoylds Number Calculations
+                    PrBl_SeatDia = PrBl_Seatobject(i - 1)
+                    Microtrim = TrimType_Sheet(i - 1)
+                    NextMaxKVcount = NextMaxKVcount + 1   ' So next time start with the next of this selected i 
+                    Exit For
+                    '  End If
                 Next
             Else
                 For i = 1 To LastRow
                     If MaxKVfromRatingClass < tempObject(i) Then 'CSng(.Cells(i, 5).value) Then
-
-                        For j = 0 To 4
+                        AcceptedKv_Count = AcceptedKv_Count + 1
+                        For j = 0 To 40
                             If MaxKVsfromChart(j) = tempObject(i) Then ' CSng(.Cells(i, 5).value) Then
                                 Exit For
                             End If
 
                         Next
-                        If j > 4 Then
+                        If j > 40 Then
                             MaxKVfromRatingClass = tempObject(i)  'CSng(.Cells(i, 5).value)
                             SeatDia = Seatobject(i) 'CSng(.Cells(i, 3).value)  'This value is needed for Renoylds Number Calculations
                             PrBl_SeatDia = PrBl_Seatobject(i)
                             Microtrim = TrimType_Sheet(i)
                             Exit For
                         End If
-
                     End If
                 Next
+                
             End If
             ' MsgBox(MaxKVfromRatingClass)
             '  End With
@@ -6223,7 +6520,7 @@ Public Class frmValveSizing
                 If cmbFluidType.Text = "InCompressible" Then
                     FinalKVCase1 = (FinalFlowrateCase1 / (N1 * FRCase1)) * Math.Sqrt(FinalDensityCase1 / FinalPressureDropCase1)
                 Else
-                    FinalKVCase1 = (FinalFlowrateCase1 / (N1 * FRCase1)) * Math.Sqrt(((FinalInletTemperatureCase1 + 273.15) / (FinalPressureDropCase1 * MolecularWeight * (FinalInletPressureCase1 + FinalOutletPressureCase1))))
+                    FinalKVCase1 = (FinalFlowrateCase1 / (N1 * FRCase1)) * Math.Sqrt(((FinalInletTemperatureCase1 + 273.15) / (FinalPressureDropCase1 * MolecularWeightCase1 * (FinalInletPressureCase1 + FinalOutletPressureCase1))))
                 End If
 
             End If
@@ -6247,7 +6544,7 @@ Public Class frmValveSizing
                 If cmbFluidType.Text = "InCompressible" Then
                     FinalKVCase2 = (FinalFlowrateCase2 / (N1 * FRCase2)) * Math.Sqrt(FinalDensityCase2 / FinalPressureDropCase2)
                 Else
-                    FinalKVCase2 = (FinalFlowrateCase2 / (N1 * FRCase2)) * Math.Sqrt(((FinalInletTemperatureCase2 + 273.15) / (FinalPressureDropCase2 * MolecularWeight * (FinalInletPressureCase2 + FinalOutletPressureCase2))))
+                    FinalKVCase2 = (FinalFlowrateCase2 / (N1 * FRCase2)) * Math.Sqrt(((FinalInletTemperatureCase2 + 273.15) / (FinalPressureDropCase2 * MolecularWeightCase2 * (FinalInletPressureCase2 + FinalOutletPressureCase2))))
                 End If
             End If
 
@@ -6270,7 +6567,7 @@ Public Class frmValveSizing
                 If cmbFluidType.Text = "InCompressible" Then
                     FinalKVCase3 = (FinalFlowrateCase3 / (N1 * FRCase3)) * Math.Sqrt(FinalDensityCase3 / FinalPressureDropCase3)
                 Else
-                    FinalKVCase3 = (FinalFlowrateCase3 / (N1 * FRCase3)) * Math.Sqrt(((FinalInletTemperatureCase3 + 273.15) / (FinalPressureDropCase3 * MolecularWeight * (FinalInletPressureCase3 + FinaloutletPressureCase3))))
+                    FinalKVCase3 = (FinalFlowrateCase3 / (N1 * FRCase3)) * Math.Sqrt(((FinalInletTemperatureCase3 + 273.15) / (FinalPressureDropCase3 * MolecularWeightCase3 * (FinalInletPressureCase3 + FinaloutletPressureCase3))))
                 End If
 
             End If
@@ -6548,9 +6845,24 @@ Public Class frmValveSizing
         Return Nothing
     End Function
     Public Function CalculateKvforPS1() As Boolean
-        Dim LastMaximumKV As Single
+        Dim LastMaximumKV, SuggestedKvfromChart As Single
         Dim KvOverrideText, ValveSizeOverrideText As String
+        Dim SuggkVFound As Boolean = False
+
+        SuggestedKvfromChart = 0
+
         Try
+            AcceptedKv_Count = 0
+
+            ReDim MaxKVsfromChart(40)
+            ReDim MaxCvsfromChart(40)
+            ReDim FinalShowKVCase1(40)
+            ReDim FinalShowKVCase2(40)
+            ReDim FinalShowKVCase3(40)
+            ReDim MicroTrim_Array(40)
+            ReDim SeatDia_array(40)
+            ReDim PrBl_SeatDia_array(40)
+
             Array.Clear(MaxKVsfromChart, 0, MaxKVsfromChart.Length)
             Array.Clear(MaxCvsfromChart, 0, MaxCvsfromChart.Length)
             Array.Clear(FinalShowKVCase1, 0, FinalShowKVCase1.Length)
@@ -6580,66 +6892,74 @@ Public Class frmValveSizing
             NextMaxKVcount = 0
             FinalKVCount = 0
             If FindingKVMax() Then
-                Do While FinalKVCount < 5
+                Do While FinalKVCount < 40
                     FindMaxKVfromChart()
                     NEwKVfromKVmax(5, MaxKVfromRatingClass)
-                    FindingKVMax()
-                    If MaximumKV < MaxKVfromRatingClass Then
-                        If LastMaximumKV = MaxKVfromRatingClass Then
-                            Exit Do
-                        End If
-                        CalculateKVfromRenoyldsNo()
-                        FindingKVMax()
-                        If MaximumKV < MaxKVfromRatingClass Then        'This means KV is acceptable and can be added to valid 5 KV list.
-                            'Add the KV into final KV list of 5
-                            ValveSizeOverrideText = cmbValveSizeOverride.Text    'this is done so that combobox text is not overriden 
-                            If FinalKVCount = 0 Then                '' Only for 1st minimum Kv
-                                ValveSizeFound = False
-                                Call FindValveSize(MaxKVfromRatingClass, 1)
-                            End If
-
-                            If ValveSizeFound = True Then                       'Now the Kv is acceptable
-                                CalculateKvforPS1 = True
-                                LastMaximumKV = MaxKVfromRatingClass            'This is done so that Kv list does not have duplicate Kvs
-                                MaxKVsfromChart(FinalKVCount) = MaxKVfromRatingClass
-                                If cmbUnitsType.SelectedIndex = 1 Then
-                                    MaxCvsfromChart(FinalKVCount) = MaxKVfromRatingClass * 1.17
-                                End If
-                                FinalShowKVCase1(FinalKVCount) = FinalKVCase1
-                                FinalShowKVCase2(FinalKVCount) = FinalKVCase2
-                                FinalShowKVCase3(FinalKVCount) = FinalKVCase3
-                                FlowTypeCase1(FinalKVCount) = TurbulentCase1
-                                FlowTypeCase2(FinalKVCount) = TurbulentCase2
-                                FlowTypeCase3(FinalKVCount) = TurbulentCase3
-                                FLCase1_array(FinalKVCount) = FLCase1
-                                FLCase2_array(FinalKVCount) = FLCase2
-                                FLCase3_array(FinalKVCount) = FLCase3
-                                FDCase1_array(FinalKVCount) = FDCase1
-                                FDCase2_array(FinalKVCount) = FDCase2
-                                FDCase3_array(FinalKVCount) = FDCase3
-                                MicroTrim_Array(FinalKVCount) = Microtrim
-
-                                ''If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                                '20201030 If cmbSelectedTrim.SelectedIndex < 2 Then
-                                '    SeatDia_array(FinalKVCount) = SeatDia
-                                '    PrBl_SeatDia_array(FinalKVCount) = PrBl_SeatDia
-                                'End If
-                                '  Else
-                                'SeatDia_array(FinalKVCount) = SeatDia * 25.4
-                                'PrBl_SeatDia_array(FinalKVCount) = PrBl_SeatDia * 25.4
-                                'End If
-
-                                FinalKVCount = FinalKVCount + 1
-                                '  MsgBox("Stored KV" & MaxKVfromRatingClass & " " & FinalKVCase1 & "   2." & FinalKVCase2 & " 3." & FinalKVCase3)
-                            Else
-                                NextMaxKVcount = NextMaxKVcount + 1
-                            End If
-                        Else
-                            NextMaxKVcount = NextMaxKVcount + 1
-                        End If
-                    Else
-                        NextMaxKVcount = NextMaxKVcount + 1
+                    ' FindingKVMax()
+                    '  If MaximumKV < MaxKVfromRatingClass Then
+                    If LastMaximumKV = MaxKVfromRatingClass Then
+                        Exit Do
                     End If
+                    CalculateKVfromRenoyldsNo()
+                    FindingKVMax()
+                    If MaximumKV < MaxKVfromRatingClass And SuggkVFound = False Then        'This means KV is acceptable and can be added to valid 5 KV list.
+                        If cmbUnitsType.SelectedIndex = 1 Then
+                            SuggestedKvfromChart = MaxKVfromRatingClass * 1.17
+                        Else
+                            SuggestedKvfromChart = MaxKVfromRatingClass
+                        End If
+
+                        SuggkVFound = True
+                    End If
+                    'Add the KV into final KV list of 5
+                    ValveSizeOverrideText = cmbValveSizeOverride.Text    'this is done so that combobox text is not overriden 
+                    'If FinalKVCount = 0 Then                '' Only for 1st minimum Kv
+                    '    ValveSizeFound = False
+                    '    Call FindValveSize(MaxKVfromRatingClass, 1)
+                    'End If
+
+                    '  If ValveSizeFound = True Then                       'Now the Kv is acceptable
+                    CalculateKvforPS1 = True
+                    LastMaximumKV = MaxKVfromRatingClass            'This is done so that Kv list does not have duplicate Kvs
+                    MaxKVsfromChart(FinalKVCount) = MaxKVfromRatingClass
+                    If cmbUnitsType.SelectedIndex = 1 Then
+                        MaxCvsfromChart(FinalKVCount) = MaxKVfromRatingClass * 1.17
+                    End If
+                    FinalShowKVCase1(FinalKVCount) = FinalKVCase1
+                    FinalShowKVCase2(FinalKVCount) = FinalKVCase2
+                    FinalShowKVCase3(FinalKVCount) = FinalKVCase3
+                    FlowTypeCase1(FinalKVCount) = TurbulentCase1
+                    FlowTypeCase2(FinalKVCount) = TurbulentCase2
+                    FlowTypeCase3(FinalKVCount) = TurbulentCase3
+                    FLCase1_array(FinalKVCount) = FLCase1
+                    FLCase2_array(FinalKVCount) = FLCase2
+                    FLCase3_array(FinalKVCount) = FLCase3
+                    FDCase1_array(FinalKVCount) = FDCase1
+                    FDCase2_array(FinalKVCount) = FDCase2
+                    FDCase3_array(FinalKVCount) = FDCase3
+                    MicroTrim_Array(FinalKVCount) = Microtrim
+
+                    ''If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
+                    '20201030 If cmbSelectedTrim.SelectedIndex < 2 Then
+                    '    SeatDia_array(FinalKVCount) = SeatDia
+                    '    PrBl_SeatDia_array(FinalKVCount) = PrBl_SeatDia
+                    'End If
+                    '  Else
+                    'SeatDia_array(FinalKVCount) = SeatDia * 25.4
+                    'PrBl_SeatDia_array(FinalKVCount) = PrBl_SeatDia * 25.4
+                    'End If
+
+                    FinalKVCount = FinalKVCount + 1
+                    '  MsgBox("Stored KV" & MaxKVfromRatingClass & " " & FinalKVCase1 & "   2." & FinalKVCase2 & " 3." & FinalKVCase3)
+                    'Else
+                    '    NextMaxKVcount = NextMaxKVcount + 1
+                    'End If
+                    'Else
+                    '    NextMaxKVcount = NextMaxKVcount + 1
+                    'End If
+                    'Else
+                    '    NextMaxKVcount = NextMaxKVcount + 1
+                    'End If
                     ' txtErrors.Text = "NextMaxKVcount = " & CStr(NextMaxKVcount)
                     'MsgBox("nextMaxKvcount= " & NextMaxKVcount)
                     If NextMaxKVcount > 50 Then
@@ -6656,24 +6976,45 @@ Public Class frmValveSizing
                     Return Nothing
                     Exit Function
                 End If
+                AcceptedKv_Count = AcceptedKv_Count + 1
+                Array.Resize(MaxKVsfromChart, AcceptedKv_Count)
+                Array.Resize(MaxCvsfromChart, AcceptedKv_Count)
+                Array.Resize(FinalShowKVCase1, AcceptedKv_Count)
+                Array.Resize(FinalShowKVCase2, AcceptedKv_Count)
+                Array.Resize(FinalShowKVCase3, AcceptedKv_Count)
+                Array.Resize(MicroTrim_Array, AcceptedKv_Count)
                 'The first KV found will be shown
-                If txtSuggestedKV.Text = "" Then
+                If SuggkVFound = False Then
                     If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                        txtSuggestedKV.Text = MaxKVsfromChart(0)
+                        SuggestedKvfromChart = MaxKVsfromChart(AcceptedKv_Count - 1)
                     Else
-                        txtSuggestedKV.Text = MaxCvsfromChart(0)
+                        SuggestedKvfromChart = MaxCvsfromChart(AcceptedKv_Count - 1)
                     End If
                 End If
+                If txtSuggestedKV.Text = "" Then
+                    If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
+                        '  txtSuggestedKV.Text = MaxKVsfromChart(0)
+                        txtSuggestedKV.Text = Array.Find(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart))
+                        KvIndex = Array.FindIndex(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart))
+                        Call FindValveSize(Array.Find(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart)), 1)
+                    Else
+                        txtSuggestedKV.Text = Array.Find(MaxCvsfromChart, Function(x) (x = SuggestedKvfromChart))
+                        'txtSuggestedKV.Text = MaxCvsfromChart(0)
+                        KvIndex = Array.FindIndex(MaxCvsfromChart, Function(x) (x = SuggestedKvfromChart))
+                        Call FindValveSize(Array.Find(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart)), 1)
+                    End If
+
+                End If
                 txtSuggestedValveSize.Text = CStr(ValveSizeArray(0)) 'Suggested Valve Size from first list 
-                lblMicroTrim.Text = MicroTrim_Array(0)
-                Microtrim = MicroTrim_Array(0)
+                lblMicroTrim.Text = MicroTrim_Array(KvIndex)
+                Microtrim = MicroTrim_Array(KvIndex)
                 'FinalKVmax_ValveSize = MaxKVsfromChart(0)
                 KvOverrideText = cmbKVOverride.Text
                 ValveSizeOverrideText = cmbValveSizeOverride.Text
                 cmbKVOverride.Items.Clear()
                 If cmbSelectedTrim.SelectedIndex = 0 Then               'Do not populate list if Trim Already Selected Perforated
 
-                    For i = 0 To 4                  'update the Combobox list
+                    For i = 0 To AcceptedKv_Count - 1          'update the Combobox list
                         SuggestedKVArray(i) = MaxKVsfromChart(i)
                         If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
                             cmbKVOverride.Items.Add(CStr(MaxKVsfromChart(i)))
@@ -6708,15 +7049,15 @@ Public Class frmValveSizing
                         SeatDia = PrBl_SeatDia          ' For Actuator Calculations
 
                         If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                            cmbSeatDia.Items.Add(PrBl_SeatDia_array(0))
+                            cmbSeatDia.Items.Add(PrBl_SeatDia_array(KvIndex))
                         Else  ' FPS
-                            cmbSeatDia.Items.Add(Math.Round((PrBl_SeatDia_array(0) / 25.4), 1))
+                            cmbSeatDia.Items.Add(Math.Round((PrBl_SeatDia_array(KvIndex) / 25.4), 1))
                         End If
                     Else                        'default fill Seat dia 
                         If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                            cmbSeatDia.Items.Add(SeatDia_array(0))
+                            cmbSeatDia.Items.Add(SeatDia_array(KvIndex))
                         Else    'FPS
-                            cmbSeatDia.Items.Add(Math.Round((SeatDia_array(0) / 25.4), 1))
+                            cmbSeatDia.Items.Add(Math.Round((SeatDia_array(KvIndex) / 25.4), 1))
                         End If
 
                     End If
@@ -6991,15 +7332,27 @@ Public Class frmValveSizing
 
     Public Function CalculateKvforPS3()
         Dim SearchFailed As Boolean
+        Dim SuggkVFound As Boolean = False
+        Dim SuggestedKvfromChart As Single
         Dim KvOverrideText As String
         Dim LastKv As Object = 0
         Try
 
             ''  Now Find 5 KVs for PS3
-
+            AcceptedKv_Count = 0
             Dim tempObject, Seatobject, PrBl_Seatobject, Valveobject As Single()
             Dim TrimType_Sheet As String()
             Dim j As Byte = 0
+
+            ReDim MaxKVsfromChart(40)
+            ReDim MaxCvsfromChart(40)
+            ReDim FinalShowKVCase1(40)
+            ReDim FinalShowKVCase2(40)
+            ReDim FinalShowKVCase3(40)
+            ReDim MicroTrim_Array(40)
+            ReDim SeatDia_array(40)
+            ReDim PrBl_SeatDia_array(40)
+
             Array.Clear(MaxKVsfromChart, 0, MaxKVsfromChart.Length)
             Array.Clear(MaxCvsfromChart, 0, MaxCvsfromChart.Length)
             Array.Clear(FinalShowKVCase1, 0, FinalShowKVCase1.Length)
@@ -7037,13 +7390,21 @@ Public Class frmValveSizing
             SearchFailed = True
             For i = 1 To LastRow  'Start from second row of data 
                 ' valve size should be greater than PS1 selected Valve Size for respective found Kvmax
-                If tempObject(i) > MaximumKV And Valveobject(i) >= FinalValveSizeforNoise(0) Then
+                If tempObject(i) > MaximumKV And Valveobject(i) >= FinalValveSizeforNoise(0) And SuggkVFound = False Then
+                    If cmbUnitsType.SelectedIndex = 1 Then
+                        SuggestedKvfromChart = MaxKVfromRatingClass * 1.17
+                    Else
+                        SuggestedKvfromChart = MaxKVfromRatingClass
+                    End If
+                    SuggkVFound = True
+                End If
+                If Valveobject(i) >= FinalValveSizeforNoise(0) Then
                     MaxKVfromRatingClass = tempObject(i - 1)
-                    Call FindValveSize(MaxKVfromRatingClass, 2)
+                    'Call FindValveSize(MaxKVfromRatingClass, 2)
                     SearchFailed = False
-                    For j = 0 To 5
+                    For j = 0 To 39
                         If LastKv < tempObject(i - 1) Then                 ' 11102020 To avoid Multiple Enteries
-
+                            AcceptedKv_Count = AcceptedKv_Count + 1
                             MaxKVsfromChart(j) = tempObject(i - 1)
                             MaxCvsfromChart(j) = tempObject(i - 1) * 1.17                           '11102020 CHANGES 
                             MicroTrim_Array(j) = TrimType_Sheet(i - 1)
@@ -7062,15 +7423,6 @@ Public Class frmValveSizing
 
                             LastKv = tempObject(i - 1)
 
-                            'If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                            '20201030 If cmbSelectedTrim.SelectedIndex < 2 Then     ' 11102020 Update only if PS1 or PS3 else dont change last seat diameter.
-                            '    SeatDia_array(j) = Seatobject(i - 1)
-                            '    PrBl_SeatDia_array(j) = PrBl_SeatDia
-                            'End If
-                            ' Else
-                            '  SeatDia_array(j) = SeatDia * 25.4
-                            '  PrBl_SeatDia_array(j) = PrBl_SeatDia * 25.4
-                            ' End If
                         Else
                             j = j - 1
                         End If
@@ -7091,12 +7443,19 @@ Public Class frmValveSizing
                     'The first KV found will be shown
                     If txtSuggestedKV.Text = "" Then
                         If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                            txtSuggestedKV.Text = MaxKVsfromChart(0)
+                            '  txtSuggestedKV.Text = MaxKVsfromChart(0)
+                            txtSuggestedKV.Text = Array.Find(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart))
+                            KvIndex = Array.FindIndex(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart))
+                            Call FindValveSize(Array.Find(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart)), 2)
                         Else
-                            txtSuggestedKV.Text = MaxCvsfromChart(0)
+                            ' txtSuggestedKV.Text = MaxCvsfromChart(0)
+                            txtSuggestedKV.Text = Array.Find(MaxCvsfromChart, Function(x) (x = SuggestedKvfromChart))
+                            KvIndex = Array.FindIndex(MaxCVsfromChart, Function(x) (x = SuggestedKvfromChart))
+                            Call FindValveSize(Array.Find(MaxKVsfromChart, Function(x) (x = SuggestedKvfromChart)), 2)
                         End If
+                       
                     End If
-                    For i = 0 To 4                  'update the Combobox list
+                    For i = 0 To AcceptedKv_Count - 1                 'update the Combobox list
                         SuggestedKVArray(i) = MaxKVsfromChart(i)
                         If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
                             cmbKVOverride.Items.Add(CStr(MaxKVsfromChart(i)))
@@ -7109,12 +7468,12 @@ Public Class frmValveSizing
                     If txtSuggestedValveSize.Text = "" Then txtSuggestedValveSize.Text = CStr(ValveSizeArray(0)) 'Suggested Valve Size from first list 
                     Dim foundstring As Integer = cmbKVOverride.FindStringExact(KvOverrideText)
                     If KvOverrideText = "" Then
-                        cmbKVOverride.SelectedIndex = 0
+                        cmbKVOverride.SelectedIndex = KvIndex
                     ElseIf foundstring < 0 Then
                         'MsgBox("Selected Kv/Cv is not available, so changed to the available Kv/Cv", , "Alert")
                         ToolTip3.Show("Selected Kv/Cv is not available, so changed to the available Kv/Cv", cmbKVOverride, 2)
                         ToolTip3.Show("Selected Kv/Cv is not available, so changed to the available Kv/Cv", cmbKVOverride, 3000)
-                        cmbKVOverride.SelectedIndex = 0
+                        cmbKVOverride.SelectedIndex = KvIndex
                     Else
                         cmbKVOverride.Text = KvOverrideText             ' Load in text what was before. till user physically selects from list
                     End If
@@ -7123,17 +7482,17 @@ Public Class frmValveSizing
                         If cmbBalancing.SelectedIndex > 0 Then
                             SeatDia = PrBl_SeatDia          ' For Actuator Calculations
                             If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                                cmbSeatDia.Items.Add(PrBl_SeatDia_array(0))
+                                cmbSeatDia.Items.Add(PrBl_SeatDia_array(KvIndex))
 
                             Else
-                                cmbSeatDia.Items.Add(Math.Round((PrBl_SeatDia_array(0) / 25.4), 1))
+                                cmbSeatDia.Items.Add(Math.Round((PrBl_SeatDia_array(KvIndex) / 25.4), 1))
                             End If
 
                         Else                        'default fill Seat dia 
                             If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                                cmbSeatDia.Items.Add(SeatDia_array(0))
+                                cmbSeatDia.Items.Add(SeatDia_array(KvIndex))
                             Else
-                                cmbSeatDia.Items.Add(Math.Round((SeatDia_array(0) / 25.4), 1))
+                                cmbSeatDia.Items.Add(Math.Round((SeatDia_array(KvIndex) / 25.4), 1))
                             End If
                         End If
                         ' If cmbSeatDia.Items.Count > 0 Then cmbSeatDia.SelectedIndex = 0  '15102020  Changes
@@ -8554,413 +8913,416 @@ Public Class frmValveSizing
         Dim TemperatureCase1, TemperatureCase2, TemperatureCase3, tempFPKVCase1, tempFPKVCase2, tempFPKVCase3, tempFP As Single
         Dim tempToutPressureCase1, tempToutPressureCase2, tempToutPressureCase3 As Single
         Dim tempSoundVelCase1, tempSoundVelCase2, tempSoundVelCase3 As Single
+        Try
+            '20220920 If LoadingProjectFile = False Then
+            Me.Cursor = Cursors.WaitCursor
+            lblCalculating.Visible = True
 
-        '20220920 If LoadingProjectFile = False Then
+            TempKvCase1 = FinalKVCase1
+            TempKvCase2 = FinalKVCase2
+            TempKvCase3 = FinalKVCase3
 
-        lblCalculating.Visible = True
+            tempFPKVCase1 = FPKVCase1
+            tempFPKVCase2 = FPKVCase2
+            tempFPKVCase3 = FPKVCase3
 
-        TempKvCase1 = FinalKVCase1
-        TempKvCase2 = FinalKVCase2
-        TempKvCase3 = FinalKVCase3
+            tempPressureDropCase1 = FinalPressureDropCase1
+            tempPressureDropCase2 = FinalPressureDropCase2
+            tempPressureDropCase3 = FinalPressureDropCase3
 
-        tempFPKVCase1 = FPKVCase1
-        tempFPKVCase2 = FPKVCase2
-        tempFPKVCase3 = FPKVCase3
-
-        tempPressureDropCase1 = FinalPressureDropCase1
-        tempPressureDropCase2 = FinalPressureDropCase2
-        tempPressureDropCase3 = FinalPressureDropCase3
-
-        If FinalPressureDropCase1 <= 0 Then Case1Present = False Else Case1Present = True
-        If FinalPressureDropCase2 <= 0 Then Case2Present = False Else Case2Present = True
-        If FinalPressureDropCase3 <= 0 Then Case3Present = False Else Case3Present = True
-
-
-        tempInletPressureCase1 = FinalInletPressureCase1
-        tempInletPressureCase2 = FinalInletPressureCase2
-        tempInletPressureCase3 = FinalInletPressureCase3
-
-        tempOutletPressureCase1 = FinalOutletPressureCase1
-        tempOutletPressureCase2 = FinalOutletPressureCase2
-        tempOutletPressureCase3 = FinaloutletPressureCase3
-        BaffleOutletPressureCase1 = FinalOutletPressureCase1        'For Pipe Velocity Calculations consider original OUTPressure
-        BaffleOutletPressureCase2 = FinalOutletPressureCase2
-        BaffleOutletPressureCase3 = FinaloutletPressureCase3
+            If FinalPressureDropCase1 <= 0 Then Case1Present = False Else Case1Present = True
+            If FinalPressureDropCase2 <= 0 Then Case2Present = False Else Case2Present = True
+            If FinalPressureDropCase3 <= 0 Then Case3Present = False Else Case3Present = True
 
 
-        TemperatureCase1 = FinalInletTemperatureCase1
-        TemperatureCase2 = FinalInletTemperatureCase2
-        TemperatureCase3 = FinalInletTemperatureCase3
-        BaffleDensityCase1 = FinalDensityCase1          'This is for Pipe Velocity calculations only. 
-        BaffleDensityCase2 = FinalDensityCase2
-        BaffleDensityCase3 = FinalDensityCase3
+            tempInletPressureCase1 = FinalInletPressureCase1
+            tempInletPressureCase2 = FinalInletPressureCase2
+            tempInletPressureCase3 = FinalInletPressureCase3
 
-        tempDensityCase1 = FinalDensityCase1
-        tempDensityCase2 = FinalDensityCase2
-        tempDensityCase3 = FinalDensityCase3
-
-        tempKCase1 = Kcase1
-        tempKCase2 = Kcase2
-        tempKCase3 = Kcase3
-
-        tempXCase1 = Xcase1
-        tempXCase2 = Xcase2
-        tempXCase3 = Xcase3
-
-        tempFDCase1 = FDCase1
-        tempFDCase2 = FDCase2
-        tempFDCase3 = FDCase3
-
-        'Zcase1 = 1
-        'Zcase2 = 1
-        'Zcase3 = 1
-        tempZCase1 = Zcase1
-        tempZCase2 = Zcase2
-        tempZCase3 = Zcase3
-
-        tempFLcase1 = FLCase1
-        tempFLcase2 = FLCase2
-        tempFLcase3 = FLCase3
-        tempFP = FP
-        '
-        tempSoundVelCase1 = SoundVelocityCase1
-        tempSoundVelCase2 = SoundVelocityCase2
-        tempSoundVelCase3 = SoundVelocityCase3
-
-        tempToutPressureCase1 = ToutPressureCase1
-        tempToutPressureCase2 = ToutPressureCase2
-        tempToutPressureCase3 = ToutPressureCase3
+            tempOutletPressureCase1 = FinalOutletPressureCase1
+            tempOutletPressureCase2 = FinalOutletPressureCase2
+            tempOutletPressureCase3 = FinaloutletPressureCase3
+            BaffleOutletPressureCase1 = FinalOutletPressureCase1        'For Pipe Velocity Calculations consider original OUTPressure
+            BaffleOutletPressureCase2 = FinalOutletPressureCase2
+            BaffleOutletPressureCase3 = FinaloutletPressureCase3
 
 
-        For Each DTRow As DataRow In DT_Baffles.Rows
-            For dtcol As Byte = 0 To 5
-                DTRow(dtcol) = 0            'clear data grid
+            TemperatureCase1 = FinalInletTemperatureCase1
+            TemperatureCase2 = FinalInletTemperatureCase2
+            TemperatureCase3 = FinalInletTemperatureCase3
+            BaffleDensityCase1 = FinalDensityCase1          'This is for Pipe Velocity calculations only. 
+            BaffleDensityCase2 = FinalDensityCase2
+            BaffleDensityCase3 = FinalDensityCase3
+
+            tempDensityCase1 = FinalDensityCase1
+            tempDensityCase2 = FinalDensityCase2
+            tempDensityCase3 = FinalDensityCase3
+
+            tempKCase1 = Kcase1
+            tempKCase2 = Kcase2
+            tempKCase3 = Kcase3
+
+            tempXCase1 = Xcase1
+            tempXCase2 = Xcase2
+            tempXCase3 = Xcase3
+
+            tempFDCase1 = FDCase1
+            tempFDCase2 = FDCase2
+            tempFDCase3 = FDCase3
+
+            'Zcase1 = 1
+            'Zcase2 = 1
+            'Zcase3 = 1
+            tempZCase1 = Zcase1
+            tempZCase2 = Zcase2
+            tempZCase3 = Zcase3
+
+            tempFLcase1 = FLCase1
+            tempFLcase2 = FLCase2
+            tempFLcase3 = FLCase3
+            tempFP = FP
+            '
+            tempSoundVelCase1 = SoundVelocityCase1
+            tempSoundVelCase2 = SoundVelocityCase2
+            tempSoundVelCase3 = SoundVelocityCase3
+
+            tempToutPressureCase1 = ToutPressureCase1
+            tempToutPressureCase2 = ToutPressureCase2
+            tempToutPressureCase3 = ToutPressureCase3
+
+
+            For Each DTRow As DataRow In DT_Baffles.Rows
+                For dtcol As Byte = 0 To 5
+                    DTRow(dtcol) = 0            'clear data grid
+                Next
             Next
-        Next
 
-        For Each DTRow As DataRow In Dt_NoisePrStages.Rows
-            For dtcol As Byte = 0 To 2
-                DTRow(dtcol) = 0            'clear data grid
+            For Each DTRow As DataRow In Dt_NoisePrStages.Rows
+                For dtcol As Byte = 0 To 2
+                    DTRow(dtcol) = 0            'clear data grid
+                Next
             Next
-        Next
 
-        For Each DTRow As DataRow In DT_NoiseAttenuation.Rows
-            For dtcol As Byte = 0 To 2
-                DTRow(dtcol) = 0            'clear data grid
+            For Each DTRow As DataRow In DT_NoiseAttenuation.Rows
+                For dtcol As Byte = 0 To 2
+                    DTRow(dtcol) = 0            'clear data grid
+                Next
             Next
-        Next
 
-        For Each DTRow As DataRow In DT_StageWiseNoise.Rows
-            For dtcol As Byte = 0 To 2
-                DTRow(dtcol) = 0            'clear data grid
+            For Each DTRow As DataRow In DT_StageWiseNoise.Rows
+                For dtcol As Byte = 0 To 2
+                    DTRow(dtcol) = 0            'clear data grid
+                Next
             Next
-        Next
 
-        'DT_Flowtype.Clear()
+            'DT_Flowtype.Clear()
 
-        DT_Flowtype.Rows(0).Item(1) = ""
-        DT_Flowtype.Rows(0).Item(2) = ""
-        DT_Flowtype.Rows(0).Item(3) = ""
+            DT_Flowtype.Rows(0).Item(1) = ""
+            DT_Flowtype.Rows(0).Item(2) = ""
+            DT_Flowtype.Rows(0).Item(3) = ""
 
-        DT_Flowtype.Rows(1).Item(1) = ""
-        DT_Flowtype.Rows(1).Item(2) = ""
-        DT_Flowtype.Rows(1).Item(3) = ""
+            DT_Flowtype.Rows(1).Item(1) = ""
+            DT_Flowtype.Rows(1).Item(2) = ""
+            DT_Flowtype.Rows(1).Item(3) = ""
 
-        DT_Flowtype.Rows(2).Item(1) = ""
-        DT_Flowtype.Rows(2).Item(2) = ""
-        DT_Flowtype.Rows(2).Item(3) = ""
+            DT_Flowtype.Rows(2).Item(1) = ""
+            DT_Flowtype.Rows(2).Item(2) = ""
+            DT_Flowtype.Rows(2).Item(3) = ""
 
-        DT_Flowtype.Rows(3).Item(1) = ""
-        DT_Flowtype.Rows(3).Item(2) = ""
-        DT_Flowtype.Rows(3).Item(3) = ""
+            DT_Flowtype.Rows(3).Item(1) = ""
+            DT_Flowtype.Rows(3).Item(2) = ""
+            DT_Flowtype.Rows(3).Item(3) = ""
 
-        DT_Flowtype.Rows(4).Item(1) = ""
-        DT_Flowtype.Rows(4).Item(2) = ""
-        DT_Flowtype.Rows(4).Item(3) = ""
+            DT_Flowtype.Rows(4).Item(1) = ""
+            DT_Flowtype.Rows(4).Item(2) = ""
+            DT_Flowtype.Rows(4).Item(3) = ""
 
-        DT_Flowtype.Rows(5).Item(1) = ""
-        DT_Flowtype.Rows(5).Item(2) = ""
-        DT_Flowtype.Rows(5).Item(3) = ""
+            DT_Flowtype.Rows(5).Item(1) = ""
+            DT_Flowtype.Rows(5).Item(2) = ""
+            DT_Flowtype.Rows(5).Item(3) = ""
 
-        DT_Flowtype.Rows(6).Item(1) = ""
-        DT_Flowtype.Rows(6).Item(2) = ""
-        DT_Flowtype.Rows(6).Item(3) = ""
-
-
-        '-------------------------------------------------------------------------------------------------------
-        'Noise Calculations 
-        '-------------------------------------------------------------------------------------------------------
-        'Check which Trim is selected-  cmbSelectedTrim.SelectedIndex
-        'if PR2 then stages = 2 PR3, PS3 then stages = 3    else Stage 1
-        'Divide Pressure drop by Stages. 1st stage OutletPr = Inlet Pr - NewPD, 2nd stage OutPr = InPr2, OutPr2 =Inpr2- NewPD
-        'pass this value to NoiseUnitCoversions and loop for calculations. 
+            DT_Flowtype.Rows(6).Item(1) = ""
+            DT_Flowtype.Rows(6).Item(2) = ""
+            DT_Flowtype.Rows(6).Item(3) = ""
 
 
-        'If baffles are selected then Check Sequence - Baffle 3. Baffle 2, Baffle 1 then Cage and then Trim Noise.
-        'Store the Noise Calculated of each parts of sequence in DT_NoiseAttenuation rows. 
-        'When Baffle3 selected then pass Kv and then DT_Baffles- Inlet pressure will be calculated and Outlet pressure will be Valve Outlet pressure.
-        'then Baffle3 Inlet pressure will Baffle2 Outlet Pressure. this will be passed in the DT_Baffles.
-        'Below if - Endif Logic- The last Baffle gets the Outlet pressure. So as per selection of Baffle the Outletpressure 
-        'Will be assigned. 
+            '-------------------------------------------------------------------------------------------------------
+            'Noise Calculations 
+            '-------------------------------------------------------------------------------------------------------
+            'Check which Trim is selected-  cmbSelectedTrim.SelectedIndex
+            'if PR2 then stages = 2 PR3, PS3 then stages = 3    else Stage 1
+            'Divide Pressure drop by Stages. 1st stage OutletPr = Inlet Pr - NewPD, 2nd stage OutPr = InPr2, OutPr2 =Inpr2- NewPD
+            'pass this value to NoiseUnitCoversions and loop for calculations. 
 
 
-        NoiseAttenuationFlag = False
-        Call NoiseUnitConversions()
-        If cmbFluidType.Text = "InCompressible" Then
-            Call NoiseCalculations()
-        Else
-            Call NoiseCalculationsForCompressible()
-        End If
+            'If baffles are selected then Check Sequence - Baffle 3. Baffle 2, Baffle 1 then Cage and then Trim Noise.
+            'Store the Noise Calculated of each parts of sequence in DT_NoiseAttenuation rows. 
+            'When Baffle3 selected then pass Kv and then DT_Baffles- Inlet pressure will be calculated and Outlet pressure will be Valve Outlet pressure.
+            'then Baffle3 Inlet pressure will Baffle2 Outlet Pressure. this will be passed in the DT_Baffles.
+            'Below if - Endif Logic- The last Baffle gets the Outlet pressure. So as per selection of Baffle the Outletpressure 
+            'Will be assigned. 
 
 
-
-        '  Call FlowSeverity_Select(2)
-
-
-        ' BASIC NOISE TO BE STORED
-        DT_NoiseAttenuation.Rows(4).Item(0) = FinalNoiseLevelCase1
-        DT_NoiseAttenuation.Rows(4).Item(1) = FinalNoiseLevelCase2
-        DT_NoiseAttenuation.Rows(4).Item(2) = FinalNoiseLevelCase3
-
-        If chkNoiseAttenuation.Checked = True Then
-            NoiseAttenuationFlag = True
-        End If
-
-
-
-        'Fixed FL for Baffles
-        FLCase1 = 0.8
-        FLCase2 = 0.8
-        FLCase3 = 0.8
-        FDCase1 = 0.2
-        FDCase2 = 0.2
-        FDCase3 = 0.2
-
-        If chkBaffleCase3.Checked = True Then
-            DT_Baffles.Rows(0).Item(3) = FinalOutletPressureCase1
-            DT_Baffles.Rows(0).Item(4) = FinalOutletPressureCase2
-            DT_Baffles.Rows(0).Item(5) = FinaloutletPressureCase3
-            Call Noise_Baffles(BaffleKVCase3, 1)
-            Call FlowSeverity_Select(6)
-            MFac_PR3 = 1
-        ElseIf chkBaffleCase2.Checked = True Then
-            DT_Baffles.Rows(1).Item(3) = FinalOutletPressureCase1
-            DT_Baffles.Rows(1).Item(4) = FinalOutletPressureCase2
-            DT_Baffles.Rows(1).Item(5) = FinaloutletPressureCase3
-            MFac_PR3 = 0
-        ElseIf chkBaffleCase1.Checked = True Then
-            DT_Baffles.Rows(2).Item(3) = FinalOutletPressureCase1
-            DT_Baffles.Rows(2).Item(4) = FinalOutletPressureCase2
-            DT_Baffles.Rows(2).Item(5) = FinaloutletPressureCase3
-            MFac_PR3 = 0
-        Else
-            MFac_PR3 = 0
-        End If
-
-
-        If chkBaffleCase2.Checked = True Then
-            'For Compressible this is needed
-            If cmbFluidType.SelectedIndex = 1 Then    'Compressible
-                FinalInletPressureCase1 = tempInletPressureCase1
-                FinalInletPressureCase2 = tempInletPressureCase2
-                FinalInletPressureCase3 = tempInletPressureCase3
-                FinalInletTemperatureCase1 = TemperatureCase1
-                FinalInletTemperatureCase2 = TemperatureCase2
-                FinalInletTemperatureCase3 = TemperatureCase3
+            NoiseAttenuationFlag = False
+            Call NoiseUnitConversions()
+            If cmbFluidType.Text = "InCompressible" Then
+                Call NoiseCalculations()
+            Else
+                Call NoiseCalculationsForCompressible()
             End If
-            Call Noise_Baffles(BaffleKVCase2, 2)
-            Call FlowSeverity_Select(5)
-            MFac_PR3 = 1
-            MFac_PR2 = 1
-        Else
-            MFac_PR2 = 0
-        End If
 
-        If chkBaffleCase1.Checked = True Then
-            If cmbFluidType.SelectedIndex = 1 Then    'Compressible
-                FinalInletPressureCase1 = tempInletPressureCase1
-                FinalInletPressureCase2 = tempInletPressureCase2
-                FinalInletPressureCase3 = tempInletPressureCase3
-                FinalInletTemperatureCase1 = TemperatureCase1
-                FinalInletTemperatureCase2 = TemperatureCase2
-                FinalInletTemperatureCase3 = TemperatureCase3
+
+
+            '  Call FlowSeverity_Select(2)
+
+
+            ' BASIC NOISE TO BE STORED
+            DT_NoiseAttenuation.Rows(4).Item(0) = FinalNoiseLevelCase1
+            DT_NoiseAttenuation.Rows(4).Item(1) = FinalNoiseLevelCase2
+            DT_NoiseAttenuation.Rows(4).Item(2) = FinalNoiseLevelCase3
+
+            If chkNoiseAttenuation.Checked = True Then
+                NoiseAttenuationFlag = True
             End If
-            Call Noise_Baffles(BaffleKVCase1, 3)
-            Call FlowSeverity_Select(4)
-            MFac_PR3 = 1
-            MFac_PR1 = 1
-            FinalOutletPressureCase1 = DT_Baffles(2).Item(0)
-            FinalOutletPressureCase2 = DT_Baffles(2).Item(1)
-            FinaloutletPressureCase3 = DT_Baffles(2).Item(2)
-        Else
-            MFac_PR1 = 0
-            FinalOutletPressureCase1 = tempOutletPressureCase1          'If No Baffle then load Trim outpressure as out
-            FinalOutletPressureCase2 = tempOutletPressureCase2          'as outlet pressure for cage or normal noise. 
-            FinaloutletPressureCase3 = tempOutletPressureCase3
-        End If
 
 
-        FinalInletPressureCase1 = tempInletPressureCase1
-        FinalInletPressureCase2 = tempInletPressureCase2
-        FinalInletPressureCase3 = tempInletPressureCase3
 
-        FLCase1 = tempFLcase1
-        FLCase2 = tempFLcase2
-        FLCase3 = tempFLcase3
+            'Fixed FL for Baffles
+            FLCase1 = 0.8
+            FLCase2 = 0.8
+            FLCase3 = 0.8
+            FDCase1 = 0.2
+            FDCase2 = 0.2
+            FDCase3 = 0.2
+
+            If chkBaffleCase3.Checked = True Then
+                DT_Baffles.Rows(0).Item(3) = FinalOutletPressureCase1
+                DT_Baffles.Rows(0).Item(4) = FinalOutletPressureCase2
+                DT_Baffles.Rows(0).Item(5) = FinaloutletPressureCase3
+                Call Noise_Baffles(BaffleKVCase3, 1)
+                Call FlowSeverity_Select(6)
+                MFac_PR3 = 1
+            ElseIf chkBaffleCase2.Checked = True Then
+                DT_Baffles.Rows(1).Item(3) = FinalOutletPressureCase1
+                DT_Baffles.Rows(1).Item(4) = FinalOutletPressureCase2
+                DT_Baffles.Rows(1).Item(5) = FinaloutletPressureCase3
+                MFac_PR3 = 0
+            ElseIf chkBaffleCase1.Checked = True Then
+                DT_Baffles.Rows(2).Item(3) = FinalOutletPressureCase1
+                DT_Baffles.Rows(2).Item(4) = FinalOutletPressureCase2
+                DT_Baffles.Rows(2).Item(5) = FinaloutletPressureCase3
+                MFac_PR3 = 0
+            Else
+                MFac_PR3 = 0
+            End If
 
 
-        'Now Check for Noise Cage Attenuation  - Note Cage not available for PR2 and PR3 
-        If chkNoiseAttenuation.Checked = True And Not (cmbSelectedTrim.SelectedIndex = 3 Or cmbSelectedTrim.SelectedIndex = 4) Then
-            FinalKVCase1 = TempKvCase1
-            FinalKVCase2 = TempKvCase2
-            FinalKVCase3 = TempKvCase3
-            Call NoiseAttenuation()
-            Call FlowSeverity_Select(1)
-            MFac_Cage = 1
-            '20200204 Checking
-            FinalPressureDropCase1 = FinalInletPressureCase1 - Cage_PressureCase1
-            FinalPressureDropCase2 = FinalInletPressureCase2 - Cage_PressureCase2
-            FinalPressureDropCase3 = FinalInletPressureCase3 - Cage_PressureCase3
-            Call Chokedflow((FLCase1 * FLCase1), (FLCase2 * FLCase2), (FLCase3 * FLCase3))
-            Call CalculateKVCV()
-            FPKVCase1 = FinalKVCase1
-            FPKVCase2 = FinalKVCase2
-            FPKVCase3 = FinalKVCase3
-            Call FindFP()
-            '20200204 Checking
+            If chkBaffleCase2.Checked = True Then
+                'For Compressible this is needed
+                If cmbFluidType.SelectedIndex = 1 Then    'Compressible
+                    FinalInletPressureCase1 = tempInletPressureCase1
+                    FinalInletPressureCase2 = tempInletPressureCase2
+                    FinalInletPressureCase3 = tempInletPressureCase3
+                    FinalInletTemperatureCase1 = TemperatureCase1
+                    FinalInletTemperatureCase2 = TemperatureCase2
+                    FinalInletTemperatureCase3 = TemperatureCase3
+                End If
+                Call Noise_Baffles(BaffleKVCase2, 2)
+                Call FlowSeverity_Select(5)
+                MFac_PR3 = 1
+                MFac_PR2 = 1
+            Else
+                MFac_PR2 = 0
+            End If
 
-        Else
-            FinalPressureDropCase1 = FinalInletPressureCase1 - FinalOutletPressureCase1
-            FinalPressureDropCase2 = FinalInletPressureCase2 - FinalOutletPressureCase2
-            FinalPressureDropCase3 = FinalInletPressureCase3 - FinaloutletPressureCase3
-            MFac_Cage = 0
-            'then Calculate Normalm Noise. 
-            If MFac_PR1 = 1 Then
+            If chkBaffleCase1.Checked = True Then
+                If cmbFluidType.SelectedIndex = 1 Then    'Compressible
+                    FinalInletPressureCase1 = tempInletPressureCase1
+                    FinalInletPressureCase2 = tempInletPressureCase2
+                    FinalInletPressureCase3 = tempInletPressureCase3
+                    FinalInletTemperatureCase1 = TemperatureCase1
+                    FinalInletTemperatureCase2 = TemperatureCase2
+                    FinalInletTemperatureCase3 = TemperatureCase3
+                End If
+                Call Noise_Baffles(BaffleKVCase1, 3)
+                Call FlowSeverity_Select(4)
+                MFac_PR3 = 1
+                MFac_PR1 = 1
+                FinalOutletPressureCase1 = DT_Baffles(2).Item(0)
+                FinalOutletPressureCase2 = DT_Baffles(2).Item(1)
+                FinaloutletPressureCase3 = DT_Baffles(2).Item(2)
+            Else
+                MFac_PR1 = 0
+                FinalOutletPressureCase1 = tempOutletPressureCase1          'If No Baffle then load Trim outpressure as out
+                FinalOutletPressureCase2 = tempOutletPressureCase2          'as outlet pressure for cage or normal noise. 
+                FinaloutletPressureCase3 = tempOutletPressureCase3
+            End If
 
+
+            FinalInletPressureCase1 = tempInletPressureCase1
+            FinalInletPressureCase2 = tempInletPressureCase2
+            FinalInletPressureCase3 = tempInletPressureCase3
+
+            FLCase1 = tempFLcase1
+            FLCase2 = tempFLcase2
+            FLCase3 = tempFLcase3
+
+
+            'Now Check for Noise Cage Attenuation  - Note Cage not available for PR2 and PR3 
+            If chkNoiseAttenuation.Checked = True And Not (cmbSelectedTrim.SelectedIndex = 3 Or cmbSelectedTrim.SelectedIndex = 4) Then
+                FinalKVCase1 = TempKvCase1
+                FinalKVCase2 = TempKvCase2
+                FinalKVCase3 = TempKvCase3
+                Call NoiseAttenuation()
+                Call FlowSeverity_Select(1)
+                MFac_Cage = 1
+                '20200204 Checking
+                FinalPressureDropCase1 = FinalInletPressureCase1 - Cage_PressureCase1
+                FinalPressureDropCase2 = FinalInletPressureCase2 - Cage_PressureCase2
+                FinalPressureDropCase3 = FinalInletPressureCase3 - Cage_PressureCase3
                 Call Chokedflow((FLCase1 * FLCase1), (FLCase2 * FLCase2), (FLCase3 * FLCase3))
                 Call CalculateKVCV()
                 FPKVCase1 = FinalKVCase1
                 FPKVCase2 = FinalKVCase2
                 FPKVCase3 = FinalKVCase3
                 Call FindFP()
-                KVAttenuatedCase1 = FinalKVCase1
-                KVAttenuatedCase2 = FinalKVCase2
-                KVAttenuatedCase3 = FinalKVCase3
-                Call NoiseUnitConversions()
-                If cmbFluidType.Text = "InCompressible" Then
-                    Call NoiseCalculations()
-                Else
-                    Call NoiseCalculationsForCompressible()
+                '20200204 Checking
+
+            Else
+                FinalPressureDropCase1 = FinalInletPressureCase1 - FinalOutletPressureCase1
+                FinalPressureDropCase2 = FinalInletPressureCase2 - FinalOutletPressureCase2
+                FinalPressureDropCase3 = FinalInletPressureCase3 - FinaloutletPressureCase3
+                MFac_Cage = 0
+                'then Calculate Normalm Noise. 
+                If MFac_PR1 = 1 Then
+
+                    Call Chokedflow((FLCase1 * FLCase1), (FLCase2 * FLCase2), (FLCase3 * FLCase3))
+                    Call CalculateKVCV()
+                    FPKVCase1 = FinalKVCase1
+                    FPKVCase2 = FinalKVCase2
+                    FPKVCase3 = FinalKVCase3
+                    Call FindFP()
+                    KVAttenuatedCase1 = FinalKVCase1
+                    KVAttenuatedCase2 = FinalKVCase2
+                    KVAttenuatedCase3 = FinalKVCase3
+                    Call NoiseUnitConversions()
+                    If cmbFluidType.Text = "InCompressible" Then
+                        Call NoiseCalculations()
+                    Else
+                        Call NoiseCalculationsForCompressible()
+                    End If
+                    ' Call FlowSeverity_Select(2)
                 End If
-                ' Call FlowSeverity_Select(2)
             End If
-        End If
-        ''''''    Changes  20201026 
-        ' Noise add to Trim Noise as per Baffle and Noise Attn
-        Dim DeltaLPE_Resistance As Single = (MFac_PR1 * 5) + (MFac_PR2 * 5) + (MFac_PR3 * 5) + (MFac_Cage * 5)
+            ''''''    Changes  20201026 
+            ' Noise add to Trim Noise as per Baffle and Noise Attn
+            Dim DeltaLPE_Resistance As Single = (MFac_PR1 * 5) + (MFac_PR2 * 5) + (MFac_PR3 * 5) + (MFac_Cage * 5)
 
-        If MFac_PR1 + MFac_PR2 + MFac_PR3 + MFac_Cage > 0 Then              'Any Baffle or Cage present 
+            If MFac_PR1 + MFac_PR2 + MFac_PR3 + MFac_Cage > 0 Then              'Any Baffle or Cage present 
 
-            AttneuatedNoiseLevelCase1 = 10 * Math.Log10((MFac_PR3 * Math.Pow(10, (DT_NoiseAttenuation.Rows(0).Item(0) / 10))) + (MFac_PR2 * Math.Pow(10, (DT_NoiseAttenuation.Rows(1).Item(0) / 10))) + (MFac_PR1 * Math.Pow(10, (DT_NoiseAttenuation.Rows(2).Item(0) / 10))) + (MFac_Cage * Math.Pow(10, ((DT_NoiseAttenuation.Rows(3).Item(0) - DeltaLPE_Resistance) / 10))))
-            AttneuatedNoiseLevelCase2 = 10 * Math.Log10((MFac_PR3 * Math.Pow(10, (DT_NoiseAttenuation.Rows(0).Item(1) / 10))) + (MFac_PR2 * Math.Pow(10, (DT_NoiseAttenuation.Rows(1).Item(1) / 10))) + (MFac_PR1 * Math.Pow(10, (DT_NoiseAttenuation.Rows(2).Item(1) / 10))) + (MFac_Cage * Math.Pow(10, ((DT_NoiseAttenuation.Rows(3).Item(1) - DeltaLPE_Resistance) / 10))))
-            AttneuatedNoiseLevelCase3 = 10 * Math.Log10((MFac_PR3 * Math.Pow(10, (DT_NoiseAttenuation.Rows(0).Item(2) / 10))) + (MFac_PR2 * Math.Pow(10, (DT_NoiseAttenuation.Rows(1).Item(2) / 10))) + (MFac_PR1 * Math.Pow(10, (DT_NoiseAttenuation.Rows(2).Item(2) / 10))) + (MFac_Cage * Math.Pow(10, ((DT_NoiseAttenuation.Rows(3).Item(2) - DeltaLPE_Resistance) / 10))))
-        Else
-            AttneuatedNoiseLevelCase1 = 0
-            AttneuatedNoiseLevelCase2 = 0
-            AttneuatedNoiseLevelCase3 = 0
-        End If
-        frmTestingGrids.DGVBaffleNoise.Visible = True
-        frmTestingGrids.DGVBaffleNoise.DataSource = DT_NoiseAttenuation
+                AttneuatedNoiseLevelCase1 = 10 * Math.Log10((MFac_PR3 * Math.Pow(10, (DT_NoiseAttenuation.Rows(0).Item(0) / 10))) + (MFac_PR2 * Math.Pow(10, (DT_NoiseAttenuation.Rows(1).Item(0) / 10))) + (MFac_PR1 * Math.Pow(10, (DT_NoiseAttenuation.Rows(2).Item(0) / 10))) + (MFac_Cage * Math.Pow(10, ((DT_NoiseAttenuation.Rows(3).Item(0) - DeltaLPE_Resistance) / 10))))
+                AttneuatedNoiseLevelCase2 = 10 * Math.Log10((MFac_PR3 * Math.Pow(10, (DT_NoiseAttenuation.Rows(0).Item(1) / 10))) + (MFac_PR2 * Math.Pow(10, (DT_NoiseAttenuation.Rows(1).Item(1) / 10))) + (MFac_PR1 * Math.Pow(10, (DT_NoiseAttenuation.Rows(2).Item(1) / 10))) + (MFac_Cage * Math.Pow(10, ((DT_NoiseAttenuation.Rows(3).Item(1) - DeltaLPE_Resistance) / 10))))
+                AttneuatedNoiseLevelCase3 = 10 * Math.Log10((MFac_PR3 * Math.Pow(10, (DT_NoiseAttenuation.Rows(0).Item(2) / 10))) + (MFac_PR2 * Math.Pow(10, (DT_NoiseAttenuation.Rows(1).Item(2) / 10))) + (MFac_PR1 * Math.Pow(10, (DT_NoiseAttenuation.Rows(2).Item(2) / 10))) + (MFac_Cage * Math.Pow(10, ((DT_NoiseAttenuation.Rows(3).Item(2) - DeltaLPE_Resistance) / 10))))
+            Else
+                AttneuatedNoiseLevelCase1 = 0
+                AttneuatedNoiseLevelCase2 = 0
+                AttneuatedNoiseLevelCase3 = 0
+            End If
+            frmTestingGrids.DGVBaffleNoise.Visible = True
+            frmTestingGrids.DGVBaffleNoise.DataSource = DT_NoiseAttenuation
 
-        frmTestingGrids.DGVPressures.Visible = True
-        frmTestingGrids.DGVPressures.DataSource = DT_Baffles
+            frmTestingGrids.DGVPressures.Visible = True
+            frmTestingGrids.DGVPressures.DataSource = DT_Baffles
 
-        If chkInsulation.Checked = True Then
-            NoiseInsulation = 12    '' Default Noise dB for 1 inch thickness
-        End If
+            If chkInsulation.Checked = True Then
+                NoiseInsulation = 12    '' Default Noise dB for 1 inch thickness
+            End If
 
-        'End If
-
-
-        FinalDensityCase1 = tempDensityCase1
-        FinalDensityCase2 = tempDensityCase2
-        FinalDensityCase3 = tempDensityCase3
-
-        ' AS the Baffles changes the Outlet PRessure for velocity calculations Toutpressure should be also changed, but only for temporary calculations
-        If Model = 4 Or Model = 5 Or Model = 6 Then                           'Not applicable for PRDS
-            ToutPressureCase1 = T_ph(FinalOutletPressureCase1, h_pT(FinalOutletPressureCase1, FinalInletTemperatureCase1)) + 0.1
-            ToutPressureCase2 = T_ph(FinalOutletPressureCase2, h_pT(FinalOutletPressureCase2, FinalInletTemperatureCase2)) + 0.1
-            ToutPressureCase3 = T_ph(FinaloutletPressureCase3, h_pT(FinaloutletPressureCase3, FinalInletTemperatureCase3)) + 0.1
-
-        Else
-            ToutPressureCase1 = T_ph(FinalOutletPressureCase1, h_pT(FinalInletPressureCase1, TemperatureCase1)) + 0.1
-            ToutPressureCase2 = T_ph(FinalOutletPressureCase2, h_pT(FinalInletPressureCase2, TemperatureCase2)) + 0.1
-            ToutPressureCase3 = T_ph(FinaloutletPressureCase3, h_pT(FinalInletPressureCase3, TemperatureCase3)) + 0.1
-
-        End If
-
-        Call CalculateFlowVelocity_ForNoise()
-        Call ShowVelocity_forNoise()
-        Call showNoise()
-
-        FinalKVCase1 = TempKvCase1
-        FinalKVCase2 = TempKvCase2
-        FinalKVCase3 = TempKvCase3
+            'End If
 
 
-        FinalInletTemperatureCase1 = TemperatureCase1
-        FinalInletTemperatureCase2 = TemperatureCase2
-        FinalInletTemperatureCase3 = TemperatureCase3
+            FinalDensityCase1 = tempDensityCase1
+            FinalDensityCase2 = tempDensityCase2
+            FinalDensityCase3 = tempDensityCase3
 
-        FinalOutletPressureCase1 = tempOutletPressureCase1          'If No Baffle then load Trim outpressure as out
-        FinalOutletPressureCase2 = tempOutletPressureCase2          'as outlet pressure for cage or normal noise. 
-        FinaloutletPressureCase3 = tempOutletPressureCase3
+            ' AS the Baffles changes the Outlet PRessure for velocity calculations Toutpressure should be also changed, but only for temporary calculations
+            If Model = 4 Or Model = 5 Or Model = 6 Then                           'Not applicable for PRDS
+                ToutPressureCase1 = T_ph(FinalOutletPressureCase1, h_pT(FinalOutletPressureCase1, FinalInletTemperatureCase1)) + 0.1
+                ToutPressureCase2 = T_ph(FinalOutletPressureCase2, h_pT(FinalOutletPressureCase2, FinalInletTemperatureCase2)) + 0.1
+                ToutPressureCase3 = T_ph(FinaloutletPressureCase3, h_pT(FinaloutletPressureCase3, FinalInletTemperatureCase3)) + 0.1
+
+            Else
+                ToutPressureCase1 = T_ph(FinalOutletPressureCase1, h_pT(FinalInletPressureCase1, TemperatureCase1)) + 0.1
+                ToutPressureCase2 = T_ph(FinalOutletPressureCase2, h_pT(FinalInletPressureCase2, TemperatureCase2)) + 0.1
+                ToutPressureCase3 = T_ph(FinaloutletPressureCase3, h_pT(FinalInletPressureCase3, TemperatureCase3)) + 0.1
+
+            End If
+
+            Call CalculateFlowVelocity_ForNoise()
+            Call ShowVelocity_forNoise()
+            Call showNoise()
+
+            FinalKVCase1 = TempKvCase1
+            FinalKVCase2 = TempKvCase2
+            FinalKVCase3 = TempKvCase3
 
 
-        FinalInletPressureCase1 = tempInletPressureCase1
-        FinalInletPressureCase2 = tempInletPressureCase2
-        FinalInletPressureCase3 = tempInletPressureCase3
-        FinalPressureDropCase1 = tempPressureDropCase1
-        FinalPressureDropCase2 = tempPressureDropCase2
-        FinalPressureDropCase3 = tempPressureDropCase3
+            FinalInletTemperatureCase1 = TemperatureCase1
+            FinalInletTemperatureCase2 = TemperatureCase2
+            FinalInletTemperatureCase3 = TemperatureCase3
+
+            FinalOutletPressureCase1 = tempOutletPressureCase1          'If No Baffle then load Trim outpressure as out
+            FinalOutletPressureCase2 = tempOutletPressureCase2          'as outlet pressure for cage or normal noise. 
+            FinaloutletPressureCase3 = tempOutletPressureCase3
+
+
+            FinalInletPressureCase1 = tempInletPressureCase1
+            FinalInletPressureCase2 = tempInletPressureCase2
+            FinalInletPressureCase3 = tempInletPressureCase3
+            FinalPressureDropCase1 = tempPressureDropCase1
+            FinalPressureDropCase2 = tempPressureDropCase2
+            FinalPressureDropCase3 = tempPressureDropCase3
 
 
 
-        Kcase1 = tempKCase1
-        Kcase2 = tempKCase2
-        Kcase3 = tempKCase3
+            Kcase1 = tempKCase1
+            Kcase2 = tempKCase2
+            Kcase3 = tempKCase3
 
-        Xcase1 = tempXCase1
-        Xcase2 = tempXCase2
-        Xcase3 = tempXCase3
+            Xcase1 = tempXCase1
+            Xcase2 = tempXCase2
+            Xcase3 = tempXCase3
 
-        FDCase1 = tempFDCase1
-        FDCase2 = tempFDCase2
-        FDCase3 = tempFDCase3
+            FDCase1 = tempFDCase1
+            FDCase2 = tempFDCase2
+            FDCase3 = tempFDCase3
 
-        Zcase1 = tempZCase1
-        Zcase2 = tempZCase2
-        Zcase3 = tempZCase3
+            Zcase1 = tempZCase1
+            Zcase2 = tempZCase2
+            Zcase3 = tempZCase3
 
-        FLCase1 = tempFLcase1
-        FLCase2 = tempFLcase2
-        FLCase3 = tempFLcase3
-        FPKVCase1 = tempFPKVCase1
-        FPKVCase2 = tempFPKVCase2
-        FPKVCase3 = tempFPKVCase3
+            FLCase1 = tempFLcase1
+            FLCase2 = tempFLcase2
+            FLCase3 = tempFLcase3
+            FPKVCase1 = tempFPKVCase1
+            FPKVCase2 = tempFPKVCase2
+            FPKVCase3 = tempFPKVCase3
 
-        FP = tempFP
-        SoundVelocityCase1 = tempSoundVelCase1
-        SoundVelocityCase2 = tempSoundVelCase2
-        SoundVelocityCase3 = tempSoundVelCase3
+            FP = tempFP
+            SoundVelocityCase1 = tempSoundVelCase1
+            SoundVelocityCase2 = tempSoundVelCase2
+            SoundVelocityCase3 = tempSoundVelCase3
 
-        ToutPressureCase1 = tempToutPressureCase1
-        ToutPressureCase2 = tempToutPressureCase2
-        ToutPressureCase3 = tempToutPressureCase3
-
-        lblCalculating.Visible = False
-        'CheckforPerforation(FinalKVCase1, FinalKVCase2, FinalKVCase3)
-        '   End If
+            ToutPressureCase1 = tempToutPressureCase1
+            ToutPressureCase2 = tempToutPressureCase2
+            ToutPressureCase3 = tempToutPressureCase3
+            Me.Cursor = Cursors.Default
+            lblCalculating.Visible = False
+            'CheckforPerforation(FinalKVCase1, FinalKVCase2, FinalKVCase3)
+            '   End If
+        Catch ex As Exception
+            MsgBox("Calculate Noise:" & "  " & ex.Message)
+        End Try
     End Sub
     Public Sub KVoverride()
         Try
@@ -8973,8 +9335,18 @@ Public Class frmValveSizing
                                 '  Call CalculatefromKVseries()
                                 'If cmbKVOverride.SelectedIndex > -1 Then
                                 If cmbSelectedTrim.SelectedIndex < 2 Then   ' Only for PS1 and PS3
-                                    Call FindValveSize(SuggestedKVArray(cmbKVOverride.SelectedIndex), (cmbSelectedTrim.SelectedIndex + 1))                    'To calculate again the available valve sizes for the selected KVMAX
-
+                                    If CSng(txtSuggestedKV.Text) > CSng(cmbKVOverride.Text) And Not cmbKVOverride.Text = "" Then
+                                        GroupBox1.BackColor = Color.AntiqueWhite
+                                        GroupBox2.BackColor = Color.AntiqueWhite
+                                        GroupBox3.BackColor = Color.AntiqueWhite
+                                    Else
+                                        GroupBox1.BackColor = Color.LightSteelBlue
+                                        GroupBox2.BackColor = Color.LightSteelBlue
+                                        GroupBox3.BackColor = Color.LightSteelBlue
+                                    End If
+                                    If Not cmbKVOverride.Text = "" And Not cmbKVOverride.SelectedIndex < 0 And Not cmbSelectedTrim.SelectedIndex < 0 Then
+                                        Call FindValveSize(SuggestedKVArray(cmbKVOverride.SelectedIndex), (cmbSelectedTrim.SelectedIndex + 1))                    'To calculate again the available valve sizes for the selected KVMAX
+                                    End If
                                     FinalKVCase1 = FinalShowKVCase1(cmbKVOverride.SelectedIndex)
                                     FinalKVCase2 = FinalShowKVCase2(cmbKVOverride.SelectedIndex)
                                     FinalKVCase3 = FinalShowKVCase3(cmbKVOverride.SelectedIndex)
@@ -9039,7 +9411,7 @@ Public Class frmValveSizing
                                         FinalValveSize = OldFinalValveSize
                                     End If
 
-                                    End If
+                                End If
                             End If
 
                         End If
@@ -9077,40 +9449,50 @@ Public Class frmValveSizing
     'End Sub
 
     Public Function ACCEPTKV()
+        Dim index As Byte
+        Dim notfound As Boolean = False
         Try
             If LoadingProjectFile = False Then
-                FinalKVmax_ValveSize = MaxKVsfromChart(0)
+                If Not txtSuggestedKV.Text = "" Then
+                    If cmbSelectedTrim.SelectedIndex < 2 Then         ' P1 and P3
+                        cmbKVOverride.SelectedIndex = cmbKVOverride.FindStringExact(txtSuggestedKV.Text)
+                        If cmbKVOverride.SelectedIndex < 0 Then
+                            cmbKVOverride.SelectedIndex = cmbKVOverride.FindString(txtSuggestedKV.Text)
+                            If cmbKVOverride.SelectedIndex < 0 Then
+                                If cmbKVOverride.Items.Count > 0 Then
+                                    For index = 0 To cmbKVOverride.Items.Count - 1
+                                        If cmbKVOverride.Items(index) > CSng(txtSuggestedKV.Text) Then
+                                            cmbKVOverride.SelectedIndex = index
+                                            notfound = False
+                                            Exit For
 
-                FPKVCase1 = FinalShowKVCase1(0)
-                FPKVCase2 = FinalShowKVCase2(0)
-                FPKVCase3 = FinalShowKVCase3(0)
-                TurbulentCase1 = FlowTypeCase1(0)
-                TurbulentCase2 = FlowTypeCase2(0)
-                TurbulentCase3 = FlowTypeCase3(0)
-                FLCase1 = FLCase1_array(0)
-                FLCase2 = FLCase2_array(0)
-                FLCase3 = FLCase3_array(0)
-                FDCase1 = FDCase1_array(0)
-                FDCase2 = FDCase2_array(0)
-                FDCase3 = FDCase3_array(0)
-                SeatDia = SeatDia_array(0)
-                PrBl_SeatDia = PrBl_SeatDia_array(0)
-                Microtrim = MicroTrim_Array(0)
-                'If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                '    lblSeatDia.Text = SeatDia
-                'Else
-                '    lblSeatDia.Text = Math.Round(SeatDia / 25.4, 2)
-                'End If
-                KVMaxAcceptButton = True
-                '  lblKVMaxValue.Text = txtSuggestedKV.Text
-                'If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                '    lblKVMaxValue.Text = MaxKVsfromChart(0)
-                'Else
-                '    lblKVMaxValue.Text = MaxCvsfromChart(0)
-                'End If
-                btnValveSizeAccept.Enabled = True
+                                        Else
+                                            notfound = True
+                                        End If
 
-                'Call FindFP()
+                                    Next
+                                Else
+                                    notfound = True
+                                End If
+
+                            Else
+                                cmbKVOverride.Text = cmbKVOverride.SelectedItem
+                            End If
+                        Else
+                            cmbKVOverride.Text = cmbKVOverride.SelectedItem
+                        End If
+                    Else
+                        cmbKVOverride.Text = txtSuggestedKV.Text
+                        Dim e As System.EventArgs
+
+                    End If
+                Else
+                    notfound = True
+                End If
+            End If
+            If notfound = True Then
+                ToolTip1.Show("Not Found", cmbKVOverride, 2)
+                ToolTip1.Show("Not Found", cmbKVOverride, 2000)
             End If
         Catch ex As Exception
             MsgBox("btnKVAccept_Click:  " & ex.Message)
@@ -11066,7 +11448,7 @@ Public Class frmValveSizing
                     If cmbFluidType.Text = "InCompressible" Then
                         '*******************************************************************************************************************
                         'Now calculate Pressure Drop and P2 for each Inlet Pressure Cases in Bar Absolute
-                     
+
                         DT_Baffles(index - 1).Item(0) = DT_Baffles(index - 1).Item(3) + (FinalDensityCase1 * Math.Pow((FinalFlowrateCase1 / BaffleKV), 2))
                         DT_Baffles(index - 1).Item(1) = DT_Baffles(index - 1).Item(4) + (FinalDensityCase2 * Math.Pow((FinalFlowrateCase2 / BaffleKV), 2))
                         DT_Baffles(index - 1).Item(2) = DT_Baffles(index - 1).Item(5) + (FinalDensityCase3 * Math.Pow((FinalFlowrateCase3 / BaffleKV), 2))
@@ -11134,9 +11516,9 @@ Public Class frmValveSizing
                         FinaloutletPressureCase3 = DT_Baffles.Rows(index - 1).Item(5)
 
 
-                        PnCase1 = (FinalFlowrateCase1 / (110 * BaffleKV * 0.667)) * (Math.Sqrt(((FinalInletTemperatureCase1 + 273.15)) / (0.5 * MolecularWeight)))
-                        PnCase2 = (FinalFlowrateCase2 / (110 * BaffleKV * 0.667)) * (Math.Sqrt(((FinalInletTemperatureCase2 + 273.15)) / (0.5 * MolecularWeight)))
-                        PnCase3 = (FinalFlowrateCase3 / (110 * BaffleKV * 0.667)) * (Math.Sqrt(((FinalInletTemperatureCase3 + 273.15)) / (0.5 * MolecularWeight)))
+                        PnCase1 = (FinalFlowrateCase1 / (110 * BaffleKV * 0.667)) * (Math.Sqrt(((FinalInletTemperatureCase1 + 273.15)) / (0.5 * MolecularWeightCase1)))
+                        PnCase2 = (FinalFlowrateCase2 / (110 * BaffleKV * 0.667)) * (Math.Sqrt(((FinalInletTemperatureCase2 + 273.15)) / (0.5 * MolecularWeightCase2)))
+                        PnCase3 = (FinalFlowrateCase3 / (110 * BaffleKV * 0.667)) * (Math.Sqrt(((FinalInletTemperatureCase3 + 273.15)) / (0.5 * MolecularWeightCase3)))
 
                         'Calculated Pn should be greater than P2
                         'if Pn < P2 then consider Pn = P2*1.01)
@@ -11150,7 +11532,7 @@ Public Class frmValveSizing
                         Found3 = False
                         i = 0
                         'Now Loop for checking if BaffleKv matches with individual Kvs
-                        Dim Adder As Single = 0.0001
+                        Dim Adder As Single = 0.001
                         Dim DiffPercent1, DiffPercent2, DiffPercent3 As Single
                         ProgBarBaffle.Maximum = 500010     ' No Of Do while Iterations
                         ProgBarBaffle.Visible = True
@@ -11163,6 +11545,8 @@ Public Class frmValveSizing
                         'For test
 
                         Do While ((Found1 = False And Case1Present = True) Or (Found2 = False And Case2Present = True) Or (Found3 = False And Case3Present = True))
+
+
                             i = i + 1
 
 
@@ -11209,15 +11593,15 @@ Public Class frmValveSizing
                                 Kcase3 = Cp_pT(FinalInletPressureCase3, FinalInletTemperatureCase3) / Cv_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)
                                 Zcase3 = (FinalInletPressureCase3 * Math.Pow(10, 5)) / (FinalDensityCase3 * 461.8 * (FinalInletTemperatureCase3 + 273.15))
                             Else
-                                FinalDensityCase1 = (FinalInletPressureCase1 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1)
-                                FinalDensityCase2 = (FinalInletPressureCase2 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2)
-                                FinalDensityCase3 = (FinalInletPressureCase3 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3)
+                                FinalDensityCase1 = (FinalInletPressureCase1 * 100000 * MolecularWeightCase1) / (8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1)
+                                FinalDensityCase2 = (FinalInletPressureCase2 * 100000 * MolecularWeightCase2) / (8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2)
+                                FinalDensityCase3 = (FinalInletPressureCase3 * 100000 * MolecularWeightCase3) / (8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3)
                             End If
 
                             Call Chokedflow(0.5, 0.5, 0.5)
                             Call CalculateKVCV()
 
-                           
+
                             '--------------------------------------------------------------------------------------------------------------------------
                             ''First Check KvCase1 
                             DiffPercent1 = ((FinalKVCase1 - BaffleKV) / BaffleKV) * 100
@@ -11247,7 +11631,7 @@ Public Class frmValveSizing
                             Else
                                 Found3 = True
                             End If
-                            
+
                             LblCounter.Text = i
 
 
@@ -11265,6 +11649,10 @@ Public Class frmValveSizing
 
 
                             Application.DoEvents() ' For test
+                            If StopBaffleCalc = True Then
+                                StopBaffleCalc = False
+                                Exit Do
+                            End If
                             If i > 500000 Then
                                 Exit Do
                             End If
@@ -11681,9 +12069,9 @@ Public Class frmValveSizing
                         Zcase2 = (Cage_PressureCase2 * Math.Pow(10, 5)) / (FinalDensityCase2 * 461.8 * (FinalInletTemperatureCase2 + 273.15))
                         Zcase3 = (Cage_PressureCase3 * Math.Pow(10, 5)) / (FinalDensityCase3 * 461.8 * (FinalInletTemperatureCase3 + 273.15))
                     Else
-                        FinalDensityCase1 = (Cage_PressureCase1 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1)
-                        FinalDensityCase2 = (Cage_PressureCase2 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2)
-                        FinalDensityCase3 = (Cage_PressureCase3 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3)
+                        FinalDensityCase1 = (Cage_PressureCase1 * 100000 * MolecularWeightCase1) / (8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1)
+                        FinalDensityCase2 = (Cage_PressureCase2 * 100000 * MolecularWeightCase2) / (8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2)
+                        FinalDensityCase3 = (Cage_PressureCase3 * 100000 * MolecularWeightCase3) / (8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3)
                     End If
 
                     FDCase1 = FDCage
@@ -11855,7 +12243,7 @@ Public Class frmValveSizing
             Dim NoiseAttnCheckedState As Boolean
             If LoadingProjectFile = False Then
                 If Not txtSuggestedKV.Text = "" Then
-                    If Not cmbValveSizeOverride.Text = "--Select--" Then
+                    If Not cmbValveSizeOverride.Text = "--Select--" And Not cmbKVOverride.Text = "" And Not cmbKVOverride.Text = "--Select--" Then
                         If NoFPCalc = False Then
                             'If KVMaxAcceptButton = False Then
                             '    'MsgBox("Please Accept Selected KV or Select from KV options first.")
@@ -11874,9 +12262,10 @@ Public Class frmValveSizing
 
                             If foundstring = -1 And cmbValveSizeOverride.Items.Count > 0 Then
                                 cmbValveSizeOverride.SelectedIndex = 0
-                                cmbValveSizeOverride.BackColor = Color.Red
+                                cmbValveSizeOverride.BackColor = Color.Orange
                                 lblCalculating.Visible = True
-                                lblCalculating.Text = "Selected Valve Size was not Available in this Kv/Cv."
+                                ToolTip2.Show("Selected Valve Size was not Available in this Kv/Cv.", cmbValveSizeOverride, 20)
+                                ToolTip2.Show("Selected Valve Size was not Available in this Kv/Cv.", cmbValveSizeOverride, 2000)
                             Else
                                 cmbValveSizeOverride.SelectedIndex = foundstring
                             End If
@@ -11968,7 +12357,7 @@ Public Class frmValveSizing
             If Resetall = False Then
                 txt = cmbFluidType.Text
                 ' Call Reset_All()
-                Call ChangeUnitsType(False)
+                If LoadingProjectFile = False Then Call ChangeUnitsType(False) '  for Mks/FPS/ALL check        ' Specific Gravity
                 LoadingForm = False
                 Select Case txt
                     Case "InCompressible"
@@ -12099,7 +12488,10 @@ Public Class frmValveSizing
                         chkBaffleCase3.Visible = True
 
                 End Select
-                If Not LoadingProjectFile = True Then Call SelectFlowUnits() ' if reading file dont call selectflowunits
+                ' If Not LoadingProjectFile = True Then
+
+                ' End If
+                Call SelectFlowUnits() ' if reading file dont call selectflowunits
 
                 LoadingForm = True
             End If
@@ -12199,15 +12591,15 @@ Public Class frmValveSizing
             If Not cmbFluid.SelectedIndex = 0 Then
                 If chkMolecularWeight.Checked = True And cmbFluid.Text = "Gas" Then
                     If Not txtInletTemperatureCase1.Text = "" And Not txtInletPressureCase1.Text = "" And Not Zcase1 = 0 Then
-                        FinalDensityCase1 = (FinalInletPressureCase1 * 100000 * MolecularWeight) / (8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1)
+                        FinalDensityCase1 = (FinalInletPressureCase1 * 100000 * MolecularWeightCase1) / (8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1)
                         txtDensityCase1.Text = FinalDensityCase1
                     End If
                     If Not txtInletTemperatureCase2.Text = "" And Not txtInletPressureCase2.Text = "" And Not Zcase2 = 0 Then
-                        FinalDensityCase2 = (FinalInletPressureCase2 * MolecularWeight * 100000) / (8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2)
+                        FinalDensityCase2 = (FinalInletPressureCase2 * MolecularWeightCase2 * 100000) / (8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2)
                         txtDensityCase2.Text = FinalDensityCase2
                     End If
                     If Not txtInletTemperatureCase3.Text = "" And Not txtInletPressureCase3.Text = "" And Not Zcase3 = 0 Then
-                        FinalDensityCase3 = (FinalInletPressureCase3 * MolecularWeight * 100000) / (8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3)
+                        FinalDensityCase3 = (FinalInletPressureCase3 * MolecularWeightCase3 * 100000) / (8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3)
                         txtDensityCase3.Text = FinalDensityCase3
                     End If
                 Else
@@ -12221,15 +12613,18 @@ Public Class frmValveSizing
             If cmbFluidType.Text = "Compressible" Then
                 If cmbFluid.Text = "Steam" Then
                     MolecularWeight = 18
+                    MolecularWeightCase1 = 18
+                    MolecularWeightCase2 = 18
+                    MolecularWeightCase3 = 18
                 Else
                     If Not FinalInletTemperatureCase1 = 0 And Not FinalInletPressureCase1 = 0 And Not Zcase1 = 0 And chkMolecularWeight.Checked = False Then
-                        MolecularWeight = (FinalDensityCase1 * 8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1) / (FinalInletPressureCase1 * 100000)
+                        MolecularWeightCase1 = (FinalDensityCase1 * 8314 * (FinalInletTemperatureCase1 + 273.15) * Zcase1) / (FinalInletPressureCase1 * 100000)
                     End If
                     If Not FinalInletTemperatureCase2 = 0 And Not FinalInletPressureCase2 = 0 And Not Zcase2 = 0 And chkMolecularWeight.Checked = False Then
-                        MolecularWeight = (FinalDensityCase2 * 8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2) / (FinalInletPressureCase2 * 100000)
+                        MolecularWeightCase2 = (FinalDensityCase2 * 8314 * (FinalInletTemperatureCase2 + 273.15) * Zcase2) / (FinalInletPressureCase2 * 100000)
                     End If
                     If Not FinalInletTemperatureCase3 = 0 And Not FinalInletPressureCase3 = 0 And Not Zcase3 = 0 And chkMolecularWeight.Checked = False Then
-                        MolecularWeight = (FinalDensityCase3 * 8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3) / (FinalInletPressureCase3 * 100000)
+                        MolecularWeightCase3 = (FinalDensityCase3 * 8314 * (FinalInletTemperatureCase3 + 273.15) * Zcase3) / (FinalInletPressureCase3 * 100000)
                     End If
                 End If
             End If
@@ -12255,6 +12650,9 @@ Public Class frmValveSizing
         Try
             If Not txtMolecularWeight.Text = "" Then
                 MolecularWeight = CSng(txtMolecularWeight.Text)
+                MolecularWeightCase1 = MolecularWeight
+                MolecularWeightCase2 = MolecularWeight
+                MolecularWeightCase3 = MolecularWeight
                 Call CalculateDensity()
             End If
         Catch ex As Exception
@@ -12487,6 +12885,9 @@ Public Class frmValveSizing
 
                 Me.chkNoiseAttenuation.Checked = False
 
+                GroupBox1.BackColor = Color.LightSteelBlue
+                GroupBox2.BackColor = Color.LightSteelBlue
+                GroupBox3.BackColor = Color.LightSteelBlue
 
                 lblKVCase1.Text = ""
                 lblKVCase2.Text = ""
@@ -12534,6 +12935,10 @@ Public Class frmValveSizing
                 lblStrokeCase1.Text = ""
                 lblStrokeCase2.Text = ""
                 lblStrokeCase3.Text = ""
+                lblStrokeCase1.ForeColor = Color.Black
+                lblStrokeCase2.ForeColor = Color.Black
+                lblStrokeCase3.ForeColor = Color.Black
+
 
                 lblVelocityValveInletCase1.Text = ""
                 lblVelocityValveInletCase2.Text = ""
@@ -12721,10 +13126,8 @@ Public Class frmValveSizing
 
 
                         '     lblKVerrordueToValve.Visible = False
-                        'Else
-                        '    chkMolecularWeight.Visible = True
-                        '    txtMolecularWeight.Visible = True
-                        '    lblMolecularUnit.Visible = True
+                        
+                      
                     End If
 
                 End If
@@ -12820,8 +13223,13 @@ Public Class frmValveSizing
                 PRDS_OutletTemperatureCase1 = 0
                 PRDS_OutletTemperatureCase2 = 0
                 PRDS_OutletTemperatureCase3 = 0
+                MolecularWeightCase1 = 0
+                MolecularWeightCase2 = 0
+                MolecularWeightCase3 = 0
 
 
+                txtACTFactor.Text = ""
+                Act_SafetyFactor = 1
 
                 'Call ChangeUnitsType()
 
@@ -12889,11 +13297,7 @@ Public Class frmValveSizing
 
     End Sub
 
-    Private Sub cmbQW_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbQW.SelectionChangeCommitted
-        ResetFlowarateIndex = True
-    End Sub
-
-    Private Sub cmbQW_TextChanged(sender As Object, e As EventArgs) Handles cmbQW.TextChanged
+    Private Sub cmbQW_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbQW.SelectedIndexChanged
         Try
             If LoadingForm = True Then
 
@@ -12904,8 +13308,13 @@ Public Class frmValveSizing
         Catch ex As Exception
             MsgBox("cmbQW_TextChanged" & ex.Message)
         End Try
-
     End Sub
+
+    Private Sub cmbQW_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbQW.SelectionChangeCommitted
+        ResetFlowarateIndex = True
+    End Sub
+
+  
 
 
 
@@ -12950,7 +13359,13 @@ Public Class frmValveSizing
                 cmbSelectedTrim.Items.Add("L3")
             ElseIf Model = 2 Or Model = 3 Or Model = 6 Then     ' 3WAY AND PRDS PARABOLIC Then
                 cmbSelectedTrim.Items.Clear()
-                cmbSelectedTrim.Items.Add("PS1")
+
+                If Model = 2 Or Model = 3 Then
+                    cmbSelectedTrim.Items.Add("SL")
+                Else
+                    cmbSelectedTrim.Items.Add("PS1")
+                End If
+
                 chkViscosity.Checked = False
 
                 'ElseIf Model = 4 Then              ' TE PRDS  No PS1,PS3, PR1 only FM Models
@@ -12963,77 +13378,77 @@ Public Class frmValveSizing
                 '    cmbSelectedTrim.Items.Add("PR2")
                 '    cmbSelectedTrim.Items.Add("PR3")
 
-            End If
+                End If
 
 
-            If Model = 4 Or Model = 5 Or Model = 6 Then '  Viscocity and TsatPressure not needed in PRDS
-                cmbFluidType.SelectedIndex = 1
-                chkViscosity.Checked = False
-                chkViscosity.Visible = False
-                lblViscosity.Visible = False
-                cmbViscosityUnits.Visible = False
-                txtTsatoutPressureCase1.Visible = False
-                txtTsatoutPressureCase2.Visible = False
-                txtTsatoutPressureCase3.Visible = False
-                lblTsatoutPressure.Visible = False
-                lblTsatInletPress.Location = New Point(16, 300)
-                txtTsatInletCase1.Location = New Point(215, 300)
-                txtTsatInletCase2.Location = New Point(283, 300)
-                txtTsatInletCase3.Location = New Point(351, 300)
-                lblToutPressure.Location = New Point(16, 325)
-                txtTOutPressureCase1.Location = New Point(215, 325)
-                txtTOutPressureCase2.Location = New Point(283, 325)
-                txtTOutPressureCase3.Location = New Point(351, 325)
-                lblK.Location = New Point(16, 351)
-                txtK_Case1.Location = New Point(215, 351)
-                txtK_Case2.Location = New Point(283, 351)
-                txtK_Case3.Location = New Point(351, 351)
-                PanelPRDS.Visible = True
-                txtTOutPressureCase1.ReadOnly = False
-                txtTOutPressureCase2.ReadOnly = False
-                txtTOutPressureCase3.ReadOnly = False
-                txtTOutPressureCase1.BackColor = Color.White
-                txtTOutPressureCase2.BackColor = Color.White
-                txtTOutPressureCase3.BackColor = Color.White
-
-            Else
-                chkViscosity.Visible = True
-                If cmbFluidType.Text = "InCompressible" Then
+                If Model = 4 Or Model = 5 Or Model = 6 Then '  Viscocity and TsatPressure not needed in PRDS
+                    cmbFluidType.SelectedIndex = 1
+                    chkViscosity.Checked = False
+                    chkViscosity.Visible = False
+                    lblViscosity.Visible = False
+                    cmbViscosityUnits.Visible = False
                     txtTsatoutPressureCase1.Visible = False
                     txtTsatoutPressureCase2.Visible = False
                     txtTsatoutPressureCase3.Visible = False
                     lblTsatoutPressure.Visible = False
+                    lblTsatInletPress.Location = New Point(16, 300)
+                    txtTsatInletCase1.Location = New Point(215, 300)
+                    txtTsatInletCase2.Location = New Point(283, 300)
+                    txtTsatInletCase3.Location = New Point(351, 300)
+                    lblToutPressure.Location = New Point(16, 325)
+                    txtTOutPressureCase1.Location = New Point(215, 325)
+                    txtTOutPressureCase2.Location = New Point(283, 325)
+                    txtTOutPressureCase3.Location = New Point(351, 325)
+                    lblK.Location = New Point(16, 351)
+                    txtK_Case1.Location = New Point(215, 351)
+                    txtK_Case2.Location = New Point(283, 351)
+                    txtK_Case3.Location = New Point(351, 351)
+                    PanelPRDS.Visible = True
+                    txtTOutPressureCase1.ReadOnly = False
+                    txtTOutPressureCase2.ReadOnly = False
+                    txtTOutPressureCase3.ReadOnly = False
+                    txtTOutPressureCase1.BackColor = Color.White
+                    txtTOutPressureCase2.BackColor = Color.White
+                    txtTOutPressureCase3.BackColor = Color.White
+
                 Else
-                    txtTsatoutPressureCase1.Visible = True
-                    txtTsatoutPressureCase2.Visible = True
-                    txtTsatoutPressureCase3.Visible = True
-                    lblTsatoutPressure.Visible = True
+                    chkViscosity.Visible = True
+                    If cmbFluidType.Text = "InCompressible" Then
+                        txtTsatoutPressureCase1.Visible = False
+                        txtTsatoutPressureCase2.Visible = False
+                        txtTsatoutPressureCase3.Visible = False
+                        lblTsatoutPressure.Visible = False
+                    Else
+                        txtTsatoutPressureCase1.Visible = True
+                        txtTsatoutPressureCase2.Visible = True
+                        txtTsatoutPressureCase3.Visible = True
+                        lblTsatoutPressure.Visible = True
+                    End If
+
+                    lblViscosity.Visible = True
+                    cmbViscosityUnits.Visible = True
+
+                    lblTsatInletPress.Location = New Point(16, 325)
+                    txtTsatInletCase1.Location = New Point(215, 325)
+                    txtTsatInletCase2.Location = New Point(283, 325)
+                    txtTsatInletCase3.Location = New Point(351, 325)
+                    lblToutPressure.Location = New Point(16, 373)
+                    txtTOutPressureCase1.Location = New Point(215, 373)
+                    txtTOutPressureCase2.Location = New Point(283, 373)
+                    txtTOutPressureCase3.Location = New Point(351, 373)
+                    lblK.Location = New Point(16, 398)
+                    txtK_Case1.Location = New Point(215, 398)
+                    txtK_Case2.Location = New Point(283, 398)
+                    txtK_Case3.Location = New Point(351, 398)
+                    PanelPRDS.Visible = False
+                    txtTOutPressureCase1.ReadOnly = True
+                    txtTOutPressureCase2.ReadOnly = True
+                    txtTOutPressureCase3.ReadOnly = True
+                    txtTOutPressureCase1.BackColor = SystemColors.Control
+                    txtTOutPressureCase2.BackColor = SystemColors.Control
+                    txtTOutPressureCase3.BackColor = SystemColors.Control
                 End If
-
-                lblViscosity.Visible = True
-                cmbViscosityUnits.Visible = True
-
-                lblTsatInletPress.Location = New Point(16, 325)
-                txtTsatInletCase1.Location = New Point(215, 325)
-                txtTsatInletCase2.Location = New Point(283, 325)
-                txtTsatInletCase3.Location = New Point(351, 325)
-                lblToutPressure.Location = New Point(16, 373)
-                txtTOutPressureCase1.Location = New Point(215, 373)
-                txtTOutPressureCase2.Location = New Point(283, 373)
-                txtTOutPressureCase3.Location = New Point(351, 373)
-                lblK.Location = New Point(16, 398)
-                txtK_Case1.Location = New Point(215, 398)
-                txtK_Case2.Location = New Point(283, 398)
-                txtK_Case3.Location = New Point(351, 398)
-                PanelPRDS.Visible = False
-                txtTOutPressureCase1.ReadOnly = True
-                txtTOutPressureCase2.ReadOnly = True
-                txtTOutPressureCase3.ReadOnly = True
-                txtTOutPressureCase1.BackColor = SystemColors.Control
-                txtTOutPressureCase2.BackColor = SystemColors.Control
-                txtTOutPressureCase3.BackColor = SystemColors.Control
-            End If
-            If LoadingForm = True Then
+            If LoadingForm = False Then
                 DT_ActuatorInfo.Rows(0).Item(1) = cmbModel.Text
             End If
 
@@ -13219,8 +13634,8 @@ Public Class frmValveSizing
             End If
             PackingTypeFactor = 0.15
             ' Friction Force same for Non and Pressure Balance.
-            FrictionForce = PackingTypeFactor * PackingMaterialFactor * StemDia * PackingHeight * (150 + NomialPressureValue) * 0.101972 * 1.15   'FACTOR OF SAFETY
-
+            FrictionForce = PackingTypeFactor * PackingMaterialFactor * StemDia * PackingHeight * (150 + NomialPressureValue) * 0.101972 * Act_SafetyFactor   'FACTOR OF SAFETY
+            DT_ActuatorInfo.Rows(7).Item(1) = Math.Round(FrictionForce, 2)     ' Packing Force
 
             If cmbBalancing.SelectedIndex = 0 Then ''Non Pressure Balanacing 
                 SealingForce = 0
@@ -13235,14 +13650,18 @@ Public Class frmValveSizing
                         SealingForce = 20 * SeatDia     'Piston ring      Factor of safety included 
                 End Select
             End If
-            SealingForce = SealingForce * 1.15 * 0.101972   ' Add Factor of Safety 
-            SeatingForce = SeatingForce * 1.15 * 0.101972
-            Fluidforce = Fluidforce * 1.15 * 0.101972  'Add Factor of Safety  28022023
+            SealingForce = SealingForce * Act_SafetyFactor * 0.101972   ' Add Factor of Safety 
+            SeatingForce = SeatingForce * Act_SafetyFactor * 0.101972
+            Fluidforce = Fluidforce * Act_SafetyFactor * 0.101972  'Add Factor of Safety  28022023
             FrictionForce = (FrictionForce + SealingForce)
 
             FinalForce = (Fluidforce + SeatingForce + FrictionForce)
             'Convert from Newton to kgf or lbs
-            
+            DT_ActuatorInfo.Rows(8).Item(1) = Math.Round(SeatingForce, 0)
+            DT_ActuatorInfo.Rows(9).Item(1) = Math.Round(Fluidforce, 0)
+            DT_ActuatorInfo.Rows(10).Item(1) = Math.Round(FinalForce, 0)
+
+
             '**-------------------------Valve Travel-----------------------------------
 
             If FinalOverrideRatings < 600 Then
@@ -13265,6 +13684,17 @@ Public Class frmValveSizing
             End With
             Dim found As Boolean
             found = False
+
+            DT_ActuatorInfo.Rows(1).Item(1) = Math.Round(SuggestedRating, 0)
+            DT_ActuatorInfo.Rows(2).Item(1) = cmbBalancing.Text
+            DT_ActuatorInfo.Rows(3).Item(1) = SeatDia
+            DT_ActuatorInfo.Rows(4).Item(1) = StemDia
+            DT_ActuatorInfo.Rows(5).Item(1) = cmbFlowDirection.Text
+            DT_ActuatorInfo.Rows(6).Item(1) = cmbAirFailure.Text
+
+            
+
+
 
             Actuator = ""
 
@@ -13703,6 +14133,7 @@ Public Class frmValveSizing
             ' 20201031 Temporary
             txtSuggActuator.Text = Actuator
             DT_ActuatorSelect.Rows(1).Item(1) = Actuator
+
             'FinalActuator = Actuator
             'lblFinalActuator.Text = FinalActuator
             'cmbSelectActuator.Text = FinalActuator
@@ -13837,7 +14268,7 @@ Public Class frmValveSizing
 
             If ResetType = True Then Call Reset_All() 'Only call when units physically changed.
 
-            cmbUnitsType.SelectedIndex = index
+            'cmbUnitsType.SelectedIndex = index
             txtMedium.Text = cmbFluid.Text
             ChangingUnitsType = False
             If Not cmbUnitsType.SelectedIndex = -1 Then
@@ -13851,6 +14282,8 @@ Public Class frmValveSizing
                 cmbViscosityUnits.Items.Clear()
                 cmbAirPressureUnits.Items.Clear()
                 cmbVelocityRule.Items.Clear()
+                cmbFlowrate.Items.Clear()                   '07 June 2023
+
                 Select Case cmbUnitsType.SelectedIndex
                     Case 0                               'MKS/SI
                         cmbTemperatureUnits.Items.Add("°C")
@@ -14211,7 +14644,8 @@ Public Class frmValveSizing
                 cmbViscosityUnits.Text = cmbViscosityUnits.SelectedItem
 
             End If
-            If Not LoadingProjectFile = True Then Call SelectFlowUnits()
+            '  If Not LoadingProjectFile = True Then Call SelectFlowUnits()
+            Call SelectFlowUnits()
         Catch ex As Exception
             MsgBox("cmbUnitsType :  " & ex.Message)
         End Try
@@ -14219,16 +14653,29 @@ Public Class frmValveSizing
 
     End Function
 
+    Private Sub cmbUnitsType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbUnitsType.SelectedIndexChanged
+        Try
+            Call ChangeUnitsType(False)
+            ToolTip1.Show("Changing Units Type, Units are reloaded! Please recheck results!", cmbUnitsType, 2)
+            ToolTip1.Show("Changing Units Type, Units are reloaded!  Please recheck results!", cmbUnitsType, 5000)
+        Catch ex As Exception
+            MsgBox("UnitsType_SelectedIndex Changed : " & ex.Message)
+        End Try
+
+    End Sub
+
     Private Sub cmbUnitsType_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbUnitsType.SelectionChangeCommitted
         '  Call ChangeUnitsType()
         ResetFlowarateIndex = True
+        ToolTip1.Show("Changing Units Type, Units are reloaded!  Please recheck results!", cmbUnitsType, 2)
+        ToolTip1.Show("Changing Units Type, Units are reloaded!  Please recheck results!", cmbUnitsType, 5000)
     End Sub
 
 
-    Private Sub cmbUnitsType_TextChanged(sender As Object, e As EventArgs) Handles cmbUnitsType.TextChanged
-        Call ChangeUnitsType(True)
+    'Private Sub cmbUnitsType_TextChanged(sender As Object, e As EventArgs) Handles cmbUnitsType.TextChanged
 
-    End Sub
+
+    'End Sub
 
 
     Private Sub txtAirPressure_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAirPressure.KeyPress
@@ -14275,12 +14722,41 @@ Public Class frmValveSizing
 
 
     Private Sub cmbAirFailure_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbAirFailure.KeyPress, cmbMOC.KeyPress, cmbModel.KeyPress, cmbPacking.KeyPress, cmbPipeDia.KeyPress, cmbPressureUnits.KeyPress, cmbQW.KeyPress, cmbSchedule.KeyPress, cmbSealing.KeyPress, cmbSelectActuator.KeyPress, cmbSuggestedRating.KeyPress, cmbTemperatureUnits.KeyPress
-        e.Handled = True
+        '  e.Handled = True
+    End Sub
+
+    Private Sub cmbPacking_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPacking.SelectedIndexChanged
+        If LoadingProjectFile = False Then
+            If cmbPacking.SelectedIndex < 3 And FinalDesignTemperatureInlet > 180 Then        '' For PTFE
+                If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
+                    MsgBox("PTFE material suitable up to 180 degC ")
+
+                    txtErrors.Text = "PTFE material suitable up to 180 °C"
+                Else
+                    MsgBox("PTFE material suitable up to 356 deg F")
+                    txtErrors.Text = "PTFE material suitable up to 356°F/ 815.6°R  "
+
+                End If
+                cmbPacking.SelectedIndex = 3        'Graphite
+            Else
+                txtErrors.Text = ""
+            End If
+
+            If cmbPacking.Text = "PTFE V-Ring+EPDM" And FinalDesignTemperatureInlet > 140 Then
+                If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
+                    MsgBox("PTFE V-Ring+EPDM not available for design temperature more than 140 deg C .")
+                Else
+                    MsgBox("PTFE V-Ring+EPDM not available for design temperature more than 284°F/ 743.67°R .")
+                End If
+                cmbPacking.Text = "PTFE V-Ring+VITON"
+                cmbPacking.SelectedIndex = cmbPacking.FindString("PTFE V-Ring+VITON")
+            End If
+        End If
     End Sub
 
    
 
-    Private Sub txtAirPressure_Validated(sender As Object, e As EventArgs) Handles txtDPShutoff.Validated, txtAirPressure.Validated, cmbActuatorType.TextChanged, cmbBalancing.TextChanged, cmbAirFailure.TextChanged, cmbPacking.TextChanged, cmbSealing.TextChanged, cmbSeatDia.SelectionChangeCommitted
+    Private Sub txtAirPressure_Validated(sender As Object, e As EventArgs) Handles txtDPShutoff.Validated, txtAirPressure.Validated, cmbActuatorType.TextChanged, cmbBalancing.SelectedIndexChanged, cmbAirFailure.TextChanged, cmbPacking.TextChanged, cmbSealing.TextChanged, cmbSeatDia.SelectionChangeCommitted
         Dim count As Byte
 
         Try
@@ -14483,6 +14959,17 @@ Public Class frmValveSizing
 
     End Sub
 
+    Private Sub cmbSelectActuator_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSelectActuator.SelectedIndexChanged
+        Try
+            FinalActuator = cmbSelectActuator.Text
+            lblFinalActuator.Text = FinalActuator
+            DT_ActuatorSelect.Rows(2).Item(1) = FinalActuator
+            DT_ActuatorInfo.Rows(11).Item(1) = FinalActuator
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Private Sub cmbSelectActuator_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbSelectActuator.SelectionChangeCommitted
         Try
             If LoadingForm = True Then
@@ -14505,12 +14992,12 @@ Public Class frmValveSizing
                         DT_ActuatorSelect.Rows(2).Item(2) = CSng(lblSel0PercF.Text)
                         DT_ActuatorSelect.Rows(2).Item(3) = CSng(lblSel100PerF.Text)
 
-                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(1).Item(2) Then
+                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(0).Item(2) Then
                             lblSel0PercF.ForeColor = Color.Red
                         Else
                             lblSel0PercF.ForeColor = Color.Green
                         End If
-                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(1).Item(3) Then
+                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(0).Item(3) Then
                             lblSel100PerF.ForeColor = Color.Red
                         Else
                             lblSel100PerF.ForeColor = Color.Green
@@ -14525,6 +15012,7 @@ Public Class frmValveSizing
 
 
                     DT_ActuatorSelect.Rows(2).Item(1) = FinalActuator
+                    DT_ActuatorInfo.Rows(11).Item(1) = FinalActuator
 
                 End If
             End If
@@ -14561,10 +15049,44 @@ Public Class frmValveSizing
                     If tempNoiseCase3 < 5 Then
                         tempNoiseCase3 = 5
                     End If
-                    If FinalPressureDropCase1 > 0 Then lblNoiseCase1.Text = Math.Round(tempNoiseCase1, 1) Else lblNoiseCase1.Text = ""
-                    If FinalPressureDropCase2 > 0 Then lblNoiseCase2.Text = Math.Round(tempNoiseCase2, 1) Else lblNoiseCase2.Text = ""
-                    If FinalPressureDropCase3 > 0 Then lblNoiseCase3.Text = Math.Round(tempNoiseCase3, 1) Else lblNoiseCase3.Text = ""
+                    If FinalPressureDropCase1 > 0 Then
+                        lblNoiseCase1.Text = Math.Round(tempNoiseCase1, 1)
+                        If tempNoiseCase1 > 89 Then
+                            lblNoiseCase1.ForeColor = Color.Red
+                        ElseIf tempNoiseCase1 > 85 And tempNoiseCase1 < 89 Then
+                            lblNoiseCase1.ForeColor = Color.Orange
+                        ElseIf tempNoiseCase1 < 85 Then
+                            lblNoiseCase1.ForeColor = Color.Black
+                        End If
+                    Else
+                        lblNoiseCase1.Text = ""
+                    End If
 
+                    If FinalPressureDropCase2 > 0 Then
+                        lblNoiseCase2.Text = Math.Round(tempNoiseCase2, 1)
+                        If tempNoiseCase2 > 89 Then
+                            lblNoiseCase2.ForeColor = Color.Red
+                        ElseIf tempNoiseCase2 > 85 And tempNoiseCase2 < 89 Then
+                            lblNoiseCase2.ForeColor = Color.Orange
+                        ElseIf tempNoiseCase2 < 85 Then
+                            lblNoiseCase2.ForeColor = Color.Black
+                        End If
+                    Else
+                        lblNoiseCase2.Text = ""
+                    End If
+
+                    If FinalPressureDropCase3 > 0 Then
+                        lblNoiseCase3.Text = Math.Round(tempNoiseCase3, 1)
+                        If tempNoiseCase3 > 89 Then
+                            lblNoiseCase3.ForeColor = Color.Red
+                        ElseIf tempNoiseCase3 > 85 And tempNoiseCase3 < 89 Then
+                            lblNoiseCase3.ForeColor = Color.Orange
+                        ElseIf tempNoiseCase3 < 85 Then
+                            lblNoiseCase3.ForeColor = Color.Black
+                        End If
+                    Else
+                        lblNoiseCase3.Text = ""
+                    End If
 
                     If chkNoiseAttenuation.Checked = True Or chkBaffleCase1.Checked = True Then     'Check Only baffle1 as 2 and 3 1 should be present.
                         tempAttenuationNoiseCase1 = AttneuatedNoiseLevelCase1
@@ -14592,9 +15114,41 @@ Public Class frmValveSizing
                             tempAttenuationNoiseCase3 = 5
                         End If
 
-                        If Case1Present = True Then lblAttenuatedNoiseCase1.Text = Math.Round(tempAttenuationNoiseCase1, 1) Else lblAttenuatedNoiseCase1.Text = ""
-                        If Case2Present = True Then lblAttenuatedNoiseCase2.Text = Math.Round(tempAttenuationNoiseCase2, 1) Else lblAttenuatedNoiseCase2.Text = ""
-                        If Case3Present = True Then lblAttenuatedNoiseCase3.Text = Math.Round(tempAttenuationNoiseCase3, 1) Else lblAttenuatedNoiseCase3.Text = ""
+                        If Case1Present = True Then
+                            lblAttenuatedNoiseCase1.Text = Math.Round(tempAttenuationNoiseCase1, 1)
+                            If tempAttenuationNoiseCase1 > 89 Then
+                                lblAttenuatedNoiseCase1.ForeColor = Color.Red
+                            ElseIf tempAttenuationNoiseCase1 > 85 And tempAttenuationNoiseCase1 < 89 Then
+                                lblAttenuatedNoiseCase1.ForeColor = Color.Orange
+                            ElseIf tempAttenuationNoiseCase1 < 85 Then
+                                lblAttenuatedNoiseCase1.ForeColor = Color.Black
+                            End If
+                        Else
+                            lblAttenuatedNoiseCase1.Text = ""
+                        End If
+
+                        If Case2Present = True Then
+                            lblAttenuatedNoiseCase2.Text = Math.Round(tempAttenuationNoiseCase2, 1)
+                            If tempAttenuationNoiseCase2 > 89 Then
+                                lblAttenuatedNoiseCase2.ForeColor = Color.Red
+                            ElseIf tempAttenuationNoiseCase2 > 85 And tempAttenuationNoiseCase2 < 89 Then
+                                lblAttenuatedNoiseCase2.ForeColor = Color.Orange
+                            ElseIf tempAttenuationNoiseCase2 < 85 Then
+                                lblAttenuatedNoiseCase2.ForeColor = Color.Black
+                            End If
+                        Else : lblAttenuatedNoiseCase2.Text = ""
+                        End If
+                        If Case3Present = True Then
+                            lblAttenuatedNoiseCase3.Text = Math.Round(tempAttenuationNoiseCase3, 1)
+                            If tempAttenuationNoiseCase3 > 89 Then
+                                lblAttenuatedNoiseCase3.ForeColor = Color.Red
+                            ElseIf tempAttenuationNoiseCase3 > 85 And tempAttenuationNoiseCase3 < 89 Then
+                                lblAttenuatedNoiseCase3.ForeColor = Color.Orange
+                            ElseIf tempAttenuationNoiseCase3 < 85 Then
+                                lblAttenuatedNoiseCase3.ForeColor = Color.Black
+                            End If
+                        Else : lblAttenuatedNoiseCase3.Text = ""
+                        End If
 
                         If cmbFluidType.Text = "Compressible" Then
                             KVAttenuatedCase1 = FinalKVCase1
@@ -14930,34 +15484,12 @@ Public Class frmValveSizing
     End Sub
 
 
-    Private Sub cmbPacking_Validated(sender As Object, e As EventArgs) Handles cmbPacking.Validated
+    'Private Sub cmbPacking_Validated(sender As Object, e As EventArgs) Handles cmbPacking.Validated
 
 
-        If cmbPacking.SelectedIndex < 3 And FinalDesignTemperatureInlet > 180 Then        '' For PTFE
-            If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                ToolTip1.Show("PTFE material suitable up to 180 degC ", cmbPacking, 2)
-                ToolTip1.Show("PTFE material suitable up to 180 degC ", cmbPacking, 2000)
-                txtErrors.Text = "PTFE material suitable up to 180 °C"
-            Else
-                ToolTip1.Show("PTFE material suitable up to 356 deg F", cmbPacking, 2)
-                ToolTip1.Show("PTFE material suitable up to 356 deg F", cmbPacking, 2000)
-                txtErrors.Text = "PTFE material suitable up to 356°F/ 815.6°R  "
 
-            End If
-        Else
-            txtErrors.Text = ""
-        End If
 
-        If cmbPacking.Text = "PTFE V-Ring+EPDM" And FinalDesignTemperatureInlet > 140 Then
-            If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
-                ToolTip1.Show("PTFE V-Ring+EPDM not available for design temperature more than 140 deg C .", cmbPacking, 2)
-                ToolTip1.Show("PTFE V-Ring+EPDM not available for design temperature more than 140 deg C .", cmbPacking, 2000)
-            End If
-            cmbPacking.Text = "PTFE V-Ring+VITON"
-            cmbPacking.SelectedIndex = cmbPacking.FindString("PTFE V-Ring+VITON")
-        End If
-
-    End Sub
+    'End Sub
 
     Private Sub cmbSealing_Validated(sender As Object, e As EventArgs) Handles cmbSealing.Validated
         If cmbLeakage.Text = "CLASS VI" Then
@@ -16334,24 +16866,30 @@ Public Class frmValveSizing
         Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=true"
         Dim cmd As SqlCommand
         Dim adapter As New SqlDataAdapter
-        Dim query As String = "select * from storage_table where customer = '" + CustomerName + "' and TagNo ='" + TagNo + "' and CustomerRef = '" + CustomerRef + "';"
+        Dim query As String = "select * from storage_table ' where customer = '" + CustomerName + "' and TagNo ='" + TagNo + "' and CustomerRef = '" + CustomerRef + "';"
         Dim drr As DataRow
 
+        Try
+
+        
         Using con As New SqlConnection(constr)
             cmd = New SqlCommand(query, con)
             adapter.SelectCommand = cmd
-            adapter.Fill(dtr)
-            drr = dtr.Rows(0)
+                adapter.Fill(dt_OpenOffice)
+                drr = dt_OpenOffice.Rows(0)
         End Using
 
-        'MessageBox.Show(drr.Item("Sr_No").ToString)
+            'MessageBox.Show(drr.Item("Sr_No").ToString)
+        Catch ex As Exception
+            MsgBox("ReadSQL: " & ex.Message)
+        End Try
 
     End Sub
 
     Public Sub ReadXLS(XLSFilename As String)
 
         'If Not CustomerName = Nothing And Not CustomerRef = Nothing And Not TagNo = Nothing Then
-        '    ReadSQL()
+        ' ReadSQL()
         'End If
 
         'Dim xlWorkBook As excel.Workbook
@@ -16381,9 +16919,18 @@ Public Class frmValveSizing
 
 
                 Database_Columnno = DataSection1_Field
+                ' cmbUnitsType.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
+
+                If IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)) Then
+                    cmbUnitsType.Text = String.Empty
+                Else
+                    cmbUnitsType.SelectedIndex = cmbUnitsType.FindStringExact(.Rows(Temprow).Item(Database_Columnno + 11))
+                End If
+
+
                 cmbFluidType.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 9)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 9))
                 cmbFluid.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 10)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 10))
-                cmbUnitsType.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
+                '    cmbUnitsType.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
                 cmbModel.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 12))
                 txtMedium.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 13)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 13))
 
@@ -16403,7 +16950,14 @@ Public Class frmValveSizing
                 'DateTimePicker1.Value = .Cells(Database_Rowno, Database_Columnno + 7).value
                 ''taken later because values reset when Fluid Type Changes 
 
-                cmbQW.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 73)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 73))
+                'cmbQW.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 73)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 73))
+                If IsDBNull(.Rows(Temprow).Item(Database_Columnno + 73)) Then
+                    cmbQW.Text = String.Empty
+                Else
+                    cmbQW.SelectedIndex = cmbQW.FindStringExact(.Rows(Temprow).Item(Database_Columnno + 73))
+                End If
+
+
 
                 CustomerName = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 1))
                 ProjectName = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 2))
@@ -16568,9 +17122,28 @@ Public Class frmValveSizing
                     txtMolecularWeight.Text = ""
                 Else
                     txtMolecularWeight.Text = .Rows(Temprow).Item(Database_Columnno + 34)
+                    MolecularWeight = CSng(txtMolecularWeight.Text)
                 End If
 
                 chkMolecularWeight.Checked = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 32)), 0, .Rows(Temprow).Item(Database_Columnno + 32))
+                If chkMolecularWeight.Checked = True Then
+                    If cmbFluidType.Text = "Compressible" Then
+                        lblDensity.Visible = False
+                        cmbDensityUnits.Visible = False
+                        txtDensityCase1.Visible = False
+                        txtDensityCase2.Visible = False
+                        txtDensityCase3.Visible = False
+                    End If
+                    txtMolecularWeight.Visible = True
+                Else
+
+                    lblDensity.Visible = True
+                    cmbDensityUnits.Visible = True
+                    txtDensityCase1.Visible = True
+                    txtDensityCase2.Visible = True
+                    txtDensityCase3.Visible = True
+                    txtMolecularWeight.Visible = False
+                End If
                 cmbDensityUnits.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 33)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 33))
 
 
@@ -16649,7 +17222,7 @@ Public Class frmValveSizing
                 If Not IsDBNull(.Rows(Temprow).Item(Database_Columnno + 47)) Then
                     txtTsatoutPressureCase2.Text = If(.Rows(Temprow).Item(Database_Columnno + 47) <= 0, String.Empty, .Rows(Temprow).Item(Database_Columnno + 47))
                 Else
-                    txtTsatoutPressureCase1.Text = ""
+                    txtTsatoutPressureCase2.Text = ""
                 End If
 
                 If Not IsDBNull(.Rows(Temprow).Item(Database_Columnno + 48)) Then
@@ -16940,10 +17513,16 @@ Public Class frmValveSizing
 
                 cmbActuatorType.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 1))
                 cmbBalancing.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 2))
-                cmbAirFailure.SelectedValue = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), -1, .Rows(Temprow).Item(Database_Columnno + 3))
-                cmbAirFailure.SelectedIndex = cmbAirFailure.SelectedValue - 1 '
-                cmbAirFailure.Text = cmbAirFailure.GetItemText(cmbAirFailure.Items(cmbAirFailure.SelectedIndex))
 
+                If (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 3))) Then
+                    For Each row As DataRow In ds_AccessoriesMat.Tables(48).Rows
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                            Plug = row.Item("PARAMETER_VALUE")
+                        End If
+                    Next
+                End If
+                cmbAirFailure.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), "", .Rows(Temprow).Item(Database_Columnno + 3))
+                ' cmbAirFailure.SelectedIndex = cmbAirFailure.SelectedValue - 1 '
                 cmbLeakage.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 4))
                 cmbPacking.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 5))
                 cmbSealing.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 6))
@@ -16955,17 +17534,17 @@ Public Class frmValveSizing
 
                 lblForce0perc.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
                 'cmbHandwheel.SelectedValue = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), -1, .Rows(Temprow).Item(Database_Columnno + 12))
-                If Not (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12))) Then
+
+                If (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12))) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(20).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 12) Then
-                            cmbHandwheel.SelectedValue = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 12) Then
+                            cmbHandwheel.Text = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
-                    cmbHandwheel.SelectedValue = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), -1, .Rows(Temprow).Item(Database_Columnno + 12))
+                    cmbHandwheel.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), "", .Rows(Temprow).Item(Database_Columnno + 12))
                 End If
-                cmbHandwheel.SelectedIndex = cmbHandwheel.SelectedValue - 1 '
-                cmbHandwheel.Text = cmbHandwheel.GetItemText(cmbHandwheel.Items(cmbHandwheel.SelectedIndex))
+
 
                 txtSuggActuator.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 13)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 13))
                 cmbSelectActuator.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 14)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 14))
@@ -16979,193 +17558,193 @@ Public Class frmValveSizing
                 lblSel0PercF.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 22)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 22))
                 lblSel100PerF.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 23)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 23))
                 lblForce100perc.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 24)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 24))
-
+                txtACTFactor.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 25)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 25))
                 'Materials 
                 Database_Columnno = DataSection4_Materials
 
                 'BodyMaterial = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 1))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 1)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 1)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(30).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                                 Exit For
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(2).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(35).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(40).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    BodyMaterial = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), -1, .Rows(Temprow).Item(Database_Columnno + 1))
+                    BodyMaterial = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), "", .Rows(Temprow).Item(Database_Columnno + 1))
                 End If
 
                 'Plug = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 2))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 2)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 2)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(32).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(3).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(37).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(42).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    Plug = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), -1, .Rows(Temprow).Item(Database_Columnno + 2))
+                    Plug = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), "", .Rows(Temprow).Item(Database_Columnno + 2))
                 End If
 
                 'Seat = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 3))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 3)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 3)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(33).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(4).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(38).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(43).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    Seat = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), -1, .Rows(Temprow).Item(Database_Columnno + 3))
+                    Seat = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), "", .Rows(Temprow).Item(Database_Columnno + 3))
                 End If
 
                 'TopMaterials = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 4))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 4)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 4)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(31).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(5).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(36).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(41).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    TopMaterials = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), -1, .Rows(Temprow).Item(Database_Columnno + 4))
+                    TopMaterials = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), "", .Rows(Temprow).Item(Database_Columnno + 4))
                 End If
 
                 'Gasket = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 5))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 5)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 5)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(34).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(6).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(39).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(44).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    Gasket = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), -1, .Rows(Temprow).Item(Database_Columnno + 5))
+                    Gasket = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), "", .Rows(Temprow).Item(Database_Columnno + 5))
                 End If
 
                 'Painting = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 6))
                 'Painting_ACC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 28)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 28))
-                If Not (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 6))) Then
+                If (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 6))) Then
                     For Each row In ds_AccessoriesMat.Tables(7).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 6) Then
-                            Painting = row.Item("SR_NO")
-                            Painting_ACC = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 6) Then
+                            Painting = row.Item("PARAMETER_VALUE")
+                            Painting_ACC = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
-                    Painting = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), -1, .Rows(Temprow).Item(Database_Columnno + 6))
-                    Painting_ACC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), -1, .Rows(Temprow).Item(Database_Columnno + 6))
+                    Painting = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), "", .Rows(Temprow).Item(Database_Columnno + 6))
+                    Painting_ACC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), "", .Rows(Temprow).Item(Database_Columnno + 6))
                 End If
 
-                frmMaterials.cmbBodyMaterial.SelectedValue = BodyMaterial
-                frmMaterials.cmbPlug.SelectedValue = Plug
-                frmMaterials.cmbSeat.SelectedValue = Seat
-                frmMaterials.cmbTopMaterials.SelectedValue = TopMaterials
-                frmMaterials.cmbGasket.SelectedValue = Gasket
+                frmMaterials.cmbBodyMaterial.Text = BodyMaterial
+                frmMaterials.cmbPlug.Text = Plug
+                frmMaterials.cmbSeat.Text = Seat
+                frmMaterials.cmbTopMaterials.Text = TopMaterials
+                frmMaterials.cmbGasket.Text = Gasket
                 frmMaterials.cmbPainitng.Text = Painting
                 frmMaterials.cmbPaintingACC.Text = Painting_ACC
 
                 'Positioner = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 7)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 7))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 7)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 7)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(8).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 7) Then
-                            Positioner = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 7) Then
+                            Positioner = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17174,10 +17753,10 @@ Public Class frmValveSizing
                 End If
 
                 'Sov = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 8)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 8))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 8)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 8)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(9).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 8) Then
-                            Sov = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 8) Then
+                            Sov = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17186,10 +17765,10 @@ Public Class frmValveSizing
                 End If
 
                 'AFR = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 9)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 9))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 9)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 9)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 9) Then
-                            AFR = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 9) Then
+                            AFR = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17198,10 +17777,10 @@ Public Class frmValveSizing
                 End If
 
                 'ALR = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 10)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 10))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 10)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 10)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(11).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 10) Then
-                            ALR = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 10) Then
+                            ALR = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17210,7 +17789,7 @@ Public Class frmValveSizing
                 End If
 
                 'LimitSwitch = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 11)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 11)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(12).Rows
                         If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 11) Then
                             LimitSwitch = row.Item("SR_NO")
@@ -17222,10 +17801,10 @@ Public Class frmValveSizing
                 End If
 
                 'VolBooster = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 12))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(13).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 12) Then
-                            VolBooster = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 12) Then
+                            VolBooster = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17234,10 +17813,10 @@ Public Class frmValveSizing
                 End If
 
                 'PosnTrans = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 13)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 13))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 13)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 13)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(14).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 13) Then
-                            PosnTrans = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 13) Then
+                            PosnTrans = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17246,10 +17825,10 @@ Public Class frmValveSizing
                 End If
 
                 'Roborter = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 15)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 15))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 15)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 15)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(16).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 15) Then
-                            Roborter = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 15) Then
+                            Roborter = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17258,10 +17837,10 @@ Public Class frmValveSizing
                 End If
 
                 'ItoP = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 16)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 16))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 16)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 16)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(17).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 16) Then
-                            ItoP = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 16) Then
+                            ItoP = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17270,10 +17849,10 @@ Public Class frmValveSizing
                 End If
 
                 'QEV = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 17)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 17))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 17)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 17)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(18).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 17) Then
-                            QEV = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 17) Then
+                            QEV = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17282,10 +17861,10 @@ Public Class frmValveSizing
                 End If
 
                 'Certification = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 18)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 18))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 18)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 18)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(19).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 18) Then
-                            Certification = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 18) Then
+                            Certification = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17295,10 +17874,10 @@ Public Class frmValveSizing
 
                 VTank = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 14)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 14))
                 'Tubing = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 19)), .Rows(Temprow).Item(Database_Columnno + 19), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 19)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 19)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(21).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 18) Then
-                            Tubing = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 18) Then
+                            Tubing = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17310,10 +17889,11 @@ Public Class frmValveSizing
 
                 '12102020 changes
                 'PositionerMake = If(Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 21)), -1, .Rows(Temprow).Item(Database_Columnno + 21))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 21)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 21)) Then
                     For Each row In ds_AccessoriesMat.Tables(23).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 21) Then
-                            PositionerMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 21) Then
+                            PositionerMake = row.Item("PARAMETER_VALUE")
+                            Exit For
                         End If
                     Next
                 Else
@@ -17321,10 +17901,10 @@ Public Class frmValveSizing
                 End If
 
                 'AFRMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 22)), -1, .Rows(Temprow).Item(Database_Columnno + 22))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 22)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 22)) Then
                     For Each row In ds_AccessoriesMat.Tables(24).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 22) Then
-                            AFRMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 22) Then
+                            AFRMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17332,10 +17912,10 @@ Public Class frmValveSizing
                 End If
 
                 'ALRMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 23)), -1, .Rows(Temprow).Item(Database_Columnno + 23))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 23)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 23)) Then
                     For Each row In ds_AccessoriesMat.Tables(25).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 23) Then
-                            ALRMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 23) Then
+                            ALRMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17343,10 +17923,10 @@ Public Class frmValveSizing
                 End If
 
                 'SOVMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 24)), -1, .Rows(Temprow).Item(Database_Columnno + 24))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 24)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 24)) Then
                     For Each row In ds_AccessoriesMat.Tables(26).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 24) Then
-                            SOVMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 24) Then
+                            SOVMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17354,10 +17934,10 @@ Public Class frmValveSizing
                 End If
 
                 'VBMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 25)), -1, .Rows(Temprow).Item(Database_Columnno + 25))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 25)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 25)) Then
                     For Each row In ds_AccessoriesMat.Tables(27).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 25) Then
-                            VBMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 25) Then
+                            VBMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17365,10 +17945,10 @@ Public Class frmValveSizing
                 End If
 
                 'LimitSwitchMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 26)), -1, .Rows(Temprow).Item(Database_Columnno + 26))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 26)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 26)) Then
                     For Each row In ds_AccessoriesMat.Tables(28).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 26) Then
-                            LimitSwitchMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 26) Then
+                            LimitSwitchMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17376,10 +17956,10 @@ Public Class frmValveSizing
                 End If
 
                 'QEVMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 27)), -1, .Rows(Temprow).Item(Database_Columnno + 27))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 27)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 27)) Then
                     For Each row In ds_AccessoriesMat.Tables(29).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 27) Then
-                            QEVMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 27) Then
+                            QEVMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17434,6 +18014,20 @@ Public Class frmValveSizing
                 lblVelocityOutletPipeCase1.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 31)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 31))
                 lblVelocityOutletPipeCase2.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 32)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 32))
                 lblVelocityOutletPipeCase3.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 33)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 33))
+
+                If Not txtSuggestedKV.Text = "" And Not cmbKVOverride.Text = "" Then
+
+                    If CSng(txtSuggestedKV.Text) > CSng(cmbKVOverride.Text) Then
+                        GroupBox1.BackColor = Color.AntiqueWhite
+                        GroupBox2.BackColor = Color.AntiqueWhite
+                        GroupBox3.BackColor = Color.AntiqueWhite
+                    Else
+                        GroupBox1.BackColor = Color.LightSteelBlue
+                        GroupBox2.BackColor = Color.LightSteelBlue
+                        GroupBox3.BackColor = Color.LightSteelBlue
+
+                    End If
+                End If
 
                 Database_Columnno = DataSection6_Output2
                 FinalNoiseLevelCase1 = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), 0, .Rows(Temprow).Item(Database_Columnno + 1))
@@ -17705,10 +18299,10 @@ Public Class frmValveSizing
                 DPShutoff = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 45)), 0, .Rows(Temprow).Item(Database_Columnno + 45))
 
                 'TubingMake = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 46)), .Rows(Temprow).Item(Database_Columnno + 45), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 46)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 46)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(45).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 46) Then
-                            TubingMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 46) Then
+                            TubingMake = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17717,10 +18311,10 @@ Public Class frmValveSizing
                 End If
 
                 'TubingSize = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 47)), .Rows(Temprow).Item(Database_Columnno + 45), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 47)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 47)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(46).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 47) Then
-                            TubingSize = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 47) Then
+                            TubingSize = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17729,16 +18323,20 @@ Public Class frmValveSizing
                 End If
 
                 'TubingMOC = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 48)), .Rows(Temprow).Item(Database_Columnno + 45), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 48)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 48)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(47).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 48) Then
-                            TubingMOC = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 48) Then
+                            TubingMOC = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
                 Else
                     TubingMOC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 48)), -1, .Rows(Temprow).Item(Database_Columnno + 48))
                 End If
+
+                MolecularWeightCase1 = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 49)), 0, .Rows(Temprow).Item(Database_Columnno + 49))
+                MolecularWeightCase2 = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 50)), 0, .Rows(Temprow).Item(Database_Columnno + 50))
+                MolecularWeightCase3 = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 51)), 0, .Rows(Temprow).Item(Database_Columnno + 51))
 
                 '.Rows(Temprow)(Database_Columnno + 55) = If(txtP2OutWCase3.Text = "", 0, txtP2OutWCase3.Text)
 
@@ -18856,7 +19454,7 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 1) = cmbActuatorType.Text
 
                 .Rows(Temprow)(Database_Columnno + 2) = cmbBalancing.Text
-                .Rows(Temprow)(Database_Columnno + 3) = cmbAirFailure.SelectedValue
+                .Rows(Temprow)(Database_Columnno + 3) = cmbAirFailure.Text
                 .Rows(Temprow)(Database_Columnno + 4) = cmbLeakage.Text
                 .Rows(Temprow)(Database_Columnno + 5) = cmbPacking.Text
                 .Rows(Temprow)(Database_Columnno + 6) = cmbSealing.Text
@@ -18866,7 +19464,7 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 9) = If(txtAirPressure.Text = "", DBNull.Value, txtAirPressure.Text)
                 .Rows(Temprow)(Database_Columnno + 10) = cmbSeatDia.Text
                 .Rows(Temprow)(Database_Columnno + 11) = lblForce0perc.Text
-                .Rows(Temprow)(Database_Columnno + 12) = cmbHandwheel.SelectedValue
+                .Rows(Temprow)(Database_Columnno + 12) = cmbHandwheel.Text
                 .Rows(Temprow)(Database_Columnno + 13) = If(txtSuggActuator.Text = "", DBNull.Value, txtSuggActuator.Text)
                 .Rows(Temprow)(Database_Columnno + 14) = cmbSelectActuator.Text
                 .Rows(Temprow)(Database_Columnno + 15) = lblFinalActuator.Text
@@ -18879,6 +19477,7 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 22) = lblSel0PercF.Text
                 .Rows(Temprow)(Database_Columnno + 23) = lblSel100PerF.Text
                 .Rows(Temprow)(Database_Columnno + 24) = lblForce100perc.Text
+                .Rows(Temprow)(Database_Columnno + 25) = txtACTFactor.Text
 
                 'Materials 
                 Database_Columnno = DataSection4_Materials
@@ -18948,6 +19547,9 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 31) = lblVelocityOutletPipeCase1.Text
                 .Rows(Temprow)(Database_Columnno + 32) = lblVelocityOutletPipeCase2.Text
                 .Rows(Temprow)(Database_Columnno + 33) = lblVelocityOutletPipeCase3.Text
+                .Rows(Temprow)(Database_Columnno + 34) = PosnTransMake
+                .Rows(Temprow)(Database_Columnno + 35) = PressRegMake
+                .Rows(Temprow)(Database_Columnno + 36) = ItoPMake
 
                 Database_Columnno = DataSection6_Output2
                 .Rows(Temprow)(Database_Columnno + 1) = If(lblNoiseCase1.Text = "", DBNull.Value, lblNoiseCase1.Text)
@@ -19084,6 +19686,11 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 47) = TubingSize
                 .Rows(Temprow)(Database_Columnno + 48) = TubingMOC
 
+                .Rows(Temprow)(Database_Columnno + 49) = MolecularWeightCase1
+                .Rows(Temprow)(Database_Columnno + 50) = MolecularWeightCase2
+                .Rows(Temprow)(Database_Columnno + 51) = MolecularWeightCase3
+
+
 
                 'Database_workbook.Save()
 
@@ -19094,11 +19701,12 @@ Public Class frmValveSizing
             Dim objODSWrite As ODCWORK.OdsReaderWriter = New ODCWORK.OdsReaderWriter()
             Call objODSWrite.WriteOdsFile(ds_OpenOffice, CurrentProjectFileName)
 
-
+            objODSWrite = Nothing
 
         Catch ex As Exception
             MsgBox("Save database:  " & ex.Message)
         Finally
+
             ''releaseObject(Database_worksheet)
             ''releaseObject(Database_workbook)
         End Try
@@ -19271,6 +19879,15 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 31) = "Bonnet"
                 dr(Database_Columnno + 32) = "EndConn"
                 dr(Database_Columnno + 33) = "FinalDesignTemperatureInlet"
+                dr(Database_Columnno + 34) = "SuggTrim"
+                dr(Database_Columnno + 35) = "SelectTrim"
+                dr(Database_Columnno + 36) = "BaffleCheck1"
+                dr(Database_Columnno + 37) = "BaffleCheck2"
+                dr(Database_Columnno + 38) = "BaffleCheck3"
+                dr(Database_Columnno + 39) = "BaffleKVCase1"
+                dr(Database_Columnno + 40) = "BaffleKVCase2"
+                dr(Database_Columnno + 41) = "BaffleKVCase3"
+                dr(Database_Columnno + 42) = "MicroTrim"
 
                 'Extra 9 for future 
                 '' Actuator section 
@@ -19287,7 +19904,7 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 8) = "AirPressUnits"
                 dr(Database_Columnno + 9) = "AirPress"
                 dr(Database_Columnno + 10) = "SeatDia"
-                dr(Database_Columnno + 11) = "FinalForce"
+                dr(Database_Columnno + 11) = "SuggForce0perc"
                 dr(Database_Columnno + 12) = "HandWheel"
                 dr(Database_Columnno + 13) = "SuggActuator"
                 dr(Database_Columnno + 14) = "SelActuator"
@@ -19300,8 +19917,10 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 21) = "MKSFinalSpringRange"
                 dr(Database_Columnno + 22) = "SelForce0"
                 dr(Database_Columnno + 23) = "SelForce100"
+                dr(Database_Columnno + 24) = "SuggForce100"
+                dr(Database_Columnno + 25) = "ACTSafetyFactor"
              
-                '6 columns for future use
+                '2 columns for future use
 
                 'Materials 
                 Database_Columnno = DataSection4_Materials '133 + 17+10
@@ -19369,6 +19988,10 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 31) = "VelocityOutletPipeCase1"
                 dr(Database_Columnno + 32) = "VelocityOutletPipeCase2"
                 dr(Database_Columnno + 33) = "VelocityOutletPipeCase3"
+                dr(Database_Columnno + 34) = "PosnTransMake"
+                dr(Database_Columnno + 35) = "PressRegMake"
+                dr(Database_Columnno + 36) = "ItoPMake"
+
                 '10 columns for future use 
                 Database_Columnno = DataSection6_Output2  '188+33+10
                 dr(Database_Columnno + 1) = "NoiseCase1"
@@ -19504,6 +20127,10 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 46) = "Tubing Make"
                 dr(Database_Columnno + 47) = "Tubing Size"
                 dr(Database_Columnno + 48) = "Tubing MOC"
+                dr(Database_Columnno + 49) = "MWCase1"
+                dr(Database_Columnno + 50) = "MWCase2"
+                dr(Database_Columnno + 51) = "MWCase3"
+               
 
                 .Rows.Add(dr)
 
@@ -19847,7 +20474,8 @@ Public Class frmValveSizing
                             .Rows(NowRecord)(Columnno + 40) = dt_OpenOffice(Database_Rowno)(DataSection1_Field + 52) ' ' Math.Round(FinalCriticalPressureCase3, 2)
                         End If
                         .Rows(NowRecord)(Columnno + 41) = dt_OpenOffice(Database_Rowno)(DataSection6_Output2 + 35) ' ' User Notes 1
-                        .Rows(NowRecord)(Columnno + 42) = .Rows(NowRecord)(Columnno + 13) 'cmbPressureUnits.Text
+                        ' .Rows(NowRecord)(Columnno + 42) = .Rows(NowRecord)(Columnno + 13) 'cmbPressureUnits.Text
+                        .Rows(NowRecord)(Columnno + 42) = dt_OpenOffice(Database_Rowno)(DataSection1_Field + 22)  'cmbPressureUnits.Text
                         .Rows(NowRecord)(Columnno + 43) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 2) ' 'txtDesignPressureInlet.Text
                         DesignTemperatureUnit = .Rows(NowRecord)(Columnno + 21)
                         .Rows(NowRecord)(Columnno + 44) = .Rows(NowRecord)(Columnno + 21) ' cmbTemperatureUnits.Text
@@ -19859,19 +20487,19 @@ Public Class frmValveSizing
 
                         Dim CSVModels As String = dt_OpenOffice(Database_Rowno)(22)
 
-                        '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 51) = "Globe" ' dt_OpenOffice(Database_Rowno, DataSection6_Output2 + 25)' 'cmbModel.Text
 
@@ -19882,7 +20510,7 @@ Public Class frmValveSizing
 
                         If CsvModel = "FM Valve" Then
                             Select Case CSVSelectedTrim
-                                Case "PS1"
+                                Case "PS1", "SL"
                                     CsvEcoTrim = "P1"
                                 Case "PS3"
                                     CsvEcoTrim = "P3"
@@ -19899,38 +20527,39 @@ Public Class frmValveSizing
 
                         .Rows(NowRecord)(Columnno + 52) = CsvEcoTrim     ' Converted to Ecotrol to match configurator
 
-                        '.Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 55) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 20) ' 'Guiding
                         .Rows(NowRecord)(Columnno + 56) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 24) ' 'cmbKVseries.Text
 
-                        CSVCharacterstics = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23) ' 'cmbCharacterstics.Text
+                        CSVCharacterstics = If(IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23)), String.Empty, dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23))
+                        '  CSVCharacterstics = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23) ' 'cmbCharacterstics.Text
                         If CSVCharacterstics = "Linear" Or CSVCharacterstics = "Equal %" Then
                             CSVCharacterstics = CSVCharacterstics.Substring(0, 1)
                         End If
@@ -19970,44 +20599,45 @@ Public Class frmValveSizing
                         '74 Blank
 
                         CSVAirFail = ""
-                        Dim airfail As Integer   ' ' cmbAirFailure.Text
-                        If IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3)) Then
-                            airfail = -1
-                        Else
-                            airfail = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
-                        End If
+                        'Dim airfail As Integer   ' ' cmbAirFailure.Text
+                        'If IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3)) Then
+                        '    airfail = -1
+                        'Else
+                        '    airfail = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
+                        'End If
 
-                        If airfail = -1 Then
-                            CSVAirFail = "--Select--"
-                        ElseIf airfail = 0 Then
-                            CSVAirFail = "-O"
-                        ElseIf airfail = 1 Then
-                            CSVAirFail = "-C"
-                        End If
-
-                        'If CSVAirFail = "AIR TO CLOSE" Then
+                        'If airfail = -1 Then
+                        '    CSVAirFail = "--Select--"
+                        'ElseIf airfail = 0 Then
                         '    CSVAirFail = "-O"
-                        'ElseIf CSVAirFail = "AIR TO OPEN" Then
+                        'ElseIf airfail = 1 Then
                         '    CSVAirFail = "-C"
                         'End If
+
+                        If CSVAirFail = "AIR TO CLOSE" Then
+                            CSVAirFail = "-O"
+                        ElseIf CSVAirFail = "AIR TO OPEN" Then
+                            CSVAirFail = "-C"
+                        End If
 
                         .Rows(NowRecord)(Columnno + 75) = CSVAirFail
                         .Rows(NowRecord)(Columnno + 76) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 2) ' 'cmbBalancing.Text
                         .Rows(NowRecord)(Columnno + 77) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 5) ' 'cmbPacking.Text
                         .Rows(NowRecord)(Columnno + 78) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 6) ' 'cmbSealing.Text
                         .Rows(NowRecord)(Columnno + 79) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 19) ' 'MKSActuator
-                        '.Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
+                        .Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
 
-                        If Not IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12)) Then
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
-                        Else
-                            tempcode = -1
-                        End If
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 80) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("PARAMETER_VALUE")
-                        Else
-                            .Rows(NowRecord)(Columnno + 80) = "--Select--"
-                        End If
+                    
+                        'If Not IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12)) Then
+                        '    tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
+                        'Else
+                        '    tempcode = -1
+                        'End If
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 80) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'Else
+                        '    .Rows(NowRecord)(Columnno + 80) = "--Select--"
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 81) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 7) ' ' cmbAreaunits.Text
                         .Rows(NowRecord)(Columnno + 82) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 11) ' 'lblFinalOutletPipe
@@ -20022,64 +20652,64 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 87) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         .Rows(NowRecord)(Columnno + 88) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         '89 blank
-                        '.Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification / End Connection
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification / End Connection
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '91 blank
-                        '.Rows(NowRecord)(Columnno + 92) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) ' 'frmMaterials.cmbPainitng.Text
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 92) = ds_AccessoriesMat.Tables(7).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 92) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) ' 'frmMaterials.cmbPainitng.Text
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 92) = ds_AccessoriesMat.Tables(7).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '93 blank
-                        '.Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '95 Blank                                                               
-                        '.Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '97 Blank
-                        '.Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '99 Blank
-                        '.Rows(NowRecord)(Columnno + 100) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) ' ' AFR
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 100) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) ' ' AFR
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 101) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) ' ' SOV
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 101) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) ' ' SOV
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 102) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) ' ' ALR
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 102) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) ' ' ALR
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 'Pressure Regulator
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 'Pressure Regulator
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 104) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 14) ' 'Volume Tank 
 
@@ -20093,19 +20723,19 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 115) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 6) '
                         .Rows(NowRecord)(Columnno + 116) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 6) '
                         '117 to 134 blank
-                        '.Rows(NowRecord)(Columnno + 135) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) ' 'Gasket
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(34).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(6).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(39).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(44).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 135) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) ' 'Gasket
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(34).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(6).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(39).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(44).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 136) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 9) ' 'End Spring Range
                         ' .Rows(NowRecord)(Columnno + 137) = dt_OpenOffice(Database_Rowno)(Database_Columnno + 9)' 'cmbAirPressureUnits.Text
@@ -20168,7 +20798,7 @@ Public Class frmValveSizing
             '//////////////////////////////////////////////////////////////////////////
 
             'Declaration of Variables
-            Dim filename1 As String = DirectoryName & "\" & FileName & ".csv"
+            Dim filename1 As String = DirectoryName & "\" & "CSV_" & FileName & ".csv"
             Dim myString As String
             Dim bFirstRecord As Boolean = True
             Dim myWriter As StreamWriter
@@ -20898,6 +21528,19 @@ Public Class frmValveSizing
     '    End Try
 
     'End Sub
+    Public Function FindSQL_SRNo(ByVal ParaVal As String, ByVal ParaLoc As Object) As Integer
+        Try
+            For Each row As DataRow In ds_AccessoriesMat.Tables(ParaLoc).Rows
+                If row.Item("PARAMETER_VALUE") = ParaVal Then
+                    FindSQL_SRNo = row.Item("SR_NO")
+                    Exit For
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("FindSQL_SRNo: " & ex.Message)
+        End Try
+    End Function
+
     Public Sub ConvertToCRM()
         Dim Columnno, NowRecord, tempcode As Integer
 
@@ -21075,7 +21718,14 @@ Public Class frmValveSizing
 
                         If CsvModel = "GLOBE-FORBES" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            For Each row As DataRow In ds_AccessoriesMat.Tables(30).Rows
+                                If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) Then
+                                    tempcode = row.Item("SR_NO")
+                                    Exit For
+                                End If
+                            Next
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 30) - 1
+                            'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("MODEL_CODE")
@@ -21086,7 +21736,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "GLOBE" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 2) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("MODEL_CODE")
@@ -21097,7 +21748,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "3-WAY MIX " Or CsvModel = "3-WAY SEP" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 35) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("MODEL_CODE")
@@ -21108,7 +21760,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "T.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Parabolic" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 40) - 1
+                            'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("MODEL_CODE")
@@ -21128,7 +21781,7 @@ Public Class frmValveSizing
 
                         If CsvModel = "FM Valve" Then
                             Select Case CSVSelectedTrim
-                                Case "PS1"
+                                Case "PS1", "SL"
                                     CsvEcoTrim = "P1"
                                 Case "PS3"
                                     CsvEcoTrim = "P3"
@@ -21147,7 +21800,8 @@ Public Class frmValveSizing
 
                         If CsvModel = "GLOBE" Then
                             '.Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 3) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("MODEL_CODE")
@@ -21158,7 +21812,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "GLOBE-FORBES" Then
                             '.Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 32) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("MODEL_CODE")
@@ -21168,8 +21823,9 @@ Public Class frmValveSizing
                                 .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
                             End If
                         ElseIf CsvModel = "3-WAY MIX " Or CsvModel = "3-WAY SEP" Then
-                            '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
+                            '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 37) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("MODEL_CODE")
@@ -21180,7 +21836,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "T.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Parabolic" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 42) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("MODEL_CODE")
@@ -21193,7 +21850,8 @@ Public Class frmValveSizing
 
                         If CsvModel = "GLOBE-FORBES" Then
                             '.Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 33) - 1
+                            'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("MODEL_CODE")
@@ -21204,7 +21862,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "GLOBE" Then
                             '.Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 4) - 1
+                            '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("MODEL_CODE")
@@ -21215,7 +21874,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "3-WAY MIX " Or CsvModel = "3-WAY SEP" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 38) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("MODEL_CODE")
@@ -21226,7 +21886,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "T.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Parabolic" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 43) - 1
+                            '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("MODEL_CODE")
@@ -21298,8 +21959,13 @@ Public Class frmValveSizing
                         '    tempcode = 2
                         'End If
 
-                        '.Rows(NowRecord)(Columnno + 75) = CSVAirFail
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(48).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) Then  ' AFR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 75) = CSVAirFail
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(75).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(75).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(48).Rows(tempcode).Item("MODEL_CODE")
@@ -21313,8 +21979,15 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 77) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 5) ' 'cmbPacking.Text
                         .Rows(NowRecord)(Columnno + 78) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 6) ' 'cmbSealing.Text
                         .Rows(NowRecord)(Columnno + 79) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 19) ' 'MKSActuator
-                        '.Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
+
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(20).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) Then  ' AFR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
+
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(80).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(80).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("MODEL_CODE")
@@ -21337,15 +22010,21 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 87) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         .Rows(NowRecord)(Columnno + 88) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         '89 blank
-                        '.Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification written end-connection
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
+
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(19).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification written end-connection
+                        ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
+                            ' .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         '91 blank
@@ -21362,84 +22041,120 @@ Public Class frmValveSizing
 
                         '93 blank
 
-                        '   .Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1  ' ' Switches
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(12).Rows        ' Switches
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1  ' ' Switches
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         '95 Blank
-                        ' .Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1  ' ' Positioner
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(8).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1  ' ' Positioner
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
+                            ' .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         '97 Blank
-                        ' .Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1  ' ' Volbooster
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(13).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1  ' ' Volbooster
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '   .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
                         '99 Blank
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(10).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) Then  ' AFR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 100) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9)
+                        '   tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         ' Message += "AFR Model: " + ds.Tables(10).Rows(AFR).Item("Sr_No").ToString + " " + ds.Tables(10).Rows(AFR).Item("MODEL_CODE") + " " + ds.Tables(10).Rows(AFR).Item("CATEGORY_CODE") + " " + ds.Tables(10).Rows(AFR).Item("PARAMETER_CODE") + " " + ds.Tables(10).Rows(AFR).Item("PARAMETER_VALUE_CODE") + " " + ds.Tables(10).Rows(AFR).Item("PARAMETER_VALUE") + Environment.NewLine
 
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(9).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) Then   ' SOV
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 101) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8)
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
-
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1 ' ' ALR
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(11).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) Then   'ALR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 102) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10)
+                        ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1 ' ' ALR
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
-
-                        '.Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 'Pressure Regulator
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1   'Pressure Regulator/Robotor
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(16).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) Then   ''Pressure Regulator
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1   'Pressure Regulator/Robotor
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '    .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         .Rows(NowRecord)(Columnno + 104) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 14) ' 'Volume Tank 
@@ -21698,8 +22413,10 @@ Public Class frmValveSizing
         End Try
 
     End Sub
-    Private Sub HScrollBar_Records_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar_Records.Scroll
+
+        Private Sub HScrollBar_Records_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar_Records.Scroll
         ' txtJumpToRecord.Text = HScrollBar_Records.Value
+
 
         Try
             If Not e.Type = ScrollEventType.EndScroll Then
@@ -21710,7 +22427,7 @@ Public Class frmValveSizing
 
                 Call SaveXLS(XMLFilename)       ' Write data on the selected filename.
 
-                ChangingUnitsType = False
+                ' ChangingUnitsType = True
                 SameFileRecords = True     '  To avoid resetting customer details.
 
                 SameFileRecords = False
@@ -21726,8 +22443,24 @@ Public Class frmValveSizing
                         lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
                         txtJumpToRecord.Text = Database_Rowno
                         Call Reset_All()
+                        '  ChangingUnitsType = False
                         Call ReadXLS(XMLFilename)
-                    Case ScrollEventType.LargeDecrement, ScrollEventType.SmallDecrement
+                    Case ScrollEventType.ThumbPosition
+
+                        Database_Rowno = HScrollBar_Records.Value
+
+                        If Database_Rowno < 1 Then
+                            Database_Rowno = 1
+                        ElseIf Database_Rowno > dt_OpenOffice.Rows.Count - 1 Then
+                            dt_OpenOffice.Rows.Add(dt_OpenOffice.NewRow())
+                        End If
+                        lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
+                        txtJumpToRecord.Text = Database_Rowno
+                        Call Reset_All()
+                        '  ChangingUnitsType = False
+                        Call ReadXLS(XMLFilename)
+                    Case ScrollEventType.SmallDecrement
+                        HScrollBar_Records.Enabled = False
                         Database_Rowno = Database_Rowno - 1
                         Database_LastRow = dt_OpenOffice.Rows.Count - 1
                         If Database_Rowno < 1 Then
@@ -21736,10 +22469,17 @@ Public Class frmValveSizing
                         lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
                         txtJumpToRecord.Text = Database_Rowno
                         Call Reset_All()
+                        '  ChangingUnitsType = False
                         Call ReadXLS(XMLFilename)
-
-                    Case ScrollEventType.LargeIncrement, ScrollEventType.SmallIncrement
+                        HScrollBar_Records.Enabled = True
+                    Case ScrollEventType.LargeDecrement
+                        ToolTip1.Show("LARGE DECREMENT ", HScrollBar_Records, 1000)
+                    Case ScrollEventType.LargeIncrement
+                        ToolTip1.Show("LARGE INCREMENT ", HScrollBar_Records, 1000)
+                    Case ScrollEventType.SmallIncrement
+                        HScrollBar_Records.Enabled = False
                         Call Reset_All()
+                        'ChangingUnitsType = False
                         Database_Rowno = Database_Rowno + 1
                         Database_LastRow = dt_OpenOffice.Rows.Count - 1
                         lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
@@ -21750,7 +22490,7 @@ Public Class frmValveSizing
 
                             Call ReadXLS(XMLFilename)
                         End If
-
+                        HScrollBar_Records.Enabled = True
                 End Select
 
 
@@ -21775,7 +22515,10 @@ Public Class frmValveSizing
 
 
                 lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
+
+                Threading.Thread.Sleep(500)
             End If
+
         Catch ex As Exception
             MsgBox("HScrollBar_Records_Scroll :   " & ex.Message, , "Control Valve Sizing")
         End Try
@@ -21790,10 +22533,10 @@ Public Class frmValveSizing
             ' If MsgBox("Do you want to save the record?", MsgBoxStyle.YesNo, " - Alert!") = MsgBoxResult.Yes Then
             Call SaveXLS(XMLFilename)       ' Write data on the selected filename.
 
-            ChangingUnitsType = False
+            ChangingUnitsType = True
 
             Call Reset_All()
-
+            ChangingUnitsType = False
             Database_Rowno = Database_Rowno + 1
             Database_LastRow = dt_OpenOffice.Rows.Count - 1
             lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
@@ -21804,6 +22547,7 @@ Public Class frmValveSizing
             Else
                 Call ReadXLS(XMLFilename)
             End If
+
         Catch ex As Exception
         End Try
     End Sub
@@ -21893,6 +22637,7 @@ Public Class frmValveSizing
             Call Reset_All()
             txtJumpToRecord.Text = tempRecord
             Database_Rowno = tempRecord
+            HScrollBar_Records.Value = Database_Rowno
 
             lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
 
@@ -22031,6 +22776,8 @@ Public Class frmValveSizing
         Try
             If chkBaffleCase1.Checked = True Then
                 txtBaffleKVCase1.Visible = True
+                ToolTip3.Show("Check TIS before entering Kv/Cv values!", txtBaffleKVCase1, 20)
+                ToolTip3.Show("Check TIS before entering Kv/Cv values!", txtBaffleKVCase1, 4000)
             Else
                 txtBaffleKVCase1.Visible = False
                 txtBaffleKVCase1.Text = ""
@@ -22056,6 +22803,8 @@ Public Class frmValveSizing
             If chkBaffleCase1.Checked = True And Not txtBaffleKVCase1.Text = "" Then
                 If chkBaffleCase2.Checked = True Then
                     txtBaffleKVCase2.Visible = True
+                    ToolTip3.Show("Check TIS before entering Kv/Cv values!", txtBaffleKVCase2, 20)
+                    ToolTip3.Show("Check TIS before entering Kv/Cv values!", txtBaffleKVCase2, 4000)
                 Else
                     txtBaffleKVCase2.Visible = False
                     chkBaffleCase3.Checked = False
@@ -22083,6 +22832,8 @@ Public Class frmValveSizing
             If chkBaffleCase1.Checked = True And Not txtBaffleKVCase1.Text = "" And chkBaffleCase2.Checked = True And Not txtBaffleKVCase2.Text = "" Then
                 If chkBaffleCase3.Checked = True Then
                     txtBaffleKVCase3.Visible = True
+                    ToolTip3.Show("Check TIS before entering Kv/Cv values!", txtBaffleKVCase3, 20)
+                    ToolTip3.Show("Check TIS before entering Kv/Cv values!", txtBaffleKVCase3, 4000)
                 Else
                     txtBaffleKVCase3.Visible = False
                     BaffleKVCase3 = 0
@@ -22353,7 +23104,7 @@ Public Class frmValveSizing
                         TempDT = DT_PR1150300KV
                     Case 3
                         Select Case Model
-                            Case 1, 3
+                            Case 0, 1
                                 TempDT = DT_PR2150300KV
                             Case 4
                                 TempDT = DT_TEPRDSL2150300
@@ -22362,7 +23113,7 @@ Public Class frmValveSizing
                         End Select
                     Case 4
                         Select Case Model
-                            Case 1, 3
+                            Case 0, 1
                                 TempDT = DT_PR3150300KV
                             Case 4
                                 TempDT = DT_TEPRDSL3150300
@@ -22717,6 +23468,12 @@ Public Class frmValveSizing
         End Try
     End Sub
 
+    Private Sub cmbKVOverride_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbKVOverride.KeyPress
+        If cmbSelectedTrim.SelectedIndex < 2 Then  '  For PS1,PS3 and nothing 
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub cmbKVOverride_TextChanged(sender As Object, e As EventArgs) Handles cmbKVOverride.TextChanged
 
         If LoadingForm = True Then
@@ -22739,7 +23496,7 @@ Public Class frmValveSizing
         Try
             Dim TrimKVOK As Boolean
             Dim count, direction, index As Byte
-            If cmbKVOverride.SelectedIndex < 0 Then
+            If cmbKVOverride.SelectedIndex < 0 And Not cmbKVOverride.Text = "--Select--" And Not cmbKVOverride.Text = "" Then
                 TrimKVOK = CheckKV(cmbKVOverride.Text, FinalValveSize, cmbSelectedTrim.SelectedIndex, 1)
                 If TrimKVOK = True Then
                     If cmbUnitsType.SelectedIndex = 1 Then        ' FPS
@@ -22839,6 +23596,17 @@ Public Class frmValveSizing
                     Call ValveSizeOverride()
                     Call FindFP()
                     ' Call CalculateNoise()
+                    If Not txtSuggestedKV.Text = "" And Not cmbKVOverride.Text = "" Then
+                        If CSng(txtSuggestedKV.Text) > CSng(cmbKVOverride.Text) Then
+                            GroupBox1.BackColor = Color.AntiqueWhite
+                            GroupBox2.BackColor = Color.AntiqueWhite
+                            GroupBox3.BackColor = Color.AntiqueWhite
+                        Else
+                            GroupBox1.BackColor = Color.LightSteelBlue
+                            GroupBox2.BackColor = Color.LightSteelBlue
+                            GroupBox3.BackColor = Color.LightSteelBlue
+                        End If
+                    End If
 
                 Else
                     cmbKVOverride.Text = ""
@@ -22848,14 +23616,39 @@ Public Class frmValveSizing
 
 
         Catch ex As Exception
-
+            ToolTip2.Show(ex.Message, cmbKVOverride, 2)
+            ToolTip2.Show(ex.Message, cmbKVOverride, 3000)
         End Try
 
 
     End Sub
 
     Private Sub btnTables_Click(sender As Object, e As EventArgs) Handles btnTables.Click
-        My.Forms.frmTestingGrids.ShowDialog()
+        Try
+
+       
+        Call AllCalculations()
+        FinalActuator = cmbSelectActuator.Text
+        lblFinalActuator.Text = FinalActuator
+        DT_ActuatorSelect.Rows(2).Item(1) = FinalActuator
+        DT_ActuatorInfo.Rows(11).Item(1) = FinalActuator
+            DT_ActuatorSelect.Rows(2).Item(2) = If(Not lblSel0PercF.Text = "", CSng(lblSel0PercF.Text), 0)
+            DT_ActuatorSelect.Rows(2).Item(3) = If(Not lblSel100PerF.Text = "", CSng(lblSel100PerF.Text), 0)
+
+            If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(0).Item(2) Then
+                lblSel0PercF.ForeColor = Color.Red
+            Else
+                lblSel0PercF.ForeColor = Color.Green
+            End If
+            If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(0).Item(3) Then
+                lblSel100PerF.ForeColor = Color.Red
+            Else
+                lblSel100PerF.ForeColor = Color.Green
+            End If
+            My.Forms.frmTestingGrids.ShowDialog()
+        Catch ex As Exception
+            MsgBox("btnTables_Click " & ex.Message)
+        End Try
     End Sub
 
 
@@ -23047,13 +23840,14 @@ Public Class frmValveSizing
         Dim ocell201, ocell202, ocell203, ocell204, ocell205, ocell206, ocell207, ocell208, ocell209, ocell210, ocell211, ocell212, ocell213, ocell214, ocell215, ocell216, ocell217, ocell218, ocell219, ocell220, ocell222, ocell223, ocell224, ocell225, ocell226, ocell227, ocell228, ocell229, ocell230, ocell231, ocell232, ocell233, ocell234, ocell235, ocell236, ocell237, ocell238, ocell239, ocell240, ocell241, ocell242, ocell243, ocell244, ocell245, ocell246, ocell247, ocell248, ocell249, ocell250 As Object
         Dim ocell251, ocell252, ocell253, ocell254, ocell255, ocell256, ocell257, ocell258, ocell259, ocell260, ocell261, ocell262, ocell263, ocell264, ocell265, ocell266, ocell267, ocell268, ocell269, ocell270, ocell271, ocell272, ocell273, ocell274, ocell275, ocell276, ocell277, ocell278, ocell279, ocell280, ocell281, ocell282, ocell283, ocell284, ocell285, ocell286, ocell289, ocell290, ocell291, ocell292, ocell293, ocell294, ocell295, ocell296, ocell297, ocell298, ocell300 As Object
         Dim ImageFilePath As Object
-        Dim oGraph As Object, oCursor As Object, DrawPages, oWraptext As Object
+        Dim oGraph As Object, oCursor As Object, DrawPages, oWraptext, oEmbeded As Object
         Dim DrawPage As Object, FileURL As String
         Dim i As Integer
 
         Try
             oSm = CreateObject("com.sun.star.ServiceManager")
             oDesk = oSm.createInstance("com.sun.star.frame.Desktop")
+
             Dim sSize As Object
             Dim sPoint As Object
             Dim selArea(0) As Object
@@ -23062,9 +23856,12 @@ Public Class frmValveSizing
 
             oDoc = oDesk.loadComponentFromURL("file:///" & PrintName.Replace("\", "/"), "_default", 0, arg) 'forward slash'
 
+           
 
             Dim TableBorder = oSm.Bridge_GetStruct("com.sun.star.table.TableBorder")
             Dim aTopLine = oSm.Bridge_GetStruct("com.sun.star.table.BorderLine")
+
+
 
             '22072020
             Dim oStyleFamily, PageStyles, DefaultPageStyle As Object
@@ -23095,8 +23892,15 @@ Public Class frmValveSizing
                 sSize.Width = 12000
                 sSize.Height = 1322
                 oGraph = oDoc.createInstance("com.sun.star.drawing.GraphicObjectShape")
+                'oWraptext = oSheet.createInstance("com.sun.star.text.WrapTextMode.DYNAMIC")
+                ' oEmbeded = oDoc.createInstance("com.sun.star.text.WrapTextMode.DYNAMIC")                   ' Estructura de objeto embebido
+                ' oEmbeded.setPropertyValue("CLSID", "12DCAE26-281F-416F-a234-c3086127382e")
+                'oEmbeded.Surround = com.sun.star.text.WrapTextMode.DYNAMIC
+                ''ocell216.oWraptext.isTextWrapped = True
+                'ocell216.setPropertyValue("IsTextWrapped", True)
 
-                ImageFilePath = "file:///" & AppPath.Replace("\", "/") & "/images/FMLogo.jpg"
+
+                ImageFilePath = "file:///" & AppPath.Replace("\", "/") & "/bin/Debug/images/FMLogo.jpg"
 
                 With oGraph
                     .GraphicURL = ImageFilePath
@@ -23885,6 +24689,10 @@ Public Class frmValveSizing
                 ocell215 = oSheet.getCellrangeByname("I54:O54")
                 ocell215.CharFontName = "Calibri"
                 ocell215.CharHeight = 9
+                'oWraptext = oSheet.createInstance("com.star.text.WrapTextMode.DYNAMIC")
+                'ocell216.oWraptext.isTextWrapped = True
+                ' ocell216.setProperty("IsTextWrapped", True)
+
                 ocell216 = oSheet.getCellrangeByname("I55:O56")
                 ocell216.CharFontName = "Calibri"
                 ocell216.CharHeight = 9
@@ -24066,7 +24874,7 @@ Public Class frmValveSizing
                 ocell271 = oSheet.getCellrangeByname("B64:AE65")
                 ocell271.CharFontName = "Calibri"
                 ocell271.CharHeight = 9
-                'oWraptext = oSheet.createInstance("com.star.text.WrapTextMode.DYNAMIC")
+                ' oWraptext = oSheet.createInstance("com.star.text.WrapTextMode TextWrap")
                 'ocell268.oWraptext.isTextWrapped = True
 
 
@@ -24645,9 +25453,7 @@ Public Class frmValveSizing
     End Sub
 
 
-    Private Sub btnChart_Click(sender As Object, e As EventArgs) Handles btnChart.Click
-        frmChart.ShowDialog()
-    End Sub
+ 
 
 
     Private Sub KvCvChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KvCvChartToolStripMenuItem.Click
@@ -24848,53 +25654,56 @@ Public Class frmValveSizing
 
     Private Sub NewTagToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewTagToolStripMenuItem.Click
         Try
-            Database_LastRow = dt_OpenOffice.Rows.Count - 1
-            HScrollBar_Records.Maximum = Database_LastRow
-            If MsgBox("DO you want to create a new record?", MsgBoxStyle.YesNoCancel, "Alert!") = MsgBoxResult.Yes Then
+           
+            If MsgBox("DO you want to create a new record?", MsgBoxStyle.YesNo, "Alert!") = MsgBoxResult.Yes Then
                 If Not XMLFilename = "" Then
+                    Database_LastRow = dt_OpenOffice.Rows.Count - 1
+                    HScrollBar_Records.Maximum = Database_LastRow
                     Call SaveXLS(XMLFilename)
-
 
                     'NewxlWorkbook = APP.Workbooks.Open(XMLFilename)
                     'NewxlWorksheet = NewxlWorkbook.Worksheets("Records")
                     'With NewxlWorksheet
                     '    Database_LastRow = .Cells(.Rows.Count, 1).End(excel.XlDirection.xlUp).Row
                     'End With
+                    'Else
+                    '    Database_Rowno = 0
+                    '    Database_LastRow = 0
+                    '    HScrollBar_Records.Minimum = 0
+                    '    HScrollBar_Records.Maximum = 0
+                    '    ds_OpenOffice = New DataSet
+                    '    dt_OpenOffice = New DataTable
+
+                    '    dt_OpenOffice = ds_OpenOffice.Tables.Add("Records")
+                    '    Call DatabaseFileHeader(XMLFilename)
+
+                    '    dttemp = New DataTable
+                    '    dttemp = ds_OpenOffice.Tables.Add(Database_Rowno)
+                    '    With dttemp
+
+                    '        For x = 0 To 30 Step 1
+                    '            .Columns.Add()
+                    '        Next
+
+                    '        For x = 0 To 64 Step 1
+                    '            .Rows.Add(dttemp.NewRow())
+                    '        Next
+                    '    End With
+
+
+                    Database_Rowno = Database_LastRow + 1       ' New Record add
+                    Database_LastRow = Database_LastRow + 1
+                    dt_OpenOffice.Rows.Add(dt_OpenOffice.NewRow())
+                    lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
+                    txtJumpToRecord.Text = Database_LastRow
+                    Resetall = True
+                    cmbFluidType.SelectedIndex = -1
+                    cmbFluidType.Text = "--Select--"
+                    Call Reset_All()
+                    Resetall = False
                 Else
-                    Database_Rowno = 0
-                    Database_LastRow = 0
-                    HScrollBar_Records.Minimum = 0
-                    HScrollBar_Records.Maximum = 0
-                    ds_OpenOffice = New DataSet
-                    dt_OpenOffice = New DataTable
-
-                    dt_OpenOffice = ds_OpenOffice.Tables.Add("Records")
-                    Call DatabaseFileHeader(XMLFilename)
-
-                    'dttemp = New DataTable
-                    'dttemp = ds_OpenOffice.Tables.Add(Database_Rowno)
-                    'With dttemp
-
-                    '    For x = 0 To 30 Step 1
-                    '        .Columns.Add()
-                    '    Next
-
-                    '    For x = 0 To 64 Step 1
-                    '        .Rows.Add(dttemp.NewRow())
-                    '    Next
-                    'End With
+                    MsgBox("Please save the file!")
                 End If
-
-                Database_Rowno = Database_Rowno + 1
-                'Database_LastRow = Database_LastRow + 1
-
-                lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
-                txtJumpToRecord.Text = Database_LastRow
-                Resetall = True
-                cmbFluidType.SelectedIndex = -1
-                cmbFluidType.Text = "--Select--"
-                Call Reset_All()
-                Resetall = False
             End If
         Catch ex As Exception
             MsgBox("btnNewRecord:  " & ex.Message)
@@ -24947,4 +25756,118 @@ Public Class frmValveSizing
 
 
  
+    Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
+        StopBaffleCalc = True
+    End Sub
+
+    
+    
+    Private Sub btnAcceptActuator_Click_1(sender As Object, e As EventArgs) Handles btnAcceptActuator.Click
+        Try
+
+            If LoadingForm = True Then
+                If LoadingProjectFile = False Then
+                    cmbSelectActuator.SelectedIndex = cmbSelectActuator.FindStringExact(txtSuggActuator.Text)
+
+                    cmbSelectActuator.Text = cmbSelectActuator.SelectedItem
+                    ' FinalActuator = cmbSelectActuator.Text
+                    'lblFinalActuator.Text = FinalActuator
+                    If Not cmbSelectActuator.SelectedIndex < 0 Then InitialSpringRange = Spring_Initial(cmbSelectActuator.SelectedIndex)
+                    If Not cmbSelectActuator.SelectedIndex < 0 Then FinalSpringRange = Spring_Final(cmbSelectActuator.SelectedIndex)
+                    If Not cmbSelectActuator.SelectedIndex < 0 Then MKSInitialSpringRange = MKSSpring_Initial(cmbSelectActuator.SelectedIndex)
+                    If Not cmbSelectActuator.SelectedIndex < 0 Then MKSFinalSpringRange = MKSSpring_Final(cmbSelectActuator.SelectedIndex)
+                    If Not cmbSelectActuator.SelectedIndex < 0 Then
+                        If cmbAirFailure.SelectedIndex = 1 Then       ' ATO
+                            lblSel0PercF.Text = CStr(Math.Round(F_SpringThrust(cmbSelectActuator.SelectedIndex), 0))
+                            lblSel100PerF.Text = CStr(Math.Round(F_AirThrust(cmbSelectActuator.SelectedIndex), 0))
+                        Else
+                            lblSel0PercF.Text = CStr(Math.Round(F_AirThrust(cmbSelectActuator.SelectedIndex), 0))
+                            lblSel100PerF.Text = CStr(Math.Round(F_SpringThrust(cmbSelectActuator.SelectedIndex), 0))
+                        End If
+                        DT_ActuatorSelect.Rows(2).Item(2) = CSng(lblSel0PercF.Text)
+                        DT_ActuatorSelect.Rows(2).Item(3) = CSng(lblSel100PerF.Text)
+
+                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(0).Item(2) Then
+                            lblSel0PercF.ForeColor = Color.Red
+                        Else
+                            lblSel0PercF.ForeColor = Color.Green
+                        End If
+                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(0).Item(3) Then
+                            lblSel100PerF.ForeColor = Color.Red
+                        Else
+                            lblSel100PerF.ForeColor = Color.Green
+                        End If
+                    End If
+
+                    ' If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
+                    '    lblSelForce.Text = Math.Round(F_AirThrust(cmbSelectActuator.SelectedIndex), 0)          'only for sceen display
+                    '  Else
+                    '  lblSelForce.Text = Math.Round(F_AirThrust(cmbSelectActuator.SelectedIndex) * 2.2, 0)         'only for sceen display
+                    '  End If
+
+
+                    '      DT_ActuatorSelect.Rows(2).Item(1) = FinalActuator
+                    '     DT_ActuatorInfo.Rows(11).Item(1) = FinalActuator
+
+                End If
+            End If
+
+
+        Catch ex As Exception
+            MsgBox("btnAcceptActuator  " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtACTFactor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtACTFactor.KeyPress
+        Try
+            If (Not e.KeyChar = ChrW(Keys.Back) And ("-0123456789.").IndexOf(e.KeyChar) = -1) Or (e.KeyChar = "." And CType(sender, TextBox).Text.ToCharArray().Count(Function(c) c = ".") > 0) Then
+                e.Handled = True
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MsgBox("txtACTFactor_KeyPress:   " & ex.Source & "  " & ex.Message)
+        End Try
+    End Sub
+
+    
+    
+
+    Private Sub txtACTFactor_Validated(sender As Object, e As EventArgs) Handles txtACTFactor.Validated
+        Try
+            If LoadingForm = True Then
+                If LoadingProjectFile = False Then
+                    If Not txtACTFactor.Text = "" Then
+                        Call ValveActuator()
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("txtACTFactor_TextChanged :  " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtACTFactor_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtACTFactor.Validating
+        If LoadingForm = True Then
+            If LoadingProjectFile = False Then
+                If Not txtACTFactor.Text = "" Then
+                    If CSng(txtACTFactor.Text) >= 1 And CSng(txtACTFactor.Text) <= 2 Then
+                        Act_SafetyFactor = CSng(txtACTFactor.Text)
+                    Else
+                        ToolTip2.Show("Allowed Value: 1 to 2 only", txtACTFactor, 2)
+                        ToolTip2.Show("Allowed Value: 1 to 2 only", txtACTFactor, 3000)
+                        e.Cancel = True
+                    End If
+
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub btnChart_Click(sender As Object, e As EventArgs) Handles btnChart.Click
+        frmChart.ShowDialog()
+        Me.DialogResult = DialogResult.None
+    End Sub
+
+    
+  
 End Class

@@ -165,19 +165,19 @@ Public Class frmMaterials
         Call ReLoadMaterials()
     End Sub
 
-    Private Sub lblClose_Click(sender As Object, e As EventArgs) Handles lblClose.Click
+    Private Sub lblClose_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
     Public Function SaveMaterials()
         Try
-            BodyMaterial = Me.cmbBodyMaterial.SelectedValue
-            Plug = cmbPlug.SelectedValue
-            Seat = cmbSeat.SelectedValue
-            TopMaterials = cmbTopMaterials.SelectedValue
-            Gasket = cmbGasket.SelectedValue
-            Painting = cmbPainitng.SelectedValue
-            Painting_ACC = cmbPaintingACC.SelectedValue
+            BodyMaterial = Me.cmbBodyMaterial.Text
+            Plug = cmbPlug.Text
+            Seat = cmbSeat.Text
+            TopMaterials = cmbTopMaterials.Text
+            Gasket = cmbGasket.Text
+            Painting = cmbPainitng.Text
+            Painting_ACC = cmbPaintingACC.Text
             Guiding = cmbGuiding.Text
             Return Nothing
         Catch ex As Exception
@@ -188,13 +188,13 @@ Public Class frmMaterials
 
     Public Function ReLoadMaterials()
         Try
-            cmbBodyMaterial.SelectedValue = BodyMaterial
-            cmbPlug.SelectedValue = Plug
-            cmbSeat.SelectedValue = Seat
-            cmbTopMaterials.SelectedValue = TopMaterials
-            cmbGasket.SelectedValue = Gasket
-            cmbPainitng.SelectedValue = Painting
-            cmbPaintingACC.SelectedValue = Painting_ACC
+            cmbBodyMaterial.Text = BodyMaterial
+            cmbPlug.Text = Plug
+            cmbSeat.Text = Seat
+            cmbTopMaterials.Text = TopMaterials
+            cmbGasket.Text = Gasket
+            cmbPainitng.Text = Painting
+            cmbPaintingACC.Text = Painting_ACC
             cmbGuiding.Text = Guiding
         Catch ex As Exception
             MsgBox("RELoadMaterial:  " & ex.Message)
@@ -296,9 +296,10 @@ Public Class frmMaterials
     Private Sub cmbBodyMaterial_TextChanged(sender As Object, e As EventArgs) Handles cmbBodyMaterial.TextChanged
         Try
             If Not cmbBodyMaterial.SelectedIndex = -1 Then
-                If Not cmbBodyMaterial.SelectedValue > cmbTopMaterials.Items.Count Then
-                    cmbTopMaterials.SelectedValue = cmbBodyMaterial.SelectedValue
-                End If
+                'If Not cmbBodyMaterial.SelectedValue > cmbTopMaterials.Items.Count Then
+                '    cmbTopMaterials.SelectedValue = cmbBodyMaterial.SelectedValue
+                'End If
+                cmbTopMaterials.Text = cmbBodyMaterial.Text
                 'cmbTopMaterials.SelectedValue = cmb
             End If
         Catch ex As Exception
@@ -308,14 +309,18 @@ Public Class frmMaterials
 
     Private Sub cmbPlug_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPlug.SelectedIndexChanged
         Try
-            If Not cmbPlug.SelectedIndex = -1 Then
-                If Not cmbPlug.SelectedValue > cmbSeat.Items.Count Then
-                    cmbSeat.SelectedValue = cmbPlug.SelectedValue
-                End If
-            End If
+            'If Not cmbPlug.SelectedIndex = -1 Then
+            '    If Not cmbPlug.SelectedValue > cmbSeat.Items.Count Then
+            '        cmbSeat.SelectedValue = cmbPlug.SelectedValue
+            '    End If
+            'End If
+            cmbSeat.Text = cmbPlug.Text
         Catch ex As Exception
             MsgBox("cmbPlug_SelectedIndexChanged:  " & ex.Message)
         End Try
     End Sub
 
+    Private Sub btnSaveClose_Click(sender As Object, e As EventArgs) Handles btnSaveClose.Click
+        Me.Close()
+    End Sub
 End Class

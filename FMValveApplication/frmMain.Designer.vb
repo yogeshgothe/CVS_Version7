@@ -360,6 +360,10 @@ Partial Class frmValveSizing
         Me.btnOverrideRating = New System.Windows.Forms.Button()
         Me.Label67 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnChart = New System.Windows.Forms.Button()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.txtACTFactor = New System.Windows.Forms.TextBox()
+        Me.btnAcceptActuator = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label101 = New System.Windows.Forms.Label()
         Me.Label100 = New System.Windows.Forms.Label()
@@ -372,11 +376,11 @@ Partial Class frmValveSizing
         Me.lblForce0perc = New System.Windows.Forms.Label()
         Me.lblForceUnits = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnChart = New System.Windows.Forms.Button()
         Me.cmbSeatDia = New System.Windows.Forms.ComboBox()
         Me.btnTables = New System.Windows.Forms.Button()
         Me.Label55 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnStop = New System.Windows.Forms.Button()
         Me.LblCounter = New System.Windows.Forms.Label()
         Me.Percent3 = New System.Windows.Forms.Label()
         Me.Percent2 = New System.Windows.Forms.Label()
@@ -427,6 +431,7 @@ Partial Class frmValveSizing
         Me.Label92 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
         Me.ToolTip3 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label96 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -631,7 +636,7 @@ Partial Class frmValveSizing
         Me.Label63.AutoSize = True
         Me.Label63.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label63.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label63.Location = New System.Drawing.Point(25, 291)
+        Me.Label63.Location = New System.Drawing.Point(25, 293)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(91, 13)
         Me.Label63.TabIndex = 266
@@ -708,7 +713,7 @@ Partial Class frmValveSizing
         Me.txtSuggestedKV.BackColor = System.Drawing.Color.White
         Me.txtSuggestedKV.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSuggestedKV.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.txtSuggestedKV.Location = New System.Drawing.Point(118, 316)
+        Me.txtSuggestedKV.Location = New System.Drawing.Point(118, 315)
         Me.txtSuggestedKV.Name = "txtSuggestedKV"
         Me.txtSuggestedKV.ReadOnly = True
         Me.txtSuggestedKV.Size = New System.Drawing.Size(50, 22)
@@ -825,7 +830,6 @@ Partial Class frmValveSizing
         '
         'btnKVAccept
         '
-        Me.btnKVAccept.Enabled = False
         Me.btnKVAccept.FlatAppearance.BorderSize = 0
         Me.btnKVAccept.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnKVAccept.Location = New System.Drawing.Point(190, 313)
@@ -836,7 +840,6 @@ Partial Class frmValveSizing
         Me.btnKVAccept.Text = "Accept"
         Me.btnKVAccept.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnKVAccept.UseVisualStyleBackColor = False
-        Me.btnKVAccept.Visible = False
         '
         'Label13
         '
@@ -949,7 +952,7 @@ Partial Class frmValveSizing
         Me.cmbPipeDia.Location = New System.Drawing.Point(314, 152)
         Me.cmbPipeDia.Name = "cmbPipeDia"
         Me.cmbPipeDia.Size = New System.Drawing.Size(75, 21)
-        Me.cmbPipeDia.TabIndex = 666
+        Me.cmbPipeDia.TabIndex = 66
         Me.cmbPipeDia.Text = "--Select--"
         '
         'cmbSchedule
@@ -1042,7 +1045,7 @@ Partial Class frmValveSizing
         Me.cmbAirPressureUnits.Location = New System.Drawing.Point(199, 146)
         Me.cmbAirPressureUnits.Name = "cmbAirPressureUnits"
         Me.cmbAirPressureUnits.Size = New System.Drawing.Size(88, 21)
-        Me.cmbAirPressureUnits.TabIndex = 87
+        Me.cmbAirPressureUnits.TabIndex = 8
         Me.cmbAirPressureUnits.Text = "--Select--"
         '
         'lblDPShutoffUnits
@@ -1062,7 +1065,7 @@ Partial Class frmValveSizing
         Me.txtSuggActuator.Location = New System.Drawing.Point(132, 218)
         Me.txtSuggActuator.Name = "txtSuggActuator"
         Me.txtSuggActuator.Size = New System.Drawing.Size(194, 22)
-        Me.txtSuggActuator.TabIndex = 10
+        Me.txtSuggActuator.TabIndex = 11
         Me.txtSuggActuator.TabStop = False
         '
         'Label50
@@ -1085,7 +1088,7 @@ Partial Class frmValveSizing
         Me.cmbSelectActuator.Location = New System.Drawing.Point(132, 244)
         Me.cmbSelectActuator.Name = "cmbSelectActuator"
         Me.cmbSelectActuator.Size = New System.Drawing.Size(192, 21)
-        Me.cmbSelectActuator.TabIndex = 90
+        Me.cmbSelectActuator.TabIndex = 12
         Me.cmbSelectActuator.Text = "--Select--"
         '
         'Label52
@@ -1106,7 +1109,7 @@ Partial Class frmValveSizing
         Me.txtAirPressure.Location = New System.Drawing.Point(131, 146)
         Me.txtAirPressure.Name = "txtAirPressure"
         Me.txtAirPressure.Size = New System.Drawing.Size(62, 22)
-        Me.txtAirPressure.TabIndex = 86
+        Me.txtAirPressure.TabIndex = 7
         '
         'cmbActuatorType
         '
@@ -1116,7 +1119,7 @@ Partial Class frmValveSizing
         Me.cmbActuatorType.Location = New System.Drawing.Point(131, 31)
         Me.cmbActuatorType.Name = "cmbActuatorType"
         Me.cmbActuatorType.Size = New System.Drawing.Size(93, 21)
-        Me.cmbActuatorType.TabIndex = 77
+        Me.cmbActuatorType.TabIndex = 0
         Me.cmbActuatorType.Text = "Single Spring "
         '
         'Label71
@@ -1138,7 +1141,7 @@ Partial Class frmValveSizing
         Me.cmbSealing.Location = New System.Drawing.Point(131, 99)
         Me.cmbSealing.Name = "cmbSealing"
         Me.cmbSealing.Size = New System.Drawing.Size(156, 21)
-        Me.cmbSealing.TabIndex = 84
+        Me.cmbSealing.TabIndex = 5
         Me.cmbSealing.Text = "--Select--"
         '
         'Label47
@@ -1159,7 +1162,7 @@ Partial Class frmValveSizing
         Me.txtDPShutoff.Location = New System.Drawing.Point(131, 122)
         Me.txtDPShutoff.Name = "txtDPShutoff"
         Me.txtDPShutoff.Size = New System.Drawing.Size(62, 22)
-        Me.txtDPShutoff.TabIndex = 85
+        Me.txtDPShutoff.TabIndex = 6
         '
         'Label54
         '
@@ -1180,7 +1183,7 @@ Partial Class frmValveSizing
         Me.cmbHandwheel.Location = New System.Drawing.Point(131, 175)
         Me.cmbHandwheel.Name = "cmbHandwheel"
         Me.cmbHandwheel.Size = New System.Drawing.Size(156, 21)
-        Me.cmbHandwheel.TabIndex = 88
+        Me.cmbHandwheel.TabIndex = 9
         Me.cmbHandwheel.Text = "--Select--"
         '
         'cmbPacking
@@ -1191,7 +1194,7 @@ Partial Class frmValveSizing
         Me.cmbPacking.Location = New System.Drawing.Point(131, 75)
         Me.cmbPacking.Name = "cmbPacking"
         Me.cmbPacking.Size = New System.Drawing.Size(157, 21)
-        Me.cmbPacking.TabIndex = 83
+        Me.cmbPacking.TabIndex = 4
         Me.cmbPacking.Text = "--Select--"
         '
         'Label51
@@ -1235,7 +1238,7 @@ Partial Class frmValveSizing
         Me.cmbBalancing.Location = New System.Drawing.Point(302, 31)
         Me.cmbBalancing.Name = "cmbBalancing"
         Me.cmbBalancing.Size = New System.Drawing.Size(80, 21)
-        Me.cmbBalancing.TabIndex = 78
+        Me.cmbBalancing.TabIndex = 1
         Me.cmbBalancing.Text = "--Select--"
         '
         'cmbLeakage
@@ -1246,7 +1249,7 @@ Partial Class frmValveSizing
         Me.cmbLeakage.Location = New System.Drawing.Point(302, 50)
         Me.cmbLeakage.Name = "cmbLeakage"
         Me.cmbLeakage.Size = New System.Drawing.Size(80, 21)
-        Me.cmbLeakage.TabIndex = 82
+        Me.cmbLeakage.TabIndex = 3
         Me.cmbLeakage.Text = "--Select--"
         '
         'Label45
@@ -1268,7 +1271,7 @@ Partial Class frmValveSizing
         Me.cmbAirFailure.Location = New System.Drawing.Point(131, 51)
         Me.cmbAirFailure.Name = "cmbAirFailure"
         Me.cmbAirFailure.Size = New System.Drawing.Size(80, 21)
-        Me.cmbAirFailure.TabIndex = 81
+        Me.cmbAirFailure.TabIndex = 2
         Me.cmbAirFailure.Text = "--Select--"
         '
         'Label46
@@ -2504,14 +2507,14 @@ Partial Class frmValveSizing
         '
         Me.RecordsToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.RecordsToolStripMenuItem.Name = "RecordsToolStripMenuItem"
-        Me.RecordsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RecordsToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.RecordsToolStripMenuItem.Text = "Records"
         '
         'DatasheetToolStripMenuItem
         '
         Me.DatasheetToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.DatasheetToolStripMenuItem.Name = "DatasheetToolStripMenuItem"
-        Me.DatasheetToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DatasheetToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.DatasheetToolStripMenuItem.Text = "Datasheet"
         '
         'ConfiguratorToolStripMenuItem
@@ -2519,7 +2522,7 @@ Partial Class frmValveSizing
         Me.ConfiguratorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CRMToolStripMenuItem, Me.CSVToolStripMenuItem})
         Me.ConfiguratorToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ConfiguratorToolStripMenuItem.Name = "ConfiguratorToolStripMenuItem"
-        Me.ConfiguratorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConfiguratorToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.ConfiguratorToolStripMenuItem.Text = "Configurator"
         '
         'CRMToolStripMenuItem
@@ -2786,7 +2789,7 @@ Partial Class frmValveSizing
         Me.Panel1.Location = New System.Drawing.Point(93, 83)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(418, 426)
-        Me.Panel1.TabIndex = 0
+        Me.Panel1.TabIndex = 1
         '
         'PanelPRDS
         '
@@ -2809,7 +2812,7 @@ Partial Class frmValveSizing
         Me.PanelPRDS.Location = New System.Drawing.Point(13, 370)
         Me.PanelPRDS.Name = "PanelPRDS"
         Me.PanelPRDS.Size = New System.Drawing.Size(388, 50)
-        Me.PanelPRDS.TabIndex = 3
+        Me.PanelPRDS.TabIndex = 47
         Me.PanelPRDS.Visible = False
         '
         'Label94
@@ -2886,7 +2889,7 @@ Partial Class frmValveSizing
         Me.txtWaterPressure.Location = New System.Drawing.Point(23, 26)
         Me.txtWaterPressure.Name = "txtWaterPressure"
         Me.txtWaterPressure.Size = New System.Drawing.Size(50, 22)
-        Me.txtWaterPressure.TabIndex = 58
+        Me.txtWaterPressure.TabIndex = 1
         Me.txtWaterPressure.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblFlowWaterUnit
@@ -2960,7 +2963,7 @@ Partial Class frmValveSizing
         Me.txtWaterTemperature.Location = New System.Drawing.Point(23, 1)
         Me.txtWaterTemperature.Name = "txtWaterTemperature"
         Me.txtWaterTemperature.Size = New System.Drawing.Size(50, 22)
-        Me.txtWaterTemperature.TabIndex = 57
+        Me.txtWaterTemperature.TabIndex = 0
         Me.txtWaterTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtWaterFlowCase1
@@ -2984,7 +2987,7 @@ Partial Class frmValveSizing
         Me.Label57.Location = New System.Drawing.Point(11, 5)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(370, 15)
-        Me.Label57.TabIndex = 372
+        Me.Label57.TabIndex = 0
         Me.Label57.Text = "Field Parameters______________________________________________________"
         '
         'txtMedium
@@ -2994,7 +2997,7 @@ Partial Class frmValveSizing
         Me.txtMedium.Location = New System.Drawing.Point(65, 81)
         Me.txtMedium.Name = "txtMedium"
         Me.txtMedium.Size = New System.Drawing.Size(107, 22)
-        Me.txtMedium.TabIndex = 0
+        Me.txtMedium.TabIndex = 1
         '
         'Label33
         '
@@ -3059,7 +3062,7 @@ Partial Class frmValveSizing
         Me.txtTsatInletCase3.Name = "txtTsatInletCase3"
         Me.txtTsatInletCase3.ReadOnly = True
         Me.txtTsatInletCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtTsatInletCase3.TabIndex = 44
+        Me.txtTsatInletCase3.TabIndex = 43
         Me.txtTsatInletCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtTsatInletCase2
@@ -3070,7 +3073,7 @@ Partial Class frmValveSizing
         Me.txtTsatInletCase2.Name = "txtTsatInletCase2"
         Me.txtTsatInletCase2.ReadOnly = True
         Me.txtTsatInletCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtTsatInletCase2.TabIndex = 43
+        Me.txtTsatInletCase2.TabIndex = 42
         Me.txtTsatInletCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtTsatInletCase1
@@ -3081,7 +3084,7 @@ Partial Class frmValveSizing
         Me.txtTsatInletCase1.Name = "txtTsatInletCase1"
         Me.txtTsatInletCase1.ReadOnly = True
         Me.txtTsatInletCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtTsatInletCase1.TabIndex = 43
+        Me.txtTsatInletCase1.TabIndex = 41
         Me.txtTsatInletCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblTsatInletPress
@@ -3114,7 +3117,7 @@ Partial Class frmValveSizing
         Me.chkViscosity.Location = New System.Drawing.Point(17, 299)
         Me.chkViscosity.Name = "chkViscosity"
         Me.chkViscosity.Size = New System.Drawing.Size(82, 17)
-        Me.chkViscosity.TabIndex = 36
+        Me.chkViscosity.TabIndex = 34
         Me.chkViscosity.Text = "Viscosity    "
         Me.chkViscosity.UseVisualStyleBackColor = True
         Me.chkViscosity.Visible = False
@@ -3127,7 +3130,7 @@ Partial Class frmValveSizing
         Me.txtViscosityCase1.Name = "txtViscosityCase1"
         Me.txtViscosityCase1.ReadOnly = True
         Me.txtViscosityCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtViscosityCase1.TabIndex = 38
+        Me.txtViscosityCase1.TabIndex = 36
         Me.txtViscosityCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtViscosityCase2
@@ -3138,7 +3141,7 @@ Partial Class frmValveSizing
         Me.txtViscosityCase2.Name = "txtViscosityCase2"
         Me.txtViscosityCase2.ReadOnly = True
         Me.txtViscosityCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtViscosityCase2.TabIndex = 39
+        Me.txtViscosityCase2.TabIndex = 37
         Me.txtViscosityCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtViscosityCase3
@@ -3149,7 +3152,7 @@ Partial Class frmValveSizing
         Me.txtViscosityCase3.Name = "txtViscosityCase3"
         Me.txtViscosityCase3.ReadOnly = True
         Me.txtViscosityCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtViscosityCase3.TabIndex = 40
+        Me.txtViscosityCase3.TabIndex = 38
         Me.txtViscosityCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmbViscosityUnits
@@ -3161,7 +3164,7 @@ Partial Class frmValveSizing
         Me.cmbViscosityUnits.Name = "cmbViscosityUnits"
         Me.cmbViscosityUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmbViscosityUnits.Size = New System.Drawing.Size(80, 21)
-        Me.cmbViscosityUnits.TabIndex = 37
+        Me.cmbViscosityUnits.TabIndex = 35
         Me.cmbViscosityUnits.Text = "--Select--"
         '
         'txtTsatoutPressureCase3
@@ -3172,7 +3175,7 @@ Partial Class frmValveSizing
         Me.txtTsatoutPressureCase3.Name = "txtTsatoutPressureCase3"
         Me.txtTsatoutPressureCase3.ReadOnly = True
         Me.txtTsatoutPressureCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtTsatoutPressureCase3.TabIndex = 47
+        Me.txtTsatoutPressureCase3.TabIndex = 46
         Me.txtTsatoutPressureCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtTsatoutPressureCase3.Visible = False
         '
@@ -3184,7 +3187,7 @@ Partial Class frmValveSizing
         Me.txtTsatoutPressureCase2.Name = "txtTsatoutPressureCase2"
         Me.txtTsatoutPressureCase2.ReadOnly = True
         Me.txtTsatoutPressureCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtTsatoutPressureCase2.TabIndex = 46
+        Me.txtTsatoutPressureCase2.TabIndex = 45
         Me.txtTsatoutPressureCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtTsatoutPressureCase2.Visible = False
         '
@@ -3196,7 +3199,7 @@ Partial Class frmValveSizing
         Me.txtTsatoutPressureCase1.Name = "txtTsatoutPressureCase1"
         Me.txtTsatoutPressureCase1.ReadOnly = True
         Me.txtTsatoutPressureCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtTsatoutPressureCase1.TabIndex = 45
+        Me.txtTsatoutPressureCase1.TabIndex = 44
         Me.txtTsatoutPressureCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtTsatoutPressureCase1.Visible = False
         '
@@ -3229,7 +3232,7 @@ Partial Class frmValveSizing
         Me.cmbQW.Location = New System.Drawing.Point(53, 109)
         Me.cmbQW.Name = "cmbQW"
         Me.cmbQW.Size = New System.Drawing.Size(50, 21)
-        Me.cmbQW.TabIndex = 1
+        Me.cmbQW.TabIndex = 2
         Me.cmbQW.Text = "Q"
         '
         'cmbFlowrate
@@ -3241,7 +3244,7 @@ Partial Class frmValveSizing
         Me.cmbFlowrate.Name = "cmbFlowrate"
         Me.cmbFlowrate.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmbFlowrate.Size = New System.Drawing.Size(80, 21)
-        Me.cmbFlowrate.TabIndex = 2
+        Me.cmbFlowrate.TabIndex = 3
         Me.cmbFlowrate.Text = "--Select--"
         '
         'txtFlowrateCase1
@@ -3251,7 +3254,7 @@ Partial Class frmValveSizing
         Me.txtFlowrateCase1.Location = New System.Drawing.Point(215, 109)
         Me.txtFlowrateCase1.Name = "txtFlowrateCase1"
         Me.txtFlowrateCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtFlowrateCase1.TabIndex = 3
+        Me.txtFlowrateCase1.TabIndex = 4
         Me.txtFlowrateCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtFlowrateCase2
@@ -3261,7 +3264,7 @@ Partial Class frmValveSizing
         Me.txtFlowrateCase2.Location = New System.Drawing.Point(283, 109)
         Me.txtFlowrateCase2.Name = "txtFlowrateCase2"
         Me.txtFlowrateCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtFlowrateCase2.TabIndex = 4
+        Me.txtFlowrateCase2.TabIndex = 5
         Me.txtFlowrateCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtFlowrateCase3
@@ -3271,7 +3274,7 @@ Partial Class frmValveSizing
         Me.txtFlowrateCase3.Location = New System.Drawing.Point(351, 109)
         Me.txtFlowrateCase3.Name = "txtFlowrateCase3"
         Me.txtFlowrateCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtFlowrateCase3.TabIndex = 5
+        Me.txtFlowrateCase3.TabIndex = 6
         Me.txtFlowrateCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label36
@@ -3409,7 +3412,7 @@ Partial Class frmValveSizing
         Me.cmbPressureUnits.Name = "cmbPressureUnits"
         Me.cmbPressureUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmbPressureUnits.Size = New System.Drawing.Size(80, 21)
-        Me.cmbPressureUnits.TabIndex = 0
+        Me.cmbPressureUnits.TabIndex = 7
         Me.cmbPressureUnits.Text = "--Select--"
         '
         'chkMolecularWeight
@@ -3421,7 +3424,7 @@ Partial Class frmValveSizing
         Me.chkMolecularWeight.Location = New System.Drawing.Point(14, 324)
         Me.chkMolecularWeight.Name = "chkMolecularWeight"
         Me.chkMolecularWeight.Size = New System.Drawing.Size(90, 17)
-        Me.chkMolecularWeight.TabIndex = 42
+        Me.chkMolecularWeight.TabIndex = 40
         Me.chkMolecularWeight.Text = "Mol. Weight"
         Me.chkMolecularWeight.UseVisualStyleBackColor = True
         Me.chkMolecularWeight.Visible = False
@@ -3444,7 +3447,7 @@ Partial Class frmValveSizing
         Me.txtInletPressureCase1.Location = New System.Drawing.Point(215, 132)
         Me.txtInletPressureCase1.Name = "txtInletPressureCase1"
         Me.txtInletPressureCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtInletPressureCase1.TabIndex = 7
+        Me.txtInletPressureCase1.TabIndex = 8
         Me.txtInletPressureCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnSelectP2DP
@@ -3453,7 +3456,7 @@ Partial Class frmValveSizing
         Me.btnSelectP2DP.Location = New System.Drawing.Point(115, 153)
         Me.btnSelectP2DP.Name = "btnSelectP2DP"
         Me.btnSelectP2DP.Size = New System.Drawing.Size(50, 25)
-        Me.btnSelectP2DP.TabIndex = 10
+        Me.btnSelectP2DP.TabIndex = 11
         Me.btnSelectP2DP.Text = "Select DP"
         Me.btnSelectP2DP.UseVisualStyleBackColor = False
         '
@@ -3464,7 +3467,7 @@ Partial Class frmValveSizing
         Me.txtInletPressureCase2.Location = New System.Drawing.Point(283, 132)
         Me.txtInletPressureCase2.Name = "txtInletPressureCase2"
         Me.txtInletPressureCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtInletPressureCase2.TabIndex = 8
+        Me.txtInletPressureCase2.TabIndex = 9
         Me.txtInletPressureCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtX_Case3
@@ -3474,7 +3477,7 @@ Partial Class frmValveSizing
         Me.txtX_Case3.Location = New System.Drawing.Point(351, 276)
         Me.txtX_Case3.Name = "txtX_Case3"
         Me.txtX_Case3.Size = New System.Drawing.Size(50, 22)
-        Me.txtX_Case3.TabIndex = 34
+        Me.txtX_Case3.TabIndex = 33
         Me.txtX_Case3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtInletPressureCase3
@@ -3484,7 +3487,7 @@ Partial Class frmValveSizing
         Me.txtInletPressureCase3.Location = New System.Drawing.Point(351, 132)
         Me.txtInletPressureCase3.Name = "txtInletPressureCase3"
         Me.txtInletPressureCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtInletPressureCase3.TabIndex = 9
+        Me.txtInletPressureCase3.TabIndex = 10
         Me.txtInletPressureCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtX_Case1
@@ -3494,7 +3497,7 @@ Partial Class frmValveSizing
         Me.txtX_Case1.Location = New System.Drawing.Point(215, 278)
         Me.txtX_Case1.Name = "txtX_Case1"
         Me.txtX_Case1.Size = New System.Drawing.Size(50, 22)
-        Me.txtX_Case1.TabIndex = 32
+        Me.txtX_Case1.TabIndex = 31
         Me.txtX_Case1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtOutletPressure1
@@ -3504,7 +3507,7 @@ Partial Class frmValveSizing
         Me.txtOutletPressure1.Location = New System.Drawing.Point(215, 153)
         Me.txtOutletPressure1.Name = "txtOutletPressure1"
         Me.txtOutletPressure1.Size = New System.Drawing.Size(50, 22)
-        Me.txtOutletPressure1.TabIndex = 11
+        Me.txtOutletPressure1.TabIndex = 12
         Me.txtOutletPressure1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtX_Case2
@@ -3514,7 +3517,7 @@ Partial Class frmValveSizing
         Me.txtX_Case2.Location = New System.Drawing.Point(283, 276)
         Me.txtX_Case2.Name = "txtX_Case2"
         Me.txtX_Case2.Size = New System.Drawing.Size(50, 22)
-        Me.txtX_Case2.TabIndex = 33
+        Me.txtX_Case2.TabIndex = 32
         Me.txtX_Case2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtOutletPressure2
@@ -3524,7 +3527,7 @@ Partial Class frmValveSizing
         Me.txtOutletPressure2.Location = New System.Drawing.Point(283, 153)
         Me.txtOutletPressure2.Name = "txtOutletPressure2"
         Me.txtOutletPressure2.Size = New System.Drawing.Size(50, 22)
-        Me.txtOutletPressure2.TabIndex = 12
+        Me.txtOutletPressure2.TabIndex = 13
         Me.txtOutletPressure2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblX
@@ -3545,7 +3548,7 @@ Partial Class frmValveSizing
         Me.txtOutletPressure3.Location = New System.Drawing.Point(351, 153)
         Me.txtOutletPressure3.Name = "txtOutletPressure3"
         Me.txtOutletPressure3.Size = New System.Drawing.Size(50, 22)
-        Me.txtOutletPressure3.TabIndex = 13
+        Me.txtOutletPressure3.TabIndex = 14
         Me.txtOutletPressure3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtZ_Case3
@@ -3589,7 +3592,7 @@ Partial Class frmValveSizing
         Me.txtPressureDropCase1.Name = "txtPressureDropCase1"
         Me.txtPressureDropCase1.ReadOnly = True
         Me.txtPressureDropCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtPressureDropCase1.TabIndex = 14
+        Me.txtPressureDropCase1.TabIndex = 15
         Me.txtPressureDropCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtZ_Case1
@@ -3611,7 +3614,7 @@ Partial Class frmValveSizing
         Me.txtPressureDropCase2.Name = "txtPressureDropCase2"
         Me.txtPressureDropCase2.ReadOnly = True
         Me.txtPressureDropCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtPressureDropCase2.TabIndex = 15
+        Me.txtPressureDropCase2.TabIndex = 16
         Me.txtPressureDropCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblZ
@@ -3634,7 +3637,7 @@ Partial Class frmValveSizing
         Me.txtPressureDropCase3.Name = "txtPressureDropCase3"
         Me.txtPressureDropCase3.ReadOnly = True
         Me.txtPressureDropCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtPressureDropCase3.TabIndex = 16
+        Me.txtPressureDropCase3.TabIndex = 17
         Me.txtPressureDropCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtK_Case3
@@ -3669,7 +3672,7 @@ Partial Class frmValveSizing
         Me.cmbTemperatureUnits.Name = "cmbTemperatureUnits"
         Me.cmbTemperatureUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmbTemperatureUnits.Size = New System.Drawing.Size(80, 21)
-        Me.cmbTemperatureUnits.TabIndex = 17
+        Me.cmbTemperatureUnits.TabIndex = 18
         Me.cmbTemperatureUnits.Text = "--Select--"
         '
         'txtK_Case1
@@ -3689,7 +3692,7 @@ Partial Class frmValveSizing
         Me.txtInletTemperatureCase1.Location = New System.Drawing.Point(215, 198)
         Me.txtInletTemperatureCase1.Name = "txtInletTemperatureCase1"
         Me.txtInletTemperatureCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtInletTemperatureCase1.TabIndex = 18
+        Me.txtInletTemperatureCase1.TabIndex = 19
         Me.txtInletTemperatureCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtInletTemperatureCase2
@@ -3699,7 +3702,7 @@ Partial Class frmValveSizing
         Me.txtInletTemperatureCase2.Location = New System.Drawing.Point(283, 198)
         Me.txtInletTemperatureCase2.Name = "txtInletTemperatureCase2"
         Me.txtInletTemperatureCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtInletTemperatureCase2.TabIndex = 19
+        Me.txtInletTemperatureCase2.TabIndex = 20
         Me.txtInletTemperatureCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtInletTemperatureCase3
@@ -3709,7 +3712,7 @@ Partial Class frmValveSizing
         Me.txtInletTemperatureCase3.Location = New System.Drawing.Point(351, 198)
         Me.txtInletTemperatureCase3.Name = "txtInletTemperatureCase3"
         Me.txtInletTemperatureCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtInletTemperatureCase3.TabIndex = 20
+        Me.txtInletTemperatureCase3.TabIndex = 21
         Me.txtInletTemperatureCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblDensity
@@ -3733,7 +3736,7 @@ Partial Class frmValveSizing
         Me.cmbDensityUnits.Name = "cmbDensityUnits"
         Me.cmbDensityUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmbDensityUnits.Size = New System.Drawing.Size(80, 21)
-        Me.cmbDensityUnits.TabIndex = 21
+        Me.cmbDensityUnits.TabIndex = 22
         Me.cmbDensityUnits.Text = "--Select--"
         '
         'txtDensityCase1
@@ -3743,7 +3746,7 @@ Partial Class frmValveSizing
         Me.txtDensityCase1.Location = New System.Drawing.Point(215, 223)
         Me.txtDensityCase1.Name = "txtDensityCase1"
         Me.txtDensityCase1.Size = New System.Drawing.Size(50, 22)
-        Me.txtDensityCase1.TabIndex = 22
+        Me.txtDensityCase1.TabIndex = 23
         Me.txtDensityCase1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtDensityCase2
@@ -3753,7 +3756,7 @@ Partial Class frmValveSizing
         Me.txtDensityCase2.Location = New System.Drawing.Point(283, 223)
         Me.txtDensityCase2.Name = "txtDensityCase2"
         Me.txtDensityCase2.Size = New System.Drawing.Size(50, 22)
-        Me.txtDensityCase2.TabIndex = 23
+        Me.txtDensityCase2.TabIndex = 24
         Me.txtDensityCase2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtDensityCase3
@@ -3763,7 +3766,7 @@ Partial Class frmValveSizing
         Me.txtDensityCase3.Location = New System.Drawing.Point(351, 223)
         Me.txtDensityCase3.Name = "txtDensityCase3"
         Me.txtDensityCase3.Size = New System.Drawing.Size(50, 22)
-        Me.txtDensityCase3.TabIndex = 24
+        Me.txtDensityCase3.TabIndex = 25
         Me.txtDensityCase3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblCriticalPressure
@@ -3897,7 +3900,7 @@ Partial Class frmValveSizing
         Me.cmbVapourPressureUnits.Name = "cmbVapourPressureUnits"
         Me.cmbVapourPressureUnits.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmbVapourPressureUnits.Size = New System.Drawing.Size(80, 21)
-        Me.cmbVapourPressureUnits.TabIndex = 31
+        Me.cmbVapourPressureUnits.TabIndex = 30
         Me.cmbVapourPressureUnits.Text = "--Select--"
         '
         'Panel5
@@ -3913,7 +3916,7 @@ Partial Class frmValveSizing
         Me.Panel5.Location = New System.Drawing.Point(13, 20)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(391, 59)
-        Me.Panel5.TabIndex = 1
+        Me.Panel5.TabIndex = 0
         '
         'Label72
         '
@@ -4078,7 +4081,7 @@ Partial Class frmValveSizing
         Me.Panel2.Location = New System.Drawing.Point(514, 82)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(418, 426)
-        Me.Panel2.TabIndex = 4
+        Me.Panel2.TabIndex = 2
         '
         'Button2
         '
@@ -4098,7 +4101,7 @@ Partial Class frmValveSizing
         Me.lblMicroTrim.AutoSize = True
         Me.lblMicroTrim.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMicroTrim.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblMicroTrim.Location = New System.Drawing.Point(198, 290)
+        Me.lblMicroTrim.Location = New System.Drawing.Point(198, 293)
         Me.lblMicroTrim.Name = "lblMicroTrim"
         Me.lblMicroTrim.Size = New System.Drawing.Size(10, 13)
         Me.lblMicroTrim.TabIndex = 393
@@ -4120,7 +4123,7 @@ Partial Class frmValveSizing
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label26.Location = New System.Drawing.Point(240, 294)
+        Me.Label26.Location = New System.Drawing.Point(240, 293)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(50, 13)
         Me.Label26.TabIndex = 391
@@ -4343,9 +4346,12 @@ Partial Class frmValveSizing
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.BackgroundImage = Global.FMValveApplication_standard.My.Resources.Resources.Base_frame1
         Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Panel3.Controls.Add(Me.btnChart)
+        Me.Panel3.Controls.Add(Me.Label84)
+        Me.Panel3.Controls.Add(Me.txtACTFactor)
+        Me.Panel3.Controls.Add(Me.btnAcceptActuator)
         Me.Panel3.Controls.Add(Me.Panel7)
         Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.btnChart)
         Me.Panel3.Controls.Add(Me.cmbSeatDia)
         Me.Panel3.Controls.Add(Me.btnTables)
         Me.Panel3.Controls.Add(Me.Label55)
@@ -4382,7 +4388,49 @@ Partial Class frmValveSizing
         Me.Panel3.Location = New System.Drawing.Point(935, 83)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(418, 426)
-        Me.Panel3.TabIndex = 4
+        Me.Panel3.TabIndex = 3
+        '
+        'btnChart
+        '
+        Me.btnChart.Location = New System.Drawing.Point(134, 291)
+        Me.btnChart.Name = "btnChart"
+        Me.btnChart.Size = New System.Drawing.Size(97, 28)
+        Me.btnChart.TabIndex = 670
+        Me.btnChart.Text = "Charts"
+        Me.btnChart.UseVisualStyleBackColor = True
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label84.Location = New System.Drawing.Point(299, 198)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(70, 13)
+        Me.Label84.TabIndex = 669
+        Me.Label84.Text = "Force Factor"
+        '
+        'txtACTFactor
+        '
+        Me.txtACTFactor.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtACTFactor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(152, Byte), Integer))
+        Me.txtACTFactor.Location = New System.Drawing.Point(379, 194)
+        Me.txtACTFactor.Name = "txtACTFactor"
+        Me.txtACTFactor.Size = New System.Drawing.Size(32, 22)
+        Me.txtACTFactor.TabIndex = 668
+        '
+        'btnAcceptActuator
+        '
+        Me.btnAcceptActuator.FlatAppearance.BorderSize = 0
+        Me.btnAcceptActuator.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAcceptActuator.Location = New System.Drawing.Point(332, 239)
+        Me.btnAcceptActuator.Name = "btnAcceptActuator"
+        Me.btnAcceptActuator.Size = New System.Drawing.Size(40, 25)
+        Me.btnAcceptActuator.TabIndex = 667
+        Me.btnAcceptActuator.TabStop = False
+        Me.btnAcceptActuator.Text = "Accept"
+        Me.btnAcceptActuator.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAcceptActuator.UseVisualStyleBackColor = False
         '
         'Panel7
         '
@@ -4397,7 +4445,7 @@ Partial Class frmValveSizing
         Me.Panel7.Controls.Add(Me.lblForce100perc)
         Me.Panel7.Controls.Add(Me.lblForce0perc)
         Me.Panel7.Controls.Add(Me.lblForceUnits)
-        Me.Panel7.Location = New System.Drawing.Point(293, 96)
+        Me.Panel7.Location = New System.Drawing.Point(293, 91)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(122, 100)
         Me.Panel7.TabIndex = 392
@@ -4525,21 +4573,10 @@ Partial Class frmValveSizing
         Me.Button1.Location = New System.Drawing.Point(251, 293)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(88, 26)
-        Me.Button1.TabIndex = 390
+        Me.Button1.TabIndex = 15
         Me.Button1.Text = "ActuatorSelect"
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
-        '
-        'btnChart
-        '
-        Me.btnChart.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnChart.Location = New System.Drawing.Point(143, 293)
-        Me.btnChart.Name = "btnChart"
-        Me.btnChart.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.btnChart.Size = New System.Drawing.Size(88, 26)
-        Me.btnChart.TabIndex = 98
-        Me.btnChart.Text = "Charts"
-        Me.btnChart.UseVisualStyleBackColor = True
         '
         'cmbSeatDia
         '
@@ -4547,14 +4584,14 @@ Partial Class frmValveSizing
         Me.cmbSeatDia.Location = New System.Drawing.Point(132, 197)
         Me.cmbSeatDia.Name = "cmbSeatDia"
         Me.cmbSeatDia.Size = New System.Drawing.Size(44, 21)
-        Me.cmbSeatDia.TabIndex = 89
+        Me.cmbSeatDia.TabIndex = 10
         '
         'btnTables
         '
         Me.btnTables.Location = New System.Drawing.Point(35, 293)
         Me.btnTables.Name = "btnTables"
         Me.btnTables.Size = New System.Drawing.Size(88, 26)
-        Me.btnTables.TabIndex = 97
+        Me.btnTables.TabIndex = 13
         Me.btnTables.Text = "Diagnosis"
         Me.btnTables.UseVisualStyleBackColor = True
         '
@@ -4571,6 +4608,7 @@ Partial Class frmValveSizing
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.btnStop)
         Me.Panel4.Controls.Add(Me.LblCounter)
         Me.Panel4.Controls.Add(Me.Percent3)
         Me.Panel4.Controls.Add(Me.Percent2)
@@ -4587,7 +4625,19 @@ Partial Class frmValveSizing
         Me.Panel4.Location = New System.Drawing.Point(18, 339)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(367, 79)
-        Me.Panel4.TabIndex = 6
+        Me.Panel4.TabIndex = 13
+        '
+        'btnStop
+        '
+        Me.btnStop.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnStop.ForeColor = System.Drawing.Color.Black
+        Me.btnStop.Location = New System.Drawing.Point(323, 25)
+        Me.btnStop.Name = "btnStop"
+        Me.btnStop.Size = New System.Drawing.Size(41, 22)
+        Me.btnStop.TabIndex = 121
+        Me.btnStop.Text = "Stop"
+        Me.btnStop.UseVisualStyleBackColor = False
         '
         'LblCounter
         '
@@ -4663,7 +4713,7 @@ Partial Class frmValveSizing
         Me.txtBaffleKVCase3.Location = New System.Drawing.Point(229, 34)
         Me.txtBaffleKVCase3.Name = "txtBaffleKVCase3"
         Me.txtBaffleKVCase3.Size = New System.Drawing.Size(44, 22)
-        Me.txtBaffleKVCase3.TabIndex = 98
+        Me.txtBaffleKVCase3.TabIndex = 5
         Me.txtBaffleKVCase3.Visible = False
         '
         'txtBaffleKVCase2
@@ -4671,7 +4721,7 @@ Partial Class frmValveSizing
         Me.txtBaffleKVCase2.Location = New System.Drawing.Point(139, 34)
         Me.txtBaffleKVCase2.Name = "txtBaffleKVCase2"
         Me.txtBaffleKVCase2.Size = New System.Drawing.Size(44, 22)
-        Me.txtBaffleKVCase2.TabIndex = 96
+        Me.txtBaffleKVCase2.TabIndex = 4
         Me.txtBaffleKVCase2.Visible = False
         '
         'txtBaffleKVCase1
@@ -4679,7 +4729,7 @@ Partial Class frmValveSizing
         Me.txtBaffleKVCase1.Location = New System.Drawing.Point(54, 34)
         Me.txtBaffleKVCase1.Name = "txtBaffleKVCase1"
         Me.txtBaffleKVCase1.Size = New System.Drawing.Size(44, 22)
-        Me.txtBaffleKVCase1.TabIndex = 94
+        Me.txtBaffleKVCase1.TabIndex = 3
         Me.txtBaffleKVCase1.Visible = False
         '
         'chkBaffleCase3
@@ -4688,7 +4738,7 @@ Partial Class frmValveSizing
         Me.chkBaffleCase3.Location = New System.Drawing.Point(231, 6)
         Me.chkBaffleCase3.Name = "chkBaffleCase3"
         Me.chkBaffleCase3.Size = New System.Drawing.Size(38, 17)
-        Me.chkBaffleCase3.TabIndex = 97
+        Me.chkBaffleCase3.TabIndex = 2
         Me.chkBaffleCase3.Text = "S3"
         Me.chkBaffleCase3.UseVisualStyleBackColor = True
         '
@@ -4698,7 +4748,7 @@ Partial Class frmValveSizing
         Me.chkBaffleCase2.Location = New System.Drawing.Point(145, 6)
         Me.chkBaffleCase2.Name = "chkBaffleCase2"
         Me.chkBaffleCase2.Size = New System.Drawing.Size(38, 17)
-        Me.chkBaffleCase2.TabIndex = 95
+        Me.chkBaffleCase2.TabIndex = 1
         Me.chkBaffleCase2.Text = "S2"
         Me.chkBaffleCase2.UseVisualStyleBackColor = True
         '
@@ -4708,7 +4758,7 @@ Partial Class frmValveSizing
         Me.chkBaffleCase1.Location = New System.Drawing.Point(58, 6)
         Me.chkBaffleCase1.Name = "chkBaffleCase1"
         Me.chkBaffleCase1.Size = New System.Drawing.Size(38, 17)
-        Me.chkBaffleCase1.TabIndex = 93
+        Me.chkBaffleCase1.TabIndex = 0
         Me.chkBaffleCase1.Text = "S1"
         Me.chkBaffleCase1.UseVisualStyleBackColor = True
         '
@@ -4731,7 +4781,7 @@ Partial Class frmValveSizing
         Me.Label68.Location = New System.Drawing.Point(15, 6)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(351, 15)
-        Me.Label68.TabIndex = 376
+        Me.Label68.TabIndex = 0
         Me.Label68.Text = "Actuator___________________________________________________________"
         '
         'Label75
@@ -4752,7 +4802,7 @@ Partial Class frmValveSizing
         Me.lblDatasheetPrinting.BackColor = System.Drawing.Color.Transparent
         Me.lblDatasheetPrinting.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDatasheetPrinting.ForeColor = System.Drawing.Color.Red
-        Me.lblDatasheetPrinting.Location = New System.Drawing.Point(273, 12)
+        Me.lblDatasheetPrinting.Location = New System.Drawing.Point(781, 67)
         Me.lblDatasheetPrinting.Name = "lblDatasheetPrinting"
         Me.lblDatasheetPrinting.Size = New System.Drawing.Size(78, 17)
         Me.lblDatasheetPrinting.TabIndex = 324
@@ -4765,7 +4815,7 @@ Partial Class frmValveSizing
         Me.lblPrintRecordNo.BackColor = System.Drawing.Color.Transparent
         Me.lblPrintRecordNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintRecordNo.ForeColor = System.Drawing.Color.Red
-        Me.lblPrintRecordNo.Location = New System.Drawing.Point(357, 14)
+        Me.lblPrintRecordNo.Location = New System.Drawing.Point(866, 66)
         Me.lblPrintRecordNo.Name = "lblPrintRecordNo"
         Me.lblPrintRecordNo.Size = New System.Drawing.Size(18, 17)
         Me.lblPrintRecordNo.TabIndex = 325
@@ -4808,6 +4858,7 @@ Partial Class frmValveSizing
         Me.txtJumpToRecord.Name = "txtJumpToRecord"
         Me.txtJumpToRecord.Size = New System.Drawing.Size(53, 22)
         Me.txtJumpToRecord.TabIndex = 329
+        Me.txtJumpToRecord.TabStop = False
         Me.txtJumpToRecord.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'DateTimePicker1
@@ -4816,6 +4867,7 @@ Partial Class frmValveSizing
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(150, 22)
         Me.DateTimePicker1.TabIndex = 330
+        Me.DateTimePicker1.TabStop = False
         '
         'Panel6
         '
@@ -4845,7 +4897,7 @@ Partial Class frmValveSizing
         Me.Panel6.Location = New System.Drawing.Point(12, 86)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(81, 581)
-        Me.Panel6.TabIndex = 7
+        Me.Panel6.TabIndex = 0
         '
         'txtCustomerRefMain
         '
@@ -5022,7 +5074,7 @@ Partial Class frmValveSizing
         '
         'HScrollBar_Records
         '
-        Me.HScrollBar_Records.LargeChange = 1
+        Me.HScrollBar_Records.LargeChange = 4
         Me.HScrollBar_Records.Location = New System.Drawing.Point(716, 47)
         Me.HScrollBar_Records.Maximum = 3
         Me.HScrollBar_Records.Name = "HScrollBar_Records"
@@ -5051,6 +5103,17 @@ Partial Class frmValveSizing
         Me.Label95.TabIndex = 340
         Me.Label95.Text = "|"
         '
+        'Label96
+        '
+        Me.Label96.AutoSize = True
+        Me.Label96.Font = New System.Drawing.Font("Segoe UI", 5.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label96.ForeColor = System.Drawing.Color.Gray
+        Me.Label96.Location = New System.Drawing.Point(472, 52)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(7, 10)
+        Me.Label96.TabIndex = 341
+        Me.Label96.Text = "|"
+        '
         'frmValveSizing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5061,6 +5124,7 @@ Partial Class frmValveSizing
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.Label96)
         Me.Controls.Add(Me.Label95)
         Me.Controls.Add(Me.Label92)
         Me.Controls.Add(Me.lblSalesEngg)
@@ -5094,6 +5158,7 @@ Partial Class frmValveSizing
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmValveSizing"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Sizing Sheet"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -5458,7 +5523,6 @@ Partial Class frmValveSizing
     Friend WithEvents lblSalesEngg As System.Windows.Forms.Label
     Friend WithEvents lblMicroTrim As System.Windows.Forms.Label
     Friend WithEvents HScrollBar_Records As System.Windows.Forms.HScrollBar
-    Friend WithEvents btnChart As System.Windows.Forms.Button
     Friend WithEvents KvCvChartToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtCustomerMain As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -5527,4 +5591,10 @@ Partial Class frmValveSizing
     Friend WithEvents lblSel100PerF As System.Windows.Forms.Label
     Friend WithEvents lblSel0PercF As System.Windows.Forms.Label
     Friend WithEvents ToolTip3 As System.Windows.Forms.ToolTip
+    Friend WithEvents btnStop As System.Windows.Forms.Button
+    Friend WithEvents btnAcceptActuator As System.Windows.Forms.Button
+    Friend WithEvents Label84 As System.Windows.Forms.Label
+    Friend WithEvents txtACTFactor As System.Windows.Forms.TextBox
+    Friend WithEvents btnChart As System.Windows.Forms.Button
+    Friend WithEvents Label96 As System.Windows.Forms.Label
 End Class

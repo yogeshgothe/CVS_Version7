@@ -7,9 +7,7 @@ Public Class frmAccessories
         '    My.Forms.ValveSizing.Enabled = True
     End Sub
 
-    Private Sub lblClose_Click(sender As Object, e As EventArgs) Handles lblClose.Click
-        Me.Close()
-    End Sub
+ 
 
     Private Sub Accessories_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         SaveAccessories()
@@ -21,53 +19,85 @@ Public Class frmAccessories
     End Sub
     Public Function SaveAccessories()
         Try
-            Positioner = cmbPositioner.SelectedValue
-            Sov = cmbSOV.SelectedValue
-            AFR = cmbAFR.SelectedValue
-            ALR = cmbALR.SelectedValue
-            LimitSwitch = cmbLimitSwitch.SelectedValue
-            VolBooster = cmbVolBooster.SelectedValue
-            PosnTrans = cmbPosnTrans.SelectedValue
-            ItoP = cmbItoP.SelectedValue
-            QEV = cmbQEV.SelectedValue
-            Certification = cmbCertification.SelectedValue
-            Tubing = cmbTubing.SelectedValue
-            TubingMake = cmbTubingMake.SelectedValue
-            TubingSize = cmbTubingSize.SelectedValue
-            TubingMOC = cmbTubingMOC.SelectedValue
-            VTank = cmbVtank.Text
-            Roborter = cmbRobotor.SelectedValue
+            'Positioner = cmbPositioner.SelectedValue
+            'Sov = cmbSOV.SelectedValue
+            'AFR = cmbAFR.SelectedValue
+            'ALR = cmbALR.SelectedValue
+            'LimitSwitch = cmbLimitSwitch.SelectedValue
+            'VolBooster = cmbVolBooster.SelectedValue
+            'PosnTrans = cmbPosnTrans.SelectedValue
+            'ItoP = cmbItoP.SelectedValue
+            'QEV = cmbQEV.SelectedValue
+            'Certification = cmbCertification.SelectedValue
+            'Tubing = cmbTubing.SelectedValue
+            'TubingMake = cmbTubingMake.SelectedValue
+            'TubingSize = cmbTubingSize.SelectedValue
+            'TubingMOC = cmbTubingMOC.SelectedValue
+            'VTank = cmbVtank.Text
+            'Roborter = cmbRobotor.SelectedValue
 
-            PositionerMake = cmbPositionerMake.SelectedValue
-            AFRMake = cmbAFRMake.SelectedValue
-            ALRMake = cmbALRMake.SelectedValue
-            SOVMake = cmbSOVMake.SelectedValue
-            VBMake = cmbVBMake.SelectedValue
-            LimitSwitchMake = cmbLimitSwitchMake.SelectedValue
-            QEVMake = cmbQEVMake.SelectedValue
+            'PositionerMake = cmbPositionerMake.SelectedValue
+            'AFRMake = cmbAFRMake.SelectedValue
+            'ALRMake = cmbALRMake.SelectedValue
+            'SOVMake = cmbSOVMake.SelectedValue
+            'VBMake = cmbVBMake.SelectedValue
+            'LimitSwitchMake = cmbLimitSwitchMake.SelectedValue
+            'QEVMake = cmbQEVMake.SelectedValue
+
+
+            Positioner = cmbPositioner.Text
+            Sov = cmbSOV.Text
+            AFR = cmbAFR.Text
+            ALR = cmbALR.Text
+            LimitSwitch = cmbLimitSwitch.Text
+            VolBooster = cmbVolBooster.Text
+            PosnTrans = cmbPosnTrans.Text
+            ItoP = cmbItoP.Text
+            QEV = cmbQEV.Text
+            Certification = cmbCertification.Text
+            Tubing = cmbTubing.Text
+            TubingMake = cmbTubingMake.Text
+            TubingSize = cmbTubingSize.Text
+            TubingMOC = cmbTubingMOC.Text
+            VTank = cmbVtank.Text
+            Roborter = cmbRobotor.Text
+
+            PositionerMake = cmbPositionerMake.Text
+            AFRMake = cmbAFRMake.Text
+            ALRMake = cmbALRMake.Text
+            SOVMake = cmbSOVMake.Text
+            VBMake = cmbVBMake.Text
+            LimitSwitchMake = cmbLimitSwitchMake.Text
+            QEVMake = cmbQEVMake.Text
+            PosnTransMake = cmbPosnTransMake.Text
+            PressRegMake = cmbPressRegulatorMake.Text
+            ItoPMake = cmbItoPMake.Text
         Catch ex As Exception
             MsgBox("SaveAccessories:  " & ex.Message)
         End Try
         Return Nothing
     End Function
 
-    Public Sub checkEmpty(name As ComboBox, value As Integer)
+    Public Sub checkEmpty(name As ComboBox, value As String)
         If name.Items.Count > 0 Then
-            name.SelectedValue = value
+            name.Text = value
         End If
     End Sub
 
     Public Function ReLoadAccessories()
         '       Sov, AFR, Positioner, ALR, LimitSwitch, VolBooster, PosnTrans,ItoP, QEV
         Try
-            Me.cmbPositionerMake.SelectedValue = PositionerMake
-            Me.cmbAFRMake.SelectedValue = AFRMake
-            Me.cmbALRMake.SelectedValue = ALRMake
-            Me.cmbSOVMake.SelectedValue = SOVMake
-            Me.cmbVBMake.SelectedValue = VBMake
-            Me.cmbLimitSwitchMake.SelectedValue = LimitSwitchMake
-            Me.cmbQEVMake.SelectedValue = QEVMake
-            Me.cmbTubingMake.SelectedValue = TubingMake
+            Me.cmbPositionerMake.Text = PositionerMake
+            Me.cmbAFRMake.Text = AFRMake
+            Me.cmbALRMake.Text = ALRMake
+            Me.cmbSOVMake.Text = SOVMake
+            Me.cmbVBMake.Text = VBMake
+            Me.cmbLimitSwitchMake.Text = LimitSwitchMake
+            Me.cmbQEVMake.Text = QEVMake
+            Me.cmbTubingMake.Text = TubingMake
+            Me.cmbPosnTransMake.Text = PosnTransMake
+            Me.cmbPressRegulatorMake.Text = PressRegMake
+            Me.cmbItoPMake.Text = ItoPMake
 
             checkEmpty(cmbPositioner, Positioner)
             checkEmpty(cmbSOV, Sov)
@@ -79,11 +109,11 @@ Public Class frmAccessories
             checkEmpty(cmbItoP, ItoP)
             checkEmpty(cmbQEV, QEV)
             checkEmpty(cmbCertification, Certification)
-            cmbTubing.SelectedValue = Tubing
-            cmbTubingSize.SelectedValue = TubingSize
-            cmbTubingMOC.SelectedValue = TubingMOC
+            cmbTubing.Text = Tubing
+            cmbTubingSize.Text = TubingSize
+            cmbTubingMOC.Text = TubingMOC
             cmbVtank.Text = VTank
-            cmbRobotor.SelectedValue = Roborter
+            cmbRobotor.Text = Roborter
             'Me.cmbItoP.SelectedValue = ItoP
             'Me.cmbQEV.SelectedValue = QEV
             'Me.cmbCertification.SelectedValue = Certification
@@ -93,7 +123,7 @@ Public Class frmAccessories
                 cmbRobotor.Enabled = False
             Else
                 cmbRobotor.Enabled = True
-                cmbRobotor.SelectedValue = Roborter
+                cmbRobotor.Text = Roborter
             End If
         Catch ex As Exception
             MsgBox("ReLoadAccessories:  " & ex.Message)
@@ -106,17 +136,17 @@ Public Class frmAccessories
         Dim str As String = ""
 
         Try
-            Me.cmbAFR.SelectedValue = 0
-            Me.cmbPositionerMake.SelectedIndex = -1
-            Me.cmbSOV.SelectedValue = 0
-            Me.cmbAFR.SelectedValue = 0
-            Me.cmbAFR.SelectedValue = 0
-            Me.cmbALR.SelectedValue = 0
-            Me.cmbLimitSwitch.SelectedValue = 0
-            Me.cmbVolBooster.SelectedValue = 0
-            Me.cmbPosnTrans.SelectedValue = 0
-            Me.cmbItoP.SelectedValue = 0
-            Me.cmbQEV.SelectedValue = 0
+            'Me.cmbAFR.SelectedValue = 0
+            'Me.cmbPositionerMake.SelectedIndex = -1
+            'Me.cmbSOV.SelectedValue = 0
+            'Me.cmbAFR.SelectedValue = 0
+            'Me.cmbAFR.SelectedValue = 0
+            'Me.cmbALR.SelectedValue = 0
+            'Me.cmbLimitSwitch.SelectedValue = 0
+            'Me.cmbVolBooster.SelectedValue = 0
+            'Me.cmbPosnTrans.SelectedValue = 0
+            'Me.cmbItoP.SelectedValue = 0
+            'Me.cmbQEV.SelectedValue = 0
             'Accessories_Materials_workbook = APP.Workbooks.Open(AppPath & "\Database\Accessories_Materials.xls")
             'Accessories_Materials_worksheet = Accessories_Materials_workbook.Worksheets("Sheet2")
             'Me.cmbPositioner.Items.Clear()
@@ -320,79 +350,91 @@ Public Class frmAccessories
 
     Private Sub cmbPositionerMake_TextChanged(sender As Object, e As EventArgs) Handles cmbPositionerMake.TextChanged
         Try
+            'If Not cmbPositionerMake.SelectedIndex = -1 Then
+            '    cmbPositioner.DisplayMember = "PARAMETER_VALUE"
+            '    cmbPositioner.ValueMember = "Sr_No"
+            '    cmbPositioner.DataSource = Nothing
+            '    Dim dts As New DataTable
+            '    'dts.Columns.Add("Sr_No", GetType(Integer))
+            '    dts.Columns.Add("SR_NO", GetType(Integer))
+            '    dts.Columns.Add("MODEL_CODE", GetType(String))
+            '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+            '    dts.Columns.Add("CREATION_DATE", GetType(String))
+            '    dts.Columns.Add("CREATED_BY", GetType(String))
+            '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+            '    dts.Columns.Add("UPDATED_BY", GetType(String))
+            '    Dim name As String = cmbPositionerMake.Text
+            '    If name = "FM" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "82" Or ch = "83" Or ch = "84" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbPositioner.DisplayMember = "PARAMETER_VALUE"
+            '        cmbPositioner.ValueMember = "Sr_No"
+            '        cmbPositioner.DataSource = dts
+            '    ElseIf name = "METSO" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "ND" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbPositioner.DisplayMember = "PARAMETER_VALUE"
+            '        cmbPositioner.ValueMember = "Sr_No"
+            '        cmbPositioner.DataSource = dts
+            '    ElseIf name = "SIEMENS" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "6D" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbPositioner.DisplayMember = "PARAMETER_VALUE"
+            '        cmbPositioner.ValueMember = "Sr_No"
+            '        cmbPositioner.DataSource = dts
+            '    ElseIf name = "YTC" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "YT" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbPositioner.DisplayMember = "PARAMETER_VALUE"
+            '        cmbPositioner.ValueMember = "Sr_No"
+            '        cmbPositioner.DataSource = dts
+            '    End If
+            'Else
+            '    'DataGridView1.DataSource = dts
+            '    cmbPositioner.DisplayMember = Nothing
+            '    cmbPositioner.ValueMember = Nothing
+            '    cmbPositioner.DataSource = Nothing
+            'End If
+
             If Not cmbPositionerMake.SelectedIndex = -1 Then
                 cmbPositioner.DisplayMember = "PARAMETER_VALUE"
-                cmbPositioner.ValueMember = "Sr_No"
-                cmbPositioner.DataSource = Nothing
-                Dim dts As New DataTable
-                'dts.Columns.Add("Sr_No", GetType(Integer))
-                dts.Columns.Add("SR_NO", GetType(Integer))
-                dts.Columns.Add("MODEL_CODE", GetType(String))
-                dts.Columns.Add("CATEGORY_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-                dts.Columns.Add("PARAMETER_DESC", GetType(String))
-                dts.Columns.Add("CREATION_DATE", GetType(String))
-                dts.Columns.Add("CREATED_BY", GetType(String))
-                dts.Columns.Add("UPDATED_DATE", GetType(String))
-                dts.Columns.Add("UPDATED_BY", GetType(String))
-                Dim name As String = cmbPositionerMake.Text
-                If name = "FM" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "82" Or ch = "83" Or ch = "84" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbPositioner.DisplayMember = "PARAMETER_VALUE"
-                    cmbPositioner.ValueMember = "Sr_No"
-                    cmbPositioner.DataSource = dts
-                ElseIf name = "METSO" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "ND" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbPositioner.DisplayMember = "PARAMETER_VALUE"
-                    cmbPositioner.ValueMember = "Sr_No"
-                    cmbPositioner.DataSource = dts
-                ElseIf name = "SIEMENS" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "6D" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbPositioner.DisplayMember = "PARAMETER_VALUE"
-                    cmbPositioner.ValueMember = "Sr_No"
-                    cmbPositioner.DataSource = dts
-                ElseIf name = "YTC" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(8).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "YT" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbPositioner.DisplayMember = "PARAMETER_VALUE"
-                    cmbPositioner.ValueMember = "Sr_No"
-                    cmbPositioner.DataSource = dts
+                cmbPositioner.ValueMember = "SR_NO"
+                If ds_Positioner.Tables(cmbPositionerMake.SelectedIndex).Rows.Count > 0 Then
+                    cmbPositioner.DataSource = ds_Positioner.Tables(cmbPositionerMake.SelectedIndex)
+                Else
+                    cmbPositioner.DataSource = Nothing
                 End If
-            Else
-                'DataGridView1.DataSource = dts
-                cmbPositioner.DisplayMember = Nothing
-                cmbPositioner.ValueMember = Nothing
-                cmbPositioner.DataSource = Nothing
+
             End If
+
         Catch ex As Exception
             MessageBox.Show(ex.Message + ex.StackTrace)
         End Try
@@ -413,172 +455,194 @@ Public Class frmAccessories
 
 
     Private Sub cmbAFRMake_TextChanged(sender As Object, e As EventArgs) Handles cmbAFRMake.TextChanged
+        'If Not cmbAFRMake.SelectedIndex = -1 Then
+        '    cmbAFR.DisplayMember = "PARAMETER_VALUE"
+        '    cmbAFR.ValueMember = "Sr_No"
+        '    cmbAFR.DataSource = Nothing
+        '    Dim dts As New DataTable
+        '    'dts.Columns.Add("Sr_No", GetType(Integer))
+        '    dts.Columns.Add("SR_NO", GetType(Integer))
+        '    dts.Columns.Add("MODEL_CODE", GetType(String))
+        '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+        '    dts.Columns.Add("CREATION_DATE", GetType(String))
+        '    dts.Columns.Add("CREATED_BY", GetType(String))
+        '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+        '    dts.Columns.Add("UPDATED_BY", GetType(String))
+        '    Dim name As String = cmbAFRMake.Text
+        '    If name = "ASCO" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "67" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbAFR.DisplayMember = "PARAMETER_VALUE"
+        '        cmbAFR.ValueMember = "Sr_No"
+        '        cmbAFR.DataSource = dts
+        '    ElseIf name = "NORGREN" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "B7" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbAFR.DisplayMember = "PARAMETER_VALUE"
+        '        cmbAFR.ValueMember = "Sr_No"
+        '        cmbAFR.DataSource = dts
+        '    ElseIf name = "PLACKA" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 3)
+        '            If ch = "FPR" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbAFR.DisplayMember = "PARAMETER_VALUE"
+        '        cmbAFR.ValueMember = "Sr_No"
+        '        cmbAFR.DataSource = dts
+        '    ElseIf name = "SHAVO" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "SB" Or ch = "11" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbAFR.DisplayMember = "PARAMETER_VALUE"
+        '        cmbAFR.ValueMember = "Sr_No"
+        '        cmbAFR.DataSource = dts
+        '    ElseIf name = "YTC" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "YT" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbAFR.DisplayMember = "PARAMETER_VALUE"
+        '        cmbAFR.ValueMember = "Sr_No"
+        '        cmbAFR.DataSource = dts
+        '    End If
+        'Else
+        '    'DataGridView1.DataSource = dts
+        '    cmbAFR.DisplayMember = Nothing
+        '    cmbAFR.ValueMember = Nothing
+        '    cmbAFR.DataSource = Nothing
+        'End If
+
         If Not cmbAFRMake.SelectedIndex = -1 Then
             cmbAFR.DisplayMember = "PARAMETER_VALUE"
-            cmbAFR.ValueMember = "Sr_No"
-            cmbAFR.DataSource = Nothing
-            Dim dts As New DataTable
-            'dts.Columns.Add("Sr_No", GetType(Integer))
-            dts.Columns.Add("SR_NO", GetType(Integer))
-            dts.Columns.Add("MODEL_CODE", GetType(String))
-            dts.Columns.Add("CATEGORY_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-            dts.Columns.Add("PARAMETER_DESC", GetType(String))
-            dts.Columns.Add("CREATION_DATE", GetType(String))
-            dts.Columns.Add("CREATED_BY", GetType(String))
-            dts.Columns.Add("UPDATED_DATE", GetType(String))
-            dts.Columns.Add("UPDATED_BY", GetType(String))
-            Dim name As String = cmbAFRMake.Text
-            If name = "ASCO" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "67" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbAFR.DisplayMember = "PARAMETER_VALUE"
-                cmbAFR.ValueMember = "Sr_No"
-                cmbAFR.DataSource = dts
-            ElseIf name = "NORGREN" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "B7" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbAFR.DisplayMember = "PARAMETER_VALUE"
-                cmbAFR.ValueMember = "Sr_No"
-                cmbAFR.DataSource = dts
-            ElseIf name = "PLACKA" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 3)
-                    If ch = "FPR" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbAFR.DisplayMember = "PARAMETER_VALUE"
-                cmbAFR.ValueMember = "Sr_No"
-                cmbAFR.DataSource = dts
-            ElseIf name = "SHAVO" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "SB" Or ch = "11" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbAFR.DisplayMember = "PARAMETER_VALUE"
-                cmbAFR.ValueMember = "Sr_No"
-                cmbAFR.DataSource = dts
-            ElseIf name = "YTC" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "YT" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbAFR.DisplayMember = "PARAMETER_VALUE"
-                cmbAFR.ValueMember = "Sr_No"
-                cmbAFR.DataSource = dts
+            cmbAFR.ValueMember = "SR_NO"
+            If ds_AFR.Tables(cmbAFRMake.SelectedIndex).Rows.COunt > 0 Then
+                cmbAFR.DataSource = ds_AFR.Tables(cmbAFRMake.SelectedIndex)
+            Else
+                cmbAFR.DataSource = Nothing
             End If
-        Else
-            'DataGridView1.DataSource = dts
-            cmbAFR.DisplayMember = Nothing
-            cmbAFR.ValueMember = Nothing
-            cmbAFR.DataSource = Nothing
         End If
-        'cmbAFR.Items.Clear()
-        'LastRow = frmValveSizing.FindLastRow(DT_AccessoriesMat, 24)
 
-        'For rowno = 0 To LastRow
-        '    If DT_AccessoriesMat.Rows(rowno).Item(24) = cmbAFRMake.Text Then
-        '        cmbAFR.Items.Add(DT_AccessoriesMat.Rows(rowno).Item(10))
-        '    End If
-        'Next
-        'ReDim TempStr(cmbAFR.Items.Count - 1)
-        'cmbAFR.Items.CopyTo(TempStr, 0)
-        'cmbAFR.AutoCompleteCustomSource.AddRange(TempStr)
-        'If cmbAFR.Items.Count > 0 Then
-        '    cmbAFR.SelectedIndex = 0
-        'End If
+            'cmbAFR.Items.Clear()
+            'LastRow = frmValveSizing.FindLastRow(DT_AccessoriesMat, 24)
+
+            'For rowno = 0 To LastRow
+            '    If DT_AccessoriesMat.Rows(rowno).Item(24) = cmbAFRMake.Text Then
+            '        cmbAFR.Items.Add(DT_AccessoriesMat.Rows(rowno).Item(10))
+            '    End If
+            'Next
+            'ReDim TempStr(cmbAFR.Items.Count - 1)
+            'cmbAFR.Items.CopyTo(TempStr, 0)
+            'cmbAFR.AutoCompleteCustomSource.AddRange(TempStr)
+            'If cmbAFR.Items.Count > 0 Then
+            '    cmbAFR.SelectedIndex = 0
+            'End If
     End Sub
 
 
 
     Private Sub cmbALRMake_TextChanged(sender As Object, e As EventArgs) Handles cmbALRMake.TextChanged
         Try
+            'If Not cmbALRMake.SelectedIndex = -1 Then
+            '    cmbALR.DisplayMember = "PARAMETER_VALUE"
+            '    cmbALR.ValueMember = "Sr_No"
+            '    cmbALR.DataSource = Nothing
+            '    Dim dts As New DataTable
+            '    'dts.Columns.Add("Sr_No", GetType(Integer))
+            '    dts.Columns.Add("SR_NO", GetType(Integer))
+            '    dts.Columns.Add("MODEL_CODE", GetType(String))
+            '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+            '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+            '    dts.Columns.Add("CREATION_DATE", GetType(String))
+            '    dts.Columns.Add("CREATED_BY", GetType(String))
+            '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+            '    dts.Columns.Add("UPDATED_BY", GetType(String))
+            '    Dim name As String = cmbALRMake.Text
+            '    If name = "PHILVIN" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(11).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "PL" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbALR.DisplayMember = "PARAMETER_VALUE"
+            '        cmbALR.ValueMember = "Sr_No"
+            '        cmbALR.DataSource = dts
+            '    ElseIf name = "YTC" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(11).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "YT" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbALR.DisplayMember = "PARAMETER_VALUE"
+            '        cmbALR.ValueMember = "Sr_No"
+            '        cmbALR.DataSource = dts
+            '    ElseIf name = "NELES" Then
+            '        For Each rows As DataRow In ds_AccessoriesMat.Tables(11).Rows
+            '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+            '            If ch = "SE" Then
+            '                dts.Rows.Add(rows.ItemArray)
+            '                'dts.ImportRow(rows)
+            '            End If
+            '        Next
+            '        'DataGridView1.DataSource = dts
+            '        cmbALR.DisplayMember = "PARAMETER_VALUE"
+            '        cmbALR.ValueMember = "Sr_No"
+            '        cmbALR.DataSource = dts
+            '    End If
+            'Else
+            '    'DataGridView1.DataSource = dts
+            '    cmbALR.DisplayMember = Nothing
+            '    cmbALR.ValueMember = Nothing
+            '    cmbALR.DataSource = Nothing
+            'End If
+
             If Not cmbALRMake.SelectedIndex = -1 Then
                 cmbALR.DisplayMember = "PARAMETER_VALUE"
-                cmbALR.ValueMember = "Sr_No"
-                cmbALR.DataSource = Nothing
-                Dim dts As New DataTable
-                'dts.Columns.Add("Sr_No", GetType(Integer))
-                dts.Columns.Add("SR_NO", GetType(Integer))
-                dts.Columns.Add("MODEL_CODE", GetType(String))
-                dts.Columns.Add("CATEGORY_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-                dts.Columns.Add("PARAMETER_DESC", GetType(String))
-                dts.Columns.Add("CREATION_DATE", GetType(String))
-                dts.Columns.Add("CREATED_BY", GetType(String))
-                dts.Columns.Add("UPDATED_DATE", GetType(String))
-                dts.Columns.Add("UPDATED_BY", GetType(String))
-                Dim name As String = cmbALRMake.Text
-                If name = "PHILVIN" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(11).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "PL" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbALR.DisplayMember = "PARAMETER_VALUE"
-                    cmbALR.ValueMember = "Sr_No"
-                    cmbALR.DataSource = dts
-                ElseIf name = "YTC" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(11).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "YT" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbALR.DisplayMember = "PARAMETER_VALUE"
-                    cmbALR.ValueMember = "Sr_No"
-                    cmbALR.DataSource = dts
-                ElseIf name = "NELES" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(11).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "SE" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbALR.DisplayMember = "PARAMETER_VALUE"
-                    cmbALR.ValueMember = "Sr_No"
-                    cmbALR.DataSource = dts
+                cmbALR.ValueMember = "SR_NO"
+                If ds_ALR.Tables(cmbALRMake.SelectedIndex).Rows.Count > 0 Then
+                    cmbALR.DataSource = ds_ALR.Tables(cmbALRMake.SelectedIndex)
+                Else
+                    cmbALR.DataSource = Nothing
                 End If
-            Else
-                'DataGridView1.DataSource = dts
-                cmbALR.DisplayMember = Nothing
-                cmbALR.ValueMember = Nothing
-                cmbALR.DataSource = Nothing
             End If
+
         Catch ex As Exception
             MsgBox("cmbALRMake_TextChanged: ", ex.Message)
         End Try
@@ -599,67 +663,68 @@ Public Class frmAccessories
 
 
     Private Sub cmbSOVMake_TextChanged(sender As Object, e As EventArgs) Handles cmbSOVMake.TextChanged
-        If Not cmbSOVMake.SelectedIndex = -1 Then
-            cmbSOV.DisplayMember = "PARAMETER_VALUE"
-            cmbSOV.ValueMember = "Sr_No"
-            cmbSOV.DataSource = Nothing
-            Dim dts As New DataTable
-            'dts.Columns.Add("Sr_No", GetType(Integer))
-            dts.Columns.Add("SR_NO", GetType(Integer))
-            dts.Columns.Add("MODEL_CODE", GetType(String))
-            dts.Columns.Add("CATEGORY_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-            dts.Columns.Add("PARAMETER_DESC", GetType(String))
-            dts.Columns.Add("CREATION_DATE", GetType(String))
-            dts.Columns.Add("CREATED_BY", GetType(String))
-            dts.Columns.Add("UPDATED_DATE", GetType(String))
-            dts.Columns.Add("UPDATED_BY", GetType(String))
-            Dim name As String = cmbSOVMake.Text
-            If name = "ASCO" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(9).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "WP" Or ch = "WS" Or ch = "NF" Or ch = "IS" Or ch = "X8" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbSOV.DisplayMember = "PARAMETER_VALUE"
-                cmbSOV.ValueMember = "Sr_No"
-                cmbSOV.DataSource = dts
-            ElseIf name = "ROTEX" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(9).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "30" Or ch = "P3" Or ch = "51" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbSOV.DisplayMember = "PARAMETER_VALUE"
-                cmbSOV.ValueMember = "Sr_No"
-                cmbSOV.DataSource = dts
-            ElseIf name = "YTC" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(9).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "YT" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbSOV.DisplayMember = "PARAMETER_VALUE"
-                cmbSOV.ValueMember = "Sr_No"
-                cmbSOV.DataSource = dts
-            End If
-        Else
-            'DataGridView1.DataSource = dts
-            cmbSOV.DisplayMember = Nothing
-            cmbSOV.ValueMember = Nothing
-            cmbSOV.DataSource = Nothing
-        End If
+        'If Not cmbSOVMake.SelectedIndex = -1 Then
+        '    cmbSOV.DisplayMember = "PARAMETER_VALUE"
+        '    cmbSOV.ValueMember = "Sr_No"
+        '    cmbSOV.DataSource = Nothing
+        '    Dim dts As New DataTable
+        '    'dts.Columns.Add("Sr_No", GetType(Integer))
+        '    dts.Columns.Add("SR_NO", GetType(Integer))
+        '    dts.Columns.Add("MODEL_CODE", GetType(String))
+        '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+        '    dts.Columns.Add("CREATION_DATE", GetType(String))
+        '    dts.Columns.Add("CREATED_BY", GetType(String))
+        '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+        '    dts.Columns.Add("UPDATED_BY", GetType(String))
+        '    Dim name As String = cmbSOVMake.Text
+        '    If name = "ASCO" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(9).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "WP" Or ch = "WS" Or ch = "NF" Or ch = "IS" Or ch = "X8" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbSOV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbSOV.ValueMember = "Sr_No"
+        '        cmbSOV.DataSource = dts
+        '    ElseIf name = "ROTEX" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(9).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "30" Or ch = "P3" Or ch = "51" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbSOV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbSOV.ValueMember = "Sr_No"
+        '        cmbSOV.DataSource = dts
+        '    ElseIf name = "YTC" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(9).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "YT" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbSOV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbSOV.ValueMember = "Sr_No"
+        '        cmbSOV.DataSource = dts
+        '    End If
+        'Else
+        '    'DataGridView1.DataSource = dts
+        '    cmbSOV.DisplayMember = Nothing
+        '    cmbSOV.ValueMember = Nothing
+        '    cmbSOV.DataSource = Nothing
+
+        'End If
         'cmbSOV.Items.Clear()
         'LastRow = frmValveSizing.FindLastRow(DT_AccessoriesMat, 26)
         'For rowno = 0 To LastRow
@@ -673,71 +738,81 @@ Public Class frmAccessories
         'If cmbSOV.Items.Count > 0 Then
         '    cmbSOV.SelectedIndex = 0
         'End If
+
+        If Not cmbSOVMake.SelectedIndex = -1 Then
+            cmbSOV.DisplayMember = "PARAMETER_VALUE"
+            cmbSOV.ValueMember = "SR_NO"
+            If ds_SOV.Tables(cmbSOVMake.SelectedIndex).Rows.Count > 0 Then
+                cmbSOV.DataSource = ds_SOV.Tables(cmbSOVMake.SelectedIndex)
+            Else
+                cmbSOV.DataSource = Nothing
+            End If
+        End If
     End Sub
 
 
     Private Sub cmbVBMake_TextChanged(sender As Object, e As EventArgs) Handles cmbVBMake.TextChanged
-        If Not cmbVBMake.SelectedIndex = -1 Then
-            cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
-            cmbVolBooster.ValueMember = "Sr_No"
-            cmbVolBooster.DataSource = Nothing
-            Dim dts As New DataTable
-            'dts.Columns.Add("Sr_No", GetType(Integer))
-            dts.Columns.Add("SR_NO", GetType(Integer))
-            dts.Columns.Add("MODEL_CODE", GetType(String))
-            dts.Columns.Add("CATEGORY_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-            dts.Columns.Add("PARAMETER_DESC", GetType(String))
-            dts.Columns.Add("CREATION_DATE", GetType(String))
-            dts.Columns.Add("CREATED_BY", GetType(String))
-            dts.Columns.Add("UPDATED_DATE", GetType(String))
-            dts.Columns.Add("UPDATED_BY", GetType(String))
-            Dim name As String = cmbVBMake.Text
-            If name = "FORBES MARSHALL" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(13).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "FM" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
-                cmbVolBooster.ValueMember = "Sr_No"
-                cmbVolBooster.DataSource = dts
-            ElseIf name = "PHILVIN" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(13).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "PE" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
-                cmbVolBooster.ValueMember = "Sr_No"
-                cmbVolBooster.DataSource = dts
-            ElseIf name = "YTC" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(13).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "YT" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
-                cmbVolBooster.ValueMember = "Sr_No"
-                cmbVolBooster.DataSource = dts
-            End If
-        Else
-            'DataGridView1.DataSource = dts
-            cmbVolBooster.DisplayMember = Nothing
-            cmbVolBooster.ValueMember = Nothing
-            cmbVolBooster.DataSource = Nothing
-        End If
+        'If Not cmbVBMake.SelectedIndex = -1 Then
+        '    cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
+        '    cmbVolBooster.ValueMember = "Sr_No"
+        '    cmbVolBooster.DataSource = Nothing
+        '    Dim dts As New DataTable
+        '    'dts.Columns.Add("Sr_No", GetType(Integer))
+        '    dts.Columns.Add("SR_NO", GetType(Integer))
+        '    dts.Columns.Add("MODEL_CODE", GetType(String))
+        '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+        '    dts.Columns.Add("CREATION_DATE", GetType(String))
+        '    dts.Columns.Add("CREATED_BY", GetType(String))
+        '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+        '    dts.Columns.Add("UPDATED_BY", GetType(String))
+        '    Dim name As String = cmbVBMake.Text
+        '    If name = "FORBES MARSHALL" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(13).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "FM" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
+        '        cmbVolBooster.ValueMember = "Sr_No"
+        '        cmbVolBooster.DataSource = dts
+        '    ElseIf name = "PHILVIN" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(13).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "PE" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
+        '        cmbVolBooster.ValueMember = "Sr_No"
+        '        cmbVolBooster.DataSource = dts
+        '    ElseIf name = "YTC" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(13).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "YT" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
+        '        cmbVolBooster.ValueMember = "Sr_No"
+        '        cmbVolBooster.DataSource = dts
+        '    End If
+        'Else
+        '    'DataGridView1.DataSource = dts
+        '    cmbVolBooster.DisplayMember = Nothing
+        '    cmbVolBooster.ValueMember = Nothing
+        '    cmbVolBooster.DataSource = Nothing
+        'End If
         'cmbVolBooster.Items.Clear()
         'LastRow = frmValveSizing.FindLastRow(DT_AccessoriesMat, 27)
         'For rowno = 0 To LastRow
@@ -751,70 +826,81 @@ Public Class frmAccessories
         'If cmbVolBooster.Items.Count > 0 Then
         '    cmbVolBooster.SelectedIndex = 0
         'End If
+
+        If Not cmbVBMake.SelectedIndex = -1 Then
+            cmbVolBooster.DisplayMember = "PARAMETER_VALUE"
+            cmbVolBooster.ValueMember = "SR_NO"
+            If ds_VOLBOOSTER.Tables(cmbVBMake.SelectedIndex).Rows.count > 0 Then
+                cmbVolBooster.DataSource = ds_VOLBOOSTER.Tables(cmbVBMake.SelectedIndex)
+            Else
+                cmbVolBooster.DataSource = Nothing
+            End If
+        End If
+
     End Sub
 
     Private Sub cmbLimitSwitchMake_TextChanged(sender As Object, e As EventArgs) Handles cmbLimitSwitchMake.TextChanged
-        If Not cmbLimitSwitchMake.SelectedIndex = -1 Then
-            cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
-            cmbLimitSwitch.ValueMember = "Sr_No"
-            cmbLimitSwitch.DataSource = Nothing
-            Dim dts As New DataTable
-            'dts.Columns.Add("Sr_No", GetType(Integer))
-            dts.Columns.Add("SR_NO", GetType(Integer))
-            dts.Columns.Add("MODEL_CODE", GetType(String))
-            dts.Columns.Add("CATEGORY_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-            dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-            dts.Columns.Add("PARAMETER_DESC", GetType(String))
-            dts.Columns.Add("CREATION_DATE", GetType(String))
-            dts.Columns.Add("CREATED_BY", GetType(String))
-            dts.Columns.Add("UPDATED_DATE", GetType(String))
-            dts.Columns.Add("UPDATED_BY", GetType(String))
-            Dim name As String = cmbLimitSwitchMake.Text
-            If name = "BCH" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(12).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "NL" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
-                cmbLimitSwitch.ValueMember = "Sr_No"
-                cmbLimitSwitch.DataSource = dts
-            ElseIf name = "JAI BALAJI" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(12).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "JL" Or ch = "EP" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
-                cmbLimitSwitch.ValueMember = "Sr_No"
-                cmbLimitSwitch.DataSource = dts
-            ElseIf name = "ROTEX" Then
-                For Each rows As DataRow In ds_AccessoriesMat.Tables(12).Rows
-                    Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                    If ch = "NB" Or ch = "DN" Or ch = "DX" Or ch = "NI" Then
-                        dts.Rows.Add(rows.ItemArray)
-                        'dts.ImportRow(rows)
-                    End If
-                Next
-                'DataGridView1.DataSource = dts
-                cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
-                cmbLimitSwitch.ValueMember = "Sr_No"
-                cmbLimitSwitch.DataSource = dts
-            End If
-        Else
-            'DataGridView1.DataSource = dts
-            cmbLimitSwitch.DisplayMember = Nothing
-            cmbLimitSwitch.ValueMember = Nothing
-            cmbLimitSwitch.DataSource = Nothing
-        End If
+        'If Not cmbLimitSwitchMake.SelectedIndex = -1 Then
+        '    cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
+        '    cmbLimitSwitch.ValueMember = "Sr_No"
+        '    cmbLimitSwitch.DataSource = Nothing
+        '    Dim dts As New DataTable
+        '    'dts.Columns.Add("Sr_No", GetType(Integer))
+        '    dts.Columns.Add("SR_NO", GetType(Integer))
+        '    dts.Columns.Add("MODEL_CODE", GetType(String))
+        '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+        '    dts.Columns.Add("CREATION_DATE", GetType(String))
+        '    dts.Columns.Add("CREATED_BY", GetType(String))
+        '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+        '    dts.Columns.Add("UPDATED_BY", GetType(String))
+        '    Dim name As String = cmbLimitSwitchMake.Text
+        '    If name = "BCH" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(12).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "NL" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
+        '        cmbLimitSwitch.ValueMember = "Sr_No"
+        '        cmbLimitSwitch.DataSource = dts
+        '    ElseIf name = "JAI BALAJI" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(12).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "JL" Or ch = "EP" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
+        '        cmbLimitSwitch.ValueMember = "Sr_No"
+        '        cmbLimitSwitch.DataSource = dts
+        '    ElseIf name = "ROTEX" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(12).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "NB" Or ch = "DN" Or ch = "DX" Or ch = "NI" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
+        '        cmbLimitSwitch.ValueMember = "Sr_No"
+        '        cmbLimitSwitch.DataSource = dts
+        '    End If
+        'Else
+        '    'DataGridView1.DataSource = dts
+        '    cmbLimitSwitch.DisplayMember = Nothing
+        '    cmbLimitSwitch.ValueMember = Nothing
+        '    cmbLimitSwitch.DataSource = Nothing
+        'End If
         'cmbLimitSwitch.Items.Clear()
         'LastRow = frmValveSizing.FindLastRow(DT_AccessoriesMat, 28)
         'For rowno = 0 To LastRow
@@ -828,86 +914,98 @@ Public Class frmAccessories
         'If cmbLimitSwitch.Items.Count > 0 Then
         '    cmbLimitSwitch.SelectedIndex = 0
         'End If
+
+        If Not cmbLimitSwitchMake.SelectedIndex = -1 Then
+            cmbLimitSwitch.DisplayMember = "PARAMETER_VALUE"
+            cmbLimitSwitch.ValueMember = "SR_NO"
+            If ds_LIMITSWITCH.Tables(cmbLimitSwitchMake.SelectedIndex).rows.Count > 0 Then
+                cmbLimitSwitch.DataSource = ds_LIMITSWITCH.Tables(cmbLimitSwitchMake.SelectedIndex)
+            Else
+                cmbLimitSwitch.DataSource = Nothing
+            End If
+        End If
+
+
     End Sub
 
     Private Sub cmbQEVMake_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbQEVMake.SelectedIndexChanged
-        Try
-            If Not cmbQEVMake.SelectedIndex = -1 Then
-                cmbQEV.DisplayMember = "PARAMETER_VALUE"
-                cmbQEV.ValueMember = "Sr_No"
-                cmbQEV.DataSource = Nothing
-                Dim dts As New DataTable
-                'dts.Columns.Add("Sr_No", GetType(Integer))
-                dts.Columns.Add("SR_NO", GetType(Integer))
-                dts.Columns.Add("MODEL_CODE", GetType(String))
-                dts.Columns.Add("CATEGORY_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
-                dts.Columns.Add("PARAMETER_VALUE", GetType(String))
-                dts.Columns.Add("PARAMETER_DESC", GetType(String))
-                dts.Columns.Add("CREATION_DATE", GetType(String))
-                dts.Columns.Add("CREATED_BY", GetType(String))
-                dts.Columns.Add("UPDATED_DATE", GetType(String))
-                dts.Columns.Add("UPDATED_BY", GetType(String))
-                Dim name As String = cmbQEVMake.Text
-                If name = "PHILVIN" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "PE" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbQEV.DisplayMember = "PARAMETER_VALUE"
-                    cmbQEV.ValueMember = "Sr_No"
-                    cmbQEV.DataSource = dts
-                ElseIf name = "SHAVO" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "SQ" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbQEV.DisplayMember = "PARAMETER_VALUE"
-                    cmbQEV.ValueMember = "Sr_No"
-                    cmbQEV.DataSource = dts
-                ElseIf name = "MIDLAND" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "2Q" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbQEV.DisplayMember = "PARAMETER_VALUE"
-                    cmbQEV.ValueMember = "Sr_No"
-                    cmbQEV.DataSource = dts
-                ElseIf name = "SCHRADER DUNCAN" Then
-                    For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
-                        Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
-                        If ch = "33" Or ch = "A3" Then
-                            dts.Rows.Add(rows.ItemArray)
-                            'dts.ImportRow(rows)
-                        End If
-                    Next
-                    'DataGridView1.DataSource = dts
-                    cmbQEV.DisplayMember = "PARAMETER_VALUE"
-                    cmbQEV.ValueMember = "Sr_No"
-                    cmbQEV.DataSource = dts
-                End If
-            Else
-                'DataGridView1.DataSource = dts
-                cmbQEV.DisplayMember = Nothing
-                cmbQEV.ValueMember = Nothing
-                cmbQEV.DataSource = Nothing
-            End If
-        Catch ex As Exception
+        'Try
+        'If Not cmbQEVMake.SelectedIndex = -1 Then
+        '    cmbQEV.DisplayMember = "PARAMETER_VALUE"
+        '    cmbQEV.ValueMember = "Sr_No"
+        '    cmbQEV.DataSource = Nothing
+        '    Dim dts As New DataTable
+        '    'dts.Columns.Add("Sr_No", GetType(Integer))
+        '    dts.Columns.Add("SR_NO", GetType(Integer))
+        '    dts.Columns.Add("MODEL_CODE", GetType(String))
+        '    dts.Columns.Add("CATEGORY_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_VALUE", GetType(String))
+        '    dts.Columns.Add("PARAMETER_DESC", GetType(String))
+        '    dts.Columns.Add("CREATION_DATE", GetType(String))
+        '    dts.Columns.Add("CREATED_BY", GetType(String))
+        '    dts.Columns.Add("UPDATED_DATE", GetType(String))
+        '    dts.Columns.Add("UPDATED_BY", GetType(String))
+        '    Dim name As String = cmbQEVMake.Text
+        '    If name = "PHILVIN" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "PE" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbQEV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbQEV.ValueMember = "Sr_No"
+        '        cmbQEV.DataSource = dts
+        '    ElseIf name = "SHAVO" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "SQ" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbQEV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbQEV.ValueMember = "Sr_No"
+        '        cmbQEV.DataSource = dts
+        '    ElseIf name = "MIDLAND" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "2Q" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbQEV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbQEV.ValueMember = "Sr_No"
+        '        cmbQEV.DataSource = dts
+        '    ElseIf name = "SCHRADER DUNCAN" Then
+        '        For Each rows As DataRow In ds_AccessoriesMat.Tables(18).Rows
+        '            Dim ch = rows.Item("PARAMETER_VALUE").ToString.Substring(0, 2)
+        '            If ch = "33" Or ch = "A3" Then
+        '                dts.Rows.Add(rows.ItemArray)
+        '                'dts.ImportRow(rows)
+        '            End If
+        '        Next
+        '        'DataGridView1.DataSource = dts
+        '        cmbQEV.DisplayMember = "PARAMETER_VALUE"
+        '        cmbQEV.ValueMember = "Sr_No"
+        '        cmbQEV.DataSource = dts
+        '    End If
+        'Else
+        '    'DataGridView1.DataSource = dts
+        '    cmbQEV.DisplayMember = Nothing
+        '    cmbQEV.ValueMember = Nothing
+        '    cmbQEV.DataSource = Nothing
+        'End If
+        'Catch ex As Exception
 
-        End Try
+        'End Try
         'cmbQEV.Items.Clear()
         'LastRow = frmValveSizing.FindLastRow(DT_AccessoriesMat, 29)
         'For rowno = 0 To LastRow
@@ -921,5 +1019,71 @@ Public Class frmAccessories
         'If cmbQEV.Items.Count > 0 Then
         '    cmbQEV.SelectedIndex = 0
         'End If
+
+        If Not cmbQEVMake.SelectedIndex = -1 Then
+            cmbQEV.DisplayMember = "PARAMETER_VALUE"
+            cmbQEV.ValueMember = "SR_NO"
+            If ds_QEV.Tables(cmbQEVMake.SelectedIndex).Rows.Count > 0 Then
+                cmbQEV.DataSource = ds_QEV.Tables(cmbQEVMake.SelectedIndex)
+            Else
+                cmbQEV.DataSource = Nothing
+            End If
+
+        End If
+
+    End Sub
+
+    
+    Private Sub btnSaveClose_Click(sender As Object, e As EventArgs) Handles btnSaveClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmbPosnTransMake_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPosnTransMake.SelectedIndexChanged
+        Try
+            If Not cmbPosnTransMake.SelectedIndex = -1 Then
+                cmbPosnTrans.DisplayMember = "PARAMETER_VALUE"
+                cmbPosnTrans.ValueMember = "SR_NO"
+                If ds_POSTRANS.Tables(cmbPosnTransMake.SelectedIndex).Rows.Count > 0 Then
+                    cmbPosnTrans.DataSource = ds_POSTRANS.Tables(cmbPosnTransMake.SelectedIndex)
+                Else
+                    cmbPosnTrans.DataSource = Nothing
+
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("PosnTransMake : " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cmbPressRegulatorMake_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPressRegulatorMake.SelectedIndexChanged
+        Try
+            If Not cmbPressRegulatorMake.SelectedIndex = -1 Then
+                cmbRobotor.DisplayMember = "PARAMETER_VALUE"
+                cmbRobotor.ValueMember = "SR_NO"
+                If ds_ROBOTOR.Tables(cmbPressRegulatorMake.SelectedIndex).Rows.Count > 0 Then
+                    cmbRobotor.DataSource = ds_ROBOTOR.Tables(cmbPressRegulatorMake.SelectedIndex)
+                Else
+                    cmbRobotor.DataSource = Nothing
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("PressRegulatorMake : " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cmbItoPMake_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbItoPMake.SelectedIndexChanged
+        Try
+            If Not cmbItoPMake.SelectedIndex = -1 Then
+                cmbItoP.DisplayMember = "PARAMETER_VALUE"
+                cmbItoP.ValueMember = "SR_NO"
+                If ds_ITOP.Tables(cmbItoPMake.SelectedIndex).Rows.Count > 0 Then
+                    cmbItoP.DataSource = ds_ITOP.Tables(cmbItoPMake.SelectedIndex)
+                Else
+                    cmbItoP.DataSource = Nothing
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("PressRegulatorMake : " & ex.Message)
+        End Try
     End Sub
 End Class

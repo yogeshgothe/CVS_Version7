@@ -7,12 +7,11 @@
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
 
     Partial Friend Class MyApplication
-        
+
+      
         Private Sub splash_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Startup
             Try
                 My.Application.MinimumSplashScreenDisplayTime = 3000
-               
-                frmRecordsGrid.LoadEssentials()
             Catch ex As Exception
                 MessageBox.Show(ex.Message + Environment.NewLine)
             End Try

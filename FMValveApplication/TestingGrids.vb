@@ -106,19 +106,19 @@
             Dt_DisplayBaffles.Rows(2).Item(13) = DT_NoiseAttenuation(0).Item(2)
 
 
-            DT_ActuatorInfo.Rows(0).Item(1) = frmValveSizing.cmbModel.Text
-            DT_ActuatorInfo.Rows(1).Item(1) = frmValveSizing.lblFinalValveSize.Text
-            DT_ActuatorInfo.Rows(2).Item(1) = Travel
-            DT_ActuatorInfo.Rows(3).Item(1) = frmValveSizing.lblFinalRating.Text
-            DT_ActuatorInfo.Rows(4).Item(1) = frmValveSizing.cmbFlowDirection.Text
-            DT_ActuatorInfo.Rows(5).Item(1) = frmValveSizing.cmbSelectedTrim.Text
-            DT_ActuatorInfo.Rows(6).Item(1) = frmValveSizing.cmbSeatDia.Text
-            DT_ActuatorInfo.Rows(7).Item(1) = StemDia
-            DT_ActuatorInfo.Rows(8).Item(1) = frmValveSizing.cmbBalancing.Text
-            DT_ActuatorInfo.Rows(9).Item(1) = frmValveSizing.cmbAirFailure.Text
-            'DT_ActuatorInfo.Rows(7).Item(1) = Math.Round(FrictionForce * 0.101972, 2)
-            'DT_ActuatorInfo.Rows(8).Item(1) = SeatingForce
-            'DT_ActuatorInfo.Rows(9).Item(1) = Math.Round(Fluidforce * 0.101972, 2)
+            'DT_ActuatorInfo.Rows(0).Item(1) = frmValveSizing.cmbModel.Text
+            'DT_ActuatorInfo.Rows(1).Item(1) = frmValveSizing.lblFinalValveSize.Text
+            'DT_ActuatorInfo.Rows(2).Item(1) = Travel
+            'DT_ActuatorInfo.Rows(3).Item(1) = frmValveSizing.lblFinalRating.Text
+            'DT_ActuatorInfo.Rows(4).Item(1) = frmValveSizing.cmbFlowDirection.Text
+            'DT_ActuatorInfo.Rows(5).Item(1) = frmValveSizing.cmbSelectedTrim.Text
+            'DT_ActuatorInfo.Rows(6).Item(1) = frmValveSizing.cmbSeatDia.Text
+            'DT_ActuatorInfo.Rows(7).Item(1) = StemDia
+            'DT_ActuatorInfo.Rows(8).Item(1) = frmValveSizing.cmbBalancing.Text
+            'DT_ActuatorInfo.Rows(9).Item(1) = frmValveSizing.cmbAirFailure.Text
+            ''DT_ActuatorInfo.Rows(7).Item(1) = Math.Round(FrictionForce * 0.101972, 2)
+            ''DT_ActuatorInfo.Rows(8).Item(1) = SeatingForce
+            ''DT_ActuatorInfo.Rows(9).Item(1) = Math.Round(Fluidforce * 0.101972, 2)
 
 
             DGVActuatorInfo.DataSource = DT_ActuatorInfo

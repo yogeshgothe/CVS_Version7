@@ -24,10 +24,16 @@ Partial Class frmAccessories
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAccessories))
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbItoPMake = New System.Windows.Forms.ComboBox()
+        Me.cmbPressRegulatorMake = New System.Windows.Forms.ComboBox()
+        Me.cmbPosnTransMake = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbTubingMOC = New System.Windows.Forms.ComboBox()
+        Me.cmbCertification = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbTubingSize = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbTubingMake = New System.Windows.Forms.ComboBox()
         Me.cmbVBMake = New System.Windows.Forms.ComboBox()
         Me.cmbALRMake = New System.Windows.Forms.ComboBox()
@@ -37,8 +43,6 @@ Partial Class frmAccessories
         Me.cmbAFRMake = New System.Windows.Forms.ComboBox()
         Me.cmbPositionerMake = New System.Windows.Forms.ComboBox()
         Me.cmbTubing = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblClose = New System.Windows.Forms.Label()
         Me.Label76 = New System.Windows.Forms.Label()
         Me.cmbQEV = New System.Windows.Forms.ComboBox()
         Me.Label75 = New System.Windows.Forms.Label()
@@ -49,7 +53,6 @@ Partial Class frmAccessories
         Me.Label60 = New System.Windows.Forms.Label()
         Me.cmbPosnTrans = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.cmbCertification = New System.Windows.Forms.ComboBox()
         Me.Label59 = New System.Windows.Forms.Label()
         Me.cmbVolBooster = New System.Windows.Forms.ComboBox()
         Me.Label49 = New System.Windows.Forms.Label()
@@ -63,13 +66,16 @@ Partial Class frmAccessories
         Me.Label56 = New System.Windows.Forms.Label()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnSaveClose = New System.Windows.Forms.Button()
         Me.GroupBox13.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox13
         '
         Me.GroupBox13.BackColor = System.Drawing.Color.White
+        Me.GroupBox13.Controls.Add(Me.cmbItoPMake)
+        Me.GroupBox13.Controls.Add(Me.cmbPressRegulatorMake)
+        Me.GroupBox13.Controls.Add(Me.cmbPosnTransMake)
         Me.GroupBox13.Controls.Add(Me.Label4)
         Me.GroupBox13.Controls.Add(Me.cmbTubingMOC)
         Me.GroupBox13.Controls.Add(Me.cmbCertification)
@@ -119,15 +125,74 @@ Partial Class frmAccessories
         Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Accessories"
         '
-        'Label3
+        'cmbItoPMake
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(694, 196)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 13)
-        Me.Label3.TabIndex = 219
-        Me.Label3.Text = "Tubing Sizes"
+        Me.cmbItoPMake.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbItoPMake.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cmbItoPMake.FormattingEnabled = True
+        Me.cmbItoPMake.Location = New System.Drawing.Point(777, 115)
+        Me.cmbItoPMake.Name = "cmbItoPMake"
+        Me.cmbItoPMake.Size = New System.Drawing.Size(142, 23)
+        Me.cmbItoPMake.TabIndex = 19
+        Me.cmbItoPMake.Text = "--Select--"
+        '
+        'cmbPressRegulatorMake
+        '
+        Me.cmbPressRegulatorMake.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbPressRegulatorMake.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cmbPressRegulatorMake.FormattingEnabled = True
+        Me.cmbPressRegulatorMake.Location = New System.Drawing.Point(127, 113)
+        Me.cmbPressRegulatorMake.Name = "cmbPressRegulatorMake"
+        Me.cmbPressRegulatorMake.Size = New System.Drawing.Size(142, 23)
+        Me.cmbPressRegulatorMake.TabIndex = 8
+        Me.cmbPressRegulatorMake.Text = "--Select--"
+        '
+        'cmbPosnTransMake
+        '
+        Me.cmbPosnTransMake.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbPosnTransMake.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cmbPosnTransMake.FormattingEnabled = True
+        Me.cmbPosnTransMake.Location = New System.Drawing.Point(127, 89)
+        Me.cmbPosnTransMake.Name = "cmbPosnTransMake"
+        Me.cmbPosnTransMake.Size = New System.Drawing.Size(142, 23)
+        Me.cmbPosnTransMake.TabIndex = 6
+        Me.cmbPosnTransMake.Text = "--Select--"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(351, 196)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(80, 13)
+        Me.Label4.TabIndex = 220
+        Me.Label4.Text = "Tubing Model"
+        '
+        'cmbTubingMOC
+        '
+        Me.cmbTubingMOC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbTubingMOC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cmbTubingMOC.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbTubingMOC.FormattingEnabled = True
+        Me.cmbTubingMOC.Location = New System.Drawing.Point(1054, 193)
+        Me.cmbTubingMOC.Name = "cmbTubingMOC"
+        Me.cmbTubingMOC.Size = New System.Drawing.Size(160, 21)
+        Me.cmbTubingMOC.TabIndex = 25
+        Me.cmbTubingMOC.Text = "--Select--"
+        '
+        'cmbCertification
+        '
+        Me.cmbCertification.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbCertification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cmbCertification.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCertification.FormattingEnabled = True
+        Me.cmbCertification.Items.AddRange(New Object() {"IBR+NACE", "NACE MR 01 75", "DEGREASING+RADIOGRAPHY (ANSI B16.34)", "RADIOGRAPHY (ANSI B16.34)+IBR+MP+LP+UT+SEAT HARDNESS TEST+KV TESTING", "RADIOGRAPHY (ANSI B16.34)+IBR", "RADIOGRAPHY (ANSI B16.34)+IBR+UT+LP", "NIBR+RADIOGRAPHY (ANSI B16.34)+MP+UT+PMI+LP+HARDNESS TEST", "RADIOGRAPHY (ANSI B16.34)+NIBR", "NIBR+EN CERTIFICATION (10204 3.1)+RADIOGRAPHY (ANSI B16.34)", "RADIOGRAPHY (ANSI B16.34)+IBR", "IBR+RADIOGRAPHY+MP+UT+LP", "RADIOGRAPHY (ANSI B16.34)+NIBR", "EN CERTIFICATION (EN 10204)", "EN CERTIFICATION (EN 10204 3.1)", "EN CERTIFICATION ((EN 10204 3.2)", "NIBR+RADIOGRAPHY (ANSI B16.34)+LP+UT+EN CERTIFICATION (EN 10204 3.1)", "NIBR+RADIOGRAPHY (ANSI B16.34)+LP+UT+PMI+EN CERTIFICATION (EN 10204 3.1)", "RADIOGRAPHY (ANSI B16.34)+NIBR+LP+MP", "RADIOGRAPHY (ANSI B16.34)+NIBR+FERRITE CONTENT+LP+EN CERT. (EN 10204 3.1)+IGC+PMI" & _
+                "+HARDNESS+MPT", "DEGREASING", "NIBR+LP+UT", "IBR+LP+UT", "NIBR+LP+UT+FERRITE CONTENT", "RADIOGRAPHY (ANSI B16.34)+NIBR+HELIUM LEAK TEST", "RADIOGRAPHY (ANSI B16.34)+NIBR+HELIUM LEAK TEST+NACE MR 01 75", "NIBR+HELIUM LEAK TEST", "IBR", "IBR+MP", "IBR+MP+LP+UT", "LP TESTING+NIBR", "KV TESTING+IBR", "LP TESTING+IBR", "NACE MR 01 75+RADIOGRAPHY (ANSI B16.34)+IBR", "NIBR+RADIOGRAPHY (ANSI B16.34)+MP+LP+UT+EN CERTIFICATION (EN 10204 3.1)", "NIBR+RADIOGRAPHY (ANSI B16.34)+LP+UT+EN CERTIFICATION (EN 10204 3.1)", "NON-IBR", "NACE+HELIUM LEAK TEST+NIBR", "NIBR+RADIOGRAPHY (ANSI B16.34)+MP+PMI", "NACE MR 01 75+RADIOGRAPHY (ANSI B16.34)+MP+PMI", "NIBR+NACE 0103", "NIBR+MP+LP+UT", "100% RADIOGRAPHY+NIBR", "IBR+RADIOGRAPHY (ANSI B16.34)+MP+LP", "RADIOGRAPHY (ANSI B16.34)+IBR+MP", "NIBR+MP", "RADIOGRAPHY (ANSI B16.34)+NIBR+MP", "IBR+RADIOGRAPHY (ANSI B16.34)+MP+PMI", "RADIOGRAPHY (ANSI B16.34)+IBR+MP+UT+PMI+LP+HARNESS TEST", "RADIOGRAPHY (ANSI B16.34)+IBR+MP+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+MP+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+LP", "NIBR+MP+LPT", "RADIOGRAPHY (ANSI B16.34)+IBR+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+UT+LP", "RADIOGRAPHY (ANSI B16.34)+NIBR+UT+LP+FERRITE CONTENT", "RADIOGRAPHY (ANSI B16.34)+IBR+LP", "RADIOGRAPHY (ANSI B16.34)+NIBR+DEGREASING", "100% RADIOGRAPHY+NIBR+EN CERTIFICATION (EN 10204 3.1)"})
+        Me.cmbCertification.Location = New System.Drawing.Point(126, 165)
+        Me.cmbCertification.Name = "cmbCertification"
+        Me.cmbCertification.Size = New System.Drawing.Size(640, 21)
+        Me.cmbCertification.TabIndex = 21
+        Me.cmbCertification.Text = "--Select--"
         '
         'Label2
         '
@@ -139,17 +204,15 @@ Partial Class frmAccessories
         Me.Label2.TabIndex = 218
         Me.Label2.Text = "Tubing MOC"
         '
-        'cmbTubingMOC
+        'Label1
         '
-        Me.cmbTubingMOC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbTubingMOC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.cmbTubingMOC.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbTubingMOC.FormattingEnabled = True
-        Me.cmbTubingMOC.Location = New System.Drawing.Point(1054, 193)
-        Me.cmbTubingMOC.Name = "cmbTubingMOC"
-        Me.cmbTubingMOC.Size = New System.Drawing.Size(160, 21)
-        Me.cmbTubingMOC.TabIndex = 217
-        Me.cmbTubingMOC.Text = "--Select--"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(29, 196)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(75, 13)
+        Me.Label1.TabIndex = 214
+        Me.Label1.Text = "Tubing Make"
         '
         'cmbTubingSize
         '
@@ -160,8 +223,18 @@ Partial Class frmAccessories
         Me.cmbTubingSize.Location = New System.Drawing.Point(777, 193)
         Me.cmbTubingSize.Name = "cmbTubingSize"
         Me.cmbTubingSize.Size = New System.Drawing.Size(144, 21)
-        Me.cmbTubingSize.TabIndex = 216
+        Me.cmbTubingSize.TabIndex = 24
         Me.cmbTubingSize.Text = "--Select--"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(694, 196)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(72, 13)
+        Me.Label3.TabIndex = 219
+        Me.Label3.Text = "Tubing Sizes"
         '
         'cmbTubingMake
         '
@@ -171,7 +244,7 @@ Partial Class frmAccessories
         Me.cmbTubingMake.Location = New System.Drawing.Point(126, 192)
         Me.cmbTubingMake.Name = "cmbTubingMake"
         Me.cmbTubingMake.Size = New System.Drawing.Size(142, 23)
-        Me.cmbTubingMake.TabIndex = 215
+        Me.cmbTubingMake.TabIndex = 22
         Me.cmbTubingMake.Text = "--Select--"
         '
         'cmbVBMake
@@ -182,7 +255,7 @@ Partial Class frmAccessories
         Me.cmbVBMake.Location = New System.Drawing.Point(779, 68)
         Me.cmbVBMake.Name = "cmbVBMake"
         Me.cmbVBMake.Size = New System.Drawing.Size(142, 23)
-        Me.cmbVBMake.TabIndex = 15
+        Me.cmbVBMake.TabIndex = 16
         Me.cmbVBMake.Text = "--Select--"
         '
         'cmbALRMake
@@ -193,7 +266,7 @@ Partial Class frmAccessories
         Me.cmbALRMake.Location = New System.Drawing.Point(779, 45)
         Me.cmbALRMake.Name = "cmbALRMake"
         Me.cmbALRMake.Size = New System.Drawing.Size(142, 23)
-        Me.cmbALRMake.TabIndex = 13
+        Me.cmbALRMake.TabIndex = 14
         Me.cmbALRMake.Text = "--Select--"
         '
         'cmbSOVMake
@@ -204,7 +277,7 @@ Partial Class frmAccessories
         Me.cmbSOVMake.Location = New System.Drawing.Point(779, 22)
         Me.cmbSOVMake.Name = "cmbSOVMake"
         Me.cmbSOVMake.Size = New System.Drawing.Size(142, 23)
-        Me.cmbSOVMake.TabIndex = 11
+        Me.cmbSOVMake.TabIndex = 12
         Me.cmbSOVMake.Text = "--Select--"
         '
         'cmbQEVMake
@@ -215,7 +288,7 @@ Partial Class frmAccessories
         Me.cmbQEVMake.Location = New System.Drawing.Point(127, 137)
         Me.cmbQEVMake.Name = "cmbQEVMake"
         Me.cmbQEVMake.Size = New System.Drawing.Size(142, 23)
-        Me.cmbQEVMake.TabIndex = 9
+        Me.cmbQEVMake.TabIndex = 10
         Me.cmbQEVMake.Text = "--Select--"
         '
         'cmbLimitSwitchMake
@@ -223,7 +296,7 @@ Partial Class frmAccessories
         Me.cmbLimitSwitchMake.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.cmbLimitSwitchMake.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.cmbLimitSwitchMake.FormattingEnabled = True
-        Me.cmbLimitSwitchMake.Location = New System.Drawing.Point(127, 66)
+        Me.cmbLimitSwitchMake.Location = New System.Drawing.Point(127, 64)
         Me.cmbLimitSwitchMake.Name = "cmbLimitSwitchMake"
         Me.cmbLimitSwitchMake.Size = New System.Drawing.Size(142, 23)
         Me.cmbLimitSwitchMake.TabIndex = 4
@@ -260,29 +333,8 @@ Partial Class frmAccessories
         Me.cmbTubing.Location = New System.Drawing.Point(452, 193)
         Me.cmbTubing.Name = "cmbTubing"
         Me.cmbTubing.Size = New System.Drawing.Size(198, 21)
-        Me.cmbTubing.TabIndex = 19
+        Me.cmbTubing.TabIndex = 23
         Me.cmbTubing.Text = "--Select--"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(29, 196)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 13)
-        Me.Label1.TabIndex = 214
-        Me.Label1.Text = "Tubing Make"
-        '
-        'lblClose
-        '
-        Me.lblClose.AutoSize = True
-        Me.lblClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.lblClose.Font = New System.Drawing.Font("Segoe UI", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClose.Location = New System.Drawing.Point(1101, 237)
-        Me.lblClose.Name = "lblClose"
-        Me.lblClose.Size = New System.Drawing.Size(88, 17)
-        Me.lblClose.TabIndex = 20
-        Me.lblClose.Text = "Save && Close"
         '
         'Label76
         '
@@ -303,7 +355,7 @@ Partial Class frmAccessories
         Me.cmbQEV.Location = New System.Drawing.Point(297, 138)
         Me.cmbQEV.Name = "cmbQEV"
         Me.cmbQEV.Size = New System.Drawing.Size(306, 21)
-        Me.cmbQEV.TabIndex = 8
+        Me.cmbQEV.TabIndex = 11
         Me.cmbQEV.Text = "--Select--"
         '
         'Label75
@@ -325,7 +377,7 @@ Partial Class frmAccessories
         Me.cmbItoP.Location = New System.Drawing.Point(937, 117)
         Me.cmbItoP.Name = "cmbItoP"
         Me.cmbItoP.Size = New System.Drawing.Size(277, 21)
-        Me.cmbItoP.TabIndex = 18
+        Me.cmbItoP.TabIndex = 20
         Me.cmbItoP.Text = "--Select--"
         '
         'Label74
@@ -347,7 +399,7 @@ Partial Class frmAccessories
         Me.cmbRobotor.Location = New System.Drawing.Point(297, 115)
         Me.cmbRobotor.Name = "cmbRobotor"
         Me.cmbRobotor.Size = New System.Drawing.Size(306, 21)
-        Me.cmbRobotor.TabIndex = 7
+        Me.cmbRobotor.TabIndex = 9
         Me.cmbRobotor.Text = "--Select--"
         '
         'cmbVtank
@@ -359,7 +411,7 @@ Partial Class frmAccessories
         Me.cmbVtank.Location = New System.Drawing.Point(937, 94)
         Me.cmbVtank.Name = "cmbVtank"
         Me.cmbVtank.Size = New System.Drawing.Size(277, 21)
-        Me.cmbVtank.TabIndex = 17
+        Me.cmbVtank.TabIndex = 18
         Me.cmbVtank.Text = "--Select--"
         '
         'Label60
@@ -378,10 +430,10 @@ Partial Class frmAccessories
         Me.cmbPosnTrans.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.cmbPosnTrans.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbPosnTrans.FormattingEnabled = True
-        Me.cmbPosnTrans.Location = New System.Drawing.Point(297, 93)
+        Me.cmbPosnTrans.Location = New System.Drawing.Point(297, 92)
         Me.cmbPosnTrans.Name = "cmbPosnTrans"
         Me.cmbPosnTrans.Size = New System.Drawing.Size(306, 21)
-        Me.cmbPosnTrans.TabIndex = 6
+        Me.cmbPosnTrans.TabIndex = 7
         Me.cmbPosnTrans.Text = "--Select--"
         '
         'Label13
@@ -393,20 +445,6 @@ Partial Class frmAccessories
         Me.Label13.Size = New System.Drawing.Size(44, 13)
         Me.Label13.TabIndex = 205
         Me.Label13.Text = "V. Tank"
-        '
-        'cmbCertification
-        '
-        Me.cmbCertification.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbCertification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.cmbCertification.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCertification.FormattingEnabled = True
-        Me.cmbCertification.Items.AddRange(New Object() {"IBR+NACE", "NACE MR 01 75", "DEGREASING+RADIOGRAPHY (ANSI B16.34)", "RADIOGRAPHY (ANSI B16.34)+IBR+MP+LP+UT+SEAT HARDNESS TEST+KV TESTING", "RADIOGRAPHY (ANSI B16.34)+IBR", "RADIOGRAPHY (ANSI B16.34)+IBR+UT+LP", "NIBR+RADIOGRAPHY (ANSI B16.34)+MP+UT+PMI+LP+HARDNESS TEST", "RADIOGRAPHY (ANSI B16.34)+NIBR", "NIBR+EN CERTIFICATION (10204 3.1)+RADIOGRAPHY (ANSI B16.34)", "RADIOGRAPHY (ANSI B16.34)+IBR", "IBR+RADIOGRAPHY+MP+UT+LP", "RADIOGRAPHY (ANSI B16.34)+NIBR", "EN CERTIFICATION (EN 10204)", "EN CERTIFICATION (EN 10204 3.1)", "EN CERTIFICATION ((EN 10204 3.2)", "NIBR+RADIOGRAPHY (ANSI B16.34)+LP+UT+EN CERTIFICATION (EN 10204 3.1)", "NIBR+RADIOGRAPHY (ANSI B16.34)+LP+UT+PMI+EN CERTIFICATION (EN 10204 3.1)", "RADIOGRAPHY (ANSI B16.34)+NIBR+LP+MP", "RADIOGRAPHY (ANSI B16.34)+NIBR+FERRITE CONTENT+LP+EN CERT. (EN 10204 3.1)+IGC+PMI" & _
-                "+HARDNESS+MPT", "DEGREASING", "NIBR+LP+UT", "IBR+LP+UT", "NIBR+LP+UT+FERRITE CONTENT", "RADIOGRAPHY (ANSI B16.34)+NIBR+HELIUM LEAK TEST", "RADIOGRAPHY (ANSI B16.34)+NIBR+HELIUM LEAK TEST+NACE MR 01 75", "NIBR+HELIUM LEAK TEST", "IBR", "IBR+MP", "IBR+MP+LP+UT", "LP TESTING+NIBR", "KV TESTING+IBR", "LP TESTING+IBR", "NACE MR 01 75+RADIOGRAPHY (ANSI B16.34)+IBR", "NIBR+RADIOGRAPHY (ANSI B16.34)+MP+LP+UT+EN CERTIFICATION (EN 10204 3.1)", "NIBR+RADIOGRAPHY (ANSI B16.34)+LP+UT+EN CERTIFICATION (EN 10204 3.1)", "NON-IBR", "NACE+HELIUM LEAK TEST+NIBR", "NIBR+RADIOGRAPHY (ANSI B16.34)+MP+PMI", "NACE MR 01 75+RADIOGRAPHY (ANSI B16.34)+MP+PMI", "NIBR+NACE 0103", "NIBR+MP+LP+UT", "100% RADIOGRAPHY+NIBR", "IBR+RADIOGRAPHY (ANSI B16.34)+MP+LP", "RADIOGRAPHY (ANSI B16.34)+IBR+MP", "NIBR+MP", "RADIOGRAPHY (ANSI B16.34)+NIBR+MP", "IBR+RADIOGRAPHY (ANSI B16.34)+MP+PMI", "RADIOGRAPHY (ANSI B16.34)+IBR+MP+UT+PMI+LP+HARNESS TEST", "RADIOGRAPHY (ANSI B16.34)+IBR+MP+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+MP+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+LP", "NIBR+MP+LPT", "RADIOGRAPHY (ANSI B16.34)+IBR+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+UT", "RADIOGRAPHY (ANSI B16.34)+NIBR+UT+LP", "RADIOGRAPHY (ANSI B16.34)+NIBR+UT+LP+FERRITE CONTENT", "RADIOGRAPHY (ANSI B16.34)+IBR+LP", "RADIOGRAPHY (ANSI B16.34)+NIBR+DEGREASING", "100% RADIOGRAPHY+NIBR+EN CERTIFICATION (EN 10204 3.1)"})
-        Me.cmbCertification.Location = New System.Drawing.Point(126, 165)
-        Me.cmbCertification.Name = "cmbCertification"
-        Me.cmbCertification.Size = New System.Drawing.Size(640, 21)
-        Me.cmbCertification.TabIndex = 10
-        Me.cmbCertification.Text = "--Select--"
         '
         'Label59
         '
@@ -427,7 +465,7 @@ Partial Class frmAccessories
         Me.cmbVolBooster.Location = New System.Drawing.Point(937, 70)
         Me.cmbVolBooster.Name = "cmbVolBooster"
         Me.cmbVolBooster.Size = New System.Drawing.Size(277, 21)
-        Me.cmbVolBooster.TabIndex = 16
+        Me.cmbVolBooster.TabIndex = 17
         Me.cmbVolBooster.Text = "--Select--"
         '
         'Label49
@@ -449,7 +487,7 @@ Partial Class frmAccessories
         Me.cmbSOV.Location = New System.Drawing.Point(937, 21)
         Me.cmbSOV.Name = "cmbSOV"
         Me.cmbSOV.Size = New System.Drawing.Size(277, 21)
-        Me.cmbSOV.TabIndex = 12
+        Me.cmbSOV.TabIndex = 13
         Me.cmbSOV.Text = "--Select--"
         '
         'Label53
@@ -471,7 +509,7 @@ Partial Class frmAccessories
         Me.cmbALR.Location = New System.Drawing.Point(937, 45)
         Me.cmbALR.Name = "cmbALR"
         Me.cmbALR.Size = New System.Drawing.Size(277, 21)
-        Me.cmbALR.TabIndex = 14
+        Me.cmbALR.TabIndex = 15
         Me.cmbALR.Text = "--Select--"
         '
         'cmbLimitSwitch
@@ -551,23 +589,25 @@ Partial Class frmAccessories
         Me.Label58.TabIndex = 191
         Me.Label58.Text = "Positioner"
         '
-        'Label4
+        'btnSaveClose
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(351, 196)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 13)
-        Me.Label4.TabIndex = 220
-        Me.Label4.Text = "Tubing Model"
+        Me.btnSaveClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnSaveClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSaveClose.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveClose.Location = New System.Drawing.Point(989, 232)
+        Me.btnSaveClose.Name = "btnSaveClose"
+        Me.btnSaveClose.Size = New System.Drawing.Size(106, 23)
+        Me.btnSaveClose.TabIndex = 239
+        Me.btnSaveClose.Text = "Save && Close"
+        Me.btnSaveClose.UseVisualStyleBackColor = True
         '
         'frmAccessories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1254, 259)
+        Me.Controls.Add(Me.btnSaveClose)
         Me.Controls.Add(Me.GroupBox13)
-        Me.Controls.Add(Me.lblClose)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(80, 600)
@@ -577,7 +617,6 @@ Partial Class frmAccessories
         Me.GroupBox13.ResumeLayout(False)
         Me.GroupBox13.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox13 As System.Windows.Forms.GroupBox
@@ -605,7 +644,6 @@ Partial Class frmAccessories
     Friend WithEvents Label56 As System.Windows.Forms.Label
     Friend WithEvents Label57 As System.Windows.Forms.Label
     Friend WithEvents Label58 As System.Windows.Forms.Label
-    Friend WithEvents lblClose As System.Windows.Forms.Label
     Friend WithEvents cmbTubing As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmbVBMake As ComboBox
@@ -621,4 +659,8 @@ Partial Class frmAccessories
     Friend WithEvents cmbTubingMOC As System.Windows.Forms.ComboBox
     Friend WithEvents cmbTubingSize As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents cmbItoPMake As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbPressRegulatorMake As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbPosnTransMake As System.Windows.Forms.ComboBox
+    Friend WithEvents btnSaveClose As System.Windows.Forms.Button
 End Class
