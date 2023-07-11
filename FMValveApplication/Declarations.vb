@@ -12,8 +12,8 @@ Public Module Declarations
     Public CLoseSoftware As Boolean = False
     Public Status As String
 
-    Public VersionDate As String = "21-06-2023"
-    Public VersionNo As String = "v7.2.0.14"
+    Public VersionDate As String = "07-07-2023"
+    Public VersionNo As String = "v7.2.0.17"
 
     'Branch, SalesEngg, CustomerRef, OfferNo, GSN, LSN, Customer, Project, Date
     Public cnt As Integer = 0
@@ -27,6 +27,18 @@ Public Module Declarations
 
     'Datasets
     Public ods As New DataSet
+
+    Public ds_Positioner = New DataSet
+    Public ds_AFR = New DataSet
+    Public ds_ALR = New DataSet
+    Public ds_SOV = New DataSet
+    Public ds_LIMITSWITCH = New DataSet
+    Public ds_VOLBOOSTER = New DataSet
+    Public ds_QEV = New DataSet
+    Public ds_TUBING = New DataSet
+    Public ds_ITOP = New DataSet
+    Public ds_POSTRANS = New DataSet
+    Public ds_ROBOTOR = New DataSet
 
     Public dtr As New DataTable
 
@@ -232,7 +244,7 @@ Public Module Declarations
 
     'New Actuator Paramters
     Public PackingTypeFactor, PackingMaterialFactor, PackingHeight, PrBl_TrimFactor As Single
-
+    Public Act_SafetyFactor As Single = 1
     Public Fluidforce, SeatingForce, FrictionForce, StemDia, SealingForce, FinalForceOpen, FinalForceClose, FinalForce, SleeveDia, Travel, SupplyAirPressure, DPShutoff, DiaphragmArea As Single
     Public Actuator, FinalActuator, MKSActuator As String
     Public InitialSpringRange, FinalSpringRange, MKSInitialSpringRange, MKSFinalSpringRange, Spring_Initial(70), Spring_Final(70), MKSSpring_Initial(70), MKSSpring_Final(70), F_SpringThrust(70), F_AirThrust(70) As Single
@@ -253,10 +265,10 @@ Public Module Declarations
 
     'Public PositionerMake As String
     'Public Positioner As Integer = -1
-    Public BodyMaterial, Plug, Seat, TopMaterials, Roborter, Gasket, Certification, Painting, Painting_ACC As Integer
-    Public BonnetType, EndConnection, VTank, Handwheel, Guiding As String
-    Public AFRMake, ALRMake, SOVMake, VBMake, LimitSwitchMake, QEVMake, PositionerMake, Tubing, TubingMake, TubingSize, TubingMOC As Integer
-    Public Sov, AFR, ALR, LimitSwitch, VolBooster, PosnTrans, ItoP, QEV, Positioner As Integer
+    Public BodyMaterial, Plug, Seat, TopMaterials, Gasket, Painting, Painting_ACC As String
+    Public BonnetType, EndConnection, VTank, Handwheel, Certification, Guiding, Roborter As String
+    Public AFRMake, ALRMake, SOVMake, VBMake, LimitSwitchMake, QEVMake, PositionerMake, Tubing, TubingMake, TubingSize, TubingMOC, PosnTransMake, PressRegMake, ItoPMake As String
+    Public Sov, AFR, ALR, LimitSwitch, VolBooster, PosnTrans, ItoP, QEV, Positioner As String
     '   Public PipeSheet1_worksheet, PipeSheet2_worksheet, RatingClass_worksheet, FL_worksheet, FR_worksheet, Accessories_Materials_worksheet, Water_Temp_Properties_worksheet As excel.Worksheet
     '  Public PipeSchedule_workbook, RatingClass_workbook, FL_workbook, FR_workbook, Accessories_Materials_workbook, Water_Temp_Properties_workbook, RatingsMaterial_workbook As excel.Workbook
 

@@ -31,7 +31,8 @@ Partial Class frmRecordsGrid
         Me.Dlg_OpenXML = New System.Windows.Forms.OpenFileDialog()
         Me.btnNewFile = New System.Windows.Forms.Button()
         Me.lblFilename = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSyncDatabase = New System.Windows.Forms.Button()
+        Me.lblSyncStatus = New System.Windows.Forms.Label()
         CType(Me.DGV_Records, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,6 +42,7 @@ Partial Class frmRecordsGrid
         Me.DGV_Records.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DGV_Records.BackgroundColor = System.Drawing.Color.White
         Me.DGV_Records.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV_Records.ColumnHeadersVisible = False
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -51,8 +53,10 @@ Partial Class frmRecordsGrid
         Me.DGV_Records.DefaultCellStyle = DataGridViewCellStyle1
         Me.DGV_Records.Location = New System.Drawing.Point(5, 38)
         Me.DGV_Records.Name = "DGV_Records"
+        Me.DGV_Records.RowHeadersVisible = False
         Me.DGV_Records.Size = New System.Drawing.Size(1260, 500)
         Me.DGV_Records.TabIndex = 1
+        Me.DGV_Records.VirtualMode = True
         '
         'txtDeleteRecord
         '
@@ -114,16 +118,26 @@ Partial Class frmRecordsGrid
         Me.lblFilename.Size = New System.Drawing.Size(0, 21)
         Me.lblFilename.TabIndex = 6
         '
-        'Button1
+        'btnSyncDatabase
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(916, 10)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(93, 23)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Sync Database"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnSyncDatabase.BackColor = System.Drawing.Color.White
+        Me.btnSyncDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSyncDatabase.Location = New System.Drawing.Point(916, 10)
+        Me.btnSyncDatabase.Name = "btnSyncDatabase"
+        Me.btnSyncDatabase.Size = New System.Drawing.Size(93, 23)
+        Me.btnSyncDatabase.TabIndex = 7
+        Me.btnSyncDatabase.Text = "Sync Database"
+        Me.btnSyncDatabase.UseVisualStyleBackColor = False
+        '
+        'lblSyncStatus
+        '
+        Me.lblSyncStatus.AutoSize = True
+        Me.lblSyncStatus.ForeColor = System.Drawing.Color.Red
+        Me.lblSyncStatus.Location = New System.Drawing.Point(374, 13)
+        Me.lblSyncStatus.Name = "lblSyncStatus"
+        Me.lblSyncStatus.Size = New System.Drawing.Size(0, 13)
+        Me.lblSyncStatus.TabIndex = 8
+        Me.lblSyncStatus.Visible = False
         '
         'frmRecordsGrid
         '
@@ -131,7 +145,8 @@ Partial Class frmRecordsGrid
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1284, 611)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.lblSyncStatus)
+        Me.Controls.Add(Me.btnSyncDatabase)
         Me.Controls.Add(Me.lblFilename)
         Me.Controls.Add(Me.btnNewFile)
         Me.Controls.Add(Me.btnLoadFile)
@@ -154,5 +169,6 @@ Partial Class frmRecordsGrid
     Friend WithEvents Dlg_OpenXML As System.Windows.Forms.OpenFileDialog
     Friend WithEvents btnNewFile As System.Windows.Forms.Button
     Friend WithEvents lblFilename As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSyncDatabase As System.Windows.Forms.Button
+    Friend WithEvents lblSyncStatus As System.Windows.Forms.Label
 End Class

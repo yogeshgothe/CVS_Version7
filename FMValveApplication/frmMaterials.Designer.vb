@@ -28,7 +28,6 @@ Partial Class frmMaterials
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbGuiding = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblClose = New System.Windows.Forms.Label()
         Me.cmbGasket = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbTopMaterials = New System.Windows.Forms.ComboBox()
@@ -41,17 +40,18 @@ Partial Class frmMaterials
         Me.cmbBodyMaterial = New System.Windows.Forms.ComboBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.btnSaveClose = New System.Windows.Forms.Button()
         Me.GroupBox12.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox12
         '
         Me.GroupBox12.BackColor = System.Drawing.Color.White
+        Me.GroupBox12.Controls.Add(Me.btnSaveClose)
         Me.GroupBox12.Controls.Add(Me.cmbPaintingACC)
         Me.GroupBox12.Controls.Add(Me.Label4)
         Me.GroupBox12.Controls.Add(Me.cmbGuiding)
         Me.GroupBox12.Controls.Add(Me.Label3)
-        Me.GroupBox12.Controls.Add(Me.lblClose)
         Me.GroupBox12.Controls.Add(Me.cmbGasket)
         Me.GroupBox12.Controls.Add(Me.Label1)
         Me.GroupBox12.Controls.Add(Me.cmbTopMaterials)
@@ -117,17 +117,6 @@ Partial Class frmMaterials
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 17
         Me.Label3.Text = "Guiding "
-        '
-        'lblClose
-        '
-        Me.lblClose.AutoSize = True
-        Me.lblClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.lblClose.Font = New System.Drawing.Font("Segoe UI", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClose.Location = New System.Drawing.Point(387, 121)
-        Me.lblClose.Name = "lblClose"
-        Me.lblClose.Size = New System.Drawing.Size(92, 17)
-        Me.lblClose.TabIndex = 8
-        Me.lblClose.Text = "Save &&  Close"
         '
         'cmbGasket
         '
@@ -263,6 +252,15 @@ Partial Class frmMaterials
         Me.Label12.TabIndex = 1
         Me.Label12.Text = "Body"
         '
+        'btnSaveClose
+        '
+        Me.btnSaveClose.Location = New System.Drawing.Point(357, 121)
+        Me.btnSaveClose.Name = "btnSaveClose"
+        Me.btnSaveClose.Size = New System.Drawing.Size(118, 25)
+        Me.btnSaveClose.TabIndex = 20
+        Me.btnSaveClose.Text = "Save && Close"
+        Me.btnSaveClose.UseVisualStyleBackColor = True
+        '
         'frmMaterials
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -292,9 +290,9 @@ Partial Class frmMaterials
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmbTopMaterials As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents lblClose As System.Windows.Forms.Label
     Friend WithEvents cmbGuiding As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cmbPaintingACC As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents btnSaveClose As System.Windows.Forms.Button
 End Class

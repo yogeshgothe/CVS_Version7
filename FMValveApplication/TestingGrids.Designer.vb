@@ -53,6 +53,7 @@ Partial Class frmTestingGrids
         Me.DGVBaffleNoise.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVBaffleNoise.Location = New System.Drawing.Point(983, 347)
         Me.DGVBaffleNoise.Name = "DGVBaffleNoise"
+        Me.DGVBaffleNoise.ReadOnly = True
         Me.DGVBaffleNoise.Size = New System.Drawing.Size(338, 150)
         Me.DGVBaffleNoise.TabIndex = 394
         Me.DGVBaffleNoise.Visible = False
@@ -76,6 +77,7 @@ Partial Class frmTestingGrids
         Me.DGVTrimSelection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVTrimSelection.Location = New System.Drawing.Point(21, 21)
         Me.DGVTrimSelection.Name = "DGVTrimSelection"
+        Me.DGVTrimSelection.ReadOnly = True
         Me.DGVTrimSelection.Size = New System.Drawing.Size(835, 140)
         Me.DGVTrimSelection.TabIndex = 395
         '
@@ -86,6 +88,7 @@ Partial Class frmTestingGrids
         Me.DGVStageNoise.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVStageNoise.Location = New System.Drawing.Point(999, 199)
         Me.DGVStageNoise.Name = "DGVStageNoise"
+        Me.DGVStageNoise.ReadOnly = True
         Me.DGVStageNoise.Size = New System.Drawing.Size(322, 126)
         Me.DGVStageNoise.TabIndex = 396
         '
@@ -147,6 +150,7 @@ Partial Class frmTestingGrids
         Me.DGVActuatorInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVActuatorInfo.Location = New System.Drawing.Point(483, 350)
         Me.DGVActuatorInfo.Name = "DGVActuatorInfo"
+        Me.DGVActuatorInfo.ReadOnly = True
         Me.DGVActuatorInfo.Size = New System.Drawing.Size(439, 336)
         Me.DGVActuatorInfo.TabIndex = 402
         '
@@ -166,6 +170,7 @@ Partial Class frmTestingGrids
         Me.DGVFlowType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVFlowType.Location = New System.Drawing.Point(862, 21)
         Me.DGVFlowType.Name = "DGVFlowType"
+        Me.DGVFlowType.ReadOnly = True
         Me.DGVFlowType.Size = New System.Drawing.Size(458, 151)
         Me.DGVFlowType.TabIndex = 404
         '
@@ -185,6 +190,7 @@ Partial Class frmTestingGrids
         Me.DGVActuatorSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVActuatorSelect.Location = New System.Drawing.Point(21, 350)
         Me.DGVActuatorSelect.Name = "DGVActuatorSelect"
+        Me.DGVActuatorSelect.ReadOnly = True
         Me.DGVActuatorSelect.Size = New System.Drawing.Size(456, 126)
         Me.DGVActuatorSelect.TabIndex = 406
         '

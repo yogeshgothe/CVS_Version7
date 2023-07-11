@@ -5,7 +5,12 @@ Imports System.Data.SqlClient
 Imports System.ServiceProcess
 Imports System.Deployment.Application
 Public Class frmRecordsGrid
+
     Dim pk As Integer
+    Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=true"
+    Dim adapter As New SqlDataAdapter
+    Public dt As DataTable
+    Public BS1 As New BindingSource
 
     Public Sub CheckServer()
         Try
@@ -20,6 +25,7 @@ Public Class frmRecordsGrid
             MsgBox("Contact IT to Start SQL SERVER! " & Environment.NewLine & ex.Message, , "ALERT!")
         End Try
     End Sub
+
     Public Sub LoadEssentials()
         LoadingForm = False
         'Dim rowno As Byte
@@ -52,7 +58,7 @@ Public Class frmRecordsGrid
             DataSection5_Output1 = 188
             DataSection6_Output2 = 231          ' Till 60 
             DataSection7_CalcValues = 301
-            LastColumn_Values = 400
+            LastColumn_Values = 354
 
             '-------------------------------
 
@@ -721,21 +727,21 @@ Public Class frmRecordsGrid
             DT_ActuatorInfo.Columns.Add("Value", GetType(String))
             DT_ActuatorInfo.Columns.Add("Unit", GetType(String))
 
-            DT_ActuatorInfo.Rows.Add("ValveSize", 0, " ")
-            DT_ActuatorInfo.Rows.Add("Rating", 0, " ")
-            DT_ActuatorInfo.Rows.Add("Balancing", 0, " ")
-            DT_ActuatorInfo.Rows.Add("Seat Dia", 0, " ")
-            DT_ActuatorInfo.Rows.Add("Stem Dia", 0, " ")
-            DT_ActuatorInfo.Rows.Add("FlowDir", 0, " ")
-            DT_ActuatorInfo.Rows.Add("AirFail", 0, " ")
-            DT_ActuatorInfo.Rows.Add("PackingFricForce", 0, "kgf")
-            DT_ActuatorInfo.Rows.Add("SeatingForce", 0, "kgf ")
-            DT_ActuatorInfo.Rows.Add("FluidForce", 0, "kgf")
-            DT_ActuatorInfo.Rows.Add("TotalForce", 0, "kgf")
-            DT_ActuatorInfo.Rows.Add("SelectedActuator", 0, " ")
-            DT_ActuatorInfo.Rows.Add("Initial Spring Thrust", 0, "kgf")
-            DT_ActuatorInfo.Rows.Add("Final Spring Thrust", 0, "kgf")
-            DT_ActuatorInfo.Rows.Add("Air Ending Thrust", 0, "kgf")
+            DT_ActuatorInfo.Rows.Add("ValveSize", 0, " ") '0
+            DT_ActuatorInfo.Rows.Add("Rating", 0, " ")  '1
+            DT_ActuatorInfo.Rows.Add("Balancing", 0, " ")   '2
+            DT_ActuatorInfo.Rows.Add("Seat Dia", 0, " ")    '3
+            DT_ActuatorInfo.Rows.Add("Stem Dia", 0, " ")    '4
+            DT_ActuatorInfo.Rows.Add("FlowDir", 0, " ")     '5
+            DT_ActuatorInfo.Rows.Add("AirFail", 0, " ")     '6
+            DT_ActuatorInfo.Rows.Add("PackingFricForce", 0, "kgf")      '7
+            DT_ActuatorInfo.Rows.Add("SeatingForce", 0, "kgf ")         '8
+            DT_ActuatorInfo.Rows.Add("FluidForce", 0, "kgf")            '9
+            DT_ActuatorInfo.Rows.Add("TotalForce", 0, "kgf")            '10
+            DT_ActuatorInfo.Rows.Add("SelectedActuator", 0, " ")        '11
+            DT_ActuatorInfo.Rows.Add("Initial Spring Thrust", 0, "kgf") '12
+            DT_ActuatorInfo.Rows.Add("Final Spring Thrust", 0, "kgf")   '13
+            DT_ActuatorInfo.Rows.Add("Air Ending Thrust", 0, "kgf")     '14
 
             DT_Flowtype = New System.Data.DataTable
             DT_Flowtype.Columns.Add("Name", GetType(String))
@@ -760,6 +766,7 @@ Public Class frmRecordsGrid
             DT_ActuatorSelect.Rows.Add("Suggested Actuator", "", 0, 0)      '1
             DT_ActuatorSelect.Rows.Add("Selected Actuator", "", 0, 0)      '2
 
+            frmValveSizing.txtACTFactor.Text = Act_SafetyFactor
 
             LoadingForm = True
             frmValveSizing.HScrollBar_Records.LargeChange = 1
@@ -772,6 +779,7 @@ Public Class frmRecordsGrid
             Me.Close()
         End Try
     End Sub
+
     Private Sub DGV_Records_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_Records.CellDoubleClick
         Try
             If e.RowIndex = 0 Then Exit Sub
@@ -805,13 +813,11 @@ Public Class frmRecordsGrid
         End Try
     End Sub
 
-
     Private Sub frmRecordsGrid_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         CLoseSoftware = True
         frmValveSizing.Close()
     End Sub
 
-    Public dt As DataTable
     Public Sub LoadDGV()
         Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=true"
         Dim cmd As SqlCommand
@@ -824,7 +830,9 @@ Public Class frmRecordsGrid
             adapter.SelectCommand = cmd
             adapter.Fill(dt)
             DGV_Records.DataSource = dt
-            DGV_Records.Columns(2).Frozen = True
+            DGV_Records.Columns("Column2").Frozen = True
+
+
         End Using
     End Sub
 
@@ -930,7 +938,7 @@ Public Class frmRecordsGrid
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnNewFile.Click
-        If MsgBox("DO you want to create a new file?", MsgBoxStyle.YesNoCancel, "Valve Sizing - Alert!") = MsgBoxResult.Yes Then
+        If MsgBox("DO you want to create a new file?", MsgBoxStyle.YesNo, "Valve Sizing - Alert!") = MsgBoxResult.Yes Then
 
             XMLFilename = ""
             lblFilename.Text = FileName
@@ -955,6 +963,42 @@ Public Class frmRecordsGrid
 
     End Sub
 
+    Public Sub DeleteMakeTables(cat As String)
+        Try
+            Dim query As String = "SELECT name FROM sys.tables WHERE name like '" + cat + "\_%' ESCAPE '\' AND type = 'U'"
+            Dim cmd As SqlCommand
+            Dim ad As New SqlDataAdapter
+            Dim delete As New DataTable
+
+            Using con As New SqlConnection(constr)
+                con.Open()
+                cmd = New SqlCommand(query, con)
+                ad.SelectCommand = cmd
+                ad.Fill(delete)
+                con.Close()
+            End Using
+
+            If delete.Rows.Count > 0 Then
+                For Each row As DataRow In delete.Rows
+                    Dim names As String = row.Item(0)
+                    If Not names = "AATUBING_SIZE" And Not names = "AATUBING_MOC" Then
+                        Dim q As String = "DROP TABLE " + names + " ;"
+                        Dim cmds As SqlCommand
+
+                        Using con As New SqlConnection(constr)
+                            con.Open()
+                            cmds = New SqlCommand(q, con)
+                            cmds.ExecuteNonQuery()
+                            con.Close()
+                        End Using
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace)
+        End Try
+    End Sub
+
     Public Function InternetConnection() As Integer
         Try
             My.Computer.Network.Ping("www.google.com")
@@ -966,15 +1010,23 @@ Public Class frmRecordsGrid
         End Try
     End Function
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnSyncDatabase_Click_1(sender As Object, e As EventArgs) Handles btnSyncDatabase.Click
         Try
+            lblSyncStatus.Visible = True
+            lblSyncStatus.Text = "Checking Internet..."
             Dim result As Integer = InternetConnection()
             If result = 1 Then
+                lblSyncStatus.Text = "Internet Connected..."
                 Cursor = Cursors.WaitCursor
+
+                ods = New DataSet
+
 
                 Dim oconstr As String = "DATA SOURCE=sizing.forbesmarshall.com:1521/XE;PERSIST SECURITY INFO=True;USER ID=FMSIZE;Password=fmsize@456;"
                 Dim commands As OracleCommand
                 Dim adapters As New OracleDataAdapter
+
+                lblSyncStatus.Text = "Connecting to Oracle"
 
                 'Ecotrol --> Materials
                 Dim ones As String = "select PPVM_MODEL_NO,PPVM_CATEGORY_CODE,PPVM_PARAMETER_CODE,PPVM_PARAMETER_VALUE_CODE,PPVM_PARAMETER_VALUE,PPVM_SHORT_DESC,CREATION_DATE,CREATED_BY,LAST_UPDATED_DATE,LAST_UPDATED_BY FROM XXFMPC_PARA_VALUE_MASTER_VW WHERE PPVM_MODEL_NO = '1000' AND PPVM_CATEGORY_CODE = '81' AND PPVM_PARAMETER_CODE = '10' ORDER BY PPVM_PARAMETER_VALUE"
@@ -1034,7 +1086,28 @@ Public Class frmRecordsGrid
                 Dim fortyseven As String = "select PPVM_MODEL_NO,PPVM_CATEGORY_CODE,PPVM_PARAMETER_CODE,PPVM_PARAMETER_VALUE_CODE,PPVM_PARAMETER_VALUE,PPVM_SHORT_DESC,CREATION_DATE,CREATED_BY,LAST_UPDATED_DATE,LAST_UPDATED_BY FROM XXFMPC_PARA_VALUE_MASTER_VW WHERE PPVM_MODEL_NO = '1000' AND PPVM_CATEGORY_CODE = '02' AND PPVM_PARAMETER_CODE = '14' ORDER BY PPVM_PARAMETER_VALUE"    'Handwheel
                 Dim fortyeight As String = "select PPVM_MODEL_NO,PPVM_CATEGORY_CODE,PPVM_PARAMETER_CODE,PPVM_PARAMETER_VALUE_CODE,PPVM_PARAMETER_VALUE,PPVM_SHORT_DESC,CREATION_DATE,CREATED_BY,LAST_UPDATED_DATE,LAST_UPDATED_BY FROM XXFMPC_PARA_VALUE_MASTER_VW WHERE PPVM_MODEL_NO = '1000' AND PPVM_CATEGORY_CODE = '02' AND PPVM_PARAMETER_CODE = '06' ORDER BY PPVM_PARAMETER_VALUE"     'Air Fail Mode
 
+                'Queries For Updating the constraints table
+                Dim fortynine As String = "SELECT DIVISION_ID, PCP_CONSTRAINT_ID, PCP_MODEL_NO, PCP_CATEGORY_CODE, PCP_PARAMETER_CODE, PCP_PARAMETER_VALUE_CODE FROM XXFMPC_CONSTRAINT_PARAMETER_VW"
+                Dim fifty As String = "SELECT DIVISION_ID, PAD_CONSTRAINT_ID, PAD_MODEL_NO, PAD_CATEGORY_CODE, PAD_PARAMETER_CODE, PAD_PARAMETER_VALUE_CODE FROM XXFMPC_CONSTR_ALLOWED_DETAIL_V"
+
+                Dim para As New DataSet
+
                 Using conn As New OracleConnection(oconstr)
+
+                    DeleteMakeTables("AAPOSITIONER")
+                    DeleteMakeTables("AAFR")
+                    DeleteMakeTables("AALR")
+                    DeleteMakeTables("AASOV")
+                    DeleteMakeTables("AALIMITSWITCH")
+                    DeleteMakeTables("AAVOLBOOSTER")
+                    DeleteMakeTables("AAQEV")
+                    DeleteMakeTables("AATUBING")
+                    DeleteMakeTables("AAITOP")
+                    DeleteMakeTables("AAPOSTRANS")
+                    DeleteMakeTables("AAROBOTOR")
+
+                    lblSyncStatus.Text = "Delete Completed..."
+
                     'ECOTROL --> MATERIALS
                     commands = New OracleCommand(ones, conn)
                     adapters.SelectCommand = commands
@@ -1141,20 +1214,120 @@ Public Class frmRecordsGrid
                     adapters.Fill(ods, "AAHANDWHEEL")
                     adapters.SelectCommand.CommandText = fortyeight
                     adapters.Fill(ods, "AAIRFAIL")
+
+                    adapters.SelectCommand.CommandText = fortynine
+                    adapters.Fill(para, "AACONSTRAINT_PARAMETER")
+                    adapters.SelectCommand.CommandText = fifty
+                    adapters.Fill(para, "AACONSTRAINT_ALLOWED_DETAIL")
+
                 End Using
 
+                lblSyncStatus.Text = "Filled the DataTables..."
+
                 Dim s As Integer = 0
-                For Each table As DataTable In ods.Tables
+                For Each table As DataTable In ods.Tables               ' Here the Local Primary Key is prepared .
                     table.Columns.Add("SR_NOS")
                     Dim j As Integer = 1
-                    For Each row As DataRow In ods.Tables(s).Rows
+                    For Each row As DataRow In table.Rows
                         row.Item("SR_NOS") = j
                         j += 1
                     Next
                     s += 1
                 Next
 
-                'Connecting to SQL Server to upload the data
+                lblSyncStatus.Text = "Filling Constraint Tables"
+
+                Dim cmd As SqlCommand
+                Dim Table_present As Boolean = False
+                Dim dt_present As New DataTable
+                Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+                Dim query As String = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME='AACONSTRAINT_PARAMETER'"
+                Dim ada As New SqlDataAdapter
+                Using con As New SqlConnection(constr)
+                    con.Open()
+                    cmd = New SqlCommand(query, con)
+                    ada.SelectCommand = cmd
+                    ada.Fill(dt_present)
+                    If dt_present.Rows.Count < 1 Then
+                        Table_present = False
+                    Else
+                        Table_present = True
+                    End If
+                    con.Close()
+                End Using
+
+                If Table_present = False Then
+
+                    constr = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+                    query = "CREATE TABLE [dbo].AACONSTRAINT_PARAMETER (DIVISION_ID  varchar(15),PCP_CONSTRAINT_ID varchar(15), PCP_MODEL_NO varchar(15),PCP_CATEGORY_CODE varchar(15),PCP_PARAMETER_CODE varchar(15), PCP_PARAMETER_VALUE_CODE varchar(15))"
+                    Using con As New SqlConnection(constr)
+                        con.Open()
+                        cmd = New SqlCommand(query, con)
+                        cmd.ExecuteNonQuery()
+                        con.Close()
+                    End Using
+                End If
+
+                query = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME='AACONSTRAINT_ALLOWED_DETAIL'"
+                Using con As New SqlConnection(constr)
+                    con.Open()
+                    cmd = New SqlCommand(query, con)
+                    ada.SelectCommand = cmd
+                    ada.Fill(dt_present)
+                    If dt_present.Rows.Count < 1 Then
+                        Table_present = False
+                    Else
+                        Table_present = True
+                    End If
+                    con.Close()
+                End Using
+
+                If Table_present = False Then
+
+                    constr = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+                    query = "CREATE TABLE [dbo].AACONSTRAINT_ALLOWED_DETAIL (DIVISION_ID  varchar(15),PAD_CONSTRAINT_ID varchar(15), PAD_MODEL_NO varchar(15),PAD_CATEGORY_CODE varchar(15),PAD_PARAMETER_CODE varchar(15), PAD_PARAMETER_VALUE_CODE varchar(15))"
+                    Using con As New SqlConnection(constr)
+                        con.Open()
+                        cmd = New SqlCommand(query, con)
+                        cmd.ExecuteNonQuery()
+                        con.Close()
+                    End Using
+                End If
+
+                ''********************Constraints Tables **************************************
+                Using con As New SqlConnection(constr)                  ' Connect to Local SQL
+                    con.Open()
+                    For Each table As DataTable In para.Tables
+
+                        cmd = New SqlCommand("DELETE FROM " + table.ToString, con)         ' Delete any existing records
+                        cmd.ExecuteNonQuery()
+
+                        Using copy As New SqlBulkCopy(con)                                      ' Bulk data TAble into respective SQL table
+                            copy.DestinationTableName = "dbo." + table.ToString()
+
+                            'copy.ColumnMappings.Add("SR_NOS", "SR_NO")
+                            'copy.ColumnMappings.Add("PPVM_MODEL_NO", "MODEL_CODE")
+                            'copy.ColumnMappings.Add("PPVM_CATEGORY_CODE", "CATEGORY_CODE")
+                            'copy.ColumnMappings.Add("PPVM_PARAMETER_CODE", "PARAMETER_CODE")
+                            'copy.ColumnMappings.Add("PPVM_PARAMETER_VALUE_CODE", "PARAMETER_VALUE_CODE")
+                            'copy.ColumnMappings.Add("PPVM_PARAMETER_VALUE", "PARAMETER_VALUE")
+                            'copy.ColumnMappings.Add("PPVM_SHORT_DESC", "PARAMETER_DESC")
+                            'copy.ColumnMappings.Add("CREATION_DATE", "CREATION_DATE")
+                            'copy.ColumnMappings.Add("CREATED_BY", "CREATED_BY")
+                            'copy.ColumnMappings.Add("LAST_UPDATED_DATE", "UPDATED_DATE")
+                            'copy.ColumnMappings.Add("LAST_UPDATED_BY", "UPDATED_BY")
+
+                            copy.WriteToServer(table)                           'Write To SQL Server 
+
+                        End Using
+                    Next
+                    con.Close()
+                End Using
+                ''********************Constraints Tables  - Ends **************************************
+
+
+                ''********************All other Tables **************************************
+                'Connecting to SQL Server to upload the data                            
                 Dim constrr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=true;"
                 Dim i As Integer
                 For i = 0 To ods.Tables.Count - 1
@@ -1164,12 +1337,12 @@ Public Class frmRecordsGrid
 
                         'First Delete existing Records:
                         Dim connect As New SqlConnection
-                        Dim cmd As New SqlCommand
+                        '  Dim cmd As New SqlCommand
                         Try
                             connect.ConnectionString = constrr
                             connect.Open()
                             cmd.Connection = connect
-                            cmd.CommandText = "delete from " + ods.Tables(i).ToString() '+ " where model_code is not null"
+                            cmd.CommandText = "delete from " + ods.Tables(i).ToString() '+ " where model_code is not null"          'Deleting Existing Records
                             cmd.ExecuteNonQuery()
                             cmd.Dispose()
                             connect.Dispose()
@@ -1180,7 +1353,7 @@ Public Class frmRecordsGrid
                         End Try
 
                         'Put new records in the same table
-                        Using con As New SqlConnection(constrr)
+                        Using con As New SqlConnection(constrr)                         ' Bulk Copy Respective Tables to Respective SQL tables
 
                             Using copy As New SqlBulkCopy(con)
                                 copy.DestinationTableName = "dbo." + ods.Tables(i).ToString()
@@ -1204,13 +1377,177 @@ Public Class frmRecordsGrid
                         End Using
                     End If
                 Next
-                WriteToFile("UPDATED " + ods.Tables.Count.ToString() + " TABLES TO SQL.")
+                WriteToFile("UPDATED " + ods.Tables.Count.ToString() + " TABLES TO SQL.")           ' Log File in Notepad
+
+                lblSyncStatus.Text = "Creating Make_Model Tables"
+
+                Tables("AAPOSITIONER", ods.Tables(20), ods.Tables(30))         'Pass SQL Category name,Make Table, Model Table  
+                Tables("AAFR", ods.Tables(22), ods.Tables(32))
+                Tables("AALR", ods.Tables(23), ods.Tables(33))
+                Tables("AASOV", ods.Tables(21), ods.Tables(31))
+                Tables("AALIMITSWITCH", ods.Tables(24), ods.Tables(34))
+                Tables("AAVOLBOOSTER", ods.Tables(25), ods.Tables(35))
+                Tables("AAQEV", ods.Tables(29), ods.Tables(39))
+                Tables("AATUBING", ods.Tables(41), ods.Tables(44))
+                Tables("AAITOP", ods.Tables(28), ods.Tables(38))
+                Tables("AAPOSTRANS", ods.Tables(26), ods.Tables(36))
+                Tables("AAROBOTOR", ods.Tables(27), ods.Tables(37))
+
+                For Each table As DataTable In ods.Tables
+                    table.Columns.Remove("SR_NOS")
+                Next
+
+                frmValveSizing.SQL_DATALOAD()
+
+                lblSyncStatus.Text = ""
+                lblSyncStatus.Visible = False
+
                 Cursor = Cursors.Default
-                MessageBox.Show("Updated " + ods.Tables.Count.ToString() + " TABLES TO SQL DB.")
+                MessageBox.Show("Updated " + (ods.Tables.Count + para.Tables.Count).ToString() + " TABLES TO SQL DB.")
+
             End If
         Catch ex As Exception
             WriteToFile(ex.Message + Environment.NewLine + ex.StackTrace)
             MessageBox.Show("Error while updating local SQL Tables." + Environment.NewLine + "Please restart the application and try again." + Environment.NewLine + "If the problem still continues, please inform the developer.")
+        End Try
+    End Sub
+
+    Public Sub Tables(Name As String, make As DataTable, model As DataTable)
+        Try
+            Dim ds As New DataSet
+            Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+            For Each dr As DataRow In make.Rows
+                Dim cmd As SqlCommand
+                Dim ad As New SqlDataAdapter
+                Dim query As String = "SELECT PCP_CONSTRAINT_ID FROM AACONSTRAINT_PARAMETER WHERE PCP_MODEL_NO = '" + dr.Item("PPVM_MODEL_NO") + "' AND PCP_CATEGORY_CODE = '" + dr.Item("PPVM_CATEGORY_CODE") + "' AND PCP_PARAMETER_CODE = '" + dr.Item("PPVM_PARAMETER_CODE") + "' AND PCP_PARAMETER_VALUE_CODE = '" + dr.Item("PPVM_PARAMETER_VALUE_CODE") + "' ;"
+                Dim constraint As New DataTable
+                Using con As New SqlConnection(constr)
+                    cmd = New SqlCommand(query, con)
+                    ad.SelectCommand = cmd
+                    ad.Fill(constraint)
+
+                    If constraint.Rows.Count > 0 Then
+                        Dim query1 As String = "SELECT * FROM AACONSTRAINT_ALLOWED_DETAIL WHERE PAD_CONSTRAINT_ID = '" + constraint.Rows(0).Item(0) + "' ;"
+                        cmd = New SqlCommand(query1, con)
+                        ad.SelectCommand = cmd
+                        Dim allowed As New DataTable
+                        ad.Fill(allowed)
+
+                        Dim dtModel As New DataTable
+                        dtModel.Columns.Add("MODEL_CODE", GetType(String))
+                        dtModel.Columns.Add("CATEGORY_CODE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_CODE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_VALUE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_DESC", GetType(String))
+                        dtModel.Columns.Add("CREATION_DATE", GetType(String))
+                        dtModel.Columns.Add("CREATED_BY", GetType(String))
+                        dtModel.Columns.Add("UPDATED_DATE", GetType(String))
+                        dtModel.Columns.Add("UPDATED_BY", GetType(String))
+                        dtModel.Columns.Add("SR_NO", GetType(Integer))
+
+                        For Each row As DataRow In allowed.Rows                     ' dt TABLE with allowed Model Nos  for this make
+                            For Each rows As DataRow In model.Rows                  ' dt TABLE with all Model Nos  for any make
+                                If row.Item("PAD_MODEL_NO") = rows.Item("PPVM_MODEL_NO") And row.Item("PAD_CATEGORY_CODE") = rows.Item("PPVM_CATEGORY_CODE") And row.Item("PAD_PARAMETER_CODE") = rows.Item("PPVM_PARAMETER_CODE") And row.Item("PAD_PARAMETER_VALUE_CODE") = rows.Item("PPVM_PARAMETER_VALUE_CODE") Then
+                                    dtModel.Rows.Add(rows.ItemArray)
+                                    Exit For
+                                End If
+                            Next
+                        Next
+                        ds.Tables.Add(dtModel)
+                    Else
+                        MessageBox.Show("There is no Constraint ID for " + dr.Item("PPVM_PARAMETER_VALUE").ToString)
+                        Dim dtModel As New DataTable
+                        dtModel.Columns.Add("MODEL_CODE", GetType(String))
+                        dtModel.Columns.Add("CATEGORY_CODE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_CODE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_VALUE_CODE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_VALUE", GetType(String))
+                        dtModel.Columns.Add("PARAMETER_DESC", GetType(String))
+                        dtModel.Columns.Add("CREATION_DATE", GetType(String))
+                        dtModel.Columns.Add("CREATED_BY", GetType(String))
+                        dtModel.Columns.Add("UPDATED_DATE", GetType(String))
+                        dtModel.Columns.Add("UPDATED_BY", GetType(String))
+                        dtModel.Columns.Add("SR_NO", GetType(Integer))
+                        ds.Tables.Add(dtModel)
+                    End If
+                End Using
+            Next
+
+            For i As Integer = 0 To ds.Tables.Count - 1                         ' To prevent Naming problems -  Special Characters not allowed.
+                ds.Tables(i).TableName = Name + "_" + make.Rows(i).Item("PPVM_PARAMETER_VALUE")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace("/", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace(" ", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace(".", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace("\", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace("&", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace("(", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace(")", "")
+                ds.Tables(i).TableName = ds.Tables(i).ToString.Replace("-", "_")
+            Next
+
+
+            'Check if table name exists
+            For Each table In ds.Tables
+                Dim checkquery As String = "SELECT * FROM sys.tables WHERE name = '" + table.ToString + "' AND type = 'U'"
+                Dim cmd As SqlCommand
+                Dim ad As New SqlDataAdapter
+
+                Using con As New SqlConnection(constr)
+                    con.Open()
+                    cmd = New SqlCommand(checkquery, con)
+                    ad.SelectCommand = cmd
+                    Dim dt1 As New DataTable
+                    ad.Fill(dt1)
+
+                    If Not dt1.Rows.Count > 0 Then                          'If TABLE does not Exists
+                        'Create a new table for this make's models
+                        CreateTable(table.ToString)
+
+                        'Bulk Insert this data into the created table
+                        Using copy As New SqlBulkCopy(con)
+                            copy.DestinationTableName = "dbo." + table.ToString
+                            copy.ColumnMappings.Add("SR_NO", "SR_NO")
+                            copy.ColumnMappings.Add("MODEL_CODE", "MODEL_CODE")
+                            copy.ColumnMappings.Add("CATEGORY_CODE", "CATEGORY_CODE")
+                            copy.ColumnMappings.Add("PARAMETER_CODE", "PARAMETER_CODE")
+                            copy.ColumnMappings.Add("PARAMETER_VALUE_CODE", "PARAMETER_VALUE_CODE")
+                            copy.ColumnMappings.Add("PARAMETER_VALUE", "PARAMETER_VALUE")
+                            copy.ColumnMappings.Add("PARAMETER_DESC", "PARAMETER_DESC")
+                            copy.ColumnMappings.Add("CREATION_DATE", "CREATION_DATE")
+                            copy.ColumnMappings.Add("CREATED_BY", "CREATED_BY")
+                            copy.ColumnMappings.Add("UPDATED_DATE", "UPDATED_DATE")
+                            copy.ColumnMappings.Add("UPDATED_BY", "UPDATED_BY")
+                            copy.WriteToServer(table)
+                        End Using
+                    Else                                                 'If TABLE Exists
+                        'Delete existing data
+                        cmd = New SqlCommand(("DELETE FROM " + table.ToString), con)
+                        cmd.ExecuteNonQuery()
+
+                        'Bulk insert New Data
+                        Using copy As New SqlBulkCopy(con)
+                            copy.DestinationTableName = "dbo." + table.ToString
+                            copy.ColumnMappings.Add("SR_NO", "SR_NO")
+                            copy.ColumnMappings.Add("MODEL_CODE", "MODEL_CODE")
+                            copy.ColumnMappings.Add("CATEGORY_CODE", "CATEGORY_CODE")
+                            copy.ColumnMappings.Add("PARAMETER_CODE", "PARAMETER_CODE")
+                            copy.ColumnMappings.Add("PARAMETER_VALUE_CODE", "PARAMETER_VALUE_CODE")
+                            copy.ColumnMappings.Add("PARAMETER_VALUE", "PARAMETER_VALUE")
+                            copy.ColumnMappings.Add("PARAMETER_DESC", "PARAMETER_DESC")
+                            copy.ColumnMappings.Add("CREATION_DATE", "CREATION_DATE")
+                            copy.ColumnMappings.Add("CREATED_BY", "CREATED_BY")
+                            copy.ColumnMappings.Add("UPDATED_DATE", "UPDATED_DATE")
+                            copy.ColumnMappings.Add("UPDATED_BY", "UPDATED_BY")
+                            copy.WriteToServer(table)
+                        End Using
+                    End If
+
+                    con.Close()
+                End Using
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace)
         End Try
     End Sub
 
@@ -1221,6 +1558,22 @@ Public Class frmRecordsGrid
             writer.WriteLine(String.Format(text + " at: " + DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")))
             writer.Close()
         End Using
+    End Sub
+
+    Public Sub CreateTable(name As String)
+        Try
+            Dim cmd As SqlCommand
+            Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+            Dim query As String = "CREATE TABLE " + name + " (SR_NO VARCHAR(10), MODEL_CODE VARCHAR(50), CATEGORY_CODE VARCHAR(50), PARAMETER_CODE VARCHAR(50), PARAMETER_VALUE_CODE VARCHAR(50), PARAMETER_VALUE VARCHAR(100), PARAMETER_DESC VARCHAR(150), CREATION_DATE VARCHAR(50), CREATED_BY VARCHAR(50), UPDATED_DATE VARCHAR(50), UPDATED_BY VARCHAR(50))"
+            Using con As New SqlConnection(constr)
+                con.Open()
+                cmd = New SqlCommand(query, con)
+                cmd.ExecuteNonQuery()
+                con.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace)
+        End Try
     End Sub
 
     Private Sub DGV_Records_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Records.CellMouseClick

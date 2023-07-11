@@ -80,7 +80,15 @@ Public Class frmValveSizing
                         Temp_TagName = "Tag" & i
                     End If
                     .Rows(5)(13) = Temp_TagName
-                    .TableName = Temp_TagName
+                    'If (.TableName(Temp_TagName)) Then
+
+                    'End If
+                    Try
+                        .TableName = Temp_TagName
+                    Catch ex As DuplicateNameException
+                        MsgBox("Tag Name " & Temp_TagName & " of Record No: " & Datasheet_Rowno & " is duplicate.")
+                        .TableName = Temp_TagName & "_" & Datasheet_Rowno
+                    End Try
 
 
                     .Rows(0)(23) = "Offer No.:"
@@ -254,7 +262,7 @@ Public Class frmValveSizing
                     .Rows(Rowno + 11)(Columnno + 12) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 69)
                     .Rows(Rowno + 11)(Columnno + 16) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 70)
                     .Rows(Rowno + 11)(Columnno + 20) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 71)
-                
+
 
 
                     .Rows(Rowno + 12)(Columnno + 1) = " Tsat at OutletPress."
@@ -262,7 +270,7 @@ Public Class frmValveSizing
                     .Rows(Rowno + 12)(Columnno + 12) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 46)
                     .Rows(Rowno + 12)(Columnno + 16) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 47)
                     .Rows(Rowno + 12)(Columnno + 20) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 48)
-                 
+
 
                     .Rows(Rowno + 13)(Columnno + 1) = " T at OutletPress.(T2)"
                     .Rows(Rowno + 13)(Columnno + 8) = dt_OpenOffice(Datasheet_Rowno)(Database_Columnno + 18) 'Temp units
@@ -543,41 +551,16 @@ Public Class frmValveSizing
                     .Rows(39)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection2_MOC + 32)
                     .Rows(40)(1) = " Body Material"
                     Dim CSVModels As String = dt_OpenOffice(Database_Rowno)(22)
-                    ' .Rows(40)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 1)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 1) - 1
-                    If Not tempcode < 0 Then
-                        If CSVModels = "GLOBE-FORBES" Then
-                            .Rows(40)(8) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "GLOBE" Then
-                            .Rows(40)(8) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                            .Rows(40)(8) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                            .Rows(40)(8) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
-                    End If
+                    .Rows(40)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 1)
+                 
 
 
                     .Rows(41)(1) = " Body Bonnet Gasket "
-                    '.Rows(41)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 5)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 5) - 1
-                    If Not tempcode < 0 Then
-                        If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                            .Rows(41)(8) = ds_AccessoriesMat.Tables(34).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "GLOBE" Then
-                            .Rows(41)(8) = ds_AccessoriesMat.Tables(6).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                            .Rows(41)(8) = ds_AccessoriesMat.Tables(39).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                            .Rows(41)(8) = ds_AccessoriesMat.Tables(44).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
-                    End If
+                    .Rows(41)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 5)
+                    
                     .Rows(42)(1) = " Painting "
-                    ' .Rows(42)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6) - 1
-                    If Not tempcode < 0 Then
-                        .Rows(42)(8) = ds_AccessoriesMat.Tables(7).Rows(tempcode).Item("PARAMETER_VALUE")
-                    End If
+                    .Rows(42)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6)
+                    
                     '        '*****************************************************************************************************
 
                     .Rows(43)(1) = "TRIM/INTERNALS"
@@ -597,33 +580,11 @@ Public Class frmValveSizing
                     .Rows(56)(1) = " "
 
                     '        .Range("I43:P43").Merge()
-                    '.Rows(44)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 2)  'Plug  Material
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 2) - 1
-                    If Not tempcode < 0 Then
-                        If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                            .Rows(44)(8) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "GLOBE" Then
-                            .Rows(44)(8) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                            .Rows(44)(8) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                            .Rows(44)(8) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
-                    End If
+                    .Rows(44)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 2)  'Plug  Material
+                    
                     '        .Range("I44:P44").Merge()
-                    '.Rows(45)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 3) 'Seat Material
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 3) - 1
-                    If Not tempcode < 0 Then
-                        If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                            .Rows(45)(8) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "GLOBE" Then
-                            .Rows(45)(8) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                            .Rows(45)(8) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("PARAMETER_VALUE")
-                        ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                            .Rows(45)(8) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
-                    End If
+                    .Rows(45)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 3) 'Seat Material
+                   
 
                     '        .Range("I45:P45").Merge()
                     .Rows(46)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection2_MOC + 35) & "  " & dt_OpenOffice(Datasheet_Rowno)(DataSection2_MOC + 22)
@@ -663,13 +624,13 @@ Public Class frmValveSizing
 
                     .Rows(53)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 11) & " " & forceunit 'Force
 
-                  
 
-                    '  .Rows(54)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18)   '  Certifications
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18) - 1
-                    If Not tempcode < 0 Then
-                        .Rows(54)(8) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
-                    End If
+
+                    .Rows(54)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18)   '  Certifications
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 18) - 1
+                    'If Not tempcode < 0 Then
+                    '    .Rows(54)(8) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'End If
 
 
 
@@ -686,13 +647,13 @@ Public Class frmValveSizing
                     .Rows(32)(17) = " Model"
                     .Rows(32)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 15) 'Model
                     .Rows(33)(17) = " Air Fail Mode"
-                    '.Rows(33)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 3) 'FailurePosition
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 3) - 1
-                    If Not tempcode < 0 Then
-                        .Rows(33)(23) = ds_AccessoriesMat.Tables(48).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(33)(23) = ""
-                    End If
+                    .Rows(33)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 3) 'FailurePosition
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 3) - 1
+                    'If Not tempcode < 0 Then
+                    '    .Rows(33)(23) = ds_AccessoriesMat.Tables(48).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(33)(23) = ""
+                    'End If
                     .Rows(34)(17) = " Max Allow.Air Pressure"
 
                     If UNITSTYPE = "MKS&SI" Or UNITSTYPE = "ALL" Then
@@ -709,100 +670,79 @@ Public Class frmValveSizing
                     .Rows(37)(17) = " Orientation"
                     .Rows(37)(23) = "Vertical"                      '11102020
                     .Rows(38)(17) = " Handwheel Type"
-                    ' .Rows(38)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 12)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 12) - 1
-                    If Not tempcode < 0 Then
-                        .Rows(38)(23) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(38)(23) = ""
-                    End If
+                    .Rows(38)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection3_Actuator + 12)
+                    
                     .Rows(39)(17) = " Painting"
-                    ' .Rows(39)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 28)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6) - 1
-                    If Not tempcode < 0 Then
-                        .Rows(42)(8) = ds_AccessoriesMat.Tables(7).Rows(tempcode).Item("PARAMETER_VALUE")
-                    End If
+                    .Rows(39)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 28)
+                    .Rows(42)(8) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 6)
+
 
                     .Rows(40)(17) = "POSITIONER"
                     .Rows(41)(17) = " Type"
-                    ' .Rows(41)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 21)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 21) - 1  ' ' Positioner make
-                    If Not tempcode < 0 Then
-                        .Rows(41)(23) = ds_AccessoriesMat.Tables(23).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(41)(23) = ""
-                    End If
+                    .Rows(41)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 21)
+                    .Rows(41)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 21)   ' ' Positioner make
                     .Rows(42)(17) = " Model"
-                    '.Rows(42)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 7)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 7) - 1  ' ' Positioner
-                    If Not tempcode < 0 Then
-
-                        tempstring = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
-                        .Rows(42)(23) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(42)(23) = ""
-                    End If
-
+                    .Rows(42)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 7)
+                    
                     .Rows(43)(17) = " Input&Output Signal"
                     .Rows(43)(23) = ""
                     .Rows(44)(17) = "AIRSET"
                     .Rows(45)(17) = " Make"
-                    ' .Rows(45)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 22) 'AFR 
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 22) - 1  ' ' AFR make
-                    If Not tempcode < 0 Then
-                        .Rows(45)(23) = ds_AccessoriesMat.Tables(24).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(45)(23) = ""
-                    End If
+                    .Rows(45)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 22) 'AFR 
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 22) - 1  ' ' AFR make
+                    'If Not tempcode < 0 Then
+                    '    .Rows(45)(23) = ds_AccessoriesMat.Tables(24).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(45)(23) = ""
+                    'End If
 
                     .Rows(46)(17) = " Model"
-                    '.Rows(46)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 9) 'AFR 
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR 
-                    If Not tempcode < 0 Then
-                        .Rows(46)(23) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(46)(23) = ""
-                    End If
+                    .Rows(46)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 9) 'AFR 
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR 
+                    'If Not tempcode < 0 Then
+                    '    .Rows(46)(23) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(46)(23) = ""
+                    'End If
                     .Rows(47)(17) = " Gauges provided"
                     .Rows(47)(23) = "YES"
 
                     .Rows(48)(17) = " SWITCHES"
                     .Rows(49)(17) = " Make"
-                    ' .Rows(49)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 26)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 26) - 1  ' 'Limit Switches Make 
-                    If Not tempcode < 0 Then
-                        .Rows(49)(23) = ds_AccessoriesMat.Tables(28).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(49)(23) = ""
-                    End If
+                    .Rows(49)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 26)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 26) - 1  ' 'Limit Switches Make 
+                    'If Not tempcode < 0 Then
+                    '    .Rows(49)(23) = ds_AccessoriesMat.Tables(28).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(49)(23) = ""
+                    'End If
                     .Rows(50)(17) = " Model"
-                    '  .Rows(50)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 11)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 11) - 1  ' 'Limit Switches 
-                    If Not tempcode < 0 Then
-                        .Rows(50)(23) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(50)(23) = ""
-                    End If
+                    .Rows(50)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 11)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 11) - 1  ' 'Limit Switches 
+                    'If Not tempcode < 0 Then
+                    '    .Rows(50)(23) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(50)(23) = ""
+                    'End If
 
                     .Rows(51)(17) = "SOV"
 
                     .Rows(52)(17) = " Make"
-                    '  .Rows(52)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 24)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 24) - 1 ' ' SOV
-                    If Not tempcode < 0 Then
-                        .Rows(52)(23) = ds_AccessoriesMat.Tables(26).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(52)(23) = ""
-                    End If
+                    .Rows(52)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 24)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 24) - 1 ' ' SOV
+                    'If Not tempcode < 0 Then
+                    '    .Rows(52)(23) = ds_AccessoriesMat.Tables(26).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(52)(23) = ""
+                    'End If
                     .Rows(53)(17) = " Model"
-                    ' .Rows(53)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 8)
-                    tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
-
-                    If Not tempcode < 0 Then
-                        .Rows(53)(23) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
-                    Else
-                        .Rows(53)(23) = ""
-                    End If
+                    .Rows(53)(23) = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 8)
+                    'tempcode = dt_OpenOffice(Datasheet_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
+                    'If Not tempcode < 0 Then
+                    '    .Rows(53)(23) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
+                    'Else
+                    '    .Rows(53)(23) = ""
+                    'End If
 
                     .Rows(54)(17) = "ACCESSORIES"
 
@@ -1651,7 +1591,7 @@ Public Class frmValveSizing
 
                                 'Vapour pressure is same as Saturation pressure in water case
                                 FinalVapourPressureCase1 = psat_T(FinalInletTemperatureCase1)
-                                FinalDensityCase1 = (rhoL_T(FinalInletTemperatureCase1)) / 1000   'convert to Sp. Gravity from kg/m3
+                                FinalDensityCase1 = (rho_pT(FinalInletPressureCase1, FinalInletTemperatureCase1)) / 1000   'convert to Sp. Gravity from kg/m3
                                 cmbDensityUnits.SelectedIndex = 0
 
                                 cmbViscosityUnits.SelectedIndex = 0
@@ -1761,7 +1701,7 @@ Public Class frmValveSizing
                                 ' Bypass  20160928 CalculateFromTable(FinalInletTemperatureCase2, FinalVapourPressureCase2, FinalCriticalPressureCase2, FinalDensityCase2, FinalViscosityCase2)
                                 'Vapour pressure is same as Saturation pressure in water case
                                 FinalVapourPressureCase2 = psat_T(FinalInletTemperatureCase2)
-                                FinalDensityCase2 = (rhoL_T(FinalInletTemperatureCase2)) / 1000   'convert to Sp. Gravity from kg/m3
+                                FinalDensityCase2 = (rho_pT(FinalInletPressureCase2, FinalInletTemperatureCase2)) / 1000   'convert to Sp. Gravity from kg/m3
                                 cmbDensityUnits.SelectedIndex = 0
                                 cmbViscosityUnits.SelectedIndex = 0
                                 cmbCriticalPressureUnits.SelectedIndex = 0
@@ -1855,7 +1795,7 @@ Public Class frmValveSizing
                                 ' Bypass  20160928  CalculateFromTable(FinalInletTemperatureCase3, FinalVapourPressureCase3, FinalCriticalPressureCase3, FinalDensityCase3, FinalViscosityCase3)
                                 'Vapour pressure is same as Saturation pressure in water case
                                 FinalVapourPressureCase3 = psat_T(FinalInletTemperatureCase3)
-                                FinalDensityCase3 = (rhoL_T(FinalInletTemperatureCase3)) / 1000   'convert to Sp. Gravity from kg/m3
+                                FinalDensityCase3 = (rho_pT(FinalInletPressureCase3, FinalInletTemperatureCase3)) / 1000   'convert to Sp. Gravity from kg/m3
                                 cmbDensityUnits.SelectedIndex = 0
                                 cmbViscosityUnits.SelectedIndex = 0
                                 cmbCriticalPressureUnits.SelectedIndex = 0
@@ -2270,6 +2210,9 @@ Public Class frmValveSizing
             Dim fortyeight As String = "SELECT * FROM AATUBING_SIZE ORDER BY SR_NO;"
             Dim fortynine As String = "SELECT * FROM AATUBING_MOC ORDER BY SR_NO;"
             Dim fifty As String = "SELECT * FROM AAIRFAIL ORDER BY SR_NO;"
+            Dim fiveone As String = "SELECT * FROM AAITOPMAKE ORDER BY PARAMETER_VALUE;"
+            Dim fivetwo As String = "SELECT * FROM AAPOSTRANSMAKE ORDER BY PARAMETER_VALUE;"
+            Dim fivethree As String = "SELECT * FROM AAROBOTORMAKE ORDER BY PARAMETER_VALUE;"
 
             '----MATERIALS----
 
@@ -2301,6 +2244,9 @@ Public Class frmValveSizing
             Dim fortyfour As String = "SELECT * FROM AASEAT_PRDS ORDER BY SR_NO;"
             Dim fortyfive As String = "SELECT * FROM AAGASKETMAT_PRDS ORDER BY SR_NO;"
 
+            'Dim fiftyone As String = "SELECT * FROM AACONSTRAINT_PARAMETER"
+            'Dim fiftytwo As String = "SELECT * FROM AACONSTRAINT_ALLOWED_DETAIL"
+
             'Dim threeone As String = "SELECT * FROM AARobotorMake ORDER BY PARAMETER_VALUE ;"
             'Dim threetwo As String = "SELECT * FROM AAPostransMake ORDER BY PARAMETER_VALUE ;"
             'Dim threethree As String = "select * from AAitopMake ORDER BY PARAMETER_VALUE;"
@@ -2319,6 +2265,7 @@ Public Class frmValveSizing
             con = New SqlConnection(constr)
 
             con.Open()
+            ds_AccessoriesMat = New DataSet
 
             'Table 1
             command = New SqlCommand(first, con)
@@ -2516,6 +2463,47 @@ Public Class frmValveSizing
             'Table 49
             adapter.SelectCommand.CommandText = fifty
             adapter.Fill(ds_AccessoriesMat, "AAIRFAIL")
+
+            'Table 50
+            adapter.SelectCommand.CommandText = fiveone
+            adapter.Fill(ds_AccessoriesMat, "AAITOPMAKE")
+
+            'Table 51
+            adapter.SelectCommand.CommandText = fivetwo
+            adapter.Fill(ds_AccessoriesMat, "AAPOSTRANSMAKE")
+
+            'Table 52
+            adapter.SelectCommand.CommandText = fivethree
+            adapter.Fill(ds_AccessoriesMat, "AAROBOTORMAKE")
+
+            ds_Positioner = New DataSet
+            ds_AFR = New DataSet
+            ds_ALR = New DataSet
+            ds_SOV = New DataSet
+            ds_LIMITSWITCH = New DataSet
+            ds_VOLBOOSTER = New DataSet
+            ds_QEV = New DataSet
+            ds_TUBING = New DataSet
+            ds_ITOP = New DataSet
+            ds_POSTRANS = New DataSet
+            ds_ROBOTOR = New DataSet
+
+            Try
+                LoadDataSet(ds_AccessoriesMat.Tables(23), "AAPOSITIONER", ds_Positioner)
+                LoadDataSet(ds_AccessoriesMat.Tables(24), "AAFR", ds_AFR)
+                LoadDataSet(ds_AccessoriesMat.Tables(25), "AALR", ds_ALR)
+                LoadDataSet(ds_AccessoriesMat.Tables(26), "AASOV", ds_SOV)
+                LoadDataSet(ds_AccessoriesMat.Tables(28), "AALIMITSWITCH", ds_LIMITSWITCH)
+                LoadDataSet(ds_AccessoriesMat.Tables(27), "AAVOLBOOSTER", ds_VOLBOOSTER)
+                LoadDataSet(ds_AccessoriesMat.Tables(29), "AAQEV", ds_QEV)
+                LoadDataSet(ds_AccessoriesMat.Tables(45), "AATUBING", ds_TUBING)
+                LoadDataSet(ds_AccessoriesMat.Tables(49), "AAITOP", ds_ITOP)
+                LoadDataSet(ds_AccessoriesMat.Tables(50), "AAPOSTRANS", ds_POSTRANS)
+                LoadDataSet(ds_AccessoriesMat.Tables(51), "AAROBOTOR", ds_ROBOTOR)
+            Catch ex As Exception
+                MsgBox("INPUT DATABASE OUTDATED.." + Environment.NewLine + "Updating Database", MsgBoxStyle.MsgBoxSetForeground)
+                frmRecordsGrid.btnSyncDatabase.PerformClick()
+            End Try
 
             ''Table 36
             'adapter.SelectCommand.CommandText = threeone
@@ -2741,6 +2729,24 @@ Public Class frmValveSizing
             cmbAirFailure.AutoCompleteMode = AutoCompleteMode.SuggestAppend
             cmbAirFailure.AutoCompleteSource = AutoCompleteSource.ListItems
 
+            frmAccessories.cmbItoPMake.DisplayMember = "PARAMETER_VALUE"
+            frmAccessories.cmbItoPMake.ValueMember = "Sr_No"
+            frmAccessories.cmbItoPMake.DataSource = ds_AccessoriesMat.Tables(49)
+            frmAccessories.cmbItoPMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            frmAccessories.cmbItoPMake.AutoCompleteSource = AutoCompleteSource.ListItems
+
+            frmAccessories.cmbPosnTransMake.DisplayMember = "PARAMETER_VALUE"
+            frmAccessories.cmbPosnTransMake.ValueMember = "Sr_No"
+            frmAccessories.cmbPosnTransMake.DataSource = ds_AccessoriesMat.Tables(50)
+            frmAccessories.cmbPosnTransMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            frmAccessories.cmbPosnTransMake.AutoCompleteSource = AutoCompleteSource.ListItems
+
+            frmAccessories.cmbPressRegulatorMake.DisplayMember = "PARAMETER_VALUE"
+            frmAccessories.cmbPressRegulatorMake.ValueMember = "Sr_No"
+            frmAccessories.cmbPressRegulatorMake.DataSource = ds_AccessoriesMat.Tables(51)
+            frmAccessories.cmbPressRegulatorMake.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+            frmAccessories.cmbPressRegulatorMake.AutoCompleteSource = AutoCompleteSource.ListItems
+
             'ComboBox32.DataSource = ds.Tables(31)
             'ComboBox32.ValueMember = "Sr_Nos"
             'ComboBox32.DisplayMember = "valvesize_inches"
@@ -2777,12 +2783,91 @@ Public Class frmValveSizing
             'ComboBox40.ValueMember = "Sr_Nos"
             'ComboBox40.DisplayMember = "temperature"
 
+            'Dim cnstr As String = Nothing
+
+            'For i As Integer = 0 To ds_AccessoriesMat.Tables(24).Rows.Count - 1
+            '    Dim row1 As DataRow = ds_AccessoriesMat.Tables(24).Rows(i)
+            '    Dim model As Object = row1.Item("MODEL_CODE")
+            '    Dim category As Object = row1.Item("CATEGORY_CODE")
+            '    Dim parameter As Object = row1.Item("PARAMETER_CODE")
+            '    Dim parameter_value As Object = row1.Item("PARAMETER_VALUE_CODE")
+            '    For j As Integer = 0 To ds_AccessoriesMat.Tables(49).Rows.Count - 1
+            '        Dim row2 As DataRow = ds_AccessoriesMat.Tables(49).Rows(j)
+            '        Dim model_2 As Object = row2.Item("PCP_MODEL_NO")
+            '        Dim category_2 As Object = row2.Item("PCP_CATEGORY_CODE")
+            '        Dim parameter_2 As Object = row2.Item("PCP_PARAMETER_CODE")
+            '        Dim parameter_value_2 As Object = row2.Item("PCP_PARAMETER_VALUE_CODE")
+            '        'If j = 187 Or j = 188 Or j = 186 Then
+            '        '    MessageBox.Show(model Is model_2)
+            '        'End If
+            '        If model Is model_2 And category Is category_2 And parameter Is parameter_2 And parameter_value Is parameter_value_2 Then
+            '            cnstr = row2.Item("PCP_CONSTRAINT_ID")
+            '        End If
+            '        If Not cnstr = Nothing Then
+            '            Exit For
+            '        End If
+            '    Next
+            'Next
+
+            'For Each row1 As DataRow In ds_AccessoriesMat.Tables("POSITIONERMAKE").Rows
+            '    For Each row2 As DataRow In ds_AccessoriesMat.Tables("AACONSTRAINT_PARAMETER").Rows
+            '        If row1.Item("MODEL_CODE") = row2.Item("PCP_MODEL_NO") And row1.Item("CATEGORY_CODE") = row2.Item("PCP_CATEGORY_CODE") And row1.Item("PARAMETER_CODE") = row2.Item("PCP_PARAMETER_CODE") And row1.Item("PARAMETER_VALUE_CODE") = row2.Item("PCP_PARAMETER_VALUE_CODE") Then
+            '            cnstr = row2.Item("PCP_CONSTRAINT_ID")
+            '        End If
+            '        If Not cnstr = Nothing Then
+            '            Exit For
+            '        End If
+            '    Next
+            '    ''Here we have a constraint ID for the positioner make of the current row
+            '    'Dim dt As New DataTable
+            '    'For Each rowss As DataRow In ds_AccessoriesMat.Tables("AACONSTRAINT_ALLOWED_DETAIL").Rows
+            '    '    If rowss.Item("PAD_CONSTRAINT_ID") = cnstr Then
+            '    '        For Each rowsss As DataRow In ds_AccessoriesMat.Tables(8).Rows
+            '    '            If rowsss.Item("MODEL_CODE") = rowss.Item("PAD_MODEL_NO") And rowsss.Item("CATEGORY_CODE") = rowss.Item("PAD_CATEGORY_CODE") And rowsss.Item("PARAMETER_CODE") = rowss.Item("PAD_PARAMETER_CODE") And rowsss.Item("PARAMETER_VALUE_CODE") = rowss.Item("PAD_PARAMETER_VALUE_CODE") Then
+            '    '                dt.Rows.Add(rowsss.ItemArray)
+            '    '            End If
+            '    '        Next
+            '    '    End If
+            '    'Next
+            'Next
+
             adapter.Dispose()
             command.Dispose()
             con.Dispose()
         Catch ex As Exception
             MsgBox("SQL_DATALOAD: ", ex.Message + ex.StackTrace)
         End Try
+    End Sub
+
+    Public Sub LoadDataSet(dt As DataTable, cat As String, ds As DataSet)
+        'Try
+        For Each row In dt.Rows
+            Dim constrs As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=True"
+            Dim cmd As SqlCommand
+            Dim ad As New SqlDataAdapter
+            Dim name As String = row.Item("PARAMETER_VALUE")
+            name = name.ToString.Replace("/", "")
+            name = name.ToString.Replace(" ", "")
+            name = name.ToString.Replace(".", "")
+            name = name.ToString.Replace("\", "")
+            name = name.ToString.Replace("&", "")
+            name = name.ToString.Replace("(", "")
+            name = name.ToString.Replace(")", "")
+            name = name.ToString.Replace("-", "_")
+            Dim query As String = "SELECT * FROM " + cat + "_" + name + " ;"
+
+            Using cons As New SqlConnection(constrs)
+                cons.Open()
+                cmd = New SqlCommand(query, cons)
+                ad.SelectCommand = cmd
+                ad.Fill(ds, cat + "_" + name)
+
+                cons.Close()
+            End Using
+        Next
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace)
+        'End Try
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -4645,7 +4730,7 @@ Public Class frmValveSizing
 
     Private Sub txtDesignTemperatureInlet_TextChanged(sender As Object, e As EventArgs) Handles txtDesignTemperatureInlet.TextChanged
         Try
-            If LoadingProjectFile = False Or LoadingForm = False Then
+            If LoadingProjectFile = False And LoadingForm = True Then
                 If cmbPacking.SelectedIndex < 3 And FinalDesignTemperatureInlet >= 180 Then
                     If cmbUnitsType.SelectedIndex = 0 Or cmbUnitsType.SelectedIndex = 2 Then
                         MsgBox("PTFE material suitable up to 180 degC ")
@@ -4659,6 +4744,7 @@ Public Class frmValveSizing
                     cmbPacking.SelectedIndex = 3        'Graphite
                 End If
             End If
+
         Catch ex As Exception
             MsgBox("Design Temperature : " & ex.Message)
         End Try
@@ -4693,6 +4779,7 @@ Public Class frmValveSizing
                         End If
                     End If
 
+                    
                     Call AllCalculations()      '17 May 2023 
 
                     'Call CalculateRatings()
@@ -9396,6 +9483,8 @@ Public Class frmValveSizing
                         End If
                     Else
                         cmbKVOverride.Text = txtSuggestedKV.Text
+                        Dim e As System.EventArgs
+
                     End If
                 Else
                     notfound = True
@@ -12846,6 +12935,10 @@ Public Class frmValveSizing
                 lblStrokeCase1.Text = ""
                 lblStrokeCase2.Text = ""
                 lblStrokeCase3.Text = ""
+                lblStrokeCase1.ForeColor = Color.Black
+                lblStrokeCase2.ForeColor = Color.Black
+                lblStrokeCase3.ForeColor = Color.Black
+
 
                 lblVelocityValveInletCase1.Text = ""
                 lblVelocityValveInletCase2.Text = ""
@@ -13135,8 +13228,8 @@ Public Class frmValveSizing
                 MolecularWeightCase3 = 0
 
 
-
-
+                txtACTFactor.Text = ""
+                Act_SafetyFactor = 1
 
                 'Call ChangeUnitsType()
 
@@ -13355,9 +13448,9 @@ Public Class frmValveSizing
                     txtTOutPressureCase2.BackColor = SystemColors.Control
                     txtTOutPressureCase3.BackColor = SystemColors.Control
                 End If
-                If LoadingForm = True Then
-                    DT_ActuatorInfo.Rows(0).Item(1) = cmbModel.Text
-                End If
+            If LoadingForm = False Then
+                DT_ActuatorInfo.Rows(0).Item(1) = cmbModel.Text
+            End If
 
         Catch ex As Exception
             MsgBox("cmbModel_SelectedIndexChange:    " & ex.Message)
@@ -13541,7 +13634,7 @@ Public Class frmValveSizing
             End If
             PackingTypeFactor = 0.15
             ' Friction Force same for Non and Pressure Balance.
-            FrictionForce = PackingTypeFactor * PackingMaterialFactor * StemDia * PackingHeight * (150 + NomialPressureValue) * 0.101972 * 1.15   'FACTOR OF SAFETY
+            FrictionForce = PackingTypeFactor * PackingMaterialFactor * StemDia * PackingHeight * (150 + NomialPressureValue) * 0.101972 * Act_SafetyFactor   'FACTOR OF SAFETY
             DT_ActuatorInfo.Rows(7).Item(1) = Math.Round(FrictionForce, 2)     ' Packing Force
 
             If cmbBalancing.SelectedIndex = 0 Then ''Non Pressure Balanacing 
@@ -13557,9 +13650,9 @@ Public Class frmValveSizing
                         SealingForce = 20 * SeatDia     'Piston ring      Factor of safety included 
                 End Select
             End If
-            SealingForce = SealingForce * 1.15 * 0.101972   ' Add Factor of Safety 
-            SeatingForce = SeatingForce * 1.15 * 0.101972
-            Fluidforce = Fluidforce * 1.15 * 0.101972  'Add Factor of Safety  28022023
+            SealingForce = SealingForce * Act_SafetyFactor * 0.101972   ' Add Factor of Safety 
+            SeatingForce = SeatingForce * Act_SafetyFactor * 0.101972
+            Fluidforce = Fluidforce * Act_SafetyFactor * 0.101972  'Add Factor of Safety  28022023
             FrictionForce = (FrictionForce + SealingForce)
 
             FinalForce = (Fluidforce + SeatingForce + FrictionForce)
@@ -14175,7 +14268,7 @@ Public Class frmValveSizing
 
             If ResetType = True Then Call Reset_All() 'Only call when units physically changed.
 
-            cmbUnitsType.SelectedIndex = index
+            'cmbUnitsType.SelectedIndex = index
             txtMedium.Text = cmbFluid.Text
             ChangingUnitsType = False
             If Not cmbUnitsType.SelectedIndex = -1 Then
@@ -14562,7 +14655,9 @@ Public Class frmValveSizing
 
     Private Sub cmbUnitsType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbUnitsType.SelectedIndexChanged
         Try
-            Call ChangeUnitsType(True)
+            Call ChangeUnitsType(False)
+            ToolTip1.Show("Changing Units Type, Units are reloaded! Please recheck results!", cmbUnitsType, 2)
+            ToolTip1.Show("Changing Units Type, Units are reloaded!  Please recheck results!", cmbUnitsType, 5000)
         Catch ex As Exception
             MsgBox("UnitsType_SelectedIndex Changed : " & ex.Message)
         End Try
@@ -14572,6 +14667,8 @@ Public Class frmValveSizing
     Private Sub cmbUnitsType_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbUnitsType.SelectionChangeCommitted
         '  Call ChangeUnitsType()
         ResetFlowarateIndex = True
+        ToolTip1.Show("Changing Units Type, Units are reloaded!  Please recheck results!", cmbUnitsType, 2)
+        ToolTip1.Show("Changing Units Type, Units are reloaded!  Please recheck results!", cmbUnitsType, 5000)
     End Sub
 
 
@@ -14625,7 +14722,7 @@ Public Class frmValveSizing
 
 
     Private Sub cmbAirFailure_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbAirFailure.KeyPress, cmbMOC.KeyPress, cmbModel.KeyPress, cmbPacking.KeyPress, cmbPipeDia.KeyPress, cmbPressureUnits.KeyPress, cmbQW.KeyPress, cmbSchedule.KeyPress, cmbSealing.KeyPress, cmbSelectActuator.KeyPress, cmbSuggestedRating.KeyPress, cmbTemperatureUnits.KeyPress
-        e.Handled = True
+        '  e.Handled = True
     End Sub
 
     Private Sub cmbPacking_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPacking.SelectedIndexChanged
@@ -14895,12 +14992,12 @@ Public Class frmValveSizing
                         DT_ActuatorSelect.Rows(2).Item(2) = CSng(lblSel0PercF.Text)
                         DT_ActuatorSelect.Rows(2).Item(3) = CSng(lblSel100PerF.Text)
 
-                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(1).Item(2) Then
+                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(0).Item(2) Then
                             lblSel0PercF.ForeColor = Color.Red
                         Else
                             lblSel0PercF.ForeColor = Color.Green
                         End If
-                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(1).Item(3) Then
+                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(0).Item(3) Then
                             lblSel100PerF.ForeColor = Color.Red
                         Else
                             lblSel100PerF.ForeColor = Color.Green
@@ -16769,24 +16866,30 @@ Public Class frmValveSizing
         Dim constr As String = "Data Source=.\SQLEXPRESS;Initial Catalog=FinalDB;Integrated Security=true"
         Dim cmd As SqlCommand
         Dim adapter As New SqlDataAdapter
-        Dim query As String = "select * from storage_table where customer = '" + CustomerName + "' and TagNo ='" + TagNo + "' and CustomerRef = '" + CustomerRef + "';"
+        Dim query As String = "select * from storage_table ' where customer = '" + CustomerName + "' and TagNo ='" + TagNo + "' and CustomerRef = '" + CustomerRef + "';"
         Dim drr As DataRow
 
+        Try
+
+        
         Using con As New SqlConnection(constr)
             cmd = New SqlCommand(query, con)
             adapter.SelectCommand = cmd
-            adapter.Fill(dtr)
-            drr = dtr.Rows(0)
+                adapter.Fill(dt_OpenOffice)
+                drr = dt_OpenOffice.Rows(0)
         End Using
 
-        'MessageBox.Show(drr.Item("Sr_No").ToString)
+            'MessageBox.Show(drr.Item("Sr_No").ToString)
+        Catch ex As Exception
+            MsgBox("ReadSQL: " & ex.Message)
+        End Try
 
     End Sub
 
     Public Sub ReadXLS(XLSFilename As String)
 
         'If Not CustomerName = Nothing And Not CustomerRef = Nothing And Not TagNo = Nothing Then
-        '    ReadSQL()
+        ' ReadSQL()
         'End If
 
         'Dim xlWorkBook As excel.Workbook
@@ -17410,16 +17513,16 @@ Public Class frmValveSizing
 
                 cmbActuatorType.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 1))
                 cmbBalancing.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 2))
-                cmbAirFailure.SelectedValue = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), -1, .Rows(Temprow).Item(Database_Columnno + 3))
-                cmbAirFailure.SelectedIndex = cmbAirFailure.SelectedValue - 1 '
-                'cmbAirFailure.Text = If((cmbAirFailure.SelectedIndex < 0), cmbAirFailure.GetItemText(cmbAirFailure.Items(cmbAirFailure.SelectedIndex)), "")
 
-                If cmbAirFailure.SelectedIndex < 0 Then
-                    cmbAirFailure.Text = ""
-                Else
-                    cmbAirFailure.Text = cmbAirFailure.GetItemText(cmbAirFailure.Items(cmbAirFailure.SelectedIndex))
+                If (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 3))) Then
+                    For Each row As DataRow In ds_AccessoriesMat.Tables(48).Rows
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                            Plug = row.Item("PARAMETER_VALUE")
+                        End If
+                    Next
                 End If
-
+                cmbAirFailure.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), "", .Rows(Temprow).Item(Database_Columnno + 3))
+                ' cmbAirFailure.SelectedIndex = cmbAirFailure.SelectedValue - 1 '
                 cmbLeakage.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 4))
                 cmbPacking.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 5))
                 cmbSealing.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 6))
@@ -17431,22 +17534,17 @@ Public Class frmValveSizing
 
                 lblForce0perc.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
                 'cmbHandwheel.SelectedValue = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), -1, .Rows(Temprow).Item(Database_Columnno + 12))
-                If Not (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12))) Then
+
+                If (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12))) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(20).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 12) Then
-                            cmbHandwheel.SelectedValue = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 12) Then
+                            cmbHandwheel.Text = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
-                    cmbHandwheel.SelectedValue = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), -1, .Rows(Temprow).Item(Database_Columnno + 12))
+                    cmbHandwheel.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), "", .Rows(Temprow).Item(Database_Columnno + 12))
                 End If
-                cmbHandwheel.SelectedIndex = cmbHandwheel.SelectedValue - 1 '
-                If (cmbHandwheel.SelectedIndex < 0) Then
-                    cmbHandwheel.Text = ""
-                Else
-                    cmbHandwheel.Text = (cmbHandwheel.GetItemText(cmbHandwheel.Items(cmbHandwheel.SelectedIndex)))
 
-                End If
 
                 txtSuggActuator.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 13)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 13))
                 cmbSelectActuator.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 14)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 14))
@@ -17460,193 +17558,193 @@ Public Class frmValveSizing
                 lblSel0PercF.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 22)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 22))
                 lblSel100PerF.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 23)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 23))
                 lblForce100perc.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 24)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 24))
-
+                txtACTFactor.Text = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 25)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 25))
                 'Materials 
                 Database_Columnno = DataSection4_Materials
 
                 'BodyMaterial = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 1))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 1)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 1)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(30).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                                 Exit For
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(2).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(35).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(40).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 1) Then
-                                BodyMaterial = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 1) Then
+                                BodyMaterial = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    BodyMaterial = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), -1, .Rows(Temprow).Item(Database_Columnno + 1))
+                    BodyMaterial = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 1)), "", .Rows(Temprow).Item(Database_Columnno + 1))
                 End If
 
                 'Plug = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 2))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 2)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 2)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(32).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(3).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(37).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(42).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 2) Then
-                                Plug = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 2) Then
+                                Plug = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    Plug = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), -1, .Rows(Temprow).Item(Database_Columnno + 2))
+                    Plug = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 2)), "", .Rows(Temprow).Item(Database_Columnno + 2))
                 End If
 
                 'Seat = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 3))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 3)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 3)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(33).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(4).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(38).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(43).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 3) Then
-                                Seat = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 3) Then
+                                Seat = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    Seat = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), -1, .Rows(Temprow).Item(Database_Columnno + 3))
+                    Seat = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 3)), "", .Rows(Temprow).Item(Database_Columnno + 3))
                 End If
 
                 'TopMaterials = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 4))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 4)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 4)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(31).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(5).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(36).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(41).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 4) Then
-                                TopMaterials = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 4) Then
+                                TopMaterials = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    TopMaterials = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), -1, .Rows(Temprow).Item(Database_Columnno + 4))
+                    TopMaterials = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 4)), "", .Rows(Temprow).Item(Database_Columnno + 4))
                 End If
 
                 'Gasket = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 5))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 5)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 5)) Then
                     If cmbModel.SelectedIndex = 0 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(34).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 1 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(6).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 2 Or cmbModel.SelectedIndex = 3 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(39).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     ElseIf cmbModel.SelectedIndex = 4 Or cmbModel.SelectedIndex = 5 Or cmbModel.SelectedIndex = 6 Then
                         For Each row As DataRow In ds_AccessoriesMat.Tables(44).Rows
-                            If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 5) Then
-                                Gasket = row.Item("SR_NO")
+                            If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 5) Then
+                                Gasket = row.Item("PARAMETER_VALUE")
                             End If
                         Next
                     End If
                 Else
-                    Gasket = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), -1, .Rows(Temprow).Item(Database_Columnno + 5))
+                    Gasket = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 5)), "", .Rows(Temprow).Item(Database_Columnno + 5))
                 End If
 
                 'Painting = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 6))
                 'Painting_ACC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 28)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 28))
-                If Not (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 6))) Then
+                If (IsNumeric(.Rows(Temprow).Item(Database_Columnno + 6))) Then
                     For Each row In ds_AccessoriesMat.Tables(7).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 6) Then
-                            Painting = row.Item("SR_NO")
-                            Painting_ACC = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 6) Then
+                            Painting = row.Item("PARAMETER_VALUE")
+                            Painting_ACC = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
-                    Painting = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), -1, .Rows(Temprow).Item(Database_Columnno + 6))
-                    Painting_ACC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), -1, .Rows(Temprow).Item(Database_Columnno + 6))
+                    Painting = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), "", .Rows(Temprow).Item(Database_Columnno + 6))
+                    Painting_ACC = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 6)), "", .Rows(Temprow).Item(Database_Columnno + 6))
                 End If
 
-                frmMaterials.cmbBodyMaterial.SelectedValue = BodyMaterial
-                frmMaterials.cmbPlug.SelectedValue = Plug
-                frmMaterials.cmbSeat.SelectedValue = Seat
-                frmMaterials.cmbTopMaterials.SelectedValue = TopMaterials
-                frmMaterials.cmbGasket.SelectedValue = Gasket
+                frmMaterials.cmbBodyMaterial.Text = BodyMaterial
+                frmMaterials.cmbPlug.Text = Plug
+                frmMaterials.cmbSeat.Text = Seat
+                frmMaterials.cmbTopMaterials.Text = TopMaterials
+                frmMaterials.cmbGasket.Text = Gasket
                 frmMaterials.cmbPainitng.Text = Painting
                 frmMaterials.cmbPaintingACC.Text = Painting_ACC
 
                 'Positioner = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 7)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 7))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 7)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 7)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(8).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 7) Then
-                            Positioner = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 7) Then
+                            Positioner = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17655,10 +17753,10 @@ Public Class frmValveSizing
                 End If
 
                 'Sov = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 8)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 8))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 8)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 8)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(9).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 8) Then
-                            Sov = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 8) Then
+                            Sov = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17667,10 +17765,10 @@ Public Class frmValveSizing
                 End If
 
                 'AFR = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 9)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 9))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 9)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 9)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(10).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 9) Then
-                            AFR = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 9) Then
+                            AFR = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17679,10 +17777,10 @@ Public Class frmValveSizing
                 End If
 
                 'ALR = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 10)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 10))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 10)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 10)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(11).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 10) Then
-                            ALR = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 10) Then
+                            ALR = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17691,7 +17789,7 @@ Public Class frmValveSizing
                 End If
 
                 'LimitSwitch = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 11)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 11))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 11)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 11)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(12).Rows
                         If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 11) Then
                             LimitSwitch = row.Item("SR_NO")
@@ -17703,10 +17801,10 @@ Public Class frmValveSizing
                 End If
 
                 'VolBooster = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 12)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 12))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 12)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(13).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 12) Then
-                            VolBooster = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 12) Then
+                            VolBooster = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17715,10 +17813,10 @@ Public Class frmValveSizing
                 End If
 
                 'PosnTrans = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 13)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 13))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 13)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 13)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(14).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 13) Then
-                            PosnTrans = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 13) Then
+                            PosnTrans = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17727,10 +17825,10 @@ Public Class frmValveSizing
                 End If
 
                 'Roborter = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 15)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 15))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 15)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 15)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(16).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 15) Then
-                            Roborter = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 15) Then
+                            Roborter = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17739,10 +17837,10 @@ Public Class frmValveSizing
                 End If
 
                 'ItoP = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 16)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 16))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 16)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 16)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(17).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 16) Then
-                            ItoP = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 16) Then
+                            ItoP = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17751,10 +17849,10 @@ Public Class frmValveSizing
                 End If
 
                 'QEV = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 17)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 17))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 17)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 17)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(18).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 17) Then
-                            QEV = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 17) Then
+                            QEV = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17763,10 +17861,10 @@ Public Class frmValveSizing
                 End If
 
                 'Certification = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 18)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 18))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 18)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 18)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(19).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 18) Then
-                            Certification = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 18) Then
+                            Certification = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17776,10 +17874,10 @@ Public Class frmValveSizing
 
                 VTank = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 14)), String.Empty, .Rows(Temprow).Item(Database_Columnno + 14))
                 'Tubing = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 19)), .Rows(Temprow).Item(Database_Columnno + 19), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 19)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 19)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(21).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 18) Then
-                            Tubing = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 18) Then
+                            Tubing = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -17791,10 +17889,11 @@ Public Class frmValveSizing
 
                 '12102020 changes
                 'PositionerMake = If(Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 21)), -1, .Rows(Temprow).Item(Database_Columnno + 21))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 21)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 21)) Then
                     For Each row In ds_AccessoriesMat.Tables(23).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 21) Then
-                            PositionerMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 21) Then
+                            PositionerMake = row.Item("PARAMETER_VALUE")
+                            Exit For
                         End If
                     Next
                 Else
@@ -17802,10 +17901,10 @@ Public Class frmValveSizing
                 End If
 
                 'AFRMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 22)), -1, .Rows(Temprow).Item(Database_Columnno + 22))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 22)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 22)) Then
                     For Each row In ds_AccessoriesMat.Tables(24).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 22) Then
-                            AFRMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 22) Then
+                            AFRMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17813,10 +17912,10 @@ Public Class frmValveSizing
                 End If
 
                 'ALRMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 23)), -1, .Rows(Temprow).Item(Database_Columnno + 23))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 23)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 23)) Then
                     For Each row In ds_AccessoriesMat.Tables(25).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 23) Then
-                            ALRMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 23) Then
+                            ALRMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17824,10 +17923,10 @@ Public Class frmValveSizing
                 End If
 
                 'SOVMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 24)), -1, .Rows(Temprow).Item(Database_Columnno + 24))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 24)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 24)) Then
                     For Each row In ds_AccessoriesMat.Tables(26).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 24) Then
-                            SOVMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 24) Then
+                            SOVMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17835,10 +17934,10 @@ Public Class frmValveSizing
                 End If
 
                 'VBMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 25)), -1, .Rows(Temprow).Item(Database_Columnno + 25))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 25)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 25)) Then
                     For Each row In ds_AccessoriesMat.Tables(27).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 25) Then
-                            VBMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 25) Then
+                            VBMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17846,10 +17945,10 @@ Public Class frmValveSizing
                 End If
 
                 'LimitSwitchMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 26)), -1, .Rows(Temprow).Item(Database_Columnno + 26))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 26)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 26)) Then
                     For Each row In ds_AccessoriesMat.Tables(28).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 26) Then
-                            LimitSwitchMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 26) Then
+                            LimitSwitchMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -17857,10 +17956,10 @@ Public Class frmValveSizing
                 End If
 
                 'QEVMake = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 27)), -1, .Rows(Temprow).Item(Database_Columnno + 27))
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 27)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 27)) Then
                     For Each row In ds_AccessoriesMat.Tables(29).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 27) Then
-                            QEVMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 27) Then
+                            QEVMake = row.Item("PARAMETER_VALUE")
                         End If
                     Next
                 Else
@@ -18200,10 +18299,10 @@ Public Class frmValveSizing
                 DPShutoff = If(IsDBNull(.Rows(Temprow).Item(Database_Columnno + 45)), 0, .Rows(Temprow).Item(Database_Columnno + 45))
 
                 'TubingMake = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 46)), .Rows(Temprow).Item(Database_Columnno + 45), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 46)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 46)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(45).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 46) Then
-                            TubingMake = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 46) Then
+                            TubingMake = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -18212,10 +18311,10 @@ Public Class frmValveSizing
                 End If
 
                 'TubingSize = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 47)), .Rows(Temprow).Item(Database_Columnno + 45), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 47)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 47)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(46).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 47) Then
-                            TubingSize = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 47) Then
+                            TubingSize = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -18224,10 +18323,10 @@ Public Class frmValveSizing
                 End If
 
                 'TubingMOC = If(IsNumeric(.Rows(Temprow).Item(Database_Columnno + 48)), .Rows(Temprow).Item(Database_Columnno + 45), -1)
-                If Not IsNumeric(.Rows(Temprow).Item(Database_Columnno + 48)) Then
+                If IsNumeric(.Rows(Temprow).Item(Database_Columnno + 48)) Then
                     For Each row As DataRow In ds_AccessoriesMat.Tables(47).Rows
-                        If row.Item("PARAMETER_VALUE") = .Rows(Temprow).Item(Database_Columnno + 48) Then
-                            TubingMOC = row.Item("SR_NO")
+                        If row.Item("SR_NO") = .Rows(Temprow).Item(Database_Columnno + 48) Then
+                            TubingMOC = row.Item("PARAMETER_VALUE")
                             Exit For
                         End If
                     Next
@@ -19355,7 +19454,7 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 1) = cmbActuatorType.Text
 
                 .Rows(Temprow)(Database_Columnno + 2) = cmbBalancing.Text
-                .Rows(Temprow)(Database_Columnno + 3) = cmbAirFailure.SelectedValue
+                .Rows(Temprow)(Database_Columnno + 3) = cmbAirFailure.Text
                 .Rows(Temprow)(Database_Columnno + 4) = cmbLeakage.Text
                 .Rows(Temprow)(Database_Columnno + 5) = cmbPacking.Text
                 .Rows(Temprow)(Database_Columnno + 6) = cmbSealing.Text
@@ -19365,7 +19464,7 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 9) = If(txtAirPressure.Text = "", DBNull.Value, txtAirPressure.Text)
                 .Rows(Temprow)(Database_Columnno + 10) = cmbSeatDia.Text
                 .Rows(Temprow)(Database_Columnno + 11) = lblForce0perc.Text
-                .Rows(Temprow)(Database_Columnno + 12) = cmbHandwheel.SelectedValue
+                .Rows(Temprow)(Database_Columnno + 12) = cmbHandwheel.Text
                 .Rows(Temprow)(Database_Columnno + 13) = If(txtSuggActuator.Text = "", DBNull.Value, txtSuggActuator.Text)
                 .Rows(Temprow)(Database_Columnno + 14) = cmbSelectActuator.Text
                 .Rows(Temprow)(Database_Columnno + 15) = lblFinalActuator.Text
@@ -19378,6 +19477,7 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 22) = lblSel0PercF.Text
                 .Rows(Temprow)(Database_Columnno + 23) = lblSel100PerF.Text
                 .Rows(Temprow)(Database_Columnno + 24) = lblForce100perc.Text
+                .Rows(Temprow)(Database_Columnno + 25) = txtACTFactor.Text
 
                 'Materials 
                 Database_Columnno = DataSection4_Materials
@@ -19447,6 +19547,9 @@ Public Class frmValveSizing
                 .Rows(Temprow)(Database_Columnno + 31) = lblVelocityOutletPipeCase1.Text
                 .Rows(Temprow)(Database_Columnno + 32) = lblVelocityOutletPipeCase2.Text
                 .Rows(Temprow)(Database_Columnno + 33) = lblVelocityOutletPipeCase3.Text
+                .Rows(Temprow)(Database_Columnno + 34) = PosnTransMake
+                .Rows(Temprow)(Database_Columnno + 35) = PressRegMake
+                .Rows(Temprow)(Database_Columnno + 36) = ItoPMake
 
                 Database_Columnno = DataSection6_Output2
                 .Rows(Temprow)(Database_Columnno + 1) = If(lblNoiseCase1.Text = "", DBNull.Value, lblNoiseCase1.Text)
@@ -19801,7 +19904,7 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 8) = "AirPressUnits"
                 dr(Database_Columnno + 9) = "AirPress"
                 dr(Database_Columnno + 10) = "SeatDia"
-                dr(Database_Columnno + 11) = "FinalForce"
+                dr(Database_Columnno + 11) = "SuggForce0perc"
                 dr(Database_Columnno + 12) = "HandWheel"
                 dr(Database_Columnno + 13) = "SuggActuator"
                 dr(Database_Columnno + 14) = "SelActuator"
@@ -19814,9 +19917,10 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 21) = "MKSFinalSpringRange"
                 dr(Database_Columnno + 22) = "SelForce0"
                 dr(Database_Columnno + 23) = "SelForce100"
-                dr(Database_Columnno + 23) = "SuggForce100"
+                dr(Database_Columnno + 24) = "SuggForce100"
+                dr(Database_Columnno + 25) = "ACTSafetyFactor"
              
-                '6 columns for future use
+                '2 columns for future use
 
                 'Materials 
                 Database_Columnno = DataSection4_Materials '133 + 17+10
@@ -19884,6 +19988,10 @@ Public Class frmValveSizing
                 dr(Database_Columnno + 31) = "VelocityOutletPipeCase1"
                 dr(Database_Columnno + 32) = "VelocityOutletPipeCase2"
                 dr(Database_Columnno + 33) = "VelocityOutletPipeCase3"
+                dr(Database_Columnno + 34) = "PosnTransMake"
+                dr(Database_Columnno + 35) = "PressRegMake"
+                dr(Database_Columnno + 36) = "ItoPMake"
+
                 '10 columns for future use 
                 Database_Columnno = DataSection6_Output2  '188+33+10
                 dr(Database_Columnno + 1) = "NoiseCase1"
@@ -20379,19 +20487,19 @@ Public Class frmValveSizing
 
                         Dim CSVModels As String = dt_OpenOffice(Database_Rowno)(22)
 
-                        '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 50) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 51) = "Globe" ' dt_OpenOffice(Database_Rowno, DataSection6_Output2 + 25)' 'cmbModel.Text
 
@@ -20419,38 +20527,39 @@ Public Class frmValveSizing
 
                         .Rows(NowRecord)(Columnno + 52) = CsvEcoTrim     ' Converted to Ecotrol to match configurator
 
-                        '.Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 54) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 55) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 20) ' 'Guiding
                         .Rows(NowRecord)(Columnno + 56) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 24) ' 'cmbKVseries.Text
 
-                        CSVCharacterstics = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23) ' 'cmbCharacterstics.Text
+                        CSVCharacterstics = If(IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23)), String.Empty, dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23))
+                        '  CSVCharacterstics = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 23) ' 'cmbCharacterstics.Text
                         If CSVCharacterstics = "Linear" Or CSVCharacterstics = "Equal %" Then
                             CSVCharacterstics = CSVCharacterstics.Substring(0, 1)
                         End If
@@ -20490,44 +20599,45 @@ Public Class frmValveSizing
                         '74 Blank
 
                         CSVAirFail = ""
-                        Dim airfail As Integer   ' ' cmbAirFailure.Text
-                        If IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3)) Then
-                            airfail = -1
-                        Else
-                            airfail = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
-                        End If
+                        'Dim airfail As Integer   ' ' cmbAirFailure.Text
+                        'If IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3)) Then
+                        '    airfail = -1
+                        'Else
+                        '    airfail = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
+                        'End If
 
-                        If airfail = -1 Then
-                            CSVAirFail = "--Select--"
-                        ElseIf airfail = 0 Then
-                            CSVAirFail = "-O"
-                        ElseIf airfail = 1 Then
-                            CSVAirFail = "-C"
-                        End If
-
-                        'If CSVAirFail = "AIR TO CLOSE" Then
+                        'If airfail = -1 Then
+                        '    CSVAirFail = "--Select--"
+                        'ElseIf airfail = 0 Then
                         '    CSVAirFail = "-O"
-                        'ElseIf CSVAirFail = "AIR TO OPEN" Then
+                        'ElseIf airfail = 1 Then
                         '    CSVAirFail = "-C"
                         'End If
+
+                        If CSVAirFail = "AIR TO CLOSE" Then
+                            CSVAirFail = "-O"
+                        ElseIf CSVAirFail = "AIR TO OPEN" Then
+                            CSVAirFail = "-C"
+                        End If
 
                         .Rows(NowRecord)(Columnno + 75) = CSVAirFail
                         .Rows(NowRecord)(Columnno + 76) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 2) ' 'cmbBalancing.Text
                         .Rows(NowRecord)(Columnno + 77) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 5) ' 'cmbPacking.Text
                         .Rows(NowRecord)(Columnno + 78) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 6) ' 'cmbSealing.Text
                         .Rows(NowRecord)(Columnno + 79) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 19) ' 'MKSActuator
-                        '.Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
+                        .Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
 
-                        If Not IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12)) Then
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
-                        Else
-                            tempcode = -1
-                        End If
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 80) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("PARAMETER_VALUE")
-                        Else
-                            .Rows(NowRecord)(Columnno + 80) = "--Select--"
-                        End If
+                    
+                        'If Not IsDBNull(dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12)) Then
+                        '    tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
+                        'Else
+                        '    tempcode = -1
+                        'End If
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 80) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'Else
+                        '    .Rows(NowRecord)(Columnno + 80) = "--Select--"
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 81) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 7) ' ' cmbAreaunits.Text
                         .Rows(NowRecord)(Columnno + 82) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 11) ' 'lblFinalOutletPipe
@@ -20542,64 +20652,64 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 87) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         .Rows(NowRecord)(Columnno + 88) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         '89 blank
-                        '.Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification / End Connection
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification / End Connection
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '91 blank
-                        '.Rows(NowRecord)(Columnno + 92) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) ' 'frmMaterials.cmbPainitng.Text
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 92) = ds_AccessoriesMat.Tables(7).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 92) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) ' 'frmMaterials.cmbPainitng.Text
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 6) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 92) = ds_AccessoriesMat.Tables(7).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '93 blank
-                        '.Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '95 Blank                                                               
-                        '.Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '97 Blank
-                        '.Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         '99 Blank
-                        '.Rows(NowRecord)(Columnno + 100) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) ' ' AFR
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 100) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) ' ' AFR
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 101) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) ' ' SOV
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 101) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) ' ' SOV
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 102) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) ' ' ALR
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 102) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) ' ' ALR
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
-                        '.Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 'Pressure Regulator
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1
-                        If Not tempcode < 0 Then
-                            .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
-                        End If
+                        .Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 'Pressure Regulator
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1
+                        'If Not tempcode < 0 Then
+                        '    .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 104) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 14) ' 'Volume Tank 
 
@@ -20613,19 +20723,19 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 115) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 6) '
                         .Rows(NowRecord)(Columnno + 116) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 6) '
                         '117 to 134 blank
-                        '.Rows(NowRecord)(Columnno + 135) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) ' 'Gasket
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) - 1
-                        If Not tempcode < 0 Then
-                            If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(34).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "GLOBE" Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(6).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(39).Rows(tempcode).Item("PARAMETER_VALUE")
-                            ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
-                                .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(44).Rows(tempcode).Item("PARAMETER_VALUE")
-                            End If
-                        End If
+                        .Rows(NowRecord)(Columnno + 135) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) ' 'Gasket
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 5) - 1
+                        'If Not tempcode < 0 Then
+                        '    If CSVModels = "GLOBE-FORBES" And Not tempcode < 0 Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(34).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "GLOBE" Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(6).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "3-WAY MIX " Or CSVModels = "3-WAY SEP" Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(39).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    ElseIf CSVModels = "T.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Perforated" Or CSVModels = "B.E. PRDS Parabolic" Then
+                        '        .Rows(NowRecord)(Columnno + 135) = ds_AccessoriesMat.Tables(44).Rows(tempcode).Item("PARAMETER_VALUE")
+                        '    End If
+                        'End If
 
                         .Rows(NowRecord)(Columnno + 136) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 9) ' 'End Spring Range
                         ' .Rows(NowRecord)(Columnno + 137) = dt_OpenOffice(Database_Rowno)(Database_Columnno + 9)' 'cmbAirPressureUnits.Text
@@ -20688,7 +20798,7 @@ Public Class frmValveSizing
             '//////////////////////////////////////////////////////////////////////////
 
             'Declaration of Variables
-            Dim filename1 As String = DirectoryName & "\" & FileName & ".csv"
+            Dim filename1 As String = DirectoryName & "\" & "CSV_" & FileName & ".csv"
             Dim myString As String
             Dim bFirstRecord As Boolean = True
             Dim myWriter As StreamWriter
@@ -21418,6 +21528,19 @@ Public Class frmValveSizing
     '    End Try
 
     'End Sub
+    Public Function FindSQL_SRNo(ByVal ParaVal As String, ByVal ParaLoc As Object) As Integer
+        Try
+            For Each row As DataRow In ds_AccessoriesMat.Tables(ParaLoc).Rows
+                If row.Item("PARAMETER_VALUE") = ParaVal Then
+                    FindSQL_SRNo = row.Item("SR_NO")
+                    Exit For
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox("FindSQL_SRNo: " & ex.Message)
+        End Try
+    End Function
+
     Public Sub ConvertToCRM()
         Dim Columnno, NowRecord, tempcode As Integer
 
@@ -21595,7 +21718,14 @@ Public Class frmValveSizing
 
                         If CsvModel = "GLOBE-FORBES" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            For Each row As DataRow In ds_AccessoriesMat.Tables(30).Rows
+                                If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) Then
+                                    tempcode = row.Item("SR_NO")
+                                    Exit For
+                                End If
+                            Next
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 30) - 1
+                            'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(30).Rows(tempcode).Item("MODEL_CODE")
@@ -21606,7 +21736,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "GLOBE" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 2) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(2).Rows(tempcode).Item("MODEL_CODE")
@@ -21617,7 +21748,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "3-WAY MIX " Or CsvModel = "3-WAY SEP" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 35) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(35).Rows(tempcode).Item("MODEL_CODE")
@@ -21628,7 +21760,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "T.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Parabolic" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Body Material
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1), 40) - 1
+                            'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(50).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(40).Rows(tempcode).Item("MODEL_CODE")
@@ -21667,7 +21800,8 @@ Public Class frmValveSizing
 
                         If CsvModel = "GLOBE" Then
                             '.Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 3) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(3).Rows(tempcode).Item("MODEL_CODE")
@@ -21678,7 +21812,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "GLOBE-FORBES" Then
                             '.Rows(NowRecord)(Columnno + 53) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 32) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1        'Plug
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("MODEL_CODE")
@@ -21688,8 +21823,9 @@ Public Class frmValveSizing
                                 .Rows(NowRecord)(Columnno + 53) = ds_AccessoriesMat.Tables(32).Rows(tempcode).Item("PARAMETER_VALUE")
                             End If
                         ElseIf CsvModel = "3-WAY MIX " Or CsvModel = "3-WAY SEP" Then
-                            '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
+                            '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) ' 'Plug
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 37) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(37).Rows(tempcode).Item("MODEL_CODE")
@@ -21700,7 +21836,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "T.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Parabolic" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Plug
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2), 42) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 2) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(53).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(42).Rows(tempcode).Item("MODEL_CODE")
@@ -21713,7 +21850,8 @@ Public Class frmValveSizing
 
                         If CsvModel = "GLOBE-FORBES" Then
                             '.Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 33) - 1
+                            'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(33).Rows(tempcode).Item("MODEL_CODE")
@@ -21724,7 +21862,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "GLOBE" Then
                             '.Rows(NowRecord)(Columnno + 54) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 4) - 1
+                            '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1    'Seat
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(4).Rows(tempcode).Item("MODEL_CODE")
@@ -21735,7 +21874,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "3-WAY MIX " Or CsvModel = "3-WAY SEP" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 38) - 1
+                            ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(38).Rows(tempcode).Item("MODEL_CODE")
@@ -21746,7 +21886,8 @@ Public Class frmValveSizing
                             End If
                         ElseIf CsvModel = "T.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Perforated" Or CsvModel = "B.E. PRDS Parabolic" Then
                             '.Rows(NowRecord)(Columnno + 50) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 1) ' 'Seat
-                            tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
+                            tempcode = FindSQL_SRNo(dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3), 43) - 1
+                            '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 3) - 1
                             If Not tempcode < 0 Then
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(0) = 14
                                 ds_ValueCodes.Tables(54).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(43).Rows(tempcode).Item("MODEL_CODE")
@@ -21818,8 +21959,13 @@ Public Class frmValveSizing
                         '    tempcode = 2
                         'End If
 
-                        '.Rows(NowRecord)(Columnno + 75) = CSVAirFail
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(48).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) Then  ' AFR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 75) = CSVAirFail
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 3) - 1
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(75).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(75).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(48).Rows(tempcode).Item("MODEL_CODE")
@@ -21833,8 +21979,15 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 77) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 5) ' 'cmbPacking.Text
                         .Rows(NowRecord)(Columnno + 78) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 6) ' 'cmbSealing.Text
                         .Rows(NowRecord)(Columnno + 79) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 19) ' 'MKSActuator
-                        '.Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
+
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(20).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) Then  ' AFR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 80) = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) ' ' cmbHandwheel.Text
+
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection3_Actuator + 12) - 1
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(80).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(80).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(20).Rows(tempcode).Item("MODEL_CODE")
@@ -21857,15 +22010,21 @@ Public Class frmValveSizing
                         .Rows(NowRecord)(Columnno + 87) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         .Rows(NowRecord)(Columnno + 88) = dt_OpenOffice(Database_Rowno)(DataSection2_MOC + 32) '
                         '89 blank
-                        '.Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification written end-connection
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
+
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(19).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 90) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) '   'Certification written end-connection
+                        ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 18) - 1
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(90).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
+                            ' .Rows(NowRecord)(Columnno + 90) = ds_AccessoriesMat.Tables(19).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         '91 blank
@@ -21882,84 +22041,120 @@ Public Class frmValveSizing
 
                         '93 blank
 
-                        '   .Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1  ' ' Switches
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(12).Rows        ' Switches
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 94) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) ' ' Switches
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 11) - 1  ' ' Switches
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(94).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 94) = ds_AccessoriesMat.Tables(12).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         '95 Blank
-                        ' .Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1  ' ' Positioner
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(8).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 96) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) ' ' Positioner
+                        'tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 7) - 1  ' ' Positioner
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(96).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
+                            ' .Rows(NowRecord)(Columnno + 96) = ds_AccessoriesMat.Tables(8).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         '97 Blank
-                        ' .Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1  ' ' Volbooster
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(13).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) Then
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 98) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) ' ' Volbooster
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 12) - 1  ' ' Volbooster
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(98).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '   .Rows(NowRecord)(Columnno + 98) = ds_AccessoriesMat.Tables(13).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
                         '99 Blank
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(10).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) Then  ' AFR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 100) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9)
+                        '   tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 9) - 1  ' ' AFR
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(100).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 100) = ds_AccessoriesMat.Tables(10).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         ' Message += "AFR Model: " + ds.Tables(10).Rows(AFR).Item("Sr_No").ToString + " " + ds.Tables(10).Rows(AFR).Item("MODEL_CODE") + " " + ds.Tables(10).Rows(AFR).Item("CATEGORY_CODE") + " " + ds.Tables(10).Rows(AFR).Item("PARAMETER_CODE") + " " + ds.Tables(10).Rows(AFR).Item("PARAMETER_VALUE_CODE") + " " + ds.Tables(10).Rows(AFR).Item("PARAMETER_VALUE") + Environment.NewLine
 
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) - 1 ' ' SOV
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(9).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) Then   ' SOV
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 101) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8)
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(101).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 101) = ds_AccessoriesMat.Tables(9).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
-
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1 ' ' ALR
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(11).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 8) Then   'ALR
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 102) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10)
+                        ' tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 10) - 1 ' ' ALR
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(102).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '  .Rows(NowRecord)(Columnno + 102) = ds_AccessoriesMat.Tables(11).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
-
-                        '.Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 'Pressure Regulator
-                        tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1   'Pressure Regulator/Robotor
+                        For Each row As DataRow In ds_AccessoriesMat.Tables(16).Rows
+                            If row.Item("PARAMETER_VALUE") = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) Then   ''Pressure Regulator
+                                tempcode = row.Item("SR_NO")
+                            End If
+                        Next
+                        .Rows(NowRecord)(Columnno + 103) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) ' 
+                        '  tempcode = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 15) - 1   'Pressure Regulator/Robotor
                         If Not tempcode < 0 Then
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(0) = 14
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(1) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("MODEL_CODE")
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(2) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("CATEGORY_CODE")
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(3) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_CODE")
                             ds_ValueCodes.Tables(103).Rows(NowRecord)(4) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE_CODE")
-                            .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
+                            '    .Rows(NowRecord)(Columnno + 103) = ds_AccessoriesMat.Tables(16).Rows(tempcode).Item("PARAMETER_VALUE")
                         End If
 
                         .Rows(NowRecord)(Columnno + 104) = dt_OpenOffice(Database_Rowno)(DataSection4_Materials + 14) ' 'Volume Tank 
@@ -22909,7 +23104,7 @@ Public Class frmValveSizing
                         TempDT = DT_PR1150300KV
                     Case 3
                         Select Case Model
-                            Case 1, 3
+                            Case 0, 1
                                 TempDT = DT_PR2150300KV
                             Case 4
                                 TempDT = DT_TEPRDSL2150300
@@ -22918,7 +23113,7 @@ Public Class frmValveSizing
                         End Select
                     Case 4
                         Select Case Model
-                            Case 1, 3
+                            Case 0, 1
                                 TempDT = DT_PR3150300KV
                             Case 4
                                 TempDT = DT_TEPRDSL3150300
@@ -23421,7 +23616,8 @@ Public Class frmValveSizing
 
 
         Catch ex As Exception
-
+            ToolTip2.Show(ex.Message, cmbKVOverride, 2)
+            ToolTip2.Show(ex.Message, cmbKVOverride, 3000)
         End Try
 
 
@@ -23436,19 +23632,19 @@ Public Class frmValveSizing
         lblFinalActuator.Text = FinalActuator
         DT_ActuatorSelect.Rows(2).Item(1) = FinalActuator
         DT_ActuatorInfo.Rows(11).Item(1) = FinalActuator
-        DT_ActuatorSelect.Rows(2).Item(2) = CSng(lblSel0PercF.Text)
-        DT_ActuatorSelect.Rows(2).Item(3) = CSng(lblSel100PerF.Text)
+            DT_ActuatorSelect.Rows(2).Item(2) = If(Not lblSel0PercF.Text = "", CSng(lblSel0PercF.Text), 0)
+            DT_ActuatorSelect.Rows(2).Item(3) = If(Not lblSel100PerF.Text = "", CSng(lblSel100PerF.Text), 0)
 
-        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(1).Item(2) Then
-            lblSel0PercF.ForeColor = Color.Red
-        Else
-            lblSel0PercF.ForeColor = Color.Green
-        End If
-        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(1).Item(3) Then
-            lblSel100PerF.ForeColor = Color.Red
-        Else
-            lblSel100PerF.ForeColor = Color.Green
-        End If
+            If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(0).Item(2) Then
+                lblSel0PercF.ForeColor = Color.Red
+            Else
+                lblSel0PercF.ForeColor = Color.Green
+            End If
+            If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(0).Item(3) Then
+                lblSel100PerF.ForeColor = Color.Red
+            Else
+                lblSel100PerF.ForeColor = Color.Green
+            End If
             My.Forms.frmTestingGrids.ShowDialog()
         Catch ex As Exception
             MsgBox("btnTables_Click " & ex.Message)
@@ -25257,9 +25453,7 @@ Public Class frmValveSizing
     End Sub
 
 
-    Private Sub btnChart_Click(sender As Object, e As EventArgs) Handles btnChart.Click
-        frmChart.ShowDialog()
-    End Sub
+ 
 
 
     Private Sub KvCvChartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KvCvChartToolStripMenuItem.Click
@@ -25460,53 +25654,56 @@ Public Class frmValveSizing
 
     Private Sub NewTagToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewTagToolStripMenuItem.Click
         Try
-            Database_LastRow = dt_OpenOffice.Rows.Count - 1
-            HScrollBar_Records.Maximum = Database_LastRow
-            If MsgBox("DO you want to create a new record?", MsgBoxStyle.YesNoCancel, "Alert!") = MsgBoxResult.Yes Then
+           
+            If MsgBox("DO you want to create a new record?", MsgBoxStyle.YesNo, "Alert!") = MsgBoxResult.Yes Then
                 If Not XMLFilename = "" Then
+                    Database_LastRow = dt_OpenOffice.Rows.Count - 1
+                    HScrollBar_Records.Maximum = Database_LastRow
                     Call SaveXLS(XMLFilename)
-
 
                     'NewxlWorkbook = APP.Workbooks.Open(XMLFilename)
                     'NewxlWorksheet = NewxlWorkbook.Worksheets("Records")
                     'With NewxlWorksheet
                     '    Database_LastRow = .Cells(.Rows.Count, 1).End(excel.XlDirection.xlUp).Row
                     'End With
+                    'Else
+                    '    Database_Rowno = 0
+                    '    Database_LastRow = 0
+                    '    HScrollBar_Records.Minimum = 0
+                    '    HScrollBar_Records.Maximum = 0
+                    '    ds_OpenOffice = New DataSet
+                    '    dt_OpenOffice = New DataTable
+
+                    '    dt_OpenOffice = ds_OpenOffice.Tables.Add("Records")
+                    '    Call DatabaseFileHeader(XMLFilename)
+
+                    '    dttemp = New DataTable
+                    '    dttemp = ds_OpenOffice.Tables.Add(Database_Rowno)
+                    '    With dttemp
+
+                    '        For x = 0 To 30 Step 1
+                    '            .Columns.Add()
+                    '        Next
+
+                    '        For x = 0 To 64 Step 1
+                    '            .Rows.Add(dttemp.NewRow())
+                    '        Next
+                    '    End With
+
+
+                    Database_Rowno = Database_LastRow + 1       ' New Record add
+                    Database_LastRow = Database_LastRow + 1
+                    dt_OpenOffice.Rows.Add(dt_OpenOffice.NewRow())
+                    lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
+                    txtJumpToRecord.Text = Database_LastRow
+                    Resetall = True
+                    cmbFluidType.SelectedIndex = -1
+                    cmbFluidType.Text = "--Select--"
+                    Call Reset_All()
+                    Resetall = False
                 Else
-                    Database_Rowno = 0
-                    Database_LastRow = 0
-                    HScrollBar_Records.Minimum = 0
-                    HScrollBar_Records.Maximum = 0
-                    ds_OpenOffice = New DataSet
-                    dt_OpenOffice = New DataTable
-
-                    dt_OpenOffice = ds_OpenOffice.Tables.Add("Records")
-                    Call DatabaseFileHeader(XMLFilename)
-
-                    'dttemp = New DataTable
-                    'dttemp = ds_OpenOffice.Tables.Add(Database_Rowno)
-                    'With dttemp
-
-                    '    For x = 0 To 30 Step 1
-                    '        .Columns.Add()
-                    '    Next
-
-                    '    For x = 0 To 64 Step 1
-                    '        .Rows.Add(dttemp.NewRow())
-                    '    Next
-                    'End With
+                    MsgBox("Please save the file!")
                 End If
-
-                Database_Rowno = Database_Rowno + 1
-                'Database_LastRow = Database_LastRow + 1
-
-                lblDatabaseRowNo.Text = Database_Rowno & "/" & Database_LastRow
-                txtJumpToRecord.Text = Database_LastRow
-                Resetall = True
-                cmbFluidType.SelectedIndex = -1
-                cmbFluidType.Text = "--Select--"
-                Call Reset_All()
-                Resetall = False
             End If
         Catch ex As Exception
             MsgBox("btnNewRecord:  " & ex.Message)
@@ -25590,12 +25787,12 @@ Public Class frmValveSizing
                         DT_ActuatorSelect.Rows(2).Item(2) = CSng(lblSel0PercF.Text)
                         DT_ActuatorSelect.Rows(2).Item(3) = CSng(lblSel100PerF.Text)
 
-                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(1).Item(2) Then
+                        If DT_ActuatorSelect.Rows(2).Item(2) < DT_ActuatorSelect.Rows(0).Item(2) Then
                             lblSel0PercF.ForeColor = Color.Red
                         Else
                             lblSel0PercF.ForeColor = Color.Green
                         End If
-                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(1).Item(3) Then
+                        If DT_ActuatorSelect.Rows(2).Item(3) < DT_ActuatorSelect.Rows(0).Item(3) Then
                             lblSel100PerF.ForeColor = Color.Red
                         Else
                             lblSel100PerF.ForeColor = Color.Green
@@ -25620,4 +25817,57 @@ Public Class frmValveSizing
             MsgBox("btnAcceptActuator  " & ex.Message)
         End Try
     End Sub
+
+    Private Sub txtACTFactor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtACTFactor.KeyPress
+        Try
+            If (Not e.KeyChar = ChrW(Keys.Back) And ("-0123456789.").IndexOf(e.KeyChar) = -1) Or (e.KeyChar = "." And CType(sender, TextBox).Text.ToCharArray().Count(Function(c) c = ".") > 0) Then
+                e.Handled = True
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MsgBox("txtACTFactor_KeyPress:   " & ex.Source & "  " & ex.Message)
+        End Try
+    End Sub
+
+    
+    
+
+    Private Sub txtACTFactor_Validated(sender As Object, e As EventArgs) Handles txtACTFactor.Validated
+        Try
+            If LoadingForm = True Then
+                If LoadingProjectFile = False Then
+                    If Not txtACTFactor.Text = "" Then
+                        Call ValveActuator()
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("txtACTFactor_TextChanged :  " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtACTFactor_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtACTFactor.Validating
+        If LoadingForm = True Then
+            If LoadingProjectFile = False Then
+                If Not txtACTFactor.Text = "" Then
+                    If CSng(txtACTFactor.Text) >= 1 And CSng(txtACTFactor.Text) <= 2 Then
+                        Act_SafetyFactor = CSng(txtACTFactor.Text)
+                    Else
+                        ToolTip2.Show("Allowed Value: 1 to 2 only", txtACTFactor, 2)
+                        ToolTip2.Show("Allowed Value: 1 to 2 only", txtACTFactor, 3000)
+                        e.Cancel = True
+                    End If
+
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub btnChart_Click(sender As Object, e As EventArgs) Handles btnChart.Click
+        frmChart.ShowDialog()
+        Me.DialogResult = DialogResult.None
+    End Sub
+
+    
+  
 End Class

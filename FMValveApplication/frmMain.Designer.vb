@@ -360,6 +360,9 @@ Partial Class frmValveSizing
         Me.btnOverrideRating = New System.Windows.Forms.Button()
         Me.Label67 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnChart = New System.Windows.Forms.Button()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.txtACTFactor = New System.Windows.Forms.TextBox()
         Me.btnAcceptActuator = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label101 = New System.Windows.Forms.Label()
@@ -373,7 +376,6 @@ Partial Class frmValveSizing
         Me.lblForce0perc = New System.Windows.Forms.Label()
         Me.lblForceUnits = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnChart = New System.Windows.Forms.Button()
         Me.cmbSeatDia = New System.Windows.Forms.ComboBox()
         Me.btnTables = New System.Windows.Forms.Button()
         Me.Label55 = New System.Windows.Forms.Label()
@@ -429,6 +431,7 @@ Partial Class frmValveSizing
         Me.Label92 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
         Me.ToolTip3 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label96 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -949,7 +952,7 @@ Partial Class frmValveSizing
         Me.cmbPipeDia.Location = New System.Drawing.Point(314, 152)
         Me.cmbPipeDia.Name = "cmbPipeDia"
         Me.cmbPipeDia.Size = New System.Drawing.Size(75, 21)
-        Me.cmbPipeDia.TabIndex = 666
+        Me.cmbPipeDia.TabIndex = 66
         Me.cmbPipeDia.Text = "--Select--"
         '
         'cmbSchedule
@@ -4343,10 +4346,12 @@ Partial Class frmValveSizing
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.BackgroundImage = Global.FMValveApplication_standard.My.Resources.Resources.Base_frame1
         Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Panel3.Controls.Add(Me.btnChart)
+        Me.Panel3.Controls.Add(Me.Label84)
+        Me.Panel3.Controls.Add(Me.txtACTFactor)
         Me.Panel3.Controls.Add(Me.btnAcceptActuator)
         Me.Panel3.Controls.Add(Me.Panel7)
         Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.btnChart)
         Me.Panel3.Controls.Add(Me.cmbSeatDia)
         Me.Panel3.Controls.Add(Me.btnTables)
         Me.Panel3.Controls.Add(Me.Label55)
@@ -4385,6 +4390,35 @@ Partial Class frmValveSizing
         Me.Panel3.Size = New System.Drawing.Size(418, 426)
         Me.Panel3.TabIndex = 3
         '
+        'btnChart
+        '
+        Me.btnChart.Location = New System.Drawing.Point(134, 291)
+        Me.btnChart.Name = "btnChart"
+        Me.btnChart.Size = New System.Drawing.Size(97, 28)
+        Me.btnChart.TabIndex = 670
+        Me.btnChart.Text = "Charts"
+        Me.btnChart.UseVisualStyleBackColor = True
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label84.Location = New System.Drawing.Point(299, 198)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(70, 13)
+        Me.Label84.TabIndex = 669
+        Me.Label84.Text = "Force Factor"
+        '
+        'txtACTFactor
+        '
+        Me.txtACTFactor.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtACTFactor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(152, Byte), Integer))
+        Me.txtACTFactor.Location = New System.Drawing.Point(379, 194)
+        Me.txtACTFactor.Name = "txtACTFactor"
+        Me.txtACTFactor.Size = New System.Drawing.Size(32, 22)
+        Me.txtACTFactor.TabIndex = 668
+        '
         'btnAcceptActuator
         '
         Me.btnAcceptActuator.FlatAppearance.BorderSize = 0
@@ -4411,7 +4445,7 @@ Partial Class frmValveSizing
         Me.Panel7.Controls.Add(Me.lblForce100perc)
         Me.Panel7.Controls.Add(Me.lblForce0perc)
         Me.Panel7.Controls.Add(Me.lblForceUnits)
-        Me.Panel7.Location = New System.Drawing.Point(293, 96)
+        Me.Panel7.Location = New System.Drawing.Point(293, 91)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(122, 100)
         Me.Panel7.TabIndex = 392
@@ -4543,17 +4577,6 @@ Partial Class frmValveSizing
         Me.Button1.Text = "ActuatorSelect"
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
-        '
-        'btnChart
-        '
-        Me.btnChart.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnChart.Location = New System.Drawing.Point(143, 293)
-        Me.btnChart.Name = "btnChart"
-        Me.btnChart.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.btnChart.Size = New System.Drawing.Size(88, 26)
-        Me.btnChart.TabIndex = 14
-        Me.btnChart.Text = "Charts"
-        Me.btnChart.UseVisualStyleBackColor = True
         '
         'cmbSeatDia
         '
@@ -5080,6 +5103,17 @@ Partial Class frmValveSizing
         Me.Label95.TabIndex = 340
         Me.Label95.Text = "|"
         '
+        'Label96
+        '
+        Me.Label96.AutoSize = True
+        Me.Label96.Font = New System.Drawing.Font("Segoe UI", 5.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label96.ForeColor = System.Drawing.Color.Gray
+        Me.Label96.Location = New System.Drawing.Point(472, 52)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(7, 10)
+        Me.Label96.TabIndex = 341
+        Me.Label96.Text = "|"
+        '
         'frmValveSizing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5090,6 +5124,7 @@ Partial Class frmValveSizing
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.Label96)
         Me.Controls.Add(Me.Label95)
         Me.Controls.Add(Me.Label92)
         Me.Controls.Add(Me.lblSalesEngg)
@@ -5123,6 +5158,7 @@ Partial Class frmValveSizing
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmValveSizing"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Sizing Sheet"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -5487,7 +5523,6 @@ Partial Class frmValveSizing
     Friend WithEvents lblSalesEngg As System.Windows.Forms.Label
     Friend WithEvents lblMicroTrim As System.Windows.Forms.Label
     Friend WithEvents HScrollBar_Records As System.Windows.Forms.HScrollBar
-    Friend WithEvents btnChart As System.Windows.Forms.Button
     Friend WithEvents KvCvChartToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtCustomerMain As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -5558,4 +5593,8 @@ Partial Class frmValveSizing
     Friend WithEvents ToolTip3 As System.Windows.Forms.ToolTip
     Friend WithEvents btnStop As System.Windows.Forms.Button
     Friend WithEvents btnAcceptActuator As System.Windows.Forms.Button
+    Friend WithEvents Label84 As System.Windows.Forms.Label
+    Friend WithEvents txtACTFactor As System.Windows.Forms.TextBox
+    Friend WithEvents btnChart As System.Windows.Forms.Button
+    Friend WithEvents Label96 As System.Windows.Forms.Label
 End Class
